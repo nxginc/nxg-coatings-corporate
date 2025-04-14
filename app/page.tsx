@@ -91,7 +91,7 @@ export default function Home() {
             </div>
 
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
-              <div className="h-48 bg-gray-200 relative">
+              <div className="h-48 bg-blue-200 relative">
                 <Image
                   src="https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688"
                   alt="Professional exterior coating application"
