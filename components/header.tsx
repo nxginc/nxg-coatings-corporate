@@ -182,7 +182,7 @@ export default function Header() {
                   exit={{ opacity: 0, rotate: 90 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="h-6 w-6 text-brand-red font-bold" />
+                  <X className="h-6 w-6 text-brand-red" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -192,7 +192,7 @@ export default function Header() {
                   exit={{ opacity: 0, rotate: -90 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className={`h-6 w-6 ${isScrolled ? "text-brand-red" : "text-white drop-shadow-md"}`} />
+                  <Menu className={`h-6 w-6 ${isScrolled ? "text-brand-blue" : "text-white"}`} />
                 </motion.div>
               )}
             </AnimatePresence>
