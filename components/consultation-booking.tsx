@@ -67,7 +67,7 @@ export default function ConsultationBooking() {
                 </div>
                 <div className="mt-4">
                   <Image
-                    src="https://sjc.microlink.io/RxFKY6Ch0G_7Kmt_Ai9WxDF_mQhQgAl0A-rzoyxrxl2luJKB5UKzMzyu3LHd2GK21wNloMEr23put6_OAH7jEQ.jpeg"
+                    src="https://ik.imagekit.io/j98e6hcfnkn/colorconsultation_SherwinWilliamsColorConsultant-4006040456_i7hdEhy2X.jpg?updatedAt=1741369071555"
                     alt="Virtual consultation calendar"
                     width={600}
                     height={400}

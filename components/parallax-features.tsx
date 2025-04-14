@@ -132,7 +132,7 @@ export default function ParallaxFeatures() {
       className="py-24 relative bg-fixed bg-cover bg-center"
       style={{
         backgroundImage:
-          "linear-gradient(to bottom, rgba(0, 0, 53, 0.8), rgba(0, 0, 53, 0.7)), url('https://cdn.nxgcoatings.com/backgrounds/features-pattern-bg.jpg')",
+          "linear-gradient(to bottom, rgba(0, 75, 80, 0.8), rgba(0, 75, 80, 0.7)), url('https://cdn.nxgcoatings.com/backgrounds/features-pattern-bg.jpg')",
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white opacity-10"></div>

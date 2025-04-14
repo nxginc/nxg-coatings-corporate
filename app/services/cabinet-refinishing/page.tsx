@@ -276,8 +276,16 @@ export default function CabinetRefinishingPage() {
       </section>
 
       {/* Before & After Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-gray-50 relative">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{
+            backgroundImage: "url('https://cdn.nxgcoatings.com/services/cabinet-refinishing/bg-pattern.jpg')",
+            opacity: 0.15,
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-50/90 to-gray-50/90"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Before & After Transformations</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
