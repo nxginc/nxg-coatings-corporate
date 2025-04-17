@@ -40,6 +40,10 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
             alt={post.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              target.src = "/diverse-team-brainstorm.png"
+            }}
           />
           <div className="absolute top-4 left-4">
             <span className="bg-brand-blue text-white text-xs font-semibold px-3 py-1 rounded-full">

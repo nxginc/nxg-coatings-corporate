@@ -24,7 +24,7 @@ const blogPosts: BlogPostMeta[] = [
       "Learn how to fix peeling exterior paint and protect your home from further damage with our comprehensive guide.",
     publishDate: "March 5, 2025",
     readTime: "8 min read",
-    coverImage: "https://cdn.nxgcoatings.com/blog/repair-peeling-exterior-paint.jpeg",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688",
     category: "Exterior",
     featured: true,
     author: {
@@ -39,7 +39,7 @@ const blogPosts: BlogPostMeta[] = [
       "Discover how professional exterior coating can protect your home, increase its value, and reduce maintenance costs over time.",
     publishDate: "February 28, 2025",
     readTime: "6 min read",
-    coverImage: "https://cdn.nxgcoatings.com/blog/benefits-of-professional-exterior-coating.jpeg",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog2_shlL_xb-0.jpeg?updatedAt=1741212349719",
     category: "Exterior",
     author: {
       name: "Alex Thompson",
@@ -53,7 +53,7 @@ const blogPosts: BlogPostMeta[] = [
       "Selecting the right paint color can be overwhelming. Follow our expert tips to find the perfect shade for every room.",
     publishDate: "February 20, 2025",
     readTime: "5 min read",
-    coverImage: "https://cdn.nxgcoatings.com/blog/choosing-the-right-paint-color.jpeg",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-3_M4piDalkB9.jpeg?updatedAt=1741213130328",
     category: "Interior",
     author: {
       name: "Jessica Chen",
@@ -66,7 +66,7 @@ const blogPosts: BlogPostMeta[] = [
     excerpt: "Explore sustainable and non-toxic paint alternatives that are better for your family and the planet.",
     publishDate: "February 15, 2025",
     readTime: "7 min read",
-    coverImage: "https://cdn.nxgcoatings.com/blog/eco-friendly-paint-options.jpeg",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-4_WhGK1g1BA.jpg?updatedAt=1741213130440",
     category: "Products",
     author: {
       name: "Michael Rodriguez",
@@ -80,7 +80,7 @@ const blogPosts: BlogPostMeta[] = [
       "Learn how to plan and execute a commercial painting project with minimal impact on your business operations.",
     publishDate: "February 8, 2025",
     readTime: "9 min read",
-    coverImage: "https://cdn.nxgcoatings.com/blog/commercial-painting-best-practices.jpg",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-5_QPOc05Oaz.jpeg?updatedAt=1741213130034",
     category: "Commercial",
     author: {
       name: "NXG Coatings Team",
@@ -94,7 +94,7 @@ const blogPosts: BlogPostMeta[] = [
       "Proper wall preparation is crucial for a flawless paint job. Follow our step-by-step guide for professional results.",
     publishDate: "January 30, 2025",
     readTime: "10 min read",
-    coverImage: "https://cdn.nxgcoatings.com/blog/preparing-walls-for-painting.jpeg",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-6_47xxAjqVC.jpg?updatedAt=1741213130701",
     category: "Tips",
     author: {
       name: "Sarah Johnson",
@@ -157,7 +157,7 @@ export default function BlogPage() {
       <EnhancedHero
         title="NXG Coatings Blog"
         subtitle="Expert tips, guides, and insights on painting and coating solutions for your property."
-        backgroundImage="https://cdn.nxgcoatings.com/banners/blog-banner.jpg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/blog-banner_Yx9Ue-Zzr.jpg?updatedAt=1679013242072"
         height="medium"
       />
 

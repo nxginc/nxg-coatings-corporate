@@ -58,6 +58,10 @@ export default function RelatedPosts({ currentPostSlug, posts, category }: Relat
                   alt={post.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement
+                    target.src = "/placeholder.svg?key=1lv3j"
+                  }}
                 />
               </div>
 

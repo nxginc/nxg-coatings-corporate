@@ -50,7 +50,16 @@ export default function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
     <div ref={containerRef} className="bg-white rounded-xl shadow-lg overflow-hidden">
       <div className="grid md:grid-cols-2 gap-0">
         <div className="featured-image relative h-full min-h-[300px]">
-          <Image src={post.coverImage || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
+          <Image
+            src={post.coverImage || "/placeholder.svg"}
+            alt={post.title}
+            fill
+            className="object-cover"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              target.src = "/blog-post-brainstorm.png"
+            }}
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center">
             <div className="p-8 text-white max-w-md">
               <span className="bg-brand-blue text-white text-xs font-semibold px-3 py-1 rounded-full mb-4 inline-block">
@@ -84,6 +93,10 @@ export default function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
                 width={40}
                 height={40}
                 className="rounded-full"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement
+                  target.src = "/placeholder.svg?height=40&width=40"
+                }}
               />
               <span className="text-sm font-medium">{post.author.name}</span>
             </div>

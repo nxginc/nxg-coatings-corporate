@@ -56,7 +56,7 @@ export default function BlogCategoryPage() {
       <EnhancedHero
         title={`${formattedCategory} Articles`}
         subtitle={`Browse our collection of articles about ${formattedCategory.toLowerCase()} painting and coating solutions.`}
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/blog-category-banner_Yx9Ue-Zzr.jpg?updatedAt=1679013242072"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/blog-banner_Yx9Ue-Zzr.jpg?updatedAt=1679013242072"
         height="medium"
       />
 
