@@ -132,7 +132,7 @@ export default function ParallaxFeatures() {
       className="py-24 relative bg-fixed bg-cover bg-center"
       style={{
         backgroundImage:
-          "linear-gradient(to bottom, rgba(0, 0, 53, 0.8), rgba(0, 0, 53, 0.7)), url('https://cdn.nxgcoatings.com/backgrounds/features-pattern-bg.jpg')",
+          "linear-gradient(to bottom, #000035, #000035), url('https://cdn.nxgcoatings.com/backgrounds/features-pattern-bg.jpg')",
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-navy-900 via-transparent to-navy-900 opacity-10"></div>
@@ -153,7 +153,7 @@ export default function ParallaxFeatures() {
               key={index}
               className="feature-card bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-lg hover:transform hover:scale-105 transition-transform duration-300"
             >
-              <div className="bg-brand-red/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+              <div className="bg-red-600 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                 <feature.icon className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2 uppercase">{feature.title}</h3>

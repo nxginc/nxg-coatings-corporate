@@ -119,7 +119,7 @@ export default function ColorConsultation() {
             <div className="relative rounded-xl overflow-hidden shadow-xl">
               <div className="aspect-[4/3]">
                 <Image
-                  src="https://sjc.microlink.io/-lnWReOZPCDLg64slnCor1Zwa63LGU2rawoaFUQ-dHE8zH4DzwtbwxJFASlvyV_Jw-uqpYekefxEp21OzWrGdg.jpeg"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/color_vOe9g6lGSg.jpg?updatedAt=1744881916753"
                   alt="Color consultation service"
                   fill
                   className="object-cover"
