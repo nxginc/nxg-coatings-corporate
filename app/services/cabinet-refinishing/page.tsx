@@ -4,7 +4,7 @@ import EnhancedHero from "@/components/enhanced-hero"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import Image from "next/image"
-import { CheckCircle, Paintbrush, Clock, Palette, Sparkles, Home } from "lucide-react"
+import { Paintbrush, Clock, Palette, Sparkles, Home } from "lucide-react"
 import ConsultationBooking from "@/components/consultation-booking"
 
 export default function CabinetRefinishingPage() {
@@ -120,32 +120,6 @@ export default function CabinetRefinishingPage() {
                   height={800}
                   className="w-full h-auto object-cover"
                 />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
-                <div className="flex items-start mb-2">
-                  <div className="bg-green-100 rounded-full p-1 mr-2">
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    "NXG Coatings transformed our dated oak cabinets into a modern white kitchen. The quality is amazing
-                    and we saved thousands compared to new cabinets."
-                  </p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=32&width=32"
-                      alt="Customer"
-                      width={32}
-                      height={32}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold">Jennifer Miller</p>
-                    <p className="text-xs text-gray-500">Homeowner</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
