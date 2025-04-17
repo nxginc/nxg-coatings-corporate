@@ -78,7 +78,7 @@ const industries = [
     id: "hoa",
     title: "HOA & Multi-Family",
     description: "Comprehensive painting services for homeowners associations and multi-family properties.",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa_multifamily_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa_4XZCTP8X4.jpeg?updatedAt=1704393622112",
     icon: BuildingIcon,
     benefits: [
       "Maintain property values across the community",
@@ -105,7 +105,7 @@ export default function IndustriesPage() {
       <EnhancedHero
         title="Industries We Serve"
         description="Our specialized coating solutions are tailored to meet the unique needs of various industries."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Industries/industries-hero_Xt7Hs9Kkl.jpg?updatedAt=1741216795011"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa_4XZCTP8X4.jpeg?updatedAt=1704393622112"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">

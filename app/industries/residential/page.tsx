@@ -15,7 +15,7 @@ export default function ResidentialPage() {
       <EnhancedHero
         title="Residential Coating Solutions"
         description="Transform your home with our premium painting and coating services designed specifically for homeowners."
-        backgroundImage="https://cdn.nxgcoatings.com/industries/residential/residential-hero.jpg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Services/exteriorpainting_3WGvHiRuy.jpg?updatedAt=1666774074567"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -113,7 +113,7 @@ export default function ResidentialPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://cdn.nxgcoatings.com/industries/residential/residential-detail.jpg"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/WindowStaining_MN_EFqt22s-6.jpg?updatedAt=1666951484146"
                   alt="Residential painting project"
                   width={600}
                   height={800}
@@ -140,37 +140,37 @@ export default function ResidentialPage() {
               {
                 title: "Exterior Painting",
                 description: "Enhance your home's curb appeal with our premium exterior painting services.",
-                image: "https://cdn.nxgcoatings.com/services/exterior-painting.jpg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/exterior-painting/f2_68GzpfZpi.jpg?updatedAt=1681575708835",
                 link: "/services/exterior-painting",
               },
               {
                 title: "Interior Painting",
                 description: "Transform your living spaces with our expert interior painting services.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting.jpg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior3_39KLnxz51.jpeg?updatedAt=1699015715785",
                 link: "/services/interior-painting",
               },
               {
                 title: "Deck & Fence Staining",
                 description: "Protect and beautify your outdoor wooden surfaces with our staining services.",
-                image: "https://cdn.nxgcoatings.com/services/deck-staining.jpg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/2_rQq5C9OTG7.jpg?updatedAt=1681571754448",
                 link: "/services/deck-staining",
               },
               {
                 title: "Cabinet Refinishing",
                 description: "Give your kitchen a fresh look with our cabinet refinishing services.",
-                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing.jpg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/fine-finishes/IMG_0793_NpCgq3um_9.jpg?updatedAt=1699015624835",
                 link: "/services/cabinet-refinishing",
               },
               {
                 title: "Color Consultation",
                 description: "Get expert advice on choosing the perfect colors for your home.",
-                image: "https://cdn.nxgcoatings.com/services/color-consultation.jpg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/colorconsultation-mn_miqWZS3YT.jpg?updatedAt=1676855833037",
                 link: "/services/color-consultation",
               },
               {
-                title: "Specialty Finishes",
-                description: "Add unique textures and finishes to create distinctive living spaces.",
-                image: "https://cdn.nxgcoatings.com/services/specialty-finishes.jpg",
+                title: "Wall Covering Services",
+                description: "Transform your space with our professional wall covering services, tailored to bring style, texture, and personality to any interior.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/wall-covering-services_0ZBLIjBeY.jpeg?updatedAt=1744880541476",
                 link: "/services/specialty-finishes",
               },
             ].map((service, index) => (
@@ -276,10 +276,10 @@ export default function ResidentialPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              "https://cdn.nxgcoatings.com/gallery/residential/residential-1.jpg",
-              "https://cdn.nxgcoatings.com/gallery/residential/residential-2.jpg",
-              "https://cdn.nxgcoatings.com/gallery/residential/residential-3.jpg",
-              "https://cdn.nxgcoatings.com/gallery/residential/residential-4.jpg",
+              "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior5_ufsPPapVx.jpg?updatedAt=1699015717982",
+              "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior4_Hh1MOJzIH.jpg?updatedAt=1699015720375",
+              "https://ik.imagekit.io/j98e6hcfnkn/featured/exterior-painting/IMG_1401_Q3f3bdWD5i.jpg?updatedAt=1681571776302",
+              "https://ik.imagekit.io/j98e6hcfnkn/featured/exterior-painting/7mound-exterior_y4MS7vsj5.HEIC?updatedAt=1681571709452",
             ].map((image, index) => (
               <div key={index} className="relative aspect-square overflow-hidden rounded-lg group">
                 <Image

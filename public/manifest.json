@@ -1,0 +1,36 @@
+{
+  "name": "NXG Coatings",
+  "short_name": "NXG",
+  "description": "Professional Painting & Coating Services",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#003399",
+  "icons": [
+    {
+      "src": "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/favicon-16x16_f57qqfaSC.png?updatedAt=1741369090544",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/favicon-32x32_uPDW_R2Cd.png?updatedAt=1741369090476",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/apple-touch-icon_yKAQZFqzxN.png?updatedAt=1741369090862",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/android-chrome-192x192_DWLvV__kH.png?updatedAt=1741369090594",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/android-chrome-512x512_GHPz6HAEF.png?updatedAt=1741369090727",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

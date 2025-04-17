@@ -3,19 +3,18 @@
 import EnhancedHero from "@/components/enhanced-hero"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
-import Link from "next/link"
 import Image from "next/image"
-import { CheckCircle, Home, Shield, Clock, Sun, Paintbrush } from "lucide-react"
+import { CheckCircle, Palette, Home, Eye, Lightbulb, Sparkles } from "lucide-react"
 import ConsultationBooking from "@/components/consultation-booking"
 
-export default function ExteriorPaintingPage() {
+export default function ColorConsultationPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
       <EnhancedHero
-        title="Exterior Painting Services"
-        description="Transform your home's curb appeal with our premium exterior painting services that protect and beautify."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/hero.jpg?updatedAt=1741960872540"
+        title="Professional Color Consultation"
+        description="Find the perfect colors for your home with our expert color consultation services."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/hero.jpg?updatedAt=1741960872540"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -44,60 +43,59 @@ export default function ExteriorPaintingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-blue/10 text-brand-blue font-medium mb-6">
-                <Home className="h-5 w-5 mr-2" />
-                <span>Exterior Excellence</span>
+                <Palette className="h-5 w-5 mr-2" />
+                <span>Expert Color Guidance</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-6">
-                Protect and Beautify Your Home's Exterior
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-6">Find Your Perfect Color Palette</h2>
               <p className="text-gray-600 mb-6">
-                Your home's exterior is its first line of defense against the elements. Our professional exterior
-                painting services not only enhance your property's appearance but also provide essential protection
-                against weather damage, UV rays, and premature aging.
+                Choosing the right colors for your home can be overwhelming. With thousands of options available,
+                finding the perfect palette that reflects your style and complements your space requires expertise and a
+                trained eye.
               </p>
               <p className="text-gray-600 mb-8">
-                Using premium paints and expert application techniques, we deliver beautiful, long-lasting results that
-                stand up to the harshest conditions while increasing your home's value and curb appeal.
+                Our professional color consultation service takes the guesswork out of color selection. Our certified
+                color consultants will guide you through the process, helping you select colors that enhance your home's
+                architecture, coordinate with existing elements, and create the atmosphere you desire.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div className="flex items-start">
                   <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
-                    <Shield className="h-6 w-6 text-brand-blue" />
+                    <Eye className="h-6 w-6 text-brand-blue" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-800 mb-1">Weather Protection</h3>
-                    <p className="text-gray-600 text-sm">Shields against moisture, UV damage, and mildew</p>
+                    <h3 className="font-bold text-gray-800 mb-1">Expert Guidance</h3>
+                    <p className="text-gray-600 text-sm">Professional advice from certified consultants</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
                   <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
-                    <Sun className="h-6 w-6 text-brand-blue" />
+                    <Home className="h-6 w-6 text-brand-blue" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-800 mb-1">Enhanced Curb Appeal</h3>
-                    <p className="text-gray-600 text-sm">Dramatically improves your home's appearance</p>
+                    <h3 className="font-bold text-gray-800 mb-1">Personalized Solutions</h3>
+                    <p className="text-gray-600 text-sm">Colors tailored to your home and preferences</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
                   <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
-                    <Clock className="h-6 w-6 text-brand-blue" />
+                    <Lightbulb className="h-6 w-6 text-brand-blue" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-800 mb-1">Long-Lasting Results</h3>
-                    <p className="text-gray-600 text-sm">Premium paints for extended durability</p>
+                    <h3 className="font-bold text-gray-800 mb-1">Confidence in Choices</h3>
+                    <p className="text-gray-600 text-sm">Eliminate guesswork and color selection stress</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
                   <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
-                    <Paintbrush className="h-6 w-6 text-brand-blue" />
+                    <Sparkles className="h-6 w-6 text-brand-blue" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-800 mb-1">Expert Application</h3>
-                    <p className="text-gray-600 text-sm">Meticulous preparation and painting techniques</p>
+                    <h3 className="font-bold text-gray-800 mb-1">Enhanced Results</h3>
+                    <p className="text-gray-600 text-sm">Achieve a cohesive, professional look</p>
                   </div>
                 </div>
               </div>
@@ -114,8 +112,8 @@ export default function ExteriorPaintingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/overview.jpg?updatedAt=1741960872540"
-                  alt="Exterior house painting project"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/overview.jpg?updatedAt=1741960872540"
+                  alt="Color consultation session"
                   width={600}
                   height={800}
                   className="w-full h-auto object-cover"
@@ -127,8 +125,8 @@ export default function ExteriorPaintingPage() {
                     <CheckCircle className="h-4 w-4 text-green-600" />
                   </div>
                   <p className="text-sm text-gray-600">
-                    "NXG Coatings transformed our home's exterior with beautiful colors and exceptional attention to
-                    detail. Our neighbors keep asking who did the work!"
+                    "The color consultation was invaluable! Our consultant helped us find the perfect palette that
+                    transformed our home and received countless compliments."
                   </p>
                 </div>
                 <div className="flex items-center">
@@ -142,7 +140,7 @@ export default function ExteriorPaintingPage() {
                     />
                   </div>
                   <div>
-                    <p className="text-xs font-bold">Robert Anderson</p>
+                    <p className="text-xs font-bold">Emily Richardson</p>
                     <p className="text-xs text-gray-500">Homeowner</p>
                   </div>
                 </div>
@@ -156,52 +154,55 @@ export default function ExteriorPaintingPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Exterior Painting Services</h2>
+            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Color Consultation Services</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              We offer comprehensive exterior painting solutions for every part of your home's exterior.
+              We offer comprehensive color consultation services to help you find the perfect palette for your home.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: "Siding Painting",
-                description: "Expert painting for all siding types including vinyl, wood, fiber cement, and aluminum.",
+                title: "Interior Color Consultation",
+                description:
+                  "Expert guidance for selecting interior paint colors that create the perfect atmosphere for each room.",
                 image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/siding.jpg?updatedAt=1741960872540",
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/interior.jpg?updatedAt=1741960872540",
               },
               {
-                title: "Trim & Fascia",
+                title: "Exterior Color Consultation",
                 description:
-                  "Detailed painting of trim, fascia, soffits, and architectural details that frame your home.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/trim.jpg?updatedAt=1741960872540",
-              },
-              {
-                title: "Door & Window Painting",
-                description:
-                  "Transform entryways and windows with expert painting that enhances curb appeal and protection.",
+                  "Professional advice on exterior color schemes that enhance curb appeal and complement architectural features.",
                 image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/doors.jpg?updatedAt=1741960872540",
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/exterior.jpg?updatedAt=1741960872540",
               },
               {
-                title: "Deck & Fence Painting",
+                title: "Whole Home Color Planning",
                 description:
-                  "Revitalize outdoor living spaces with specialized coatings for decks, fences, and railings.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/deck.jpg?updatedAt=1741960872540",
-              },
-              {
-                title: "Garage Doors & Shutters",
-                description:
-                  "Refresh and protect garage doors and shutters with durable paints designed for high-use surfaces.",
+                  "Comprehensive color strategies that create a cohesive flow throughout your entire home, inside and out.",
                 image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/garage.jpg?updatedAt=1741960872540",
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/whole-home.jpg?updatedAt=1741960872540",
               },
               {
-                title: "Stucco & Brick Painting",
+                title: "Color Matching Services",
                 description:
-                  "Specialized coatings and techniques for masonry surfaces that allow proper breathability.",
+                  "Precise color matching for existing paints, fabrics, or specific colors you want to incorporate.",
                 image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/stucco.jpg?updatedAt=1741960872540",
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/matching.jpg?updatedAt=1741960872540",
+              },
+              {
+                title: "Virtual Color Visualization",
+                description:
+                  "Digital visualization tools that show how different colors will look in your actual space before painting.",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/virtual.jpg?updatedAt=1741960872540",
+              },
+              {
+                title: "Color Trend Guidance",
+                description:
+                  "Insights on current color trends and timeless options that will keep your home looking fresh for years.",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/trends.jpg?updatedAt=1741960872540",
               },
             ].map((service, index) => (
               <div
@@ -231,43 +232,35 @@ export default function ExteriorPaintingPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Exterior Painting Process</h2>
+            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Color Consultation Process</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              We follow a meticulous process to ensure exceptional results for every exterior painting project.
+              We follow a structured process to help you discover the perfect colors for your home.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 step: "1",
-                title: "Consultation",
-                description: "We assess your home's exterior and discuss your goals, preferences, and timeline.",
+                title: "Initial Consultation",
+                description: "We discuss your preferences, style, existing elements, and goals for your color scheme.",
               },
               {
                 step: "2",
-                title: "Preparation",
-                description: "We thoroughly clean surfaces, repair damage, and protect landscaping and fixtures.",
+                title: "Site Assessment",
+                description: "We evaluate your space, lighting conditions, fixed elements, and architectural features.",
               },
               {
                 step: "3",
-                title: "Priming",
-                description: "We apply high-quality primers to ensure proper adhesion and coverage.",
+                title: "Color Selection",
+                description:
+                  "We present curated color options and samples based on your preferences and our assessment.",
               },
               {
                 step: "4",
-                title: "Painting",
-                description: "We use premium paints and expert techniques for flawless application.",
-              },
-              {
-                step: "5",
-                title: "Detailing",
-                description: "We carefully paint trim, doors, and architectural details with precision.",
-              },
-              {
-                step: "6",
-                title: "Inspection",
-                description: "We conduct a thorough final inspection and clean up completely.",
+                title: "Final Recommendations",
+                description:
+                  "We provide a detailed color plan with specific paint colors, finishes, and placement guidance.",
               },
             ].map((process, index) => (
               <div
@@ -282,19 +275,6 @@ export default function ExteriorPaintingPage() {
               </div>
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <Link href="/process">
-              <FancyButton
-                variant="outline"
-                size="lg"
-                rounded="full"
-                className="border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white"
-              >
-                View Our Full Process
-              </FancyButton>
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -302,21 +282,21 @@ export default function ExteriorPaintingPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Benefits of Professional Exterior Painting</h2>
+            <h2 className="text-3xl font-bold text-brand-blue mb-4">Benefits of Professional Color Consultation</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Investing in professional exterior painting offers numerous advantages for your home.
+              Working with a professional color consultant offers numerous advantages for your painting project.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-xl p-8 shadow-md">
-              <h3 className="text-xl font-bold text-brand-blue mb-4">Protection & Preservation</h3>
+              <h3 className="text-xl font-bold text-brand-blue mb-4">Expert Knowledge</h3>
               <ul className="space-y-3">
                 {[
-                  "Creates a protective barrier against moisture, preventing rot and structural damage",
-                  "Shields surfaces from harmful UV rays that cause fading and deterioration",
-                  "Prevents insect infestation by sealing small cracks and openings",
-                  "Reduces the effects of weather extremes on your home's exterior",
+                  "Access to trained professionals with color theory expertise",
+                  "Understanding of how light affects color in different spaces",
+                  "Knowledge of color psychology and emotional impacts",
+                  "Awareness of current trends and timeless color combinations",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
@@ -327,13 +307,13 @@ export default function ExteriorPaintingPage() {
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-md">
-              <h3 className="text-xl font-bold text-brand-blue mb-4">Enhanced Curb Appeal</h3>
+              <h3 className="text-xl font-bold text-brand-blue mb-4">Time and Money Savings</h3>
               <ul className="space-y-3">
                 {[
-                  "Dramatically improves your home's appearance and first impression",
-                  "Updates the look of your home with modern colors and finishes",
-                  "Creates a cohesive exterior design that highlights architectural features",
-                  "Makes your home stand out in the neighborhood with a fresh, well-maintained look",
+                  "Avoid costly color mistakes and repainting",
+                  "Eliminate the need for multiple sample cans and test patches",
+                  "Reduce decision fatigue from overwhelming color options",
+                  "Streamline the selection process with curated choices",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
@@ -344,13 +324,13 @@ export default function ExteriorPaintingPage() {
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-md">
-              <h3 className="text-xl font-bold text-brand-blue mb-4">Increased Property Value</h3>
+              <h3 className="text-xl font-bold text-brand-blue mb-4">Personalized Results</h3>
               <ul className="space-y-3">
                 {[
-                  "Boosts home value with one of the highest ROIs of any home improvement project",
-                  "Creates a move-in ready appearance that appeals to potential buyers",
-                  "Demonstrates proper home maintenance and care to appraisers and buyers",
-                  "Helps your home sell faster and potentially for a higher price",
+                  "Colors selected specifically for your home's architecture",
+                  "Schemes that complement your existing furnishings and fixtures",
+                  "Solutions tailored to your personal style and preferences",
+                  "Recommendations that consider the unique lighting in your space",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
@@ -361,13 +341,13 @@ export default function ExteriorPaintingPage() {
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-md">
-              <h3 className="text-xl font-bold text-brand-blue mb-4">Early Problem Detection</h3>
+              <h3 className="text-xl font-bold text-brand-blue mb-4">Enhanced Results</h3>
               <ul className="space-y-3">
                 {[
-                  "Identifies underlying issues like rot, mold, or structural problems",
-                  "Allows for repairs before small problems become major expenses",
-                  "Includes thorough inspection of all exterior surfaces",
-                  "Provides an opportunity to address maintenance issues comprehensively",
+                  "Achieve a cohesive, professionally designed look",
+                  "Highlight architectural features and minimize flaws",
+                  "Create the desired atmosphere and emotional response",
+                  "Increase your home's appeal and potential value",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
@@ -386,36 +366,36 @@ export default function ExteriorPaintingPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Frequently Asked Questions</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Find answers to common questions about our exterior painting services.
+              Find answers to common questions about our color consultation services.
             </p>
           </div>
 
           <div className="max-w-3xl mx-auto">
             {[
               {
-                question: "How often should I paint my home's exterior?",
+                question: "What happens during a color consultation?",
                 answer:
-                  "Most homes benefit from repainting every 5-10 years, though this varies based on your climate, sun exposure, and the quality of the previous paint job. Wood surfaces typically need repainting more frequently (5-7 years) than vinyl or fiber cement (7-10 years). We recommend an exterior inspection every 2-3 years to catch issues early.",
+                  "During a color consultation, our expert will discuss your preferences, style, and goals. We'll assess your space, considering factors like lighting, fixed elements (flooring, countertops, etc.), and architectural features. We'll then present curated color options tailored to your needs, provide samples to view in your space, and finalize a comprehensive color plan with specific paint colors and placement recommendations.",
               },
               {
-                question: "What's the best time of year for exterior painting?",
+                question: "How long does a color consultation take?",
                 answer:
-                  "Late spring through early fall is typically ideal for exterior painting, when temperatures are between 50-85°F with moderate humidity. We avoid painting in direct sunlight or when rain is expected within 24-48 hours. In some regions, we can paint year-round by carefully monitoring weather conditions and planning accordingly.",
+                  "A typical color consultation takes 1-2 hours for a few rooms, or 2-3 hours for a whole home. The exact time depends on the size of your home and the complexity of your project. Virtual consultations are generally shorter. After the consultation, we'll provide your final color recommendations within 2-3 business days.",
               },
               {
-                question: "How long will my exterior paint job last?",
+                question: "Do I need to prepare anything for my color consultation?",
                 answer:
-                  "A professional exterior paint job should last 5-10 years, depending on several factors including climate conditions, sun exposure, quality of paint used, surface preparation, and home maintenance. Our premium paints and thorough preparation techniques help maximize the lifespan of your exterior paint.",
+                  "To make the most of your consultation, gather inspiration images that reflect styles you like, make note of any existing elements that must be considered (furniture, flooring, etc.), and think about the mood you want to create in each space. If you have specific colors in mind, have samples ready. For virtual consultations, we'll ask you to send photos of your space in advance.",
               },
               {
-                question: "How do you prepare surfaces for exterior painting?",
+                question: "Can you help me choose colors that coordinate with existing elements?",
                 answer:
-                  "Our preparation process includes power washing to remove dirt and loose paint, scraping and sanding damaged areas, repairing wood rot or other damage, caulking gaps and cracks, priming bare wood and stains, and protecting landscaping and fixtures. This thorough preparation is crucial for a long-lasting, professional finish.",
+                  "One of the primary benefits of our color consultation service is helping you select colors that coordinate with existing elements you can't or don't want to change. We'll consider your flooring, countertops, cabinetry, furniture, artwork, and architectural features to create a cohesive color scheme that enhances these elements rather than competing with them.",
               },
               {
-                question: "How long does it take to paint a house exterior?",
+                question: "Do you offer virtual color consultations?",
                 answer:
-                  "The timeline depends on your home's size, condition, and architectural complexity. A typical single-family home takes 3-5 days for preparation and 2-4 days for painting. Larger homes or those requiring extensive repairs may take longer. We'll provide a specific timeline during your consultation.",
+                  "Yes, we offer virtual color consultations for clients who prefer remote assistance. Through video conferencing, we can assess your space, discuss your preferences, and provide color recommendations. You'll need to share photos or video of your space in advance, and we may ask you to show us certain elements during the consultation. Virtual consultations are convenient and just as effective as in-person meetings.",
               },
             ].map((faq, index) => (
               <div key={index} className="mb-6 border-b border-gray-200 pb-6 last:border-0">
