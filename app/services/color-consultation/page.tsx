@@ -183,27 +183,6 @@ export default function ColorConsultationPage() {
                 image:
                   "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/whole-home.jpg?updatedAt=1741960872540",
               },
-              {
-                title: "Color Matching Services",
-                description:
-                  "Precise color matching for existing paints, fabrics, or specific colors you want to incorporate.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/matching.jpg?updatedAt=1741960872540",
-              },
-              {
-                title: "Virtual Color Visualization",
-                description:
-                  "Digital visualization tools that show how different colors will look in your actual space before painting.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/virtual.jpg?updatedAt=1741960872540",
-              },
-              {
-                title: "Color Trend Guidance",
-                description:
-                  "Insights on current color trends and timeless options that will keep your home looking fresh for years.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/trends.jpg?updatedAt=1741960872540",
-              },
             ].map((service, index) => (
               <div
                 key={index}

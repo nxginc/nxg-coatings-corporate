@@ -140,64 +140,73 @@ export default function ResidentialPage() {
               {
                 title: "Exterior Painting",
                 description: "Enhance your home's curb appeal with our premium exterior painting services.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/exterior-painting/f2_68GzpfZpi.jpg?updatedAt=1681575708835",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/featured/exterior-painting/f2_68GzpfZpi.jpg?updatedAt=1681575708835",
                 link: "/services/exterior-painting",
               },
               {
                 title: "Interior Painting",
                 description: "Transform your living spaces with our expert interior painting services.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior3_39KLnxz51.jpeg?updatedAt=1699015715785",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior3_39KLnxz51.jpeg?updatedAt=1699015715785",
                 link: "/services/interior-painting",
               },
               {
                 title: "Deck & Fence Staining",
                 description: "Protect and beautify your outdoor wooden surfaces with our staining services.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/2_rQq5C9OTG7.jpg?updatedAt=1681571754448",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/2_rQq5C9OTG7.jpg?updatedAt=1681571754448",
                 link: "/services/deck-staining",
               },
               {
                 title: "Cabinet Refinishing",
                 description: "Give your kitchen a fresh look with our cabinet refinishing services.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/fine-finishes/IMG_0793_NpCgq3um_9.jpg?updatedAt=1699015624835",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/featured/fine-finishes/IMG_0793_NpCgq3um_9.jpg?updatedAt=1699015624835",
                 link: "/services/cabinet-refinishing",
               },
               {
                 title: "Color Consultation",
                 description: "Get expert advice on choosing the perfect colors for your home.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/colorconsultation-mn_miqWZS3YT.jpg?updatedAt=1676855833037",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/Services/colorconsultation-mn_miqWZS3YT.jpg?updatedAt=1676855833037",
                 link: "/services/color-consultation",
               },
               {
                 title: "Wall Covering Services",
-                description: "Transform your space with our professional wall covering services, tailored to bring style, texture, and personality to any interior.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/wall-covering-services_0ZBLIjBeY.jpeg?updatedAt=1744880541476",
+                description:
+                  "Transform your space with our professional wall covering services, tailored to bring style, texture, and personality to any interior.",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/Services/wall-covering-services_0ZBLIjBeY.jpeg?updatedAt=1744880541476",
                 link: "/services/specialty-finishes",
               },
-            ].map((service, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-              >
-                <div className="h-48 relative overflow-hidden">
-                  <Image
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+            ]
+              .filter((service) => service.image)
+              .map((service, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="h-48 relative overflow-hidden">
+                    <Image
+                      src={service.image || "/placeholder.svg"}
+                      alt={service.title}
+                      width={400}
+                      height={300}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    <Link href={service.link}>
+                      <FancyButton variant="link" hasArrow={true} className="p-0 text-brand-blue">
+                        Learn More
+                      </FancyButton>
+                    </Link>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <Link href={service.link}>
-                    <FancyButton variant="link" hasArrow={true} className="p-0 text-brand-blue">
-                      Learn More
-                    </FancyButton>
-                  </Link>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>

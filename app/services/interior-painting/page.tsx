@@ -195,26 +195,28 @@ export default function InteriorPaintingPage() {
                   "Unique textures and decorative finishes including faux finishes and textured applications.",
                 image: "https://cdn.nxgcoatings.com/services/interior-painting/specialty-finish.jpg",
               },
-            ].map((service, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-              >
-                <div className="h-48 relative overflow-hidden">
-                  <Image
-                    src={service.image || "/placeholder.svg?height=300&width=400"}
-                    alt={service.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+            ]
+              .filter((service) => !service.image?.includes("placeholder.svg"))
+              .map((service, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="h-48 relative overflow-hidden">
+                    <Image
+                      src={service.image || "/placeholder.svg?height=300&width=400"}
+                      alt={service.title}
+                      width={400}
+                      height={300}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                    <p className="text-gray-600 mb-4">{service.description}</p>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>

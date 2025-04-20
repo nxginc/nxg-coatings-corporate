@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, Phone, Menu, X } from "lucide-react"
@@ -90,24 +90,13 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <div className="relative h-10 w-40">
-              <Image
-                src="https://ik.imagekit.io/j98e6hcfnkn/logo_m2ODAWFyf.png?updatedAt=1741216795011"
-                alt="NXG Coatings Logo"
-                fill
-                className={`object-contain transition-opacity duration-300 ${
-                  isScrolled || isMobile ? "opacity-100" : "opacity-0"
-                }`}
-              />
-              <Image
-                src="https://ik.imagekit.io/j98e6hcfnkn/logo_m2ODAWFyf.png?updatedAt=1741216795011"
-                alt="NXG Coatings Logo"
-                fill
-                className={`object-contain transition-opacity duration-300 ${
-                  isScrolled || isMobile ? "opacity-0" : "opacity-100"
-                }`}
-              />
-            </div>
+            <Image
+              src="https://res.cloudinary.com/dvty0qsht/image/upload/v1744908016/nxgc-nobg_z0ayat.png"
+              alt="NXG Coatings Logo"
+              width={150}
+              height={50}
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

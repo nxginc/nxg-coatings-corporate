@@ -141,13 +141,13 @@ export default function HOAPage() {
               {
                 title: "Exterior Painting",
                 description: "Comprehensive exterior painting for multi-family buildings and communities.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/hoa-exterior_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/hoa-exterior_z5msqz.jpg",
                 link: "/services/hoa-exterior",
               },
               {
                 title: "Common Area Painting",
                 description: "Refresh lobbies, hallways, and community spaces with professional painting.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/common-areas_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/hallway_xokod8.jpg",
                 link: "/services/common-areas",
               },
               {

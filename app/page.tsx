@@ -6,11 +6,8 @@ import ServicesSlider from "@/components/services-slider"
 import TestimonialsSection from "@/components/testimonials-section"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
-import Link from "next/link"
-import Image from "next/image"
-import IndustrySection from "@/components/industry-section"
-import ColorConsultation from "@/components/color-consultation"
 import EnhancedHero from "@/components/enhanced-hero"
+import IndustrySection from "@/components/industry-section"
 
 export default function Home() {
   return (
@@ -49,7 +46,7 @@ export default function Home() {
       <ParallaxFeatures />
 
       {/* Color Consultation Section */}
-      <ColorConsultation />
+      {/* <ColorConsultation /> */}
 
       {/* Testimonials Section */}
       <TestimonialsSection />
@@ -61,7 +58,7 @@ export default function Home() {
       <ConsultationBooking />
 
       {/* Blog Preview Section */}
-      <section className="bg-gray-50 py-16">
+      {/* <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Latest From Our Blog</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -124,7 +121,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   )
 }
