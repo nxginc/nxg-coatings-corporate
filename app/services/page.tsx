@@ -6,6 +6,7 @@ import ServicesSlider from "@/components/services-slider"
 import { FancyButton } from "@/components/ui/fancy-button"
 import Link from "next/link"
 import { ExternalLink, Home, Paintbrush, Palette, Shield, Droplet, RefreshCw } from "lucide-react"
+import BrandsSection from "@/components/brands-section"
 
 export const metadata: Metadata = {
   title: "Our Services | NXG Coatings",
@@ -20,7 +21,7 @@ export default function ServicesPage() {
       <EnhancedHero
         title="Our Professional Services"
         subtitle="Discover our comprehensive range of coating services designed to protect and beautify your property."
-        backgroundImage="https://cdn.nxgcoatings.com/banners/services-banner.jpg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/f4_aYaWf2GGw.jpg?updatedAt=1679013239596"
         height="medium"
       >
         <div className="flex flex-wrap gap-4 justify-center">
@@ -66,7 +67,7 @@ export default function ServicesPage() {
             "Color consultation and custom color matching",
             "Comprehensive clean-up after project completion",
           ]}
-          image="https://cdn.nxgcoatings.com/services/exterior-painting-detail.jpg"
+          image="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080"
         />
       </div>
 
@@ -82,7 +83,7 @@ export default function ServicesPage() {
             "Smooth, even application with no drips or streaks",
             "Quick turnaround times to minimize disruption",
           ]}
-          image="https://cdn.nxgcoatings.com/services/interior-painting-detail.jpg"
+          image="https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879"
           reversed={true}
         />
       </div>
@@ -99,7 +100,7 @@ export default function ServicesPage() {
             "Expert application for even coverage",
             "Maintenance recommendations to extend lifespan",
           ]}
-          image="https://cdn.nxgcoatings.com/services/deck-staining-detail.png"
+          image="https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088"
         />
       </div>
 
@@ -115,7 +116,7 @@ export default function ServicesPage() {
             "Custom color matching and finishes",
             "Hardware replacement and installation",
           ]}
-          image="https://cdn.nxgcoatings.com/services/cabinet-refinishing-detail.jpg"
+          image="https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602"
           reversed={true}
         />
       </div>
@@ -130,7 +131,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://cdn.nxgcoatings.com/services/pressure-cleaning.png"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/PressureCleaning_MN_Z7jMuG9Dv.png?updatedAt=1666951495789"
                   alt="Pressure Washing"
                   width={800}
                   height={600}
@@ -154,7 +155,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://cdn.nxgcoatings.com/services/restoration.png"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/restoration_1rbm1Ax_Q.jpg?updatedAt=1741369714492"
                   alt="Paint Restoration"
                   width={800}
                   height={600}
@@ -178,7 +179,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://cdn.nxgcoatings.com/services/fine-finishes.jpg"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg?updatedAt=1666774120425"
                   alt="Protective Coatings"
                   width={800}
                   height={600}
@@ -296,6 +297,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Brands Section */}
+      <BrandsSection />
     </main>
   )
 }
