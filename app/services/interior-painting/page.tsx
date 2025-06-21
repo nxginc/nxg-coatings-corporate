@@ -15,7 +15,7 @@ export default function InteriorPaintingPage() {
       <EnhancedHero
         title="Interior Painting Services"
         description="Transform your living spaces with our premium interior painting services that combine quality, craftsmanship, and attention to detail."
-        backgroundImage="https://cdn.nxgcoatings.com/services/interior-painting/hero.jpg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">

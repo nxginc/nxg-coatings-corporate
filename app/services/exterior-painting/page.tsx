@@ -15,7 +15,7 @@ export default function ExteriorPaintingPage() {
       <EnhancedHero
         title="Exterior Painting Services"
         description="Transform your home's curb appeal with our premium exterior painting services that protect and beautify."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/hero.jpg?updatedAt=1741960872540"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">

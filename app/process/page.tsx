@@ -71,23 +71,12 @@ export default function ProcessPage() {
 
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
       <EnhancedHero
-        title="Our Process"
-        description="From initial consultation to final walkthrough, discover our proven approach to delivering exceptional results."
-        backgroundImage="/placeholder.svg?height=800&width=1920"
-        // Commented out missing asset
-        // backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/process_banner_Xt7Hs9Kkl.jpg?updatedAt=1741216795011"
+        title="Our Proven Process"
+        description="Discover our step-by-step approach to delivering exceptional painting and coating results."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/f1_8khZANtVn.jpg?updatedAt=1679013241962"
         height="medium"
-      >
-        <CTAModal
-          trigger={
-            <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
-              Get Free Estimate
-            </FancyButton>
-          }
-        />
-      </EnhancedHero>
+      />
 
       {/* Process Steps */}
       <section className="py-16 md:py-24 bg-white">
