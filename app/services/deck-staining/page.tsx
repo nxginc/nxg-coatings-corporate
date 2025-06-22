@@ -15,7 +15,7 @@ export default function DeckStainingPage() {
       <EnhancedHero
         title="Professional Deck Staining Services"
         description="Protect and beautify your outdoor living spaces with our expert deck staining and sealing services."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/hero.jpg?updatedAt=1741960872540"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">

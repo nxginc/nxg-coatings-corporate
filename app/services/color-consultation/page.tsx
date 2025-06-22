@@ -14,7 +14,7 @@ export default function ColorConsultationPage() {
       <EnhancedHero
         title="Professional Color Consultation"
         description="Find the perfect colors for your home with our expert color consultation services."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/hero.jpg?updatedAt=1741960872540"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/f3_ER1drZAJS.jpg?updatedAt=1679013242072"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
