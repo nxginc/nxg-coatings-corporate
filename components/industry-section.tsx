@@ -1,78 +1,72 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
-import { Home, Building2, Factory, BuildingIcon } from "lucide-react"
-import { FancyButton } from "@/components/ui/fancy-button"
+import { Button } from "@/components/ui/button"
 
 const industries = [
   {
     name: "Residential",
-    description: "Enhancing homes with durable, beautiful coatings.",
-    icon: Home,
+    description: "Enhancing homes with durable, beautiful finishes, inside and out.",
     image: "/images/industries/residential.png",
     href: "/industries/residential",
   },
   {
     name: "Commercial",
-    description: "Reliable solutions for businesses and properties.",
-    icon: Building2,
+    description: "Professional coatings that protect your investment and impress your clients.",
     image: "/images/industries/commercial.png",
     href: "/industries/commercial",
   },
   {
     name: "Industrial",
-    description: "Heavy-duty coatings for demanding environments.",
-    icon: Factory,
+    description: "High-performance solutions for manufacturing, warehousing, and more.",
     image: "/images/industries/industrial.png",
     href: "/industries/industrial",
   },
   {
-    name: "HOA",
-    description: "Uniform, long-lasting results for communities.",
-    icon: BuildingIcon,
+    name: "HOA & Property Management",
+    description: "Reliable, uniform coatings to maintain community standards and value.",
     image: "/images/industries/hoa.png",
     href: "/industries/hoa",
   },
 ]
 
-export default function IndustrySection() {
+export function IndustrySection() {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-blue">Serving Diverse Industries</h2>
-          <p className="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
-            We provide specialized coating solutions for a wide range of sectors.
-          </p>
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-950">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Serving Diverse Industries</h2>
+            <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              We provide specialized coating solutions tailored to the unique needs of each sector.
+            </p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mx-auto grid grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((industry) => (
-            <div key={industry.name} className="group text-center">
-              <Link href={industry.href}>
-                <div className="relative aspect-square w-full overflow-hidden rounded-lg">
-                  <Image
-                    src={industry.image || "/placeholder.svg"}
-                    alt={industry.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <industry.icon className="h-12 w-12 text-white" />
-                  </div>
-                </div>
-                <h3 className="mt-4 text-xl font-semibold text-brand-blue">{industry.name}</h3>
-                <p className="mt-1 text-gray-500">{industry.description}</p>
+            <div
+              key={industry.name}
+              className="group relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-2"
+            >
+              <Link href={industry.href} className="absolute inset-0 z-10">
+                <span className="sr-only">View {industry.name}</span>
               </Link>
+              <Image
+                src={industry.image || "/placeholder.svg"}
+                alt={`Image of ${industry.name} project`}
+                width={400}
+                height={300}
+                className="h-60 w-full object-cover"
+              />
+              <div className="bg-white p-4 dark:bg-gray-900">
+                <h3 className="text-xl font-bold">{industry.name}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{industry.description}</p>
+              </div>
             </div>
           ))}
         </div>
-        <div className="text-center mt-12">
-          <Link href="/industries">
-            <FancyButton variant="outline" size="lg" rounded="full" hasArrow>
-              Explore All Industries
-            </FancyButton>
+        <div className="flex justify-center">
+          <Link href="/industries" passHref>
+            <Button>Explore All Industries</Button>
           </Link>
         </div>
       </div>

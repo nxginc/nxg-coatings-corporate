@@ -1,79 +1,46 @@
-"use client"
-
 import Image from "next/image"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef } from "react"
-import { Paintbrush, ShieldCheck, Gem } from "lucide-react"
 
 const features = [
   {
-    title: "Unmatched Durability",
+    title: "Premium Materials",
     description:
-      "Our advanced coating formulations provide long-lasting protection against weathering, chipping, and fading, ensuring your investment stands the test of time.",
-    icon: ShieldCheck,
-    image: "/images/parallax/durability.png",
+      "We use only the highest-grade, durable paints and coatings from trusted brands to ensure a finish that lasts.",
+    image: "/images/parallax/materials.png",
   },
   {
-    title: "Flawless Finishes",
+    title: "Flawless Finish",
     description:
-      "With meticulous surface preparation and expert application techniques, our team delivers consistently smooth, beautiful finishes that elevate any space.",
-    icon: Paintbrush,
+      "Our meticulous preparation and application process guarantees a smooth, even, and beautiful result every time.",
     image: "/images/parallax/finish.png",
   },
   {
-    title: "Premium Quality Materials",
+    title: "Unmatched Durability",
     description:
-      "We partner with leading manufacturers to use only the highest-grade paints and coatings, guaranteeing vibrant color and superior performance.",
-    icon: Gem,
-    image: "/images/parallax/materials.png",
+      "Our coatings are engineered to withstand weathering, wear, and time, protecting your property for years to come.",
+    image: "/images/parallax/durability.png",
   },
 ]
 
-export default function ParallaxFeatures() {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  })
-
-  const yValues = features.map(() => useTransform(scrollYProgress, [0, 1], [-50, 50]))
-
+export function ParallaxFeatures() {
   return (
-    <section ref={ref} className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-blue">The NXG Difference</h2>
-          <p className="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
-            Experience the superior quality and service that set us apart.
-          </p>
-        </div>
-        <div className="space-y-24">
-          {features.map((feature, index) => {
-            const y = yValues[index]
-            return (
-              <div key={feature.title} className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                <div className={`md:order-${index % 2 === 0 ? 1 : 2}`}>
-                  <div className="relative h-[450px] w-full overflow-hidden rounded-lg shadow-xl">
-                    <motion.div style={{ y }} className="absolute inset-[-50px]">
-                      <Image
-                        src={feature.image || "/placeholder.svg"}
-                        alt={feature.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </motion.div>
-                  </div>
-                </div>
-                <div className={`md:order-${index % 2 === 0 ? 2 : 1} text-center md:text-left`}>
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-blue text-white rounded-full mb-6 shadow-lg">
-                    <feature.icon className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-brand-blue mb-4">{feature.title}</h3>
-                  <p className="text-gray-600 text-lg">{feature.description}</p>
-                </div>
+    <section className="w-full py-12 md:py-24 lg:py-32">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-3">
+          {features.map((feature) => (
+            <div key={feature.title} className="flex flex-col items-center text-center">
+              <div className="relative h-48 w-48 mb-4">
+                <Image
+                  src={feature.image || "/placeholder.svg"}
+                  alt={feature.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-full shadow-lg"
+                />
               </div>
-            )
-          })}
+              <h3 className="text-2xl font-bold">{feature.title}</h3>
+              <p className="text-gray-500 dark:text-gray-400 mt-2">{feature.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

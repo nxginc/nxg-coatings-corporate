@@ -1,78 +1,56 @@
-"use client"
-
-import Link from "next/link"
-import ConsultationBooking from "@/components/consultation-booking"
-import ParallaxFeatures from "@/components/parallax-features"
-import ServicesSlider from "@/components/services-slider"
-import TestimonialsSection from "@/components/testimonials-section"
-import { FancyButton } from "@/components/ui/fancy-button"
-import { CTAModal } from "@/components/cta-modal"
-import EnhancedHero from "@/components/enhanced-hero"
-import IndustrySection from "@/components/industry-section"
-import BlogCard from "@/components/blog-card"
+import { EnhancedHero } from "@/components/enhanced-hero"
+import { IndustrySection } from "@/components/industry-section"
+import { ParallaxFeatures } from "@/components/parallax-features"
+import { ServicesSlider } from "@/components/services-slider"
+import { TestimonialsSection } from "@/components/testimonials-section"
 import { blogPosts } from "@/data/blog-posts"
+import BlogCard from "@/components/blog-card"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
-export default function Home() {
-  const recentPosts = blogPosts.slice(0, 2)
+export default function HomePage() {
+  const featuredPosts = blogPosts.slice(0, 3)
 
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <EnhancedHero
-        title="Professional Coating Solutions for Your Home"
-        description="Transform and protect your property with our expert coating services. Schedule a consultation today."
-        backgroundImage="/images/banners/home-hero.png"
-        height="large"
-      >
-        <div className="flex flex-col sm:flex-row gap-4">
-          <CTAModal
-            trigger={
-              <FancyButton variant="shine" size="xl" hasArrow={true} rounded="full">
-                Get Free Estimate
-              </FancyButton>
-            }
-          />
-          <FancyButton
-            variant="outline"
-            size="xl"
-            rounded="full"
-            className="bg-transparent border-white text-white hover:bg-white/10"
-            onClick={() => window.open("https://cal.com/nxgcoatings/virtual-consultation", "_blank")}
-          >
-            Book Consultation
-          </FancyButton>
-        </div>
-      </EnhancedHero>
+    <div className="flex flex-col min-h-[100dvh]">
+      <main className="flex-1">
+        <EnhancedHero
+          title="Expert Coatings for Lasting Impressions"
+          subtitle="NXG Coatings delivers unparalleled quality in residential, commercial, and industrial painting services. Experience the next generation of surface protection."
+          backgroundImage="/images/banners/home-hero.png"
+          buttonLinks={[
+            { href: "/quote", text: "Get a Free Quote" },
+            { href: "/services", text: "Our Services", variant: "outline" },
+          ]}
+        />
+        <ParallaxFeatures />
+        <IndustrySection />
+        <ServicesSlider />
+        <TestimonialsSection />
 
-      <ServicesSlider />
-      <ParallaxFeatures />
-      <TestimonialsSection />
-      <IndustrySection />
-      <ConsultationBooking />
-
-      {/* Blog Preview Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-blue">From the NXG Blog</h2>
-            <p className="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
-              Get expert tips, industry insights, and the latest news from our team.
-            </p>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">From Our Blog</h2>
+                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                  Stay updated with the latest industry trends, tips, and insights from our team of experts.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+              {featuredPosts.map((post) => (
+                <BlogCard key={post.slug} post={post} />
+              ))}
+            </div>
+            <div className="flex justify-center">
+              <Link href="/blog" passHref>
+                <Button>View All Posts</Button>
+              </Link>
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {recentPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link href="/blog">
-              <FancyButton variant="outline" size="lg" rounded="full" hasArrow>
-                View All Posts
-              </FancyButton>
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
   )
 }
