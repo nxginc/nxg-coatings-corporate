@@ -120,14 +120,113 @@ export default function IndustrialPage() {
                   className="w-full h-auto object-cover"
                 />
               </div>
-              
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
+                <div className="flex items-start mb-2">
+                  <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    "NXG Coatings provided exceptional epoxy flooring for our manufacturing facility. Their work has
+                    withstood heavy machinery and daily wear."
+                  </p>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
+                    <Image
+                      src="https://ik.imagekit.io/j98e6hcfnkn/testimonials/testimonial-3_Xt7Hs9Kkl.jpg?updatedAt=1741216795011"
+                      alt="Customer"
+                      width={32}
+                      height={32}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold">Robert Martinez</p>
+                    <p className="text-xs text-gray-500">Facility Manager</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Industrial Services</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              We offer specialized coating solutions designed for the unique challenges of industrial environments.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Epoxy Floor Coatings",
+                description: "Durable, chemical-resistant flooring solutions for industrial facilities.",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/epoxy-flooring_xvwj44.jpg",
+                link: "/services/epoxy-flooring",
+              },
+              {
+                title: "Anti-Corrosion Coatings",
+                description: "Protect metal surfaces from rust and corrosion in harsh environments.",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/anti-corrosion_j9w8jx.jpg",
+                link: "/services/anti-corrosion",
+              },
+              {
+                title: "High-Temperature Coatings",
+                description: "Specialized coatings that withstand extreme heat and thermal cycling.",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/high-temp_fqkwer.jpg",
+                link: "/services/high-temperature",
+              },
+              {
+                title: "Chemical-Resistant Coatings",
+                description: "Protection against acids, solvents, and other harsh chemicals.",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/chemical-resistant_j0wzji.jpg",
+                link: "/services/chemical-resistant",
+              },
+              {
+                title: "Safety Markings & Line Striping",
+                description: "Clear visual safety indicators for industrial facilities.",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/safety-markings_d8w0og.jpg",
+                link: "/services/safety-markings",
+              },
+              {
+                title: "Equipment Coatings",
+                description: "Specialized coatings to protect and extend the life of industrial equipment.",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/equipment-coatings_y3wzht.jpg",
+                link: "/services/equipment-coatings",
+              },
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
+              >
+                <div className="h-48 relative overflow-hidden">
+                  <Image
+                    src={service.image || "/placeholder.svg"}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <Link href={service.link}>
+                    <FancyButton variant="link" hasArrow={true} className="p-0 text-brand-blue">
+                      Learn More
+                    </FancyButton>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Applications Section */}
       <section className="py-16 bg-white">

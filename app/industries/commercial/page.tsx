@@ -124,3 +124,90 @@ export default function CommercialPage() {
       </section>
 
       {/* Services Section */}
+      
+
+      {/* Projects Gallery */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Commercial Projects</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Take a look at some of our recent commercial painting and coating projects.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="https://ik.imagekit.io/j98e6hcfnkn/page-assets/warehouse-com_T1h0ewxXA.JPG?updatedAt=1746533552273"
+                alt="Commercial warehouse painting project with freshly painted white walls and yellow columns"
+                width={600}
+                height={450}
+                className="w-full h-auto object-cover"
+              />
+              <div className="p-4 bg-gray-50">
+                <h3 className="font-bold text-lg text-brand-blue">Warehouse Interior Painting</h3>
+                <p className="text-gray-600">Complete interior painting for a commercial warehouse facility</p>
+              </div>
+            </div>
+
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="https://ik.imagekit.io/j98e6hcfnkn/page-assets/warehouse_VOmXmSyjD.JPG?updatedAt=1746533552104"
+                alt="Large warehouse space with industrial painting application"
+                width={600}
+                height={450}
+                className="w-full h-auto object-cover"
+              />
+              <div className="p-4 bg-gray-50">
+                <h3 className="font-bold text-lg text-brand-blue">Industrial Warehouse Coating</h3>
+                <p className="text-gray-600">Specialized coatings for industrial warehouse environments</p>
+              </div>
+            </div>
+
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="https://ik.imagekit.io/j98e6hcfnkn/page-assets/floor_zODYN-2gT.jpeg?updatedAt=1746533538598"
+                alt="Commercial floor coating application"
+                width={600}
+                height={450}
+                className="w-full h-auto object-cover"
+              />
+              <div className="p-4 bg-gray-50">
+                <h3 className="font-bold text-lg text-brand-blue">Commercial Floor Coating</h3>
+                <p className="text-gray-600">Durable epoxy floor coatings for commercial spaces</p>
+              </div>
+            </div>
+
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="https://ik.imagekit.io/j98e6hcfnkn/page-assets/garage_FhxpSMdlH.JPG?updatedAt=1746533538239"
+                alt="Commercial garage painting project"
+                width={600}
+                height={450}
+                className="w-full h-auto object-cover"
+              />
+              <div className="p-4 bg-gray-50">
+                <h3 className="font-bold text-lg text-brand-blue">Commercial Garage Painting</h3>
+                <p className="text-gray-600">Specialized coatings for commercial garage and parking facilities</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <CTAModal
+              trigger={
+                <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
+                  Get a Free Quote
+                </FancyButton>
+              }
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Consultation Booking */}
+      <ConsultationBooking />
+    </main>
+  )
+}

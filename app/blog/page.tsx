@@ -3,112 +3,21 @@
 import { useState, useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import BlogCard, { type BlogPostMeta } from "@/components/blog-card"
+import BlogCard from "@/components/blog-card"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
 import BlogFeaturedPost from "@/components/blog-featured-post"
 import EnhancedHero from "@/components/enhanced-hero"
+import { blogPosts } from "@/data/blog-posts"
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-// Blog posts data
-const blogPosts: BlogPostMeta[] = [
-  {
-    slug: "repair-peeling-exterior-paint",
-    title: "How to Repair Peeling Exterior House Paint: Step-by-Step Restoration Guide",
-    excerpt:
-      "Learn how to fix peeling exterior paint and protect your home from further damage with our comprehensive guide.",
-    publishDate: "March 5, 2025",
-    readTime: "8 min read",
-    coverImage:
-      "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/repair-peeling-exterior-paint_x0uiha.jpg",
-    category: "Exterior",
-    featured: true,
-    author: {
-      name: "NXG Coatings Team",
-      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/team_avatar_1_oxwv8m.png",
-    },
-  },
-  {
-    slug: "benefits-of-professional-exterior-coating",
-    title: "5 Benefits of Professional Exterior Coating",
-    excerpt:
-      "Discover how professional exterior coating can protect your home, increase its value, and reduce maintenance costs over time.",
-    publishDate: "February 28, 2025",
-    readTime: "6 min read",
-    coverImage:
-      "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/benefits-of-professional-exterior-coating_jvwzdy.jpg",
-    category: "Exterior",
-    author: {
-      name: "Alex Thompson",
-      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/alex_thompson_avatar_j0qxwj.png",
-    },
-  },
-  {
-    slug: "choosing-the-right-paint-color",
-    title: "How to Choose the Perfect Paint Color for Your Home",
-    excerpt:
-      "Selecting the right paint color can be overwhelming. Follow our expert tips to find the perfect shade for every room.",
-    publishDate: "February 20, 2025",
-    readTime: "5 min read",
-    coverImage:
-      "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/choosing-the-right-paint-color_jcdztw.jpg",
-    category: "Interior",
-    author: {
-      name: "Jessica Chen",
-      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/jessica_chen_avatar_denv9z.png",
-    },
-  },
-  {
-    slug: "eco-friendly-paint-options",
-    title: "Eco-Friendly Paint Options for Environmentally Conscious Homeowners",
-    excerpt: "Explore sustainable and non-toxic paint alternatives that are better for your family and the planet.",
-    publishDate: "February 15, 2025",
-    readTime: "7 min read",
-    coverImage: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/eco-friendly-paint-options_m3ywrq.jpg",
-    category: "Products",
-    author: {
-      name: "Michael Rodriguez",
-      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/michael_rodriguez_avatar_u3wibe.png",
-    },
-  },
-  {
-    slug: "commercial-painting-best-practices",
-    title: "Commercial Painting Best Practices: Minimizing Business Disruption",
-    excerpt:
-      "Learn how to plan and execute a commercial painting project with minimal impact on your business operations.",
-    publishDate: "February 8, 2025",
-    readTime: "9 min read",
-    coverImage:
-      "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/commercial-painting-best-practices_jmxjau.jpg",
-    category: "Commercial",
-    author: {
-      name: "NXG Coatings Team",
-      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/team_avatar_2_z4xroo.png",
-    },
-  },
-  {
-    slug: "preparing-walls-for-painting",
-    title: "The Complete Guide to Preparing Walls for Painting",
-    excerpt:
-      "Proper wall preparation is crucial for a flawless paint job. Follow our step-by-step guide for professional results.",
-    publishDate: "January 30, 2025",
-    readTime: "10 min read",
-    coverImage: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/preparing-walls-for-painting_w5w4re.jpg",
-    category: "Tips",
-    author: {
-      name: "Sarah Johnson",
-      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/sarah_johnson_avatar_yuelmz.png",
-    },
-  },
-]
-
 // Categories
-const categories = ["All", "Exterior", "Interior", "Commercial", "Products", "Tips"]
+const categories = ["All", "Exterior", "Interior", "Commercial", "Products", "Tips", "Industrial"]
 
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -159,9 +68,9 @@ export default function BlogPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <EnhancedHero
-        title="NXG Coatings Blog"
-        subtitle="Expert tips, guides, and insights on painting and coating solutions for your property."
-        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/blog-banner_tnbvxr.jpg"
+        title="NXG Coatings Expert Blog"
+        subtitle="Professional insights, tips, and guides from our team of painting and coating specialists."
+        backgroundImage="/images/blog/blog-hero.jpg"
         height="medium"
       />
 
