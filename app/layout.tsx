@@ -15,23 +15,23 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: "icon",
-      url: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+      url: "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/favicon-16x16_f57qqfaSC.png?updatedAt=1741369090544",
       sizes: "16x16",
       type: "image/png",
     },
     {
       rel: "icon",
-      url: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+      url: "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/favicon-32x32_uPDW_R2Cd.png?updatedAt=1741369090476",
       sizes: "32x32",
       type: "image/png",
     },
     {
       rel: "apple-touch-icon",
-      url: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+      url: "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/apple-touch-icon_yKAQZFqzxN.png?updatedAt=1741369090862",
     },
     {
       rel: "mask-icon",
-      url: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+      url: "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/android-chrome-512x512_GHPz6HAEF.png?updatedAt=1741369090727",
       color: "#003399",
     },
   ],

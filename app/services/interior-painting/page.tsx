@@ -15,7 +15,7 @@ export default function InteriorPaintingPage() {
       <EnhancedHero
         title="Interior Painting Services"
         description="Transform your living spaces with our premium interior painting services that combine quality, craftsmanship, and attention to detail."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879"
+        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/interior-painting-hero_tnbvxr.jpg"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -112,7 +112,7 @@ export default function InteriorPaintingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Banners/Interiorpainting_MN_5EW8oTEyHx?updatedAt=1666951441694"
+                  src="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/interior-living-room_tnbvxr.jpg"
                   alt="Interior painting project - living room"
                   width={600}
                   height={800}
@@ -140,34 +140,36 @@ export default function InteriorPaintingPage() {
                 title: "Living Areas",
                 description:
                   "Create inviting living rooms, family rooms, and entertainment spaces with perfect color schemes.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/Interiorpainting_MN_5EW8oTEyHx?updatedAt=1666951441694",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/interior-living-areas_t9z9qv.jpg",
               },
               {
                 title: "Kitchens & Bathrooms",
                 description:
                   "Specialized moisture-resistant paints for high-humidity areas that stand up to daily use.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602",
+                image:
+                  "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/interior-kitchen-bathroom_yv9ose.jpg",
               },
               {
                 title: "Bedrooms",
                 description: "Transform bedrooms into peaceful retreats with soothing colors and perfect finishes.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/edina_interior/IMG_5293_CsM7Otvqv.jpg?updatedAt=1666794094502",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/interior-bedroom_yv9ose.jpg",
               },
               {
                 title: "Ceilings & Trim",
                 description: "Expert painting of ceilings, crown molding, baseboards, and other architectural details.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/Ceiling_Paint_Edina/IMG_5300_f8yw8tkj0.jpg?updatedAt=1682690019878",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/interior-trim-ceiling_rpqg6w.jpg",
               },
               {
                 title: "Accent Walls",
                 description: "Create visual interest with bold accent walls that become the focal point of your room.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/carole_interior/IMG_0158_OrHXMg23M.jpg?updatedAt=1666794187821",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/interior-accent-wall_yv9ose.jpg",
               },
               {
-                title: "Fine Finishes & Millwork Painting",
+                title: "Specialty Finishes",
                 description:
-                  "Add elegance and character to your home with our fine finishes and millwork painting.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg?updatedAt=1666774120425",
+                  "Unique textures and decorative finishes including faux finishes and textured applications.",
+                image:
+                  "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/interior-specialty-finish_t9z9qv.jpg",
               },
             ]
               .filter((service) => !service.image?.includes("placeholder.svg"))

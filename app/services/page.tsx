@@ -6,7 +6,6 @@ import ServicesSlider from "@/components/services-slider"
 import { FancyButton } from "@/components/ui/fancy-button"
 import Link from "next/link"
 import { ExternalLink, Home, Paintbrush, Palette, Shield, Droplet, RefreshCw } from "lucide-react"
-import BrandsSection from "@/components/brands-section"
 
 export const metadata: Metadata = {
   title: "Our Services | NXG Coatings",
@@ -21,7 +20,7 @@ export default function ServicesPage() {
       <EnhancedHero
         title="Our Professional Services"
         subtitle="Discover our comprehensive range of coating services designed to protect and beautify your property."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/f4_aYaWf2GGw.jpg?updatedAt=1679013239596"
+        backgroundImage="/images/banners/services-banner.jpg"
         height="medium"
       >
         <div className="flex flex-wrap gap-4 justify-center">
@@ -67,7 +66,7 @@ export default function ServicesPage() {
             "Color consultation and custom color matching",
             "Comprehensive clean-up after project completion",
           ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080"
+          image="/images/services/exterior-painting-banner.png"
         />
       </div>
 
@@ -83,7 +82,7 @@ export default function ServicesPage() {
             "Smooth, even application with no drips or streaks",
             "Quick turnaround times to minimize disruption",
           ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879"
+          image="/images/services/interior-painting-banner.png"
           reversed={true}
         />
       </div>
@@ -100,7 +99,7 @@ export default function ServicesPage() {
             "Expert application for even coverage",
             "Maintenance recommendations to extend lifespan",
           ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088"
+          image="/images/deck/deck1.jpeg"
         />
       </div>
 
@@ -116,7 +115,7 @@ export default function ServicesPage() {
             "Custom color matching and finishes",
             "Hardware replacement and installation",
           ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602"
+          image="/images/cabinet/cabinets.jpg"
           reversed={true}
         />
       </div>
@@ -131,7 +130,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/PressureCleaning_MN_Z7jMuG9Dv.png?updatedAt=1666951495789"
+                  src="/images/services/pressure-cleaning.png"
                   alt="Pressure Washing"
                   width={800}
                   height={600}
@@ -155,7 +154,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/restoration_1rbm1Ax_Q.jpg?updatedAt=1741369714492"
+                  src="/images/services/restoration.png"
                   alt="Paint Restoration"
                   width={800}
                   height={600}
@@ -179,7 +178,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg?updatedAt=1666774120425"
+                  src="/images/services/specialty-finishes-banner.png"
                   alt="Protective Coatings"
                   width={800}
                   height={600}
@@ -271,12 +270,7 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-16 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <Image
-            src="https://cdn.nxgcoatings.com/services/exterior-painting-bg.jpg"
-            alt="Background"
-            fill
-            className="object-cover"
-          />
+          <Image src="/images/banners/services-banner.jpg" alt="Background" fill className="object-cover" />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>
@@ -297,9 +291,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      {/* Brands Section */}
-      <BrandsSection />
     </main>
   )
 }

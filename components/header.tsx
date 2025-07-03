@@ -91,12 +91,11 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image
-              src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
+              src="https://res.cloudinary.com/dvty0qsht/image/upload/v1744908016/nxgc-nobg_z0ayat.png"
               alt="NXG Coatings Logo"
-              width={180}
-              height={60}
-              className="h-12 w-auto"
-              priority
+              width={150}
+              height={50}
+              className="h-10 w-auto"
             />
           </Link>
 

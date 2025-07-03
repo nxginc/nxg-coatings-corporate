@@ -24,12 +24,13 @@ const blogPosts: BlogPostMeta[] = [
       "Learn how to fix peeling exterior paint and protect your home from further damage with our comprehensive guide.",
     publishDate: "March 5, 2025",
     readTime: "8 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688",
+    coverImage:
+      "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/repair-peeling-exterior-paint_x0uiha.jpg",
     category: "Exterior",
     featured: true,
     author: {
       name: "NXG Coatings Team",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/team_avatar_1_oxwv8m.png",
     },
   },
   {
@@ -39,11 +40,12 @@ const blogPosts: BlogPostMeta[] = [
       "Discover how professional exterior coating can protect your home, increase its value, and reduce maintenance costs over time.",
     publishDate: "February 28, 2025",
     readTime: "6 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog2_shlL_xb-0.jpeg?updatedAt=1741212349719",
+    coverImage:
+      "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/benefits-of-professional-exterior-coating_jvwzdy.jpg",
     category: "Exterior",
     author: {
       name: "Alex Thompson",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/alex_thompson_avatar_j0qxwj.png",
     },
   },
   {
@@ -53,11 +55,12 @@ const blogPosts: BlogPostMeta[] = [
       "Selecting the right paint color can be overwhelming. Follow our expert tips to find the perfect shade for every room.",
     publishDate: "February 20, 2025",
     readTime: "5 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-3_M4piDalkB9.jpeg?updatedAt=1741213130328",
+    coverImage:
+      "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/choosing-the-right-paint-color_jcdztw.jpg",
     category: "Interior",
     author: {
       name: "Jessica Chen",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/jessica_chen_avatar_denv9z.png",
     },
   },
   {
@@ -66,11 +69,11 @@ const blogPosts: BlogPostMeta[] = [
     excerpt: "Explore sustainable and non-toxic paint alternatives that are better for your family and the planet.",
     publishDate: "February 15, 2025",
     readTime: "7 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-4_WhGK1g1BA.jpg?updatedAt=1741213130440",
+    coverImage: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/eco-friendly-paint-options_m3ywrq.jpg",
     category: "Products",
     author: {
       name: "Michael Rodriguez",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/michael_rodriguez_avatar_u3wibe.png",
     },
   },
   {
@@ -80,11 +83,12 @@ const blogPosts: BlogPostMeta[] = [
       "Learn how to plan and execute a commercial painting project with minimal impact on your business operations.",
     publishDate: "February 8, 2025",
     readTime: "9 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-5_QPOc05Oaz.jpeg?updatedAt=1741213130034",
+    coverImage:
+      "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/commercial-painting-best-practices_jmxjau.jpg",
     category: "Commercial",
     author: {
       name: "NXG Coatings Team",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/team_avatar_2_z4xroo.png",
     },
   },
   {
@@ -94,11 +98,11 @@ const blogPosts: BlogPostMeta[] = [
       "Proper wall preparation is crucial for a flawless paint job. Follow our step-by-step guide for professional results.",
     publishDate: "January 30, 2025",
     readTime: "10 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-6_47xxAjqVC.jpg?updatedAt=1741213130701",
+    coverImage: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/preparing-walls-for-painting_w5w4re.jpg",
     category: "Tips",
     author: {
       name: "Sarah Johnson",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/sarah_johnson_avatar_yuelmz.png",
     },
   },
 ]
@@ -157,7 +161,7 @@ export default function BlogPage() {
       <EnhancedHero
         title="NXG Coatings Blog"
         subtitle="Expert tips, guides, and insights on painting and coating solutions for your property."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/blog-banner_Yx9Ue-Zzr.jpg?updatedAt=1679013242072"
+        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/blog-banner_tnbvxr.jpg"
         height="medium"
       />
 

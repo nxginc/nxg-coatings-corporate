@@ -15,7 +15,7 @@ export default function ResidentialPage() {
       <EnhancedHero
         title="Residential Coating Solutions"
         description="Transform your home with our premium painting and coating services designed specifically for homeowners."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Services/exteriorpainting_3WGvHiRuy.jpg?updatedAt=1666774074567"
+        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/residential-hero_tnbvxr.jpg"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -113,7 +113,7 @@ export default function ResidentialPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/WindowStaining_MN_EFqt22s-6.jpg?updatedAt=1666951484146"
+                  src="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/residential-detail_tnbvxr.jpg"
                   alt="Residential painting project"
                   width={600}
                   height={800}
@@ -285,10 +285,10 @@ export default function ResidentialPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior5_ufsPPapVx.jpg?updatedAt=1699015717982",
-              "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior4_Hh1MOJzIH.jpg?updatedAt=1699015720375",
-              "https://ik.imagekit.io/j98e6hcfnkn/featured/exterior-painting/IMG_1401_Q3f3bdWD5i.jpg?updatedAt=1681571776302",
-              "https://ik.imagekit.io/j98e6hcfnkn/featured/exterior-painting/7mound-exterior_y4MS7vsj5.HEIC?updatedAt=1681571709452",
+              "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/residential-gallery1_tnbvxr.jpg",
+              "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/residential-gallery2_tnbvxr.jpg",
+              "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/residential-gallery3_tnbvxr.jpg",
+              "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/residential-gallery4_tnbvxr.jpg",
             ].map((image, index) => (
               <div key={index} className="relative aspect-square overflow-hidden rounded-lg group">
                 <Image
