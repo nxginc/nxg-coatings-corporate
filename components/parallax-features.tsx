@@ -1,165 +1,79 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Shield, Droplets, Clock, ThumbsUp, Award, Paintbrush } from "lucide-react"
+import Image from "next/image"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
+import { Paintbrush, ShieldCheck, Gem } from "lucide-react"
 
-// Register ScrollTrigger plugin
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
-}
+const features = [
+  {
+    title: "Unmatched Durability",
+    description:
+      "Our advanced coating formulations provide long-lasting protection against weathering, chipping, and fading, ensuring your investment stands the test of time.",
+    icon: ShieldCheck,
+    image: "/images/parallax/durability.png",
+  },
+  {
+    title: "Flawless Finishes",
+    description:
+      "With meticulous surface preparation and expert application techniques, our team delivers consistently smooth, beautiful finishes that elevate any space.",
+    icon: Paintbrush,
+    image: "/images/parallax/finish.png",
+  },
+  {
+    title: "Premium Quality Materials",
+    description:
+      "We partner with leading manufacturers to use only the highest-grade paints and coatings, guaranteeing vibrant color and superior performance.",
+    icon: Gem,
+    image: "/images/parallax/materials.png",
+  },
+]
 
 export default function ParallaxFeatures() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const featuresRef = useRef<HTMLDivElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const subtitleRef = useRef<HTMLParagraphElement>(null)
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  })
 
-  useEffect(() => {
-    const section = sectionRef.current
-    const features = featuresRef.current
-    const title = titleRef.current
-    const subtitle = subtitleRef.current
-
-    if (!section || !features || !title || !subtitle) return
-
-    // Create a timeline for the section
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1,
-      },
-    })
-
-    // Animate the background parallax effect
-    tl.fromTo(
-      section,
-      {
-        backgroundPosition: "50% 0%",
-      },
-      {
-        backgroundPosition: "50% 100%",
-        ease: "none",
-      },
-      0,
-    )
-
-    // Animate the title and subtitle
-    gsap.from(title, {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: title,
-        start: "top bottom-=100",
-        toggleActions: "play none none reverse",
-      },
-    })
-
-    gsap.from(subtitle, {
-      y: 30,
-      opacity: 0,
-      duration: 1,
-      delay: 0.2,
-      scrollTrigger: {
-        trigger: subtitle,
-        start: "top bottom-=100",
-        toggleActions: "play none none reverse",
-      },
-    })
-
-    // Animate each feature card
-    const featureCards = gsap.utils.toArray<HTMLElement>(".feature-card")
-    featureCards.forEach((card, i) => {
-      gsap.from(card, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.1 * i,
-        scrollTrigger: {
-          trigger: card,
-          start: "top bottom-=50",
-          toggleActions: "play none none reverse",
-        },
-      })
-    })
-
-    return () => {
-      // Clean up ScrollTrigger instances
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
-
-  const features = [
-    {
-      icon: Shield,
-      title: "Long-Lasting Protection",
-      description: "Our premium coatings provide years of protection against weather and wear.",
-    },
-    {
-      icon: Droplets,
-      title: "Weather Resistant",
-      description: "Specially formulated to withstand extreme weather conditions and temperature changes.",
-    },
-    {
-      icon: Clock,
-      title: "Quick Application",
-      description: "Professional application means less downtime and faster project completion.",
-    },
-    {
-      icon: ThumbsUp,
-      title: "Eco-Friendly Options",
-      description: "Low-VOC and environmentally conscious coating solutions available.",
-    },
-    {
-      icon: Award,
-      title: "Premium Quality",
-      description: "We use only the highest quality materials for superior results.",
-    },
-    {
-      icon: Paintbrush,
-      title: "Expert Application",
-      description: "Our certified technicians ensure flawless application every time.",
-    },
-  ]
+  const yValues = features.map(() => useTransform(scrollYProgress, [0, 1], [-50, 50]))
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-24 relative bg-fixed bg-cover bg-center"
-      style={{
-        backgroundImage:
-          "linear-gradient(to bottom, #000035, #000035), url('https://cdn.nxgcoatings.com/backgrounds/features-pattern-bg.jpg')",
-      }}
-    >
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-900 via-transparent to-navy-900 opacity-10"></div>
-      <div className="container mx-auto px-4 relative z-10">
+    <section ref={ref} className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase">
-            Why Choose Our Coating Solutions
-          </h2>
-          <p ref={subtitleRef} className="text-xl text-white/90 max-w-3xl mx-auto">
-            Experience the difference with our professional coating services that deliver lasting results and
-            exceptional value.
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-blue">The NXG Difference</h2>
+          <p className="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
+            Experience the superior quality and service that set us apart.
           </p>
         </div>
-
-        <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="feature-card bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-lg hover:transform hover:scale-105 transition-transform duration-300"
-            >
-              <div className="bg-red-600 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                <feature.icon className="h-8 w-8 text-white" />
+        <div className="space-y-24">
+          {features.map((feature, index) => {
+            const y = yValues[index]
+            return (
+              <div key={feature.title} className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div className={`md:order-${index % 2 === 0 ? 1 : 2}`}>
+                  <div className="relative h-[450px] w-full overflow-hidden rounded-lg shadow-xl">
+                    <motion.div style={{ y }} className="absolute inset-[-50px]">
+                      <Image
+                        src={feature.image || "/placeholder.svg"}
+                        alt={feature.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </motion.div>
+                  </div>
+                </div>
+                <div className={`md:order-${index % 2 === 0 ? 2 : 1} text-center md:text-left`}>
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-blue text-white rounded-full mb-6 shadow-lg">
+                    <feature.icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-brand-blue mb-4">{feature.title}</h3>
+                  <p className="text-gray-600 text-lg">{feature.description}</p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2 uppercase">{feature.title}</h3>
-              <p className="text-white/80">{feature.description}</p>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

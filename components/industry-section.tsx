@@ -1,99 +1,79 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import Link from "next/link"
+import { Home, Building2, Factory, BuildingIcon } from "lucide-react"
 import { FancyButton } from "@/components/ui/fancy-button"
 
+const industries = [
+  {
+    name: "Residential",
+    description: "Enhancing homes with durable, beautiful coatings.",
+    icon: Home,
+    image: "/images/industries/residential.png",
+    href: "/industries/residential",
+  },
+  {
+    name: "Commercial",
+    description: "Reliable solutions for businesses and properties.",
+    icon: Building2,
+    image: "/images/industries/commercial.png",
+    href: "/industries/commercial",
+  },
+  {
+    name: "Industrial",
+    description: "Heavy-duty coatings for demanding environments.",
+    icon: Factory,
+    image: "/images/industries/industrial.png",
+    href: "/industries/industrial",
+  },
+  {
+    name: "HOA",
+    description: "Uniform, long-lasting results for communities.",
+    icon: BuildingIcon,
+    image: "/images/industries/hoa.png",
+    href: "/industries/hoa",
+  },
+]
+
 export default function IndustrySection() {
-  const [hoveredIndustry, setHoveredIndustry] = useState<string | null>(null)
-
-  const industries = [
-    {
-      id: "residential",
-      name: "Residential",
-      description: "Expert coating solutions for homes and residential properties.",
-      image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/residential_FqQDni9Oa.jpg?updatedAt=1665175459020",
-      href: "/industries/residential",
-    },
-    {
-      id: "commercial",
-      name: "Commercial",
-      description: "Professional coating services for offices and retail spaces.",
-      image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/commercial_iCqXeYgW_Z.jpeg?updatedAt=1699016621793",
-      href: "/industries/commercial",
-    },
-    {
-      id: "industrial",
-      name: "Industrial",
-      description: "Specialized coatings for industrial facilities and equipment.",
-      image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/industrial_0sqjKH55v3.jpg?updatedAt=1699217215305",
-      href: "/industries/industrial",
-    },
-    {
-      id: "hoa",
-      name: "HOA & Multi-Family",
-      description: "Comprehensive coating solutions for multi-family properties and HOAs.",
-      image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa_4XZCTP8X4.jpeg?updatedAt=1704393622112",
-      href: "/industries/hoa",
-    },
-  ]
-
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Industries We Serve</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
-            We provide specialized coating solutions for a wide range of industries, each with unique requirements and
-            challenges.
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-blue">Serving Diverse Industries</h2>
+          <p className="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
+            We provide specialized coating solutions for a wide range of sectors.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {industries.map((industry) => (
-            <motion.div
-              key={industry.id}
-              className="relative overflow-hidden rounded-xl shadow-xl h-[400px] group cursor-pointer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              onMouseEnter={() => setHoveredIndustry(industry.id)}
-              onMouseLeave={() => setHoveredIndustry(null)}
-            >
-              {/* Background Image */}
-              <div className="absolute inset-0 w-full h-full">
-                <Image
-                  src={industry.image || "/placeholder.svg"}
-                  alt={industry.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  priority={industry.id === "residential" || industry.id === "commercial"}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300" />
-              </div>
-
-              {/* Content Overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8 z-10">
-                <div className="transform transition-all duration-300 group-hover:-translate-y-4">
-                  <h3 className="text-3xl font-bold text-white mb-3">{industry.name}</h3>
-                  <p className="text-white/90 mb-6 max-w-md text-lg">{industry.description}</p>
-                  <Link href={industry.href} passHref>
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
-                        Learn More
-                      </FancyButton>
-                    </motion.div>
-                  </Link>
+            <div key={industry.name} className="group text-center">
+              <Link href={industry.href}>
+                <div className="relative aspect-square w-full overflow-hidden rounded-lg">
+                  <Image
+                    src={industry.image || "/placeholder.svg"}
+                    alt={industry.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <industry.icon className="h-12 w-12 text-white" />
+                  </div>
                 </div>
-              </div>
-
-              {/* Decorative Element */}
-              <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-brand-blue/40 to-transparent rounded-br-3xl backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
+                <h3 className="mt-4 text-xl font-semibold text-brand-blue">{industry.name}</h3>
+                <p className="mt-1 text-gray-500">{industry.description}</p>
+              </Link>
+            </div>
           ))}
+        </div>
+        <div className="text-center mt-12">
+          <Link href="/industries">
+            <FancyButton variant="outline" size="lg" rounded="full" hasArrow>
+              Explore All Industries
+            </FancyButton>
+          </Link>
         </div>
       </div>
     </section>
