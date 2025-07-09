@@ -14,7 +14,7 @@ export const blogPosts: BlogPostMeta[] = [
     featured: true,
     author: {
       name: "NXG Coatings Team",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -27,8 +27,8 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688",
     category: "Exterior",
     author: {
-      name: "Alex Thompson",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -41,8 +41,8 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog2_shlL_xb-0.jpeg?updatedAt=1741212349719",
     category: "Interior",
     author: {
-      name: "Jessica Chen",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -54,8 +54,8 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-3_M4piDalkB9.jpeg?updatedAt=1741213130328",
     category: "Products",
     author: {
-      name: "Michael Rodriguez",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -69,7 +69,7 @@ export const blogPosts: BlogPostMeta[] = [
     category: "Commercial",
     author: {
       name: "NXG Coatings Team",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -82,8 +82,8 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-5_QPOc05Oaz.jpeg?updatedAt=1741213130034",
     category: "Tips",
     author: {
-      name: "Sarah Johnson",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -95,8 +95,8 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-6_47xxAjqVC.jpg?updatedAt=1741213130701",
     category: "Tips",
     author: {
-      name: "David Thompson",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -109,7 +109,7 @@ export const blogPosts: BlogPostMeta[] = [
     category: "Tips",
     author: {
       name: "NXG Coatings Team",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -122,8 +122,8 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/Industries/commercial_iCqXeYgW_Z.jpeg?updatedAt=1699016621793",
     category: "Commercial",
     author: {
-      name: "Alex Thompson",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
 ]

@@ -25,15 +25,7 @@ export const metadata: Metadata = {
       sizes: "32x32",
       type: "image/png",
     },
-    {
-      rel: "apple-touch-icon",
-      url: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
-    },
-    {
-      rel: "mask-icon",
-      url: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
-      color: "#003399",
-    },
+    // ...existing code...
   ],
   appleWebApp: {
     title: "NXG Coatings",
