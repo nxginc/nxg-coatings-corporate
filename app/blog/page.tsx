@@ -1,94 +1,154 @@
 "use client"
 
-import { useState, useMemo } from "react"
-import { blogPosts } from "@/data/blog-posts"
+import { useState, useEffect, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import BlogCard from "@/components/blog-card"
+import { FancyButton } from "@/components/ui/fancy-button"
 import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Search } from "lucide-react"
-import { EnhancedHero } from "@/components/enhanced-hero"
+import BlogFeaturedPost from "@/components/blog-featured-post"
+import EnhancedHero from "@/components/enhanced-hero"
+import { blogPosts } from "@/data/blog-posts"
 
-const allCategories = ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))]
-const POSTS_PER_PAGE = 6
+// Register ScrollTrigger plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger)
+}
+
+// Categories
+const categories = ["All", "Exterior", "Interior", "Commercial", "Products", "Tips", "Industrial"]
 
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
-  const [visiblePosts, setVisiblePosts] = useState(POSTS_PER_PAGE)
+  const [filteredPosts, setFilteredPosts] = useState(blogPosts)
+  const blogGridRef = useRef<HTMLDivElement>(null)
 
-  const filteredPosts = useMemo(() => {
-    return blogPosts.filter((post) => {
-      const matchesCategory = selectedCategory === "All" || post.category === selectedCategory
+  useEffect(() => {
+    // Filter posts based on search term and category
+    const filtered = blogPosts.filter((post) => {
       const matchesSearch =
         post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.author.name.toLowerCase().includes(searchTerm.toLowerCase())
-      return matchesCategory && matchesSearch
+        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesCategory = selectedCategory === "All" || post.category === selectedCategory
+
+      return matchesSearch && matchesCategory
     })
+
+    setFilteredPosts(filtered)
   }, [searchTerm, selectedCategory])
 
-  const postsToShow = filteredPosts.slice(0, visiblePosts)
+  useEffect(() => {
+    if (!blogGridRef.current) return
 
-  const handleLoadMore = () => {
-    setVisiblePosts((prev) => prev + POSTS_PER_PAGE)
-  }
+    // Animate blog cards when they come into view
+    const blogCards = gsap.utils.toArray<HTMLElement>(".blog-card")
+
+    blogCards.forEach((card, i) => {
+      gsap.from(card, {
+        y: 50,
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.1 * i,
+        scrollTrigger: {
+          trigger: card,
+          start: "top bottom-=100",
+          toggleActions: "play none none none",
+        },
+      })
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [filteredPosts])
 
   return (
-    <>
+    <main className="min-h-screen">
+      {/* Hero Section */}
       <EnhancedHero
         title="NXG Coatings Blog"
-        subtitle="Your source for expert advice, industry trends, and project inspiration."
+        subtitle="Expert tips, guides, and insights on painting and coating solutions for your property."
         backgroundImage="/images/blog/blog-hero.jpg"
-        disableButtons
+        height="medium"
       />
-      <div className="container mx-auto px-4 py-8 md:px-6 lg:py-12">
-        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className="relative w-full md:max-w-sm">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-            <Input
-              type="search"
-              placeholder="Search articles..."
-              className="pl-10"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
+
+      {/* Blog Content */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          {/* Search and Filter */}
+          <div className="mb-12 flex flex-col md:flex-row gap-6 items-center justify-between">
+            <div className="relative w-full md:w-1/3">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+              <Input
+                type="text"
+                placeholder="Search articles..."
+                className="pl-10"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+
+            <div className="flex flex-wrap gap-3 justify-center">
+              {categories.map((category) => (
+                <FancyButton
+                  key={category}
+                  variant={selectedCategory === category ? "gradient" : "outline"}
+                  size="sm"
+                  rounded="full"
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </FancyButton>
+              ))}
+            </div>
           </div>
-          <div className="w-full md:w-auto">
-            <Select onValueChange={setSelectedCategory} defaultValue="All">
-              <SelectTrigger className="w-full md:w-[180px]">
-                <SelectValue placeholder="Select a category" />
-              </SelectTrigger>
-              <SelectContent>
-                {allCategories.map((category) => (
-                  <SelectItem key={category} value={category}>
-                    {category}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+
+          {/* Featured Post */}
+          {filteredPosts.find((post) => post.featured) && selectedCategory === "All" && searchTerm === "" && (
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold mb-6 flex items-center">
+                <span className="bg-brand-blue h-6 w-1 mr-3 rounded-full"></span>
+                Featured Article
+              </h2>
+              <BlogFeaturedPost post={filteredPosts.find((post) => post.featured)!} />
+            </div>
+          )}
+
+          {/* Blog Grid */}
+          <div ref={blogGridRef}>
+            <h2 className="text-2xl font-bold mb-6 flex items-center">
+              <span className="bg-brand-blue h-6 w-1 mr-3 rounded-full"></span>
+              {selectedCategory === "All" ? "Latest Articles" : `${selectedCategory} Articles`}
+            </h2>
+
+            {filteredPosts.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredPosts
+                  .filter((post) => !post.featured || selectedCategory !== "All" || searchTerm !== "")
+                  .map((post) => (
+                    <BlogCard key={post.slug} post={post} className="blog-card" />
+                  ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-lg text-gray-600">No articles found matching your criteria.</p>
+                <FancyButton
+                  variant="outline"
+                  className="mt-4"
+                  onClick={() => {
+                    setSearchTerm("")
+                    setSelectedCategory("All")
+                  }}
+                >
+                  Reset Filters
+                </FancyButton>
+              </div>
+            )}
           </div>
         </div>
-
-        {postsToShow.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {postsToShow.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-16">
-            <h3 className="text-2xl font-semibold">No Posts Found</h3>
-            <p className="text-gray-500 mt-2">Try adjusting your search or filter.</p>
-          </div>
-        )}
-
-        {visiblePosts < filteredPosts.length && (
-          <div className="mt-12 text-center">
-            <Button onClick={handleLoadMore}>Load More</Button>
-          </div>
-        )}
-      </div>
-    </>
+      </section>
+    </main>
   )
 }
