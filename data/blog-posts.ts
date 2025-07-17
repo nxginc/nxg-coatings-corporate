@@ -9,7 +9,7 @@ export const blogPosts: BlogPostMeta[] = [
     publishDate: "March 5, 2025",
     readTime: "8 min read",
     coverImage:
-      "https://sjc.microlink.io/9FMd4VeQoSaRJelq1EpEu4rwYsiZFoIp8M11NJDJcnO2o7XgLYkogZpP7OmKAEZyano-VIu8pI2F75YaMDsB4g.jpeg",
+      "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688",
     category: "Exterior",
     featured: true,
     author: {
