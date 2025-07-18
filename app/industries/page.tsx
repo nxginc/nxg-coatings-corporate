@@ -34,7 +34,7 @@ const industries = [
     id: "commercial",
     title: "Commercial",
     description: "Professional painting solutions for offices, retail spaces, and commercial properties.",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/commercial_mXY0A8JXz.jpeg?updatedAt=1665175458082",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/commercial/office-painting_4E4EaH-7y.JPG?updatedAt=1747490385376&tr=n-ik_ml_thumbnail",
     icon: Building2,
     benefits: [
       "Create a professional business image",
@@ -56,7 +56,7 @@ const industries = [
     id: "industrial",
     title: "Industrial",
     description: "Specialized coatings for industrial facilities that withstand harsh environments.",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/industrial_02easFwrP.jpeg?updatedAt=1665175459210",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/hoa-exterior_gQCOAvl8Q.JPG?updatedAt=1747490345040&tr=n-ik_ml_thumbnail",
     icon: Factory,
     benefits: [
       "Extend equipment and facility lifespan",
@@ -78,7 +78,7 @@ const industries = [
     id: "hoa",
     title: "HOA & Multi-Family",
     description: "Comprehensive painting services for homeowners associations and multi-family properties.",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa_4XZCTP8X4.jpeg?updatedAt=1704393622112",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/64377d87f8cf768523c106d0_hoa-painting-hero-02_WTec4soEPA.webp?updatedAt=1747490345547&tr=n-ik_ml_thumbnail",
     icon: BuildingIcon,
     benefits: [
       "Maintain property values across the community",
