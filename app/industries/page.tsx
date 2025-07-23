@@ -24,11 +24,7 @@ const industries = [
     id: "commercial",
     title: "Commercial",
     description: "Professional painting solutions for offices, retail spaces, and commercial properties.",
-<<<<<<< HEAD
-    image: "/images/industries/commercial.png",
-=======
     image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/commercial/office-painting_4E4EaH-7y.JPG?updatedAt=1747490385376&tr=n-ik_ml_thumbnail",
->>>>>>> production
     icon: Building2,
     benefits: [
       "Create a professional business image",
@@ -40,11 +36,7 @@ const industries = [
     id: "industrial",
     title: "Industrial",
     description: "Specialized coatings for industrial facilities that withstand harsh environments.",
-<<<<<<< HEAD
-    image: "/images/industries/industrial.png",
-=======
     image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/hoa-exterior_gQCOAvl8Q.JPG?updatedAt=1747490345040&tr=n-ik_ml_thumbnail",
->>>>>>> production
     icon: Factory,
     benefits: [
       "Extend equipment and facility lifespan",
@@ -56,11 +48,7 @@ const industries = [
     id: "hoa",
     title: "HOA & Multi-Family",
     description: "Comprehensive painting services for homeowners associations and multi-family properties.",
-<<<<<<< HEAD
-    image: "/images/industries/hoa.png",
-=======
     image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/64377d87f8cf768523c106d0_hoa-painting-hero-02_WTec4soEPA.webp?updatedAt=1747490345547&tr=n-ik_ml_thumbnail",
->>>>>>> production
     icon: BuildingIcon,
     benefits: [
       "Maintain property values across the community",
@@ -75,7 +63,7 @@ export default function IndustriesPage() {
     <main className="min-h-screen">
       <EnhancedHero
         title="Industries We Serve"
-        description="Our specialized coating solutions are tailored to meet the unique needs of various industries."
+        subtitle="Our specialized coating solutions are tailored to meet the unique needs of various industries."
         backgroundImage="/images/banners/industries-hero.png"
         height="medium"
       >

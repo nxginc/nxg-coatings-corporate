@@ -88,13 +88,8 @@ export default function AboutPageClient() {
       {/* Hero Section */}
       <EnhancedHero
         title="About NXG Coatings"
-<<<<<<< HEAD
-        description="We're dedicated to delivering premium coating solutions with exceptional craftsmanship and customer service."
-        backgroundImage="/images/banners/about-banner.jpg"
-=======
-        description="Professional coating solutions delivered by a team that cares about quality and customer satisfaction."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
->>>>>>> production
+        subtitle="Professional coating solutions delivered by a team that cares about quality and customer satisfaction."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/64377d87f8cf768523c106d0_hoa-painting-hero-02_WTec4soEPA.webp?updatedAt=1747490345547"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
