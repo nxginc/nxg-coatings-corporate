@@ -131,21 +131,7 @@ export default function DeckStainingPage() {
                     beautifully through all seasons."
                   </p>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=32&width=32"
-                      alt="Customer"
-                      width={32}
-                      height={32}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold">Michael Thompson</p>
-                    <p className="text-xs text-gray-500">Homeowner</p>
-                  </div>
-                </div>
+           
               </div>
             </div>
           </div>
