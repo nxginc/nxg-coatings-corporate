@@ -121,6 +121,21 @@ export default function DeckStainingPage() {
                   className="w-full h-auto object-cover"
                 />
               </div>
+<<<<<<< HEAD
+=======
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
+                <div className="flex items-start mb-2">
+                  <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    "NXG Coatings transformed our weathered deck into a beautiful outdoor space. The stain has held up
+                    beautifully through all seasons."
+                  </p>
+                </div>
+           
+              </div>
+>>>>>>> production
             </div>
           </div>
         </div>

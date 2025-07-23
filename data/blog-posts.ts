@@ -8,12 +8,21 @@ export const blogPosts: BlogPostMeta[] = [
       "Learn professional techniques from NXG Coatings experts on how to fix peeling exterior paint and protect your home from further damage.",
     publishDate: "March 5, 2025",
     readTime: "8 min read",
+<<<<<<< HEAD
     coverImage: "/images/blog/repair-peeling-paint.jpg",
+=======
+    coverImage:
+      "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688",
+>>>>>>> production
     category: "Exterior",
     featured: true,
     author: {
       name: "NXG Coatings Team",
+<<<<<<< HEAD
       avatar: "/images/team/nxg-team-avatar.png",
+=======
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+>>>>>>> production
     },
     content: `
       Peeling exterior paint is more than just an eyesore; it's a sign that your home's primary defense against the elements is failing. At NXG Coatings, we've seen it all, and we're here to guide you through the professional process of restoring your home's exterior to its former glory.
@@ -43,8 +52,13 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "/images/blog/professional-exterior-coating.jpg",
     category: "Exterior",
     author: {
+<<<<<<< HEAD
       name: "Mike Rodriguez, NXG Lead Painter",
       avatar: "/images/team/mike-rodriguez.png",
+=======
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+>>>>>>> production
     },
     content: `
       Professional exterior coating services offer numerous advantages that can significantly impact your home's longevity and aesthetic appeal. Here are five key benefits of choosing NXG Coatings for your exterior needs:
@@ -77,8 +91,13 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "/images/blog/paint-color-selection.jpg",
     category: "Interior",
     author: {
+<<<<<<< HEAD
       name: "Sarah Chen, NXG Color Consultant",
       avatar: "/images/team/sarah-chen.png",
+=======
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+>>>>>>> production
     },
     content: `
       Choosing the right paint color for your home can transform its appearance and increase its value. Our color consultation experts at NXG Coatings offer these insider tips to help you make the perfect choice:
@@ -111,8 +130,13 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "/images/blog/eco-friendly-paints.jpg",
     category: "Products",
     author: {
+<<<<<<< HEAD
       name: "David Thompson, NXG Environmental Specialist",
       avatar: "/images/team/david-thompson.png",
+=======
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+>>>>>>> production
     },
     content: `
       NXG Coatings is committed to providing eco-friendly paint solutions that are better for your family and the environment. Here are some of our sustainable and non-toxic paint alternatives:
@@ -145,8 +169,13 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "/images/blog/commercial-painting.jpg",
     category: "Commercial",
     author: {
+<<<<<<< HEAD
       name: "Alex Johnson, NXG Commercial Manager",
       avatar: "/images/team/alex-johnson.png",
+=======
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+>>>>>>> production
     },
     content: `
       NXG Coatings is dedicated to delivering exceptional commercial painting services that minimize disruption to your business operations. Here's how we approach commercial painting projects:
@@ -179,8 +208,13 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "/images/blog/wall-preparation.jpg",
     category: "Tips",
     author: {
+<<<<<<< HEAD
       name: "Carlos Martinez, NXG Master Painter",
       avatar: "/images/team/carlos-martinez.png",
+=======
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+>>>>>>> production
     },
     content: `
       Achieving a flawless paint finish starts with proper wall preparation. Our master painters at NXG Coatings share these professional techniques to ensure long-lasting results:
@@ -213,8 +247,13 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "/images/blog/paint-finishes.jpg",
     category: "Tips",
     author: {
+<<<<<<< HEAD
       name: "Jennifer Lee, NXG Technical Advisor",
       avatar: "/images/team/jennifer-lee.png",
+=======
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+>>>>>>> production
     },
     content: `
       Choosing the right paint finish is crucial for achieving optimal results in your home or business. Our technical advisors at NXG Coatings offer these professional recommendations:
@@ -248,7 +287,11 @@ export const blogPosts: BlogPostMeta[] = [
     category: "Tips",
     author: {
       name: "NXG Coatings Team",
+<<<<<<< HEAD
       avatar: "/images/team/nxg-team-avatar.png",
+=======
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+>>>>>>> production
     },
     content: `
       Timing your painting project right can make a significant difference in the outcome and longevity of your paint job. Here's NXG Coatings' seasonal painting guide:
@@ -278,8 +321,13 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "/images/blog/color-psychology.jpg",
     category: "Commercial",
     author: {
+<<<<<<< HEAD
       name: "Dr. Amanda Foster, NXG Color Psychology Expert",
       avatar: "/images/team/amanda-foster.png",
+=======
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+>>>>>>> production
     },
     content: `
       Color psychology plays a crucial role in influencing customer behavior and employee performance in commercial spaces. Our color psychology expert at NXG Coatings shares these strategic approaches:

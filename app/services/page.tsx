@@ -66,23 +66,31 @@ export default function ServicesPage() {
             "Color consultation and custom color matching",
             "Comprehensive clean-up after project completion",
           ]}
+<<<<<<< HEAD
           image="/images/services/exterior-painting-banner.png"
+=======
+          image="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/new_exterior_image.jpg?updatedAt=1746446543080"
+>>>>>>> production
         />
       </div>
 
       {/* Interior Painting */}
       <div id="interior">
-        <ServiceDetail
-          title="Interior Painting"
-          description="Revitalize your living spaces with our interior painting services. Our team of skilled professionals delivers flawless results with minimal disruption to your daily routine."
-          features={[
-            "Low-VOC and eco-friendly paint options",
-            "Precise cutting-in and trim work",
+      <ServiceDetail
+          title="Exterior Painting"
+          description="Transform and protect your home's exterior with our professional painting services. We use premium quality paints and coatings that stand up to harsh weather conditions while enhancing your property's curb appeal."
+          features={["Premium weather-resistant paints and coatings","Thorough surface preparation and cleaning","Expert application techniques for lasting results","Color consultation and custom color matching","Comprehensive clean-up after project completion"]}
+          image="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080"
+        />
             "Protection of furniture and flooring",
             "Smooth, even application with no drips or streaks",
             "Quick turnaround times to minimize disruption",
           ]}
+<<<<<<< HEAD
           image="/images/services/interior-painting-banner.png"
+=======
+          image="https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/new_interior_image.jpg?updatedAt=1666795159879"
+>>>>>>> production
           reversed={true}
         />
       </div>
@@ -99,7 +107,11 @@ export default function ServicesPage() {
             "Expert application for even coverage",
             "Maintenance recommendations to extend lifespan",
           ]}
+<<<<<<< HEAD
           image="/images/deck/deck1.jpeg"
+=======
+          image="https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/new_deck_image.jpg?updatedAt=1681571719088"
+>>>>>>> production
         />
       </div>
 
