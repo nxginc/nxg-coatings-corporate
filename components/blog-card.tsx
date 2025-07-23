@@ -12,6 +12,7 @@ export interface BlogPostMeta {
   readTime: string
   coverImage: string
   category: string
+  content: string // Added content field
   featured?: boolean
   author?: {
     name: string

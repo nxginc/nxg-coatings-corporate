@@ -50,6 +50,9 @@ export default function GalleryPageClient() {
 
       {/* Featured Projects */}
       <section className="py-16 md:py-24 bg-white">
+<<<<<<< HEAD
+        
+=======
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Featured Projects</h2>
@@ -183,6 +186,7 @@ export default function GalleryPageClient() {
             </Link>
           </div>
         </div>
+>>>>>>> production
       </section>
 
       {/* Testimonials Section removed as per requirements */}

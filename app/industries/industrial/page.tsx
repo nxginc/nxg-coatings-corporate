@@ -15,7 +15,7 @@ export default function IndustrialPage() {
       <EnhancedHero
         title="Industrial Coating Solutions"
         description="Specialized coatings for industrial facilities that withstand harsh environments and demanding conditions."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Industries/industrial-hero_02easFwrP.jpeg?updatedAt=1665175459210"
+        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/industrial-hero_tnbvxr.jpg"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -113,7 +113,7 @@ export default function IndustrialPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Industries/industrial-detail_02easFwrP.jpeg?updatedAt=1665175459210"
+                  src="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/industrial-detail_tnbvxr.jpg"
                   alt="Industrial coating project"
                   width={600}
                   height={800}
@@ -166,42 +166,37 @@ export default function IndustrialPage() {
               {
                 title: "Epoxy Floor Coatings",
                 description: "Durable, chemical-resistant flooring solutions for industrial facilities.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/Services/epoxy-flooring_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/epoxy-flooring_xvwj44.jpg",
                 link: "/services/epoxy-flooring",
               },
               {
                 title: "Anti-Corrosion Coatings",
                 description: "Protect metal surfaces from rust and corrosion in harsh environments.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/Services/anti-corrosion_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/anti-corrosion_j9w8jx.jpg",
                 link: "/services/anti-corrosion",
               },
               {
                 title: "High-Temperature Coatings",
                 description: "Specialized coatings that withstand extreme heat and thermal cycling.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/high-temp_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/high-temp_fqkwer.jpg",
                 link: "/services/high-temperature",
               },
               {
                 title: "Chemical-Resistant Coatings",
                 description: "Protection against acids, solvents, and other harsh chemicals.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/Services/chemical-resistant_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/chemical-resistant_j0wzji.jpg",
                 link: "/services/chemical-resistant",
               },
               {
                 title: "Safety Markings & Line Striping",
                 description: "Clear visual safety indicators for industrial facilities.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/Services/safety-markings_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/safety-markings_d8w0og.jpg",
                 link: "/services/safety-markings",
               },
               {
                 title: "Equipment Coatings",
                 description: "Specialized coatings to protect and extend the life of industrial equipment.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/Services/equipment-coatings_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/equipment-coatings_y3wzht.jpg",
                 link: "/services/equipment-coatings",
               },
             ].map((service, index) => (
