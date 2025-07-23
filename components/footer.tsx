@@ -120,7 +120,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="block mb-6">
               <Image
-                src="https://ik.imagekit.io/j98e6hcfnkn/logo_m2ODAWFyf.png?updatedAt=1741216795011"
+                src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
                 alt="NXG Coatings Logo"
                 width={160}
                 height={40}

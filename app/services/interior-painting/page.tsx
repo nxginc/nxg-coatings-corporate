@@ -14,8 +14,8 @@ export default function InteriorPaintingPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="Interior Painting Services"
-        description="Transform your living spaces with our premium interior painting services that combine quality, craftsmanship, and attention to detail."
-        backgroundImage="https://cdn.nxgcoatings.com/services/interior-painting/hero.jpg"
+        subtitle="Transform your living spaces with our premium interior painting services that combine quality, craftsmanship, and attention to detail."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/interior-painting/banner_b2Y8UyWyV.jpeg?updatedAt=1747919188435"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -112,7 +112,7 @@ export default function InteriorPaintingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://cdn.nxgcoatings.com/services/interior-painting/living-room.jpg"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/services/interior-painting/featured_-6AhYSzXe.jpeg?updatedAt=1747919188436"
                   alt="Interior painting project - living room"
                   width={600}
                   height={800}
@@ -125,23 +125,16 @@ export default function InteriorPaintingPage() {
                     <CheckCircle className="h-4 w-4 text-green-600" />
                   </div>
                   <p className="text-sm text-gray-600">
-                    "NXG Coatings transformed our living room with beautiful colors and flawless workmanship. The team
-                    was professional and respectful of our home."
+                    Professional interior painting services with premium materials and expert craftsmanship for your home.
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=32&width=32"
-                      alt="Customer"
-                      width={32}
-                      height={32}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-8 h-8 rounded-full bg-brand-blue mr-2 flex items-center justify-center">
+                    <Home className="h-4 w-4 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold">Sarah Johnson</p>
-                    <p className="text-xs text-gray-500">Homeowner</p>
+                    <p className="text-xs font-bold">Interior Excellence</p>
+                    <p className="text-xs text-gray-500">Quality Service</p>
                   </div>
                 </div>
               </div>

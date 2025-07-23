@@ -13,7 +13,7 @@ export default function QuotePage() {
       <EnhancedHero
         title="Get a Free Quote"
         description="Fill out the form below to receive a detailed estimate for your project"
-        backgroundImage="https://cdn.nxgcoatings.com/banners/quote-hero.jpg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/quote_FeAQyRnYo.jpeg?updatedAt=1666774121550"
         height="medium"
       />
 

@@ -14,8 +14,8 @@ export default function CommercialPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="Commercial Coating Solutions"
-        description="Professional painting and coating services for offices, retail spaces, and commercial properties."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Industries/commercial-hero_mXY0A8JXz.jpeg?updatedAt=1665175458082"
+        subtitle="Professional painting and coating services for offices, retail spaces, and commercial properties."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/industries/commercial/banner_dWRiH2Tw5.jpeg?updatedAt=1747919188438"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">

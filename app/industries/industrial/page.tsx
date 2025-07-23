@@ -14,8 +14,8 @@ export default function IndustrialPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="Industrial Coating Solutions"
-        description="Specialized coatings for industrial facilities that withstand harsh environments and demanding conditions."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Industries/industrial-hero_02easFwrP.jpeg?updatedAt=1665175459210"
+        subtitle="Specialized coatings for industrial facilities that withstand harsh environments and demanding conditions."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/industries/industrial/banner_Y0T8jEiH8.jpeg?updatedAt=1747919188439"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">

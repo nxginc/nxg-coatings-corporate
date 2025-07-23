@@ -14,8 +14,8 @@ export default function HOAPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="HOA & Multi-Family Coating Solutions"
-        description="Comprehensive painting services for homeowners associations and multi-family properties."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa_multifamily_Xt7Hs9Kkl.jpg?updatedAt=1741216795011"
+        subtitle="Comprehensive painting services for homeowners associations and multi-family properties."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/industries/hoa/banner_FPSj-WzOH.jpeg?updatedAt=1747919188438"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,7 +114,7 @@ export default function HOAPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa-detail_Xt7Hs9Kkl.jpg?updatedAt=1741216795011"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/industries/hoa/featured_zTLhOJ45-.jpeg?updatedAt=1747919188438"
                   alt="HOA painting project"
                   width={600}
                   height={800}

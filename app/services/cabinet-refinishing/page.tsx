@@ -13,8 +13,8 @@ export default function CabinetRefinishingPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="Cabinet Refinishing Services"
-        description="Transform your kitchen and bathroom cabinets with our professional refinishing services—a cost-effective alternative to full replacement."
-        backgroundImage="https://cdn.nxgcoatings.com/services/cabinet-refinishing/hero.jpg"
+        subtitle="Transform your kitchen and bathroom cabinets with our professional refinishing services—a cost-effective alternative to full replacement."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/cabinet-refinishing/banner_pYH44QwJ1.jpeg?updatedAt=1747919188437"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,7 +114,7 @@ export default function CabinetRefinishingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://cdn.nxgcoatings.com/services/cabinet-refinishing/kitchen-cabinets.jpg"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/services/cabinet-refinishing/featured_pTK-TIUWp.jpeg?updatedAt=1747919188437"
                   alt="Cabinet refinishing project - kitchen"
                   width={600}
                   height={800}

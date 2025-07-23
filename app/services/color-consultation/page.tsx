@@ -13,8 +13,8 @@ export default function ColorConsultationPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="Professional Color Consultation"
-        description="Find the perfect colors for your home with our expert color consultation services."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/hero.jpg?updatedAt=1741960872540"
+        subtitle="Find the perfect colors for your home with our expert color consultation services."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/banner_zZKIrRXaQ.jpeg?updatedAt=1747919188439"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -112,7 +112,7 @@ export default function ColorConsultationPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/overview.jpg?updatedAt=1741960872540"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/featured_FsrNwSZGz.jpeg?updatedAt=1747919188438"
                   alt="Color consultation session"
                   width={600}
                   height={800}
@@ -125,23 +125,16 @@ export default function ColorConsultationPage() {
                     <CheckCircle className="h-4 w-4 text-green-600" />
                   </div>
                   <p className="text-sm text-gray-600">
-                    "The color consultation was invaluable! Our consultant helped us find the perfect palette that
-                    transformed our home and received countless compliments."
+                    Expert color consultation services to help you choose the perfect color palette for your space.
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=32&width=32"
-                      alt="Customer"
-                      width={32}
-                      height={32}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-8 h-8 rounded-full bg-brand-blue mr-2 flex items-center justify-center">
+                    <Palette className="h-4 w-4 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold">Emily Richardson</p>
-                    <p className="text-xs text-gray-500">Homeowner</p>
+                    <p className="text-xs font-bold">Color Expertise</p>
+                    <p className="text-xs text-gray-500">Professional Guidance</p>
                   </div>
                 </div>
               </div>

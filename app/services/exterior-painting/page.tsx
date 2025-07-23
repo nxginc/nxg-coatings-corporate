@@ -14,8 +14,8 @@ export default function ExteriorPaintingPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="Exterior Painting Services"
-        description="Transform your home's curb appeal with our premium exterior painting services that protect and beautify."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/hero.jpg?updatedAt=1741960872540"
+        subtitle="Transform your home's curb appeal with our premium exterior painting services that protect and beautify."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/banner_BWS_dLAhw.jpeg?updatedAt=1747919188436"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,7 +114,7 @@ export default function ExteriorPaintingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/overview.jpg?updatedAt=1741960872540"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/featured_-lZGm1HUi.jpeg?updatedAt=1747919188436"
                   alt="Exterior house painting project"
                   width={600}
                   height={800}
@@ -127,23 +127,16 @@ export default function ExteriorPaintingPage() {
                     <CheckCircle className="h-4 w-4 text-green-600" />
                   </div>
                   <p className="text-sm text-gray-600">
-                    "NXG Coatings transformed our home's exterior with beautiful colors and exceptional attention to
-                    detail. Our neighbors keep asking who did the work!"
+                    Professional exterior painting services with premium materials and expert craftsmanship.
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=32&width=32"
-                      alt="Customer"
-                      width={32}
-                      height={32}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-8 h-8 rounded-full bg-brand-blue mr-2 flex items-center justify-center">
+                    <CheckCircle className="h-4 w-4 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold">Robert Anderson</p>
-                    <p className="text-xs text-gray-500">Homeowner</p>
+                    <p className="text-xs font-bold">Quality Guarantee</p>
+                    <p className="text-xs text-gray-500">Professional Service</p>
                   </div>
                 </div>
               </div>
