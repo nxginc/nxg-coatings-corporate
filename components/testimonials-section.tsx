@@ -13,10 +13,10 @@ const testimonials = [
   {
     id: 1,
     name: "Sarah Johnson",
-    role: "Homeowner in Westfield",
+    role: "Homeowner",
     quote:
-      "We hired NXG Coatings to paint our 2-story colonial last summer. Their team was professional from start to finish. They took extra care with our landscaping and the paint job still looks perfect a year later. Highly recommend!",
-    avatar: "/thoughtful-brunette.png",
+      "NXG Coatings transformed our home's exterior. The attention to detail and quality of work was exceptional. Our house looks brand new!",
+    avatar: "/placeholder.svg?height=100&width=100",
     rating: 5,
   },
   {
@@ -24,62 +24,26 @@ const testimonials = [
     name: "Michael Rodriguez",
     role: "Property Manager",
     quote:
-      "As someone who manages 12 rental properties, I've worked with many painting contractors. NXG Coatings has been our go-to for the past 3 years. Their pricing is fair, they're reliable, and they work around tenant schedules.",
-    avatar: "/confident-hispanic-businessman.png",
-    rating: 4,
+      "As a property manager, I've worked with many painting contractors. NXG Coatings stands out for their professionalism, reliability, and consistent quality.",
+    avatar: "/placeholder.svg?height=100&width=100",
+    rating: 5,
   },
   {
     id: 3,
     name: "Jennifer Williams",
-    role: "Restaurant Owner",
+    role: "Business Owner",
     quote:
-      "When we needed to refresh our restaurant's exterior, NXG was recommended by another business owner. Their color consultant helped us choose a palette that increased our street visibility. The team worked overnight to avoid disrupting business hours.",
-    avatar: "/sunny-smile.png",
+      "The color consultation service was invaluable. Their expert helped us choose the perfect palette for our office, and the execution was flawless.",
+    avatar: "/placeholder.svg?height=100&width=100",
     rating: 5,
   },
   {
     id: 4,
     name: "David Thompson",
-    role: "HOA Board President",
-    quote:
-      "Our HOA hired NXG Coatings for a community-wide exterior refresh. They coordinated with 36 homeowners, maintained consistent quality, and finished on schedule. A few minor touch-ups were needed and they handled them promptly.",
-    avatar: "/thoughtful-elder.png",
-    rating: 4,
-  },
-  {
-    id: 5,
-    name: "Lisa Chen",
-    role: "Interior Designer",
-    quote:
-      "I've partnered with NXG on several client projects. Their attention to detail with trim work and ability to match custom colors perfectly sets them apart. My clients are always thrilled with the results.",
-    avatar: "/confident-asian-leader.png",
-    rating: 5,
-  },
-  {
-    id: 6,
-    name: "Robert Jackson",
-    role: "Commercial Property Owner",
-    quote:
-      "NXG Coatings handled the exterior painting for our office complex. They used low-VOC paints as requested and worked weekends to minimize disruption. The only reason for 4 stars is they fell slightly behind schedule due to weather.",
-    avatar: "/confident-businessman.png",
-    rating: 4,
-  },
-  {
-    id: 7,
-    name: "Amanda Peterson",
     role: "Homeowner",
     quote:
-      "We had our kitchen cabinets refinished by NXG and they look brand new! The team was meticulous about protecting our countertops and floors. The spray finish is flawless with no drips or uneven spots.",
-    avatar: "/fiery-portrait.png",
-    rating: 5,
-  },
-  {
-    id: 8,
-    name: "Thomas Miller",
-    role: "General Contractor",
-    quote:
-      "I've subcontracted NXG for painting on several new construction projects. Their crew is reliable, their work passes inspection every time, and they're flexible when construction schedules shift. A valuable partner.",
-    avatar: "/construction-worker-portrait.png",
+      "From start to finish, the team at NXG Coatings was professional, courteous, and skilled. They completed our project on time and within budget.",
+    avatar: "/placeholder.svg?height=100&width=100",
     rating: 5,
   },
 ]
@@ -112,4 +76,41 @@ export default function TestimonialsSection() {
 
   // Return null to render nothing
   return null
+
+  /* Original section commented out
+  return (
+    <section ref={sectionRef} className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div ref={testimonialsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {testimonials.map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="testimonial-card bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+            >
+              <div className="flex items-center mb-4">
+                <div className="flex">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+              <p className="text-gray-600 italic mb-6">{`"${testimonial.quote}"`}</p>
+              <div className="flex items-center">
+                <div className="relative h-12 w-12 rounded-full overflow-hidden mr-4">
+                  <Image src={testimonial.avatar || "/placeholder.svg"} alt={testimonial.name} fill className="object-cover" />
+                </div>
+                <div>
+                  <h4 className="font-bold">{testimonial.name}</h4>
+                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+  */
 }

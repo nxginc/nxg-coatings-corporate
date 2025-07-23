@@ -25,7 +25,6 @@ export const metadata: Metadata = {
       sizes: "32x32",
       type: "image/png",
     },
-<<<<<<< HEAD
     {
       rel: "apple-touch-icon",
       url: "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/apple-touch-icon_yKAQZFqzxN.png?updatedAt=1741369090862",
@@ -35,9 +34,6 @@ export const metadata: Metadata = {
       url: "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/android-chrome-512x512_GHPz6HAEF.png?updatedAt=1741369090727",
       color: "#003399",
     },
-=======
-    // ...existing code...
->>>>>>> production
   ],
   appleWebApp: {
     title: "NXG Coatings",

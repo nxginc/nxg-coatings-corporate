@@ -15,7 +15,7 @@ export default function ExteriorPaintingPage() {
       <EnhancedHero
         title="Exterior Painting Services"
         description="Transform your home's curb appeal with our premium exterior painting services that protect and beautify."
-        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/exterior-painting-hero_tnbvxr.jpg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/hero.jpg?updatedAt=1741960872540"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -121,6 +121,32 @@ export default function ExteriorPaintingPage() {
                   className="w-full h-auto object-cover"
                 />
               </div>
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
+                <div className="flex items-start mb-2">
+                  <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    "NXG Coatings transformed our home's exterior with beautiful colors and exceptional attention to
+                    detail. Our neighbors keep asking who did the work!"
+                  </p>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
+                    <Image
+                      src="/placeholder.svg?height=32&width=32"
+                      alt="Customer"
+                      width={32}
+                      height={32}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold">Robert Anderson</p>
+                    <p className="text-xs text-gray-500">Homeowner</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -177,28 +203,26 @@ export default function ExteriorPaintingPage() {
                 image:
                   "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/stucco.jpg?updatedAt=1741960872540",
               },
-            ]
-              .filter((service) => service.image)
-              .map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="h-48 relative overflow-hidden">
-                    <Image
-                      src={service.image || "/placeholder.svg?height=300&width=400"}
-                      alt={service.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
-                  </div>
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
+              >
+                <div className="h-48 relative overflow-hidden">
+                  <Image
+                    src={service.image || "/placeholder.svg?height=300&width=400"}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-              ))}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -399,45 +423,6 @@ export default function ExteriorPaintingPage() {
                 <p className="text-gray-600">{faq.answer}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Before/After Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Before & After</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              See the difference our exterior painting services can make.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
-            <div className="relative">
-              <Image
-                src="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/exterior-before_tnbvxr.jpg"
-                alt="Before exterior painting"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
-              <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-medium">
-                Before
-              </div>
-            </div>
-            <div className="relative">
-              <Image
-                src="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/exterior-after_tnbvxr.jpg"
-                alt="After exterior painting"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
-              />
-              <div className="absolute top-4 left-4 bg-brand-blue text-white px-3 py-1 rounded-full text-sm font-medium">
-                After
-              </div>
-            </div>
           </div>
         </div>
       </section>

@@ -3,29 +3,28 @@
 import type React from "react"
 
 import { useEffect, useRef } from "react"
-import Image from "next/image"
 import { gsap } from "gsap"
-import { FancyButton } from "@/components/ui/fancy-button"
-import { Phone } from "lucide-react"
+import Image from "next/image"
+import { cn } from "@/lib/utils"
 
 interface EnhancedHeroProps {
   title: string
-  subtitle?: string
+  description?: string
   backgroundImage: string
-  height?: "small" | "medium" | "large" | "full"
-  overlay?: "light" | "dark" | "gradient"
-  disableButtons?: boolean
   children?: React.ReactNode
+  className?: string
+  height?: "small" | "medium" | "large"
+  overlay?: "light" | "medium" | "dark"
 }
 
 export default function EnhancedHero({
   title,
-  subtitle,
+  description,
   backgroundImage,
-  height = "large",
-  overlay = "gradient",
-  disableButtons = false,
   children,
+  className,
+  height = "medium",
+  overlay = "medium",
 }: EnhancedHeroProps) {
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -35,99 +34,61 @@ export default function EnhancedHero({
 
     const tl = gsap.timeline()
 
-    tl.from(contentRef.current.children, {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power2.out",
-    })
+    // Animate the background image
+    tl.fromTo(
+      heroRef.current.querySelector(".hero-bg"),
+      { scale: 1.1, opacity: 0.8 },
+      { scale: 1, opacity: 1, duration: 1.5, ease: "power2.out" },
+    )
+
+    // Animate the content
+    tl.fromTo(
+      contentRef.current.children,
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power2.out" },
+      "-=1",
+    )
 
     return () => {
-      if (tl) tl.kill()
+      tl.kill()
     }
   }, [])
 
-  const getHeightClass = () => {
-    switch (height) {
-      case "small":
-        return "h-[40vh] min-h-[300px]"
-      case "medium":
-        return "h-[60vh] min-h-[400px]"
-      case "large":
-        return "h-[80vh] min-h-[600px]"
-      case "full":
-        return "h-screen"
-      default:
-        return "h-[80vh] min-h-[600px]"
-    }
+  const heightClasses = {
+    small: "py-12 md:py-16",
+    medium: "py-16 md:py-24",
+    large: "py-20 md:py-32",
   }
 
-  const getOverlayClass = () => {
-    switch (overlay) {
-      case "light":
-        return "bg-white/30"
-      case "dark":
-        return "bg-black/50"
-      case "gradient":
-        return "bg-gradient-to-r from-black/70 via-black/50 to-transparent"
-      default:
-        return "bg-gradient-to-r from-black/70 via-black/50 to-transparent"
-    }
+  const overlayClasses = {
+    light: "bg-brand-blue/30",
+    medium: "bg-brand-blue/50",
+    dark: "bg-brand-blue/70",
   }
 
   return (
-    <section ref={heroRef} className={`relative ${getHeightClass()} overflow-hidden`}>
+    <section ref={heroRef} className={cn("relative overflow-hidden text-white", heightClasses[height], className)}>
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="hero-bg absolute inset-0 z-0">
         <Image
-          src={backgroundImage || "/placeholder.svg?height=800&width=1200"}
+          src={
+            backgroundImage ||
+            "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263"
+          }
           alt={title}
           fill
-          className="object-cover"
           priority
-          onError={(e) => {
-            const target = e.target as HTMLImageElement
-            target.src = "/placeholder.svg?height=800&width=1200"
-          }}
+          className="object-cover"
         />
+        <div className={cn("absolute inset-0", overlayClasses[overlay])} />
       </div>
 
-      {/* Overlay */}
-      <div className={`absolute inset-0 ${getOverlayClass()}`} />
-
       {/* Content */}
-      <div className="relative h-full flex items-center">
-        <div className="container mx-auto px-4">
-          <div ref={contentRef} className="max-w-4xl text-white">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">{title}</h1>
-
-            {subtitle && <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl">{subtitle}</p>}
-
-            {children && <div className="mb-8">{children}</div>}
-
-            {!disableButtons && (
-              <div className="flex flex-col sm:flex-row gap-4">
-                <FancyButton
-                  variant="gradient"
-                  size="lg"
-                  hasArrow={true}
-                  onClick={() => window.open("/quote", "_self")}
-                >
-                  Get Free Quote
-                </FancyButton>
-                <FancyButton
-                  variant="outline"
-                  size="lg"
-                  className="text-white border-white hover:bg-white hover:text-brand-blue"
-                  onClick={() => window.open("tel:+1234567890")}
-                >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call Now
-                </FancyButton>
-              </div>
-            )}
-          </div>
+      <div className="container relative z-10 mx-auto px-4">
+        <div ref={contentRef} className="max-w-3xl">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase">{title}</h1>
+          {description && <p className="text-lg md:text-xl mb-8">{description}</p>}
+          {children}
         </div>
       </div>
     </section>

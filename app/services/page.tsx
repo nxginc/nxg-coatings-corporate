@@ -20,7 +20,7 @@ export default function ServicesPage() {
       <EnhancedHero
         title="Our Professional Services"
         subtitle="Discover our comprehensive range of coating services designed to protect and beautify your property."
-        backgroundImage="/images/banners/services-banner.jpg"
+        backgroundImage="https://cdn.nxgcoatings.com/banners/services-banner.jpg"
         height="medium"
       >
         <div className="flex flex-wrap gap-4 justify-center">
@@ -66,31 +66,23 @@ export default function ServicesPage() {
             "Color consultation and custom color matching",
             "Comprehensive clean-up after project completion",
           ]}
-<<<<<<< HEAD
-          image="/images/services/exterior-painting-banner.png"
-=======
-          image="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/new_exterior_image.jpg?updatedAt=1746446543080"
->>>>>>> production
+          image="https://cdn.nxgcoatings.com/services/exterior-painting-detail.jpg"
         />
       </div>
 
       {/* Interior Painting */}
       <div id="interior">
-      <ServiceDetail
-          title="Exterior Painting"
-          description="Transform and protect your home's exterior with our professional painting services. We use premium quality paints and coatings that stand up to harsh weather conditions while enhancing your property's curb appeal."
-          features={["Premium weather-resistant paints and coatings","Thorough surface preparation and cleaning","Expert application techniques for lasting results","Color consultation and custom color matching","Comprehensive clean-up after project completion"]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080"
-        />
+        <ServiceDetail
+          title="Interior Painting"
+          description="Revitalize your living spaces with our interior painting services. Our team of skilled professionals delivers flawless results with minimal disruption to your daily routine."
+          features={[
+            "Low-VOC and eco-friendly paint options",
+            "Precise cutting-in and trim work",
             "Protection of furniture and flooring",
             "Smooth, even application with no drips or streaks",
             "Quick turnaround times to minimize disruption",
           ]}
-<<<<<<< HEAD
-          image="/images/services/interior-painting-banner.png"
-=======
-          image="https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/new_interior_image.jpg?updatedAt=1666795159879"
->>>>>>> production
+          image="https://cdn.nxgcoatings.com/services/interior-painting-detail.jpg"
           reversed={true}
         />
       </div>
@@ -107,11 +99,7 @@ export default function ServicesPage() {
             "Expert application for even coverage",
             "Maintenance recommendations to extend lifespan",
           ]}
-<<<<<<< HEAD
-          image="/images/deck/deck1.jpeg"
-=======
-          image="https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/new_deck_image.jpg?updatedAt=1681571719088"
->>>>>>> production
+          image="https://cdn.nxgcoatings.com/services/deck-staining-detail.png"
         />
       </div>
 
@@ -127,7 +115,7 @@ export default function ServicesPage() {
             "Custom color matching and finishes",
             "Hardware replacement and installation",
           ]}
-          image="/images/cabinet/cabinets.jpg"
+          image="https://cdn.nxgcoatings.com/services/cabinet-refinishing-detail.jpg"
           reversed={true}
         />
       </div>
@@ -142,7 +130,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="/images/services/pressure-cleaning.png"
+                  src="https://cdn.nxgcoatings.com/services/pressure-cleaning.png"
                   alt="Pressure Washing"
                   width={800}
                   height={600}
@@ -166,7 +154,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="/images/services/restoration.png"
+                  src="https://cdn.nxgcoatings.com/services/restoration.png"
                   alt="Paint Restoration"
                   width={800}
                   height={600}
@@ -190,7 +178,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="/images/services/specialty-finishes-banner.png"
+                  src="https://cdn.nxgcoatings.com/services/fine-finishes.jpg"
                   alt="Protective Coatings"
                   width={800}
                   height={600}
@@ -282,7 +270,12 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-16 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/banners/services-banner.jpg" alt="Background" fill className="object-cover" />
+          <Image
+            src="https://cdn.nxgcoatings.com/services/exterior-painting-bg.jpg"
+            alt="Background"
+            fill
+            className="object-cover"
+          />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>

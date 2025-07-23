@@ -15,7 +15,7 @@ export default function HOAPage() {
       <EnhancedHero
         title="HOA & Multi-Family Coating Solutions"
         description="Comprehensive painting services for homeowners associations and multi-family properties."
-        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/hoa-hero_tnbvxr.jpg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa_multifamily_Xt7Hs9Kkl.jpg?updatedAt=1741216795011"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,7 +114,7 @@ export default function HOAPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/hoa/apartment.png"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa-detail_Xt7Hs9Kkl.jpg?updatedAt=1741216795011"
                   alt="HOA painting project"
                   width={600}
                   height={800}
@@ -141,37 +141,40 @@ export default function HOAPage() {
               {
                 title: "Exterior Painting",
                 description: "Comprehensive exterior painting for multi-family buildings and communities.",
-                image: "/images/hoa/commercial.png",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/hoa-exterior_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
                 link: "/services/hoa-exterior",
               },
               {
                 title: "Common Area Painting",
                 description: "Refresh lobbies, hallways, and community spaces with professional painting.",
-                image: "/images/hoa/ceiling.png",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/common-areas_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
                 link: "/services/common-areas",
               },
               {
-                title: "Interior Unit Painting",
-                description: "Professional painting services for apartment and condo interiors.",
-                image: "/images/hoa/living-area.png",
-                link: "/services/interior-unit-painting",
+                title: "Deck & Fence Staining",
+                description: "Protect and beautify community wooden structures and fencing.",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/Services/community-deck_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                link: "/services/community-deck",
               },
               {
                 title: "Color Consultation",
                 description: "Expert guidance on color schemes that enhance property values.",
-                image: "/images/hoa/living.png",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/hoa-color_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
                 link: "/services/hoa-color",
               },
               {
                 title: "Maintenance Programs",
                 description: "Ongoing maintenance plans to keep properties looking their best year-round.",
-                image: "/images/hoa/apartment.png",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/Services/maintenance-program_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
                 link: "/services/maintenance-program",
               },
               {
                 title: "Waterproofing",
                 description: "Protect buildings from water damage with specialized waterproofing coatings.",
-                image: "/images/hoa/commercial.png",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/Services/waterproofing_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
                 link: "/services/waterproofing",
               },
             ].map((service, index) => (
@@ -203,84 +206,8 @@ export default function HOAPage() {
         </div>
       </section>
 
-      {/* Our Projects Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our HOA & Multi-Family Projects</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Browse through our gallery of recent HOA and multi-family projects to see the quality of our work.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Lakeside Condominiums",
-                description: "Complete exterior repaint of 12-building condominium complex",
-                image: "/images/hoa/apartment.png",
-              },
-              {
-                title: "Parkview Apartments",
-                description: "Interior common area refresh including hallways and lobby",
-                image: "/images/hoa/ceiling.png",
-              },
-              {
-                title: "Meadowbrook HOA",
-                description: "Community-wide exterior painting project with color update",
-                image: "/images/hoa/commercial.png",
-              },
-              {
-                title: "Riverside Townhomes",
-                description: "Exterior painting and trim work for 24-unit townhome community",
-                image: "/images/hoa/apartment.png",
-              },
-              {
-                title: "Highland Estates",
-                description: "Interior unit repainting for luxury apartment complex",
-                image: "/images/hoa/living-area.png",
-              },
-              {
-                title: "Oakwood Commons",
-                description: "Clubhouse and amenity spaces refresh for apartment community",
-                image: "/images/hoa/living.png",
-              },
-            ].map((project, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-              >
-                <div className="h-64 relative overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={500}
-                    height={400}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-brand-blue mb-2">{project.title}</h3>
-                  <p className="text-gray-600">{project.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <CTAModal
-              trigger={
-                <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
-                  Get Your Free Estimate
-                </FancyButton>
-              }
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Process Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Our HOA & Multi-Family Process</h2>
@@ -333,7 +260,7 @@ export default function HOAPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Benefits for HOAs & Property Managers</h2>

@@ -15,7 +15,7 @@ export default function DeckStainingPage() {
       <EnhancedHero
         title="Professional Deck Staining Services"
         description="Protect and beautify your outdoor living spaces with our expert deck staining and sealing services."
-        backgroundImage="/images/deck/deck1.jpeg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/hero.jpg?updatedAt=1741960872540"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,15 +114,13 @@ export default function DeckStainingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/deck/deck2.jpeg"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/overview.jpg?updatedAt=1741960872540"
                   alt="Freshly stained wooden deck"
                   width={600}
                   height={800}
                   className="w-full h-auto object-cover"
                 />
               </div>
-<<<<<<< HEAD
-=======
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
                 <div className="flex items-start mb-2">
                   <div className="bg-green-100 rounded-full p-1 mr-2">
@@ -133,92 +131,29 @@ export default function DeckStainingPage() {
                     beautifully through all seasons."
                   </p>
                 </div>
-           
+                <div className="flex items-center">
+                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
+                    <Image
+                      src="/placeholder.svg?height=32&width=32"
+                      alt="Customer"
+                      width={32}
+                      height={32}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold">Michael Thompson</p>
+                    <p className="text-xs text-gray-500">Homeowner</p>
+                  </div>
+                </div>
               </div>
->>>>>>> production
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Projects Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Deck Staining Projects</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Browse through our gallery of recent deck staining projects to see the quality of our work.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Cedar Deck Restoration",
-                description: "Complete restoration of weathered cedar deck with semi-transparent stain",
-                image: "/images/deck/deck1.jpeg",
-              },
-              {
-                title: "Pressure-Treated Deck Staining",
-                description: "New pressure-treated deck with solid color stain for maximum protection",
-                image: "/images/deck/deck2.jpeg",
-              },
-              {
-                title: "Composite Deck Refresh",
-                description: "Cleaning and sealing of composite deck materials for renewed appearance",
-                image: "/images/deck/deck3.jpeg",
-              },
-              {
-                title: "Poolside Deck Protection",
-                description: "Waterproof staining for high-moisture pool deck environment",
-                image: "/images/deck/deck4.jpeg",
-              },
-              {
-                title: "Multi-Level Deck Project",
-                description: "Comprehensive staining of multi-level deck with coordinated colors",
-                image: "/images/deck/deck5.jpeg",
-              },
-              {
-                title: "Deck and Railing Combination",
-                description: "Contrasting stain colors for deck surface and railings",
-                image: "/images/deck/deck6.jpeg",
-              },
-            ].map((project, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-              >
-                <div className="h-64 relative overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={500}
-                    height={400}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-brand-blue mb-2">{project.title}</h3>
-                  <p className="text-gray-600">{project.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <CTAModal
-              trigger={
-                <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
-                  Get Your Free Estimate
-                </FancyButton>
-              }
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Services Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Deck Staining Services</h2>
@@ -233,64 +168,66 @@ export default function DeckStainingPage() {
                 title: "Deck Cleaning & Preparation",
                 description:
                   "Thorough cleaning, sanding, and preparation to ensure optimal stain adhesion and longevity.",
-                image: "/images/deck/deck3.jpeg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/cleaning.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Transparent & Semi-Transparent Stains",
                 description:
                   "Enhance the natural wood grain while providing protection against moisture and UV damage.",
-                image: "/images/deck/deck4.jpeg",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/transparent.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Solid Color Deck Stains",
                 description: "Maximum protection and color options to completely transform the look of your deck.",
-                image: "/images/deck/deck5.jpeg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/solid.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Waterproofing & Sealing",
                 description:
                   "Additional protection against moisture penetration to prevent warping, cracking, and rot.",
-                image: "/images/deck/deck6.jpeg",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/waterproofing.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Deck Restoration",
                 description:
                   "Revitalize weathered and gray decks to restore their original beauty and extend their lifespan.",
-                image: "/images/deck/deck1.jpeg",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/restoration.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Maintenance Programs",
                 description: "Scheduled maintenance plans to keep your deck looking its best year after year.",
-                image: "/images/deck/deck2.jpeg",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/maintenance.jpg?updatedAt=1741960872540",
               },
-            ]
-              .filter((service) => !service.image?.includes("placeholder.svg"))
-              .map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="h-48 relative overflow-hidden">
-                    <Image
-                      src={service.image || "/placeholder.svg?height=300&width=400"}
-                      alt={service.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
-                  </div>
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
+              >
+                <div className="h-48 relative overflow-hidden">
+                  <Image
+                    src={service.image || "/placeholder.svg?height=300&width=400"}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-              ))}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Deck Staining Process</h2>
@@ -358,7 +295,7 @@ export default function DeckStainingPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Benefits of Professional Deck Staining</h2>
@@ -440,7 +377,7 @@ export default function DeckStainingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Frequently Asked Questions</h2>

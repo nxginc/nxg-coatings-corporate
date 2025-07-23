@@ -15,7 +15,7 @@ export default function InteriorPaintingPage() {
       <EnhancedHero
         title="Interior Painting Services"
         description="Transform your living spaces with our premium interior painting services that combine quality, craftsmanship, and attention to detail."
-        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/interior-painting-hero_tnbvxr.jpg"
+        backgroundImage="https://cdn.nxgcoatings.com/services/interior-painting/hero.jpg"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -112,12 +112,38 @@ export default function InteriorPaintingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/interior-living-room_tnbvxr.jpg"
+                  src="https://cdn.nxgcoatings.com/services/interior-painting/living-room.jpg"
                   alt="Interior painting project - living room"
                   width={600}
                   height={800}
                   className="w-full h-auto object-cover"
                 />
+              </div>
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
+                <div className="flex items-start mb-2">
+                  <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    "NXG Coatings transformed our living room with beautiful colors and flawless workmanship. The team
+                    was professional and respectful of our home."
+                  </p>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
+                    <Image
+                      src="/placeholder.svg?height=32&width=32"
+                      alt="Customer"
+                      width={32}
+                      height={32}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold">Sarah Johnson</p>
+                    <p className="text-xs text-gray-500">Homeowner</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -140,59 +166,55 @@ export default function InteriorPaintingPage() {
                 title: "Living Areas",
                 description:
                   "Create inviting living rooms, family rooms, and entertainment spaces with perfect color schemes.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/interior-living-areas_t9z9qv.jpg",
+                image: "https://cdn.nxgcoatings.com/services/interior-painting/living-areas.jpg",
               },
               {
                 title: "Kitchens & Bathrooms",
                 description:
                   "Specialized moisture-resistant paints for high-humidity areas that stand up to daily use.",
-                image:
-                  "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/interior-kitchen-bathroom_yv9ose.jpg",
+                image: "https://cdn.nxgcoatings.com/services/interior-painting/kitchen-bathroom.jpg",
               },
               {
                 title: "Bedrooms",
                 description: "Transform bedrooms into peaceful retreats with soothing colors and perfect finishes.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/interior-bedroom_yv9ose.jpg",
+                image: "https://cdn.nxgcoatings.com/services/interior-painting/bedroom.jpg",
               },
               {
                 title: "Ceilings & Trim",
                 description: "Expert painting of ceilings, crown molding, baseboards, and other architectural details.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/interior-trim-ceiling_rpqg6w.jpg",
+                image: "https://cdn.nxgcoatings.com/services/interior-painting/trim-ceiling.jpg",
               },
               {
                 title: "Accent Walls",
                 description: "Create visual interest with bold accent walls that become the focal point of your room.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088495/interior-accent-wall_yv9ose.jpg",
+                image: "https://cdn.nxgcoatings.com/services/interior-painting/accent-wall.jpg",
               },
               {
                 title: "Specialty Finishes",
                 description:
                   "Unique textures and decorative finishes including faux finishes and textured applications.",
-                image:
-                  "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/interior-specialty-finish_t9z9qv.jpg",
+                image: "https://cdn.nxgcoatings.com/services/interior-painting/specialty-finish.jpg",
               },
-            ]
-              .filter((service) => !service.image?.includes("placeholder.svg"))
-              .map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="h-48 relative overflow-hidden">
-                    <Image
-                      src={service.image || "/placeholder.svg?height=300&width=400"}
-                      alt={service.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
-                  </div>
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
+              >
+                <div className="h-48 relative overflow-hidden">
+                  <Image
+                    src={service.image || "/placeholder.svg?height=300&width=400"}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-              ))}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

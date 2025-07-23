@@ -16,7 +16,7 @@ export default function ContactPage() {
       <EnhancedHero
         title="Contact Us"
         description="Get in touch with our team for a free estimate or to schedule a consultation."
-        backgroundImage="/images/banners/contact-banner.jpg"
+        backgroundImage="https://cdn.nxgcoatings.com/banners/contact-hero.jpg"
         height="medium"
       />
 

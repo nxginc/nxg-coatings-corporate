@@ -14,7 +14,7 @@ export default function ColorConsultationPage() {
       <EnhancedHero
         title="Professional Color Consultation"
         description="Find the perfect colors for your home with our expert color consultation services."
-        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/color-consultation-hero_tnbvxr.jpg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/hero.jpg?updatedAt=1741960872540"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -112,12 +112,38 @@ export default function ColorConsultationPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/color-consultation-overview_tnbvxr.jpg"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/overview.jpg?updatedAt=1741960872540"
                   alt="Color consultation session"
                   width={600}
                   height={800}
                   className="w-full h-auto object-cover"
                 />
+              </div>
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
+                <div className="flex items-start mb-2">
+                  <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    "The color consultation was invaluable! Our consultant helped us find the perfect palette that
+                    transformed our home and received countless compliments."
+                  </p>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
+                    <Image
+                      src="/placeholder.svg?height=32&width=32"
+                      alt="Customer"
+                      width={32}
+                      height={32}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold">Emily Richardson</p>
+                    <p className="text-xs text-gray-500">Homeowner</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -141,21 +167,42 @@ export default function ColorConsultationPage() {
                 description:
                   "Expert guidance for selecting interior paint colors that create the perfect atmosphere for each room.",
                 image:
-                  "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/color_consultation_interior_jve08w.jpg",
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/interior.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Exterior Color Consultation",
                 description:
                   "Professional advice on exterior color schemes that enhance curb appeal and complement architectural features.",
                 image:
-                  "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/color_consultation_exterior_b9yxaa.jpg",
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/exterior.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Whole Home Color Planning",
                 description:
                   "Comprehensive color strategies that create a cohesive flow throughout your entire home, inside and out.",
                 image:
-                  "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/color_consultation_whole_home_fyw8vg.jpg",
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/whole-home.jpg?updatedAt=1741960872540",
+              },
+              {
+                title: "Color Matching Services",
+                description:
+                  "Precise color matching for existing paints, fabrics, or specific colors you want to incorporate.",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/matching.jpg?updatedAt=1741960872540",
+              },
+              {
+                title: "Virtual Color Visualization",
+                description:
+                  "Digital visualization tools that show how different colors will look in your actual space before painting.",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/virtual.jpg?updatedAt=1741960872540",
+              },
+              {
+                title: "Color Trend Guidance",
+                description:
+                  "Insights on current color trends and timeless options that will keep your home looking fresh for years.",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/color-consultation/trends.jpg?updatedAt=1741960872540",
               },
             ].map((service, index) => (
               <div

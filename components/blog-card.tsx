@@ -1,4 +1,3 @@
-import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { CalendarDays, Clock, ArrowRight } from "lucide-react"
@@ -12,7 +11,6 @@ export interface BlogPostMeta {
   readTime: string
   coverImage: string
   category: string
-  content: string // Added content field
   featured?: boolean
   author?: {
     name: string
@@ -27,12 +25,6 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, className, featured = false }: BlogCardProps) {
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const target = e.target as HTMLImageElement
-    target.onerror = null // Prevents infinite loop
-    target.src = "/placeholder.svg?height=600&width=800" // Fallback image
-  }
-
   return (
     <article
       className={cn(
@@ -48,7 +40,10 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
             alt={post.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
-            onError={handleImageError}
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              target.src = "/diverse-team-brainstorm.png"
+            }}
           />
           <div className="absolute top-4 left-4">
             <span className="bg-brand-blue text-white text-xs font-semibold px-3 py-1 rounded-full">
@@ -86,7 +81,6 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
                   width={40}
                   height={40}
                   className="rounded-full"
-                  onError={handleImageError}
                 />
                 <span className="text-sm font-medium">{post.author.name}</span>
               </div>

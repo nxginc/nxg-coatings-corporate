@@ -76,13 +76,6 @@ export default function ColorConsultation() {
     },
   ]
 
-  const colorPalettes = [
-    { id: "palette1", name: "Modern Neutrals" },
-    { id: "palette2", name: "Coastal Breeze" },
-    { id: "palette3", name: "Earthy Tones" },
-    { id: "palette4", name: "Vibrant Hues" },
-  ]
-
   return (
     <section ref={sectionRef} className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -105,26 +98,6 @@ export default function ColorConsultation() {
                   <div>
                     <h3 className="font-bold text-lg mb-1">{benefit.title}</h3>
                     <p className="text-gray-600">{benefit.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
-              {colorPalettes.map((palette) => (
-                <div
-                  key={palette.id}
-                  className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-                >
-                  <Image
-                    src={`https://ik.imagekit.io/j98e6hcfnkn/color-palettes/${palette.id}.jpg`}
-                    alt={palette.name}
-                    width={300}
-                    height={200}
-                    className="w-full object-cover"
-                  />
-                  <div className="p-3 bg-white">
-                    <h4 className="font-medium text-gray-800">{palette.name}</h4>
                   </div>
                 </div>
               ))}

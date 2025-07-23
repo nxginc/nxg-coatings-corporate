@@ -39,10 +39,12 @@ const categories = [
     image: "https://cdn.nxgcoatings.com/gallery/interior/interior-main.jpg",
     icon: Home,
     images: [
-      "https://ik.imagekit.io/j98e6hcfnkn/gallery/interior/living-room-after.jpg",
-      "https://ik.imagekit.io/j98e6hcfnkn/gallery/interior/kitchen-transformation.jpg",
-      "https://ik.imagekit.io/j98e6hcfnkn/gallery/interior/bedroom-makeover.jpg",
-      "https://ik.imagekit.io/j98e6hcfnkn/gallery/interior/office-space.jpg",
+      "https://cdn.nxgcoatings.com/gallery/interior/interior-1.jpg",
+      "https://cdn.nxgcoatings.com/gallery/interior/interior-2.jpg",
+      "https://cdn.nxgcoatings.com/gallery/interior/interior-3.jpg",
+      "https://cdn.nxgcoatings.com/gallery/interior/interior-4.jpg",
+      "https://cdn.nxgcoatings.com/gallery/interior/interior-5.jpg",
+      "https://cdn.nxgcoatings.com/gallery/interior/interior-6.jpg",
     ],
   },
   {

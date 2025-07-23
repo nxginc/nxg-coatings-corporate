@@ -14,7 +14,7 @@ export default function CabinetRefinishingPage() {
       <EnhancedHero
         title="Cabinet Refinishing Services"
         description="Transform your kitchen and bathroom cabinets with our professional refinishing services—a cost-effective alternative to full replacement."
-        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/cabinet-refinishing-hero_tnbvxr.jpg"
+        backgroundImage="https://cdn.nxgcoatings.com/services/cabinet-refinishing/hero.jpg"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,7 +114,7 @@ export default function CabinetRefinishingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/cabinet/cabinets.jpg"
+                  src="https://cdn.nxgcoatings.com/services/cabinet-refinishing/kitchen-cabinets.jpg"
                   alt="Cabinet refinishing project - kitchen"
                   width={600}
                   height={800}
@@ -142,140 +142,62 @@ export default function CabinetRefinishingPage() {
                 title: "Kitchen Cabinets",
                 description:
                   "Transform your kitchen with beautifully refinished cabinets in your choice of color and finish.",
-                image: "/images/cabinet/cabinets2.jpg",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/kitchen.jpg",
               },
               {
                 title: "Bathroom Vanities",
                 description:
                   "Update bathroom cabinets with moisture-resistant finishes designed for high-humidity environments.",
-                image: "/images/cabinet/basement-cabinets.jpg",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/bathroom.jpg",
               },
               {
                 title: "Built-In Cabinetry",
                 description:
                   "Refresh entertainment centers, bookcases, and other built-ins to match your updated décor.",
-                image: "/images/cabinet/cab.jpg",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/built-in.jpg",
               },
               {
                 title: "Cabinet Color Changes",
                 description:
                   "Completely change your cabinet color from dark to light, light to dark, or any custom color.",
-                image: "/images/cabinet/cabinet-stain.jpg",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/color-change.jpg",
               },
               {
                 title: "Glazing & Distressing",
                 description: "Add character with decorative glazing or distressed finishes for a unique, custom look.",
-                image: "/images/cabinet/cabinets.jpg",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/glazing.jpg",
               },
               {
                 title: "Hardware Replacement",
                 description: "Complete your cabinet transformation with updated knobs, pulls, and hinges.",
-                image: "/images/cabinet/cabinet-hardware.jpg",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/hardware.jpg",
               },
-            ]
-              .filter((service) => service.image !== "/placeholder.svg?height=300&width=400")
-              .map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="h-48 relative overflow-hidden">
-                    <Image
-                      src={service.image || "/placeholder.svg?height=300&width=400"}
-                      alt={service.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
-                  </div>
-                </div>
-              ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Work Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Cabinet Refinishing Projects</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Browse through our gallery of recent cabinet refinishing projects to see the quality of our work.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Modern White Kitchen",
-                description: "Complete kitchen cabinet refinishing in bright white with new hardware",
-                image: "/images/cabinet/cabinets.jpg",
-              },
-              {
-                title: "Stained Oak Cabinets",
-                description: "Rich stain application on oak cabinets for a warm, traditional look",
-                image: "/images/cabinet/cabinet-stain.jpg",
-              },
-              {
-                title: "Basement Bar Cabinets",
-                description: "Custom color refinishing for basement entertainment area",
-                image: "/images/cabinet/basement-cabinets.jpg",
-              },
-              {
-                title: "Two-Tone Kitchen",
-                description: "Two-tone cabinet refinishing with island in contrasting color",
-                image: "/images/cabinet/cabinets2.jpg",
-              },
-              {
-                title: "Hardware Upgrade",
-                description: "Cabinet refinishing with modern hardware replacement",
-                image: "/images/cabinet/cabinet-hardware.jpg",
-              },
-              {
-                title: "Built-In Bookcase",
-                description: "Custom color refinishing for built-in shelving and storage",
-                image: "/images/cabinet/cab.jpg",
-              },
-            ].map((project, index) => (
+            ].map((service, index) => (
               <div
                 key={index}
                 className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
               >
-                <div className="h-64 relative overflow-hidden">
+                <div className="h-48 relative overflow-hidden">
                   <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={500}
-                    height={400}
+                    src={service.image || "/placeholder.svg?height=300&width=400"}
+                    alt={service.title}
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-brand-blue mb-2">{project.title}</h3>
-                  <p className="text-gray-600">{project.description}</p>
+                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <CTAModal
-              trigger={
-                <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
-                  Get Your Free Estimate
-                </FancyButton>
-              }
-            />
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Cabinet Refinishing Process</h2>
@@ -328,7 +250,7 @@ export default function CabinetRefinishingPage() {
       </section>
 
       {/* Before & After Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Before & After Transformations</h2>
@@ -343,15 +265,15 @@ export default function CabinetRefinishingPage() {
                 title: "Traditional Oak to Modern White",
                 description:
                   "This kitchen transformation took dated oak cabinets to a bright, contemporary white finish.",
-                before: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/cabinet-before-1_tnbvxr.jpg",
-                after: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/cabinet-after-1_tnbvxr.jpg",
+                before: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/before-1.jpg",
+                after: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/after-1.jpg",
               },
               {
                 title: "Dark Cherry to Light Gray",
                 description:
                   "These dark cherry cabinets were transformed with a trendy light gray finish for a fresh look.",
-                before: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/cabinet-before-2_tnbvxr.jpg",
-                after: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/cabinet-after-2_tnbvxr.jpg",
+                before: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/before-2.jpg",
+                after: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/after-2.jpg",
               },
             ].map((example, index) => (
               <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden">
@@ -363,11 +285,7 @@ export default function CabinetRefinishingPage() {
                   <div>
                     <p className="text-center font-bold mb-2">Before</p>
                     <Image
-                      src={
-                        index === 0
-                          ? "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/cabinet-before-1_tnbvxr.jpg"
-                          : "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/cabinet-before-2_tnbvxr.jpg"
-                      }
+                      src={example.before || "/placeholder.svg?height=300&width=400"}
                       alt={`Before - ${example.title}`}
                       width={400}
                       height={300}
@@ -377,11 +295,7 @@ export default function CabinetRefinishingPage() {
                   <div>
                     <p className="text-center font-bold mb-2">After</p>
                     <Image
-                      src={
-                        index === 0
-                          ? "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/cabinet-after-1_tnbvxr.jpg"
-                          : "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/cabinet-after-2_tnbvxr.jpg"
-                      }
+                      src={example.after || "/placeholder.svg?height=300&width=400"}
                       alt={`After - ${example.title}`}
                       width={400}
                       height={300}
@@ -396,7 +310,7 @@ export default function CabinetRefinishingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Frequently Asked Questions</h2>
