@@ -1,20 +1,3 @@
-export const metadata = {
-  title: "Project Gallery | NXG Coatings",
-  description: "Browse our portfolio of completed painting and coating projects. See the quality and craftsmanship NXG Coatings brings to every job.",
-  openGraph: {
-    title: "Project Gallery | NXG Coatings",
-    description: "Browse our portfolio of completed painting and coating projects. See the quality and craftsmanship NXG Coatings brings to every job.",
-    url: "https://nxgcoatings.com/gallery",
-    images: [
-      {
-        url: "https://cdn.nxgcoatings.com/banners/gallery-hero.jpg",
-        width: 1200,
-        height: 630,
-        alt: "NXG Coatings Project Gallery Hero"
-      }
-    ]
-  }
-}
 "use client"
 
 import Image from "next/image"
@@ -30,7 +13,7 @@ export default function GalleryPageClient() {
       {/* Hero Section */}
       <EnhancedHero
         title="Our Project Gallery"
-        description="Browse our portfolio of completed projects and see the quality and craftsmanship we bring to every job."
+        subtitle="Browse our portfolio of completed projects and see the quality and craftsmanship we bring to every job."
         backgroundImage="https://cdn.nxgcoatings.com/banners/gallery-hero.jpg"
         height="medium"
       >
@@ -50,9 +33,6 @@ export default function GalleryPageClient() {
 
       {/* Featured Projects */}
       <section className="py-16 md:py-24 bg-white">
-<<<<<<< HEAD
-        
-=======
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Featured Projects</h2>
@@ -186,7 +166,6 @@ export default function GalleryPageClient() {
             </Link>
           </div>
         </div>
->>>>>>> production
       </section>
 
       {/* Testimonials Section removed as per requirements */}
