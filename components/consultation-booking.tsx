@@ -67,7 +67,7 @@ export default function ConsultationBooking() {
                 </div>
                 <div className="mt-4">
                   <Image
-                    src="https://ik.imagekit.io/j98e6hcfnkn/colorconsultation_SherwinWilliamsColorConsultant-4006040456_IZryS8zrza.jpg?updatedAt=1741958931540"
+                    src="https://ik.imagekit.io/j98e6hcfnkn/virtual_kBkeeo49T.webp?updatedAt=1747996861245"
                     alt="Virtual consultation calendar"
                     width={600}
                     height={400}
@@ -119,7 +119,7 @@ export default function ConsultationBooking() {
                 </div>
                 <div className="mt-4">
                   <Image
-                    src="https://ik.imagekit.io/j98e6hcfnkn/colorconsultation_SherwinWilliamsColorConsultant-4006040456_IZryS8zrza.jpg?updatedAt=1741958931540"
+                    src="https://ik.imagekit.io/j98e6hcfnkn/inperson_HXeOinL7n.jpeg?updatedAt=1747996866887"
                     alt="In-person consultation calendar"
                     width={600}
                     height={400}

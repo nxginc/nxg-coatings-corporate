@@ -15,7 +15,7 @@ export default function ExteriorPaintingPage() {
       <EnhancedHero
         title="Exterior Painting Services"
         description="Transform your home's curb appeal with our premium exterior painting services that protect and beautify."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080"
+        backgroundImage="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/exterior-painting-hero_tnbvxr.jpg"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,8 +114,8 @@ export default function ExteriorPaintingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Banners/f1_8khZANtVn.jpg?updatedAt=1679013241962"
-                  alt="Exterior painting project - feature image"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/overview.jpg?updatedAt=1741960872540"
+                  alt="Exterior house painting project"
                   width={600}
                   height={800}
                   className="w-full h-auto object-cover"
@@ -141,37 +141,41 @@ export default function ExteriorPaintingPage() {
               {
                 title: "Siding Painting",
                 description: "Expert painting for all siding types including vinyl, wood, fiber cement, and aluminum.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/stucco.jpeg?updatedAt=1747829566633",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/siding.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Trim & Fascia",
                 description:
                   "Detailed painting of trim, fascia, soffits, and architectural details that frame your home.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/fasica_7pJ1Q6j7H.JPG?updatedAt=1747490360556",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/trim.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Door & Window Painting",
                 description:
                   "Transform entryways and windows with expert painting that enhances curb appeal and protection.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/door-painting.JPG?updatedAt=1747829587587",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/doors.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Deck & Fence Painting",
                 description:
                   "Revitalize outdoor living spaces with specialized coatings for decks, fences, and railings.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/deckstain-solid.jpg?updatedAt=1747995087459",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/deck.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Garage Doors & Shutters",
                 description:
                   "Refresh and protect garage doors and shutters with durable paints designed for high-use surfaces.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/garage-painting.JPG?updatedAt=1747829609356",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/garage.jpg?updatedAt=1741960872540",
               },
               {
                 title: "Stucco & Brick Painting",
                 description:
                   "Specialized coatings and techniques for masonry surfaces that allow proper breathability.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/stucco.jpeg?updatedAt=1747829566633",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/stucco.jpg?updatedAt=1741960872540",
               },
             ]
               .filter((service) => service.image)
@@ -395,6 +399,45 @@ export default function ExteriorPaintingPage() {
                 <p className="text-gray-600">{faq.answer}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Before/After Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-brand-blue mb-4">Before & After</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              See the difference our exterior painting services can make.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
+            <div className="relative">
+              <Image
+                src="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/exterior-before_tnbvxr.jpg"
+                alt="Before exterior painting"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg"
+              />
+              <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-medium">
+                Before
+              </div>
+            </div>
+            <div className="relative">
+              <Image
+                src="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088496/exterior-after_tnbvxr.jpg"
+                alt="After exterior painting"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg"
+              />
+              <div className="absolute top-4 left-4 bg-brand-blue text-white px-3 py-1 rounded-full text-sm font-medium">
+                After
+              </div>
+            </div>
           </div>
         </div>
       </section>
