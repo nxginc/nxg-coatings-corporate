@@ -19,26 +19,7 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="Our Professional Services"
-                export interface EnhancedHeroProps {
-          title: string
-          subtitle?: string
-          backgroundImage: string
-          height?: "small" | "medium" | "large"
-          children?: React.ReactNode
-        }
-        ``````tsx
-        export default function EnhancedHero({
-          title,
-          subtitle,
-          backgroundImage,
-          height = "medium",
-          children,
-        }: EnhancedHeroProps) {
-          // ...component implementation
-        }
-        ``````tsx
-              <h1 className="text-4xl font-bold text-white mb-4">{title}</h1>
-              {subtitle && <p className="text-lg text-white mb-6">{subtitle}</p>}="Discover our comprehensive range of coating services designed to protect and beautify your property."
+        subtitle="Discover our comprehensive range of coating services designed to protect and beautify your property."
         backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
         height="medium"
       >

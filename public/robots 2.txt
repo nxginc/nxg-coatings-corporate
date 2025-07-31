@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nxgcoatings.com/sitemap.xml
