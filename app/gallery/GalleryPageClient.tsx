@@ -1,3 +1,15 @@
+<<<<<<< Updated upstream
+=======
+export const metadata = {
+  title: "Project Gallery | NXG Coatings",
+  description: "Browse our portfolio of completed painting and coating projects. See the quality and craftsmanship NXG Coatings brings to every job.",
+  openGraph: {
+    title: "Project Gallery | NXG Coatings",
+    description: "Browse our portfolio of completed painting and coating projects. See the quality and craftsmanship NXG Coatings brings to every job.",
+    url: "https://nxgcoatings.com/gallery",
+    images: [
+      {
+>>>>>>> Stashed changes
 "use client"
 
 import Image from "next/image"
@@ -6,6 +18,27 @@ import EnhancedHero from "@/components/enhanced-hero"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import PaintingGallery from "@/components/painting-gallery"
+<<<<<<< Updated upstream
+=======
+
+// Metadata helper for the gallery page
+export const galleryMetadata = {
+  title: "Project Gallery | NXG Coatings",
+  description: "View our stunning coating and painting projects. See the quality and craftsmanship that sets NXG Coatings apart.",
+  openGraph: {
+    title: "Project Gallery | NXG Coatings",
+    description: "View our stunning coating and painting projects. See the quality and craftsmanship that sets NXG Coatings apart.",
+    images: [
+      {
+        url: "https://cdn.nxgcoatings.com/banners/gallery-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "NXG Coatings Project Gallery Hero"
+      }
+    ]
+  }
+}
+>>>>>>> Stashed changes
 
 export default function GalleryPageClient() {
   return (

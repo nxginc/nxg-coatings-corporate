@@ -56,12 +56,8 @@ export default function ContactForm() {
       const result = await response.json()
 
       if (response.ok) {
-        setIsSuccess(true)
-        toast({
-          title: "Message sent!",
-          description: "We'll get back to you as soon as possible.",
-        })
-        reset()
+        // Redirect to success page instead of showing toast
+        window.location.href = "/contact/success"
       } else {
         throw new Error(result.error || "Failed to send message")
       }

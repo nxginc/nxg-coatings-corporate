@@ -25,6 +25,15 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, className, featured = false }: BlogCardProps) {
+<<<<<<< Updated upstream
+=======
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement
+    target.onerror = null // Prevents infinite loop
+    target.src = "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438" // Fallback image
+  }
+
+>>>>>>> Stashed changes
   return (
     <article
       className={cn(
@@ -36,7 +45,7 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
       <div className={cn("grid", featured ? "md:grid-cols-2" : "grid-cols-1")}>
         <div className="relative overflow-hidden aspect-video md:aspect-auto">
           <Image
-            src={post.coverImage || "/placeholder.svg?height=600&width=800"}
+            src={post.coverImage || "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"}
             alt={post.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -76,7 +85,7 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
             {post.author && (
               <div className="flex items-center gap-3 mb-4">
                 <Image
-                  src={post.author.avatar || "/placeholder.svg?height=40&width=40"}
+                  src={post.author.avatar || "https://ik.imagekit.io/j98e6hcfnkn/logo/nxg-professional_8SkCG5O3z.jpeg?updatedAt=1747919123959"}
                   alt={post.author.name}
                   width={40}
                   height={40}

@@ -66,7 +66,11 @@ export default function ServicesPage() {
             "Color consultation and custom color matching",
             "Comprehensive clean-up after project completion",
           ]}
+<<<<<<< Updated upstream
           image="https://ik.imagekit.io/j98e6hcfnkn/Banners/exteriorpainting_X5miVuC7M.jpg?updatedAt=1666774121414"
+=======
+          image="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/featured_-lZGm1HUi.jpeg?updatedAt=1747919188436"
+>>>>>>> Stashed changes
         />
       </div>
 
@@ -82,7 +86,11 @@ export default function ServicesPage() {
             "Smooth, even application with no drips or streaks",
             "Quick turnaround times to minimize disruption",
           ]}
+<<<<<<< Updated upstream
           image="https://ik.imagekit.io/j98e6hcfnkn/Banners/interiorpainting_8eXbWKtMj.jpeg?updatedAt=1666774121310"
+=======
+          image="https://ik.imagekit.io/j98e6hcfnkn/services/interior-painting/featured_-6AhYSzXe.jpeg?updatedAt=1747919188436"
+>>>>>>> Stashed changes
           reversed={true}
         />
       </div>
@@ -99,7 +107,11 @@ export default function ServicesPage() {
             "Expert application for even coverage",
             "Maintenance recommendations to extend lifespan",
           ]}
+<<<<<<< Updated upstream
           image="https://ik.imagekit.io/j98e6hcfnkn/Banners/deck-staining_ZRGVYXdQq.jpeg?updatedAt=1666774121163"
+=======
+          image="https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/featured_QPrH8S2P-.jpeg?updatedAt=1747919188435"
+>>>>>>> Stashed changes
         />
       </div>
 
@@ -115,7 +127,11 @@ export default function ServicesPage() {
             "Custom color matching and finishes",
             "Hardware replacement and installation",
           ]}
+<<<<<<< Updated upstream
           image="https://ik.imagekit.io/j98e6hcfnkn/Banners/cabinet-refinishing_XbzXNcyDQ.jpeg?updatedAt=1666774120757"
+=======
+          image="https://ik.imagekit.io/j98e6hcfnkn/services/cabinet-refinishing/featured_pTK-TIUWp.jpeg?updatedAt=1747919188437"
+>>>>>>> Stashed changes
           reversed={true}
         />
       </div>
@@ -271,7 +287,11 @@ export default function ServicesPage() {
       <section className="py-16 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
+<<<<<<< Updated upstream
             src="https://ik.imagekit.io/j98e6hcfnkn/Banners/exteriorpainting_X5miVuC7M.jpg?updatedAt=1666774121414"
+=======
+            src="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
+>>>>>>> Stashed changes
             alt="Background"
             fill
             className="object-cover"

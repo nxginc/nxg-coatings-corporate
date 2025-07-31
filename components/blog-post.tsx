@@ -64,7 +64,13 @@ export default function BlogPost({
         </div>
 
         <div className="relative h-[300px] md:h-[400px] w-full mb-8 overflow-hidden rounded-xl">
-          <Image src={coverImage || "/placeholder.svg"} alt={title} fill className="object-cover" />
+          <Image
+            src={coverImage || 'https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438'}
+            alt={title}
+            width={800}
+            height={400}
+            className="w-full h-[400px] object-cover rounded-lg"
+          />
         </div>
       </div>
 

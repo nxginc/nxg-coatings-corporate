@@ -66,7 +66,7 @@ export default function IndustrySection() {
               {/* Background Image */}
               <div className="absolute inset-0 w-full h-full">
                 <Image
-                  src={industry.image || "/placeholder.svg"}
+                  src={industry.image || "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"}
                   alt={industry.name}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"

@@ -241,7 +241,7 @@ export default function ServicesSlider() {
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full border border-gray-200 hover:shadow-2xl hover:border-brand-blue/20 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
                       <div className="relative h-56">
                         <Image
-                          src={service.image || "/placeholder.svg"}
+                          src={service.image || "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"}
                           alt={service.title}
                           width={800}
                           height={600}
