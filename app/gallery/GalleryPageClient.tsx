@@ -1,6 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
+
 export const metadata = {
   title: "Project Gallery | NXG Coatings",
   description: "Browse our portfolio of completed painting and coating projects. See the quality and craftsmanship NXG Coatings brings to every job.",
@@ -10,9 +8,7 @@ export const metadata = {
     url: "https://nxgcoatings.com/gallery",
     images: [
       {
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 "use client"
 
 import Image from "next/image"
@@ -21,9 +17,7 @@ import EnhancedHero from "@/components/enhanced-hero"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import PaintingGallery from "@/components/painting-gallery"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
+
 
 // Metadata helper for the gallery page
 export const galleryMetadata = {
@@ -42,10 +36,8 @@ export const galleryMetadata = {
     ]
   }
 }
->>>>>>> Stashed changes
-
 export default function GalleryPageClient() {
-=======
+
 
 export default function GalleryPageClient() {
   const categories = [
@@ -72,12 +64,12 @@ export default function GalleryPageClient() {
     }
   ]
 
->>>>>>> Stashed changes
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
       <EnhancedHero
-<<<<<<< Updated upstream
+
         title="Our Project Gallery"
         description="Browse our portfolio of completed projects and see the quality and craftsmanship we bring to every job."
         backgroundImage="https://cdn.nxgcoatings.com/banners/gallery-hero.jpg"
@@ -231,7 +223,7 @@ export default function GalleryPageClient() {
                 View All Projects
               </FancyButton>
             </Link>
-=======
+
         title="Project Gallery"
         subtitle="Explore our portfolio of completed projects and see the quality craftsmanship that sets NXG Coatings apart from the competition."
         backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
@@ -287,13 +279,12 @@ export default function GalleryPageClient() {
                 </div>
               </Link>
             ))}
->>>>>>> Stashed changes
+
           </div>
         </div>
       </section>
 
-<<<<<<< Updated upstream
-     
+
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-brand-blue to-brand-lightBlue text-white">
@@ -306,7 +297,7 @@ export default function GalleryPageClient() {
             <CTAModal
               trigger={
                 <FancyButton variant="shine" size="xl" hasArrow={true} rounded="full">
-=======
+
       {/* Featured Projects */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -332,12 +323,12 @@ export default function GalleryPageClient() {
             <CTAModal 
               trigger={
                 <FancyButton size="lg" variant="secondary">
->>>>>>> Stashed changes
+
                   Get Free Estimate
                 </FancyButton>
               }
             />
-<<<<<<< Updated upstream
+
             <FancyButton
               variant="outline"
               size="xl"
@@ -346,14 +337,13 @@ export default function GalleryPageClient() {
               onClick={() => window.open("https://cal.com/nxgcoatings/virtual-consultation", "_blank")}
             >
               Book Consultation
-            </FancyButton>
-=======
+
             <Link href="/contact">
               <FancyButton size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-blue-600">
                 Contact Us
               </FancyButton>
             </Link>
->>>>>>> Stashed changes
+
           </div>
         </div>
       </section>
