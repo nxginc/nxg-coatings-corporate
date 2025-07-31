@@ -13,8 +13,8 @@ export default function PrivacyPolicyPage() {
     <main className="min-h-screen">
       <EnhancedHero
         title="Privacy Policy"
-        description="How we collect, use, and protect your personal information"
-        backgroundImage="https://cdn.nxgcoatings.com/banners/privacy-policy-hero.jpg"
+        subtitle="Learn about how NXG Coatings collects, uses, and protects your personal information and privacy rights."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
         height="medium"
       />
 

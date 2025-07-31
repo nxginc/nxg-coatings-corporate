@@ -2,12 +2,12 @@ import nodemailer from "nodemailer"
 
 // Create a transporter with hardcoded demo credentials
 export const transporter = nodemailer.createTransport({
-  host: "smtp-mail.outlook.com",
-  port: 587,
-  secure: false, // true for 465, false for other ports
+  host: process.env.IMAP_HOST,
+  port: Number(process.env.IMAP_PORT),
+  secure: true,
   auth: {
-    user: "demo@example.com", // Demo email (not real)
-    pass: "demopassword", // Demo password (not real)
+    user: process.env.IMAP_USER,
+    pass: process.env.IMAP_PASSWORD,
   },
 })
 

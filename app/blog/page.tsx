@@ -156,8 +156,8 @@ export default function BlogPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="NXG Coatings Blog"
-        subtitle="Expert tips, guides, and insights on painting and coating solutions for your property."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/blog-banner_Yx9Ue-Zzr.jpg?updatedAt=1679013242072"
+        subtitle="Expert tips, guides, and insights on professional painting and coating solutions. Learn from our experienced team."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
         height="medium"
       />
 
