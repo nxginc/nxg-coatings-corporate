@@ -14,9 +14,9 @@ export default function ContactPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <EnhancedHero
-        title="Contact Us"
-        description="Get in touch with our team for a free estimate or to schedule a consultation."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/contact_pDWOmR2XJ.jpeg?updatedAt=1666774120964"
+        title="Contact NXG Coatings"
+        subtitle="Ready to transform your property? Get in touch with our professional team for a free estimate and consultation."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
         height="medium"
       />
 

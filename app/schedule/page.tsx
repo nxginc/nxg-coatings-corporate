@@ -15,8 +15,8 @@ export default function SchedulePage() {
     <main className="min-h-screen">
       <EnhancedHero
         title="Schedule Your Service"
-        description="Book a consultation or service appointment with our professional team"
-        backgroundImage="https://cdn.nxgcoatings.com/banners/schedule-hero.jpg"
+        subtitle="Book a consultation or service appointment with our professional team. Choose a time that works best for you."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
         height="medium"
       />
 

@@ -11,9 +11,9 @@ export default function QuotePage() {
   return (
     <main className="min-h-screen">
       <EnhancedHero
-        title="Get a Free Quote"
-        description="Fill out the form below to receive a detailed estimate for your project"
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/quote_FeAQyRnYo.jpeg?updatedAt=1666774121550"
+        title="Get Your Free Quote"
+        subtitle="Ready to transform your property? Fill out our form below to receive a detailed, no-obligation estimate for your coating project."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
         height="medium"
       />
 
