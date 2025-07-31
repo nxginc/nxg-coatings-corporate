@@ -57,6 +57,12 @@ export const metadata: Metadata = {
     generator: 'v0.dev'
 }
 
+const calComUrl = process.env.NEXT_PUBLIC_CAL_COM_URL
+const bookingPhone = process.env.NEXT_PUBLIC_BOOKING_PHONE
+const bookingEmail = process.env.NEXT_PUBLIC_BOOKING_EMAIL
+
+// Use these variables in your CTAs, scheduling, and marketing scripts
+
 export default function RootLayout({
   children,
 }: Readonly<{
