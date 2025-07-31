@@ -25,15 +25,12 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, className, featured = false }: BlogCardProps) {
-<<<<<<< Updated upstream
-=======
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement
     target.onerror = null // Prevents infinite loop
     target.src = "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438" // Fallback image
   }
 
->>>>>>> Stashed changes
   return (
     <article
       className={cn(

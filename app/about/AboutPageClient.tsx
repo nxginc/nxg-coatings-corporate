@@ -69,8 +69,8 @@ export default function AboutPageClient() {
       {/* Hero Section */}
       <EnhancedHero
         title="About NXG Coatings"
-        description="Professional coating solutions delivered by a team that cares about quality and customer satisfaction."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263"
+        subtitle="Professional coating solutions delivered by a team that cares about quality, craftsmanship, and exceeding customer expectations."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
         height="medium"
       >
         <CTAModal
