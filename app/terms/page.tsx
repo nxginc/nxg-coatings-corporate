@@ -13,8 +13,8 @@ export default function TermsOfServicePage() {
     <main className="min-h-screen">
       <EnhancedHero
         title="Terms of Service"
-        description="The terms and conditions governing the use of our services and website"
-        backgroundImage="https://cdn.nxgcoatings.com/banners/terms-hero.jpg"
+        subtitle="Review the terms and conditions governing the use of NXG Coatings services and website access."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
         height="medium"
       />
 
