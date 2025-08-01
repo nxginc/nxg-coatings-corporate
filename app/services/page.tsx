@@ -66,11 +66,7 @@ export default function ServicesPage() {
             "Color consultation and custom color matching",
             "Comprehensive clean-up after project completion",
           ]}
-<<<<<<< Updated upstream
-          image="https://ik.imagekit.io/j98e6hcfnkn/Banners/exteriorpainting_X5miVuC7M.jpg?updatedAt=1666774121414"
-=======
           image="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/featured_-lZGm1HUi.jpeg?updatedAt=1747919188436"
->>>>>>> Stashed changes
         />
       </div>
 
@@ -86,11 +82,7 @@ export default function ServicesPage() {
             "Smooth, even application with no drips or streaks",
             "Quick turnaround times to minimize disruption",
           ]}
-<<<<<<< Updated upstream
           image="https://ik.imagekit.io/j98e6hcfnkn/Banners/interiorpainting_8eXbWKtMj.jpeg?updatedAt=1666774121310"
-=======
-          image="https://ik.imagekit.io/j98e6hcfnkn/services/interior-painting/featured_-6AhYSzXe.jpeg?updatedAt=1747919188436"
->>>>>>> Stashed changes
           reversed={true}
         />
       </div>
