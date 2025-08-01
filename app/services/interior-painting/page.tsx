@@ -15,7 +15,7 @@ export default function InteriorPaintingPage() {
       <EnhancedHero
         title="Interior Painting Services"
         description="Transform your living spaces with our premium interior painting services that combine quality, craftsmanship, and attention to detail."
-        backgroundImage="https://cdn.nxgcoatings.com/services/interior-painting/hero.jpg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -112,39 +112,14 @@ export default function InteriorPaintingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://cdn.nxgcoatings.com/services/interior-painting/living-room.jpg"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/edina_interior/IMG_5293_CsM7Otvqv.jpg?updatedAt=1666794094502"
                   alt="Interior painting project - living room"
                   width={600}
                   height={800}
                   className="w-full h-auto object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
-                <div className="flex items-start mb-2">
-                  <div className="bg-green-100 rounded-full p-1 mr-2">
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    "NXG Coatings transformed our living room with beautiful colors and flawless workmanship. The team
-                    was professional and respectful of our home."
-                  </p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=32&width=32"
-                      alt="Customer"
-                      width={32}
-                      height={32}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold">Sarah Johnson</p>
-                    <p className="text-xs text-gray-500">Homeowner</p>
-                  </div>
-                </div>
-              </div>
+              {/* Testimonial removed as per update instructions */}
             </div>
           </div>
         </div>
@@ -166,34 +141,34 @@ export default function InteriorPaintingPage() {
                 title: "Living Areas",
                 description:
                   "Create inviting living rooms, family rooms, and entertainment spaces with perfect color schemes.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/living-areas.jpg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/Interiorpainting_MN_5EW8oTEyHx?updatedAt=1666951441694",
               },
               {
                 title: "Kitchens & Bathrooms",
                 description:
                   "Specialized moisture-resistant paints for high-humidity areas that stand up to daily use.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/kitchen-bathroom.jpg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602",
               },
               {
                 title: "Bedrooms",
                 description: "Transform bedrooms into peaceful retreats with soothing colors and perfect finishes.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/bedroom.jpg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/edina_interior/IMG_5293_CsM7Otvqv.jpg?updatedAt=1666794094502",
               },
               {
                 title: "Ceilings & Trim",
                 description: "Expert painting of ceilings, crown molding, baseboards, and other architectural details.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/trim-ceiling.jpg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/Ceiling_Paint_Edina/IMG_5300_f8yw8tkj0.jpg?updatedAt=1682690019878",
               },
               {
                 title: "Accent Walls",
                 description: "Create visual interest with bold accent walls that become the focal point of your room.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/accent-wall.jpg",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/carole_interior/IMG_0158_OrHXMg23M.jpg?updatedAt=1666794187821",
               },
               {
-                title: "Specialty Finishes",
+                title: "Fine Finish & Millwork Painting",
                 description:
-                  "Unique textures and decorative finishes including faux finishes and textured applications.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/specialty-finish.jpg",
+                  "Fine finish and millwork painting for a refined, elegant look.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg?updatedAt=1666774120425",
               },
             ]
               .filter((service) => !service.image?.includes("placeholder.svg"))
