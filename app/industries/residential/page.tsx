@@ -152,7 +152,7 @@ export default function ResidentialPage() {
               {
                 title: "Deck & Fence Staining",
                 description: "Protect and beautify your outdoor wooden surfaces with our staining services.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/2_rQq5C9OTG7.jpg?updatedAt=1681571754448",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/DeckStaining_MN_a3mceDUkH.png?updatedAt=1666951996630",
                 link: "/services/deck-staining",
               },
               {
