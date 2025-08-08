@@ -1,4 +1,3 @@
-
 export const metadata = {
   title: "Project Gallery | NXG Coatings",
   description: "Browse our portfolio of completed painting and coating projects. See the quality and craftsmanship NXG Coatings brings to every job.",
