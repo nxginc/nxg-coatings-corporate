@@ -26,7 +26,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688",
     category: "Exterior",
     author: {
-      name: "Alex Thompson",
+      name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
@@ -40,7 +40,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog2_R6bm4rz7wm.jpeg?updatedAt=1741212349705",
     category: "Interior",
     author: {
-      name: "Jessica Chen",
+      name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
@@ -53,7 +53,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog3_JB8rNnw-ky.jpeg?updatedAt=1741212349698",
     category: "Products",
     author: {
-      name: "Michael Rodriguez",
+      name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
@@ -81,7 +81,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog5_7C36Q7Z1m.jpeg?updatedAt=1741212349696",
     category: "Tips",
     author: {
-      name: "Sarah Johnson",
+      name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
@@ -94,7 +94,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog6_rqKhiI6Tp.jpeg?updatedAt=1741212349694",
     category: "Tips",
     author: {
-      name: "David Thompson",
+      name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
@@ -121,7 +121,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/Industries/commercial_iCqXeYgW_Z.jpeg?updatedAt=1699016621793",
     category: "Commercial",
     author: {
-      name: "Alex Thompson",
+      name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
