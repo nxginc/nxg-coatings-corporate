@@ -68,7 +68,7 @@ export default function ServicesPage() {
             "Color consultation and custom color matching",
             "Comprehensive clean-up after project completion",
           ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/featured_-lZGm1HUi.jpeg?updatedAt=1747919188436"
+          image="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080"
         />
       </div>
 
@@ -84,7 +84,7 @@ export default function ServicesPage() {
             "Smooth, even application with no drips or streaks",
             "Quick turnaround times to minimize disruption",
           ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/services/interior-painting/featured_-6AhYSzXe.jpeg?updatedAt=1747919188436"
+          image="https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879"
           reversed={true}
         />
       </div>
@@ -101,7 +101,7 @@ export default function ServicesPage() {
             "Expert application for even coverage",
             "Maintenance recommendations to extend lifespan",
           ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/featured_QPrH8S2P-.jpeg?updatedAt=1747919188435"
+          image="https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088"
         />
       </div>
 
@@ -117,7 +117,7 @@ export default function ServicesPage() {
             "Custom color matching and finishes",
             "Hardware replacement and installation",
           ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/services/cabinet-refinishing/featured_pTK-TIUWp.jpeg?updatedAt=1747919188437"
+          image="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG?updatedAt=1747490422629"
           reversed={true}
         />
       </div>
@@ -156,7 +156,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/Restoration_MN_xne_zkvLl.png?updatedAt=1666951498592"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/restoration_1rbm1Ax_Q.jpg?updatedAt=1741369714492"
                   alt="Paint Restoration"
                   width={800}
                   height={600}
@@ -196,6 +196,29 @@ export default function ServicesPage() {
                 <p className="text-gray-600 mb-4">
                   Extend the life of your surfaces with our specialized protective coatings. Ideal for high-traffic
                   areas and surfaces exposed to harsh conditions.
+                </p>
+              </div>
+            </div>
+
+            {/* Fine Finishes & Millwork */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+              <div className="relative h-48">
+                <Image
+                  src="https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg?updatedAt=1666774120425"
+                  alt="Fine Finishes & Millwork"
+                  width={800}
+                  height={600}
+                  className="object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-sm rounded-full p-3">
+                  <Brush className="h-6 w-6 text-white" />
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-brand-blue mb-3">Fine Finishes & Millwork</h3>
+                <p className="text-gray-600 mb-4">
+                  Specialized painting for trim, windows, doors, and architectural millwork requiring precise technique and attention to detail.
                 </p>
               </div>
             </div>

@@ -1,13 +1,3 @@
-export const metadata = {
-  title: "Project Gallery | NXG Coatings",
-  description: "Browse our portfolio of completed painting and coating projects. See the quality and craftsmanship NXG Coatings brings to every job.",
-  openGraph: {
-    title: "Project Gallery | NXG Coatings",
-    description: "Browse our portfolio of completed painting and coating projects. See the quality and craftsmanship NXG Coatings brings to every job.",
-    url: "https://nxgcoatings.com/gallery",
-    images: [
-      {
-
 "use client"
 
 import Image from "next/image"
@@ -99,7 +89,7 @@ export default function GalleryPageClient() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Project 1 */}
+            {/* Project 1 - Colonial Home Exterior */}
             <div className="bg-gray-50 rounded-xl overflow-hidden shadow-lg">
               <div className="grid grid-cols-2 gap-2 p-2">
                 <div className="relative aspect-square">
@@ -157,7 +147,7 @@ export default function GalleryPageClient() {
               </div>
             </div>
 
-            {/* Project 2 */}
+            {/* Project 2 - Modern Office Interior */}
             <div className="bg-gray-50 rounded-xl overflow-hidden shadow-lg">
               <div className="grid grid-cols-2 gap-2 p-2">
                 <div className="relative aspect-square">
