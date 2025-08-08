@@ -8,8 +8,7 @@ export const blogPosts: BlogPostMeta[] = [
       "Learn how to fix peeling exterior paint and protect your home from further damage with our comprehensive guide.",
     publishDate: "March 5, 2025",
     readTime: "8 min read",
-    coverImage:
-      "https://sjc.microlink.io/9FMd4VeQoSaRJelq1EpEu4rwYsiZFoIp8M11NJDJcnO2o7XgLYkogZpP7OmKAEZyano-VIu8pI2F75YaMDsB4g.jpeg",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688",
     category: "Exterior",
     featured: true,
     author: {
@@ -38,7 +37,7 @@ export const blogPosts: BlogPostMeta[] = [
       "Selecting the right paint color can be overwhelming. Follow our expert tips to find the perfect shade for every room.",
     publishDate: "February 20, 2025",
     readTime: "5 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog2_shlL_xb-0.jpeg?updatedAt=1741212349719",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog2_R6bm4rz7wm.jpeg?updatedAt=1741212349705",
     category: "Interior",
     author: {
       name: "Jessica Chen",
@@ -51,7 +50,7 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt: "Explore sustainable and non-toxic paint alternatives that are better for your family and the planet.",
     publishDate: "February 15, 2025",
     readTime: "7 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-3_M4piDalkB9.jpeg?updatedAt=1741213130328",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog3_JB8rNnw-ky.jpeg?updatedAt=1741212349698",
     category: "Products",
     author: {
       name: "Michael Rodriguez",
@@ -65,7 +64,7 @@ export const blogPosts: BlogPostMeta[] = [
       "Learn how to plan and execute a commercial painting project with minimal impact on your business operations.",
     publishDate: "February 8, 2025",
     readTime: "9 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-4_WhGK1g1BA.jpg?updatedAt=1741213130440",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog4_OLlU6QI7z.jpeg?updatedAt=1741212349693",
     category: "Commercial",
     author: {
       name: "NXG Coatings Team",
@@ -79,7 +78,7 @@ export const blogPosts: BlogPostMeta[] = [
       "Proper wall preparation is crucial for a flawless paint job. Follow our step-by-step guide for professional results.",
     publishDate: "January 30, 2025",
     readTime: "10 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-5_QPOc05Oaz.jpeg?updatedAt=1741213130034",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog5_7C36Q7Z1m.jpeg?updatedAt=1741212349696",
     category: "Tips",
     author: {
       name: "Sarah Johnson",
@@ -92,7 +91,7 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt: "Learn about different paint finishes and where to use them for the best results in your home.",
     publishDate: "January 22, 2025",
     readTime: "6 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-6_47xxAjqVC.jpg?updatedAt=1741213130701",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog6_rqKhiI6Tp.jpeg?updatedAt=1741212349694",
     category: "Tips",
     author: {
       name: "David Thompson",
@@ -105,7 +104,7 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt: "Discover the optimal seasons and weather conditions for interior and exterior painting projects.",
     publishDate: "January 15, 2025",
     readTime: "7 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/Banners/exteriorpainting_X5miVuC7M.jpg?updatedAt=1666774121414",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog7_XY7nFsqNK.jpeg?updatedAt=1741212349694",
     category: "Tips",
     author: {
       name: "NXG Coatings Team",
