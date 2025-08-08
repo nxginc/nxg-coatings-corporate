@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { CalendarDays, Clock, ArrowRight } from "lucide-react"
+import { CalendarDays, Clock, ArrowRight } from 'lucide-react'
 import { cn } from "@/lib/utils"
 
 export interface BlogPostMeta {
@@ -31,7 +31,6 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
     target.src = "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438" // Fallback image
   }
 
-
   return (
     <article
       className={cn(
@@ -49,20 +48,13 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             onError={(e) => {
               const target = e.target as HTMLImageElement
-              target.src = "/diverse-team-brainstorm.png"
+              if (!target.src.includes("/diverse-team-brainstorm.png")) {
+                target.onerror = null
+                target.src = "/diverse-team-brainstorm.png"
+              }
             }}
           />
-          <div className="absolute top-4 left-4"          # Marketing & Analytics
-          NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX
-          NEXT_PUBLIC_FB_PIXEL_ID=XXXXXXXXXXXXXXX
-          NEXT_PUBLIC_LINKEDIN_ID=XXXXXXXX
-          NEXT_PUBLIC_BING_PIXEL_ID=XXXXXXXX
-          NEXT_PUBLIC_GOOGLE_ADS_ID=AW-XXXXXXXXX
-          
-          # Scheduling
-          NEXT_PUBLIC_CAL_COM_URL=https://cal.com/nxgcoatings/virtual-consultation
-          NEXT_PUBLIC_BOOKING_PHONE=+19529004222
-          NEXT_PUBLIC_BOOKING_EMAIL=info@nxgcoatingsinc.com>
+          <div className="absolute top-4 left-4">
             <span className="bg-brand-blue text-white text-xs font-semibold px-3 py-1 rounded-full">
               {post.category}
             </span>
