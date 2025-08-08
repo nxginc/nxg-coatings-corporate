@@ -13,10 +13,10 @@ export default function HOAPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <EnhancedHero
-        title="HOA & Multi-Family Coating Solutions"
-        subtitle="Comprehensive painting services for homeowners associations and multi-family properties."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/industries/hoa/banner_FPSj-WzOH.jpeg?updatedAt=1747919188438"
-        height="medium"
+        title="HOA Painting Services"
+        subtitle="Professional painting solutions for homeowner associations, apartment complexes, and multi-unit properties."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/64377d87f8cf768523c106d0_hoa-painting-hero-02_WTec4soEPA.webp?updatedAt=1747490345547"
+        height="large"
       >
         <div className="flex flex-col sm:flex-row gap-4">
           <CTAModal
@@ -140,27 +140,26 @@ export default function HOAPage() {
             {[
               {
                 title: "Exterior Painting",
-                description: "Comprehensive exterior painting for multi-family buildings and communities.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/hoa-exterior_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                description: "Comprehensive exterior painting for multi-unit residential properties.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/residential_FqQDni9Oa.jpg?updatedAt=1665175459020",
                 link: "/services/hoa-exterior",
               },
               {
                 title: "Common Area Painting",
-                description: "Refresh lobbies, hallways, and community spaces with professional painting.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/common-areas_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                description: "Professional painting for lobbies, hallways, and community spaces.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/hallway_qBTUh00Xz.jpeg?updatedAt=1747490345579",
                 link: "/services/common-areas",
               },
               {
                 title: "Deck & Fence Staining",
-                description: "Protect and beautify community wooden structures and fencing.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/Services/community-deck_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                description: "Maintenance and protection for outdoor community areas.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/hoa/4CB662A8-7DB8-43B7-BE85-6329C3C19063_4k7OHF_iI6.jpeg?updatedAt=1746446597753",
                 link: "/services/community-deck",
               },
               {
                 title: "Color Consultation",
-                description: "Expert guidance on color schemes that enhance property values.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/hoa-color_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
+                description: "Expert guidance on color schemes that enhance property value.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg",
                 link: "/services/hoa-color",
               },
               {
