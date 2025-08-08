@@ -212,20 +212,9 @@ export default function GalleryPageClient() {
                 View All Projects
               </FancyButton>
             </Link>
-
-        title="Project Gallery"
-        subtitle="Explore our portfolio of completed projects and see the quality craftsmanship that sets NXG Coatings apart from the competition."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
-        height="medium"
-      >
-        <CTAModal 
-          trigger={
-            <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
-              Get Free Estimate
-            </FancyButton>
-          }
-        />
-      </EnhancedHero>
+          </div>
+        </div>
+      </section>
 
       {/* Gallery Categories */}
       <section className="py-16 bg-gray-50">
@@ -326,6 +315,7 @@ export default function GalleryPageClient() {
               onClick={() => window.open("https://cal.com/nxgcoatings/virtual-consultation", "_blank")}
             >
               Book Consultation
+            </FancyButton>
 
             <Link href="/contact">
               <FancyButton size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-blue-600">
@@ -338,4 +328,5 @@ export default function GalleryPageClient() {
       </section>
     </main>
   )
+}
 }
