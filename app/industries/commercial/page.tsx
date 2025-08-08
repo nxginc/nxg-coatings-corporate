@@ -124,23 +124,16 @@ export default function CommercialPage() {
                     <CheckCircle className="h-4 w-4 text-green-600" />
                   </div>
                   <p className="text-sm text-gray-600">
-                    "NXG Coatings completed our office renovation with minimal disruption to our business. Highly
-                    recommended!"
+                    "Professional commercial painting with attention to detail and quality results."
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
-                    <Image
-                      src="https://ik.imagekit.io/j98e6hcfnkn/testimonials/testimonial-2_Xt7Hs9Kkl.jpg?updatedAt=1741216795011"
-                      alt="Customer"
-                      width={32}
-                      height={32}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-8 h-8 rounded-full bg-brand-blue mr-2 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">NXG</span>
                   </div>
                   <div>
-                    <p className="text-xs font-bold">Michael Chen</p>
-                    <p className="text-xs text-gray-500">Business Owner</p>
+                    <p className="text-xs font-bold">NXG Coatings</p>
+                    <p className="text-xs text-gray-500">Commercial Specialists</p>
                   </div>
                 </div>
               </div>
