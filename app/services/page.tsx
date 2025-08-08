@@ -13,6 +13,51 @@ export const metadata: Metadata = {
     "Explore our comprehensive range of professional painting and coating services for residential, commercial, and industrial properties.",
 }
 
+const services = [
+  {
+    title: "Exterior Painting",
+    description: "Transform your home's exterior with our durable, weather-resistant painting solutions.",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080",
+    icon: Home,
+    link: "/services/exterior-painting",
+  },
+  {
+    title: "Interior Painting",
+    description: "Create beautiful, comfortable living spaces with our premium interior painting services.",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879",
+    icon: Palette,
+    link: "/services/interior-painting",
+  },
+  {
+    title: "Deck Staining & Refinishing",
+    description: "Protect and beautify your outdoor living spaces with our professional deck services.",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088",
+    icon: Paintbrush,
+    link: "/services/deck-staining",
+  },
+  {
+    title: "Cabinet Refinishing",
+    description: "Transform your kitchen and bathroom cabinets with our expert refinishing services.",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG?updatedAt=1747490422629",
+    icon: Package,
+    link: "/services/cabinet-refinishing",
+  },
+  {
+    title: "Paint Restoration",
+    description: "Revive and restore damaged paintwork to its original beauty.",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/Services/restoration_1rbm1Ax_Q.jpg?updatedAt=1741369714492",
+    icon: RefreshCw,
+    link: "/services/restoration",
+  },
+  {
+    title: "Fine Finishes & Millwork",
+    description: "Specialized painting for trim, windows, and architectural details.",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg?updatedAt=1666774120425",
+    icon: Brush,
+    link: "/services/fine-finishes",
+  },
+]
+
 export default function ServicesPage() {
   return (
     <main className="min-h-screen">
@@ -82,7 +127,11 @@ export default function ServicesPage() {
             "Smooth, even application with no drips or streaks",
             "Quick turnaround times to minimize disruption",
           ]}
+<<<<<<< Updated upstream
           image="https://ik.imagekit.io/j98e6hcfnkn/Banners/interiorpainting_8eXbWKtMj.jpeg?updatedAt=1666774121310"
+=======
+          image="https://ik.imagekit.io/j98e6hcfnkn/services/interior-painting/featured_-6AhYSzXe.jpeg?updatedAt=1747919188436"
+>>>>>>> Stashed changes
           reversed={true}
         />
       </div>
@@ -99,11 +148,7 @@ export default function ServicesPage() {
             "Expert application for even coverage",
             "Maintenance recommendations to extend lifespan",
           ]}
-<<<<<<< Updated upstream
-          image="https://ik.imagekit.io/j98e6hcfnkn/Banners/deck-staining_ZRGVYXdQq.jpeg?updatedAt=1666774121163"
-=======
           image="https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/featured_QPrH8S2P-.jpeg?updatedAt=1747919188435"
->>>>>>> Stashed changes
         />
       </div>
 
@@ -119,11 +164,7 @@ export default function ServicesPage() {
             "Custom color matching and finishes",
             "Hardware replacement and installation",
           ]}
-<<<<<<< Updated upstream
-          image="https://ik.imagekit.io/j98e6hcfnkn/Banners/cabinet-refinishing_XbzXNcyDQ.jpeg?updatedAt=1666774120757"
-=======
           image="https://ik.imagekit.io/j98e6hcfnkn/services/cabinet-refinishing/featured_pTK-TIUWp.jpeg?updatedAt=1747919188437"
->>>>>>> Stashed changes
           reversed={true}
         />
       </div>
@@ -279,11 +320,7 @@ export default function ServicesPage() {
       <section className="py-16 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
-<<<<<<< Updated upstream
-            src="https://ik.imagekit.io/j98e6hcfnkn/Banners/exteriorpainting_X5miVuC7M.jpg?updatedAt=1666774121414"
-=======
             src="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
->>>>>>> Stashed changes
             alt="Background"
             fill
             className="object-cover"
