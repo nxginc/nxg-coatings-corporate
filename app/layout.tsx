@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
@@ -39,8 +39,7 @@ export const metadata: Metadata = {
     title: "NXG Coatings",
     statusBarStyle: "default",
   },
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-  themeColor: "#003399",
+  // Moved viewport + themeColor to dedicated viewport export per Next.js guidance
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -55,6 +54,13 @@ export const metadata: Metadata = {
     description: "Transform and protect your property with expert coating solutions from NXG Coatings.",
   },
     generator: 'v0.dev'
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#003399'
 }
 
 const calComUrl = process.env.NEXT_PUBLIC_CAL_COM_URL
