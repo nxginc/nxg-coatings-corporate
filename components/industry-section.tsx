@@ -3,7 +3,9 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { ASSETS } from "@/lib/assets"
 import { motion } from "framer-motion"
+import { ASSETS } from "@/lib/assets"
 import { FancyButton } from "@/components/ui/fancy-button"
 
 export default function IndustrySection() {
@@ -14,28 +16,28 @@ export default function IndustrySection() {
       id: "residential",
       name: "Residential",
       description: "Expert coating solutions for homes and residential properties.",
-      image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/residential_FqQDni9Oa.jpg?updatedAt=1665175459020",
+      image: ASSETS.industries.residential,
       href: "/industries/residential",
     },
     {
       id: "commercial",
       name: "Commercial",
       description: "Professional coating services for offices and retail spaces.",
-      image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/commercial_iCqXeYgW_Z.jpeg?updatedAt=1699016621793",
+      image: ASSETS.industries.commercial,
       href: "/industries/commercial",
     },
     {
       id: "industrial",
       name: "Industrial",
       description: "Specialized coatings for industrial facilities and equipment.",
-      image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/industrial_0sqjKH55v3.jpg?updatedAt=1699217215305",
+      image: ASSETS.industries.industrial,
       href: "/industries/industrial",
     },
     {
       id: "hoa",
       name: "HOA & Multi-Family",
       description: "Comprehensive coating solutions for multi-family properties and HOAs.",
-      image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa_4XZCTP8X4.jpeg?updatedAt=1704393622112",
+      image: ASSETS.industries.hoa,
       href: "/industries/hoa",
     },
   ]
@@ -66,7 +68,7 @@ export default function IndustrySection() {
               {/* Background Image */}
               <div className="absolute inset-0 w-full h-full">
                 <Image
-                  src={industry.image || "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"}
+                  src={industry.image || ASSETS.hero.services}
                   alt={industry.name}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
