@@ -54,7 +54,8 @@ const services = [
     link: "/services#cabinets",
   },
   {
-    title: "Fine Finishes",
+  // Renamed from "Fine Finishes" per content update request
+  title: "Fine Finish and Millworker Painting",
     description: "Add character and elegance to your walls with our specialty finishes and textures.",
     image: "https://ik.imagekit.io/j98e6hcfnkn/Services/finefinishes_Dq4bB4CJa.jpg?updatedAt=1666774073303",
     icon: Brush,

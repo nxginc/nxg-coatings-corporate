@@ -3,7 +3,6 @@
 import ConsultationBooking from "@/components/consultation-booking"
 import ParallaxFeatures from "@/components/parallax-features"
 import ServicesSlider from "@/components/services-slider"
-import TestimonialsSection from "@/components/testimonials-section"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import Link from "next/link"
@@ -18,7 +17,7 @@ export default function Home() {
       {/* Hero Section */}
       <EnhancedHero
         title="Professional Coating Solutions for Your Home"
-        description="Transform and protect your property with our expert coating services. Schedule a consultation today."
+        subtitle="Transform and protect your property with our expert coating services. Schedule a consultation today."
         backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263"
         height="large"
       >
@@ -51,8 +50,7 @@ export default function Home() {
       {/* Color Consultation Section */}
       <ColorConsultation />
 
-      {/* Testimonials Section */}
-      <TestimonialsSection />
+  {/* Testimonials Section removed per request */}
 
       {/* Industry Section */}
       <IndustrySection />
