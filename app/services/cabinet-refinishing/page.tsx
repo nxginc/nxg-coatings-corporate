@@ -14,7 +14,7 @@ export default function CabinetRefinishingPage() {
       <EnhancedHero
         title="Cabinet Refinishing Services"
         subtitle="Transform your kitchen and bathroom cabinets with our professional refinishing services—a cost-effective alternative to full replacement."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/cabinet-refinishing/banner_pYH44QwJ1.jpeg?updatedAt=1747919188437"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,7 +114,7 @@ export default function CabinetRefinishingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/services/cabinet-refinishing/featured_pTK-TIUWp.jpeg?updatedAt=1747919188437"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/page-assets/cabinets_SBQV4kCmA.JPG?updatedAt=1746533528450"
                   alt="Cabinet refinishing project - kitchen"
                   width={600}
                   height={800}
@@ -139,57 +139,57 @@ export default function CabinetRefinishingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: "Kitchen Cabinets",
-                description:
-                  "Transform your kitchen with beautifully refinished cabinets in your choice of color and finish.",
-                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/kitchen.jpg",
+              title: "Kitchen Cabinets",
+              description:
+                "Transform your kitchen with beautifully refinished cabinets in your choice of color and finish.",
+              image: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cabinets2_gudIC6M4Z.JPG",
               },
               {
-                title: "Bathroom Vanities",
-                description:
-                  "Update bathroom cabinets with moisture-resistant finishes designed for high-humidity environments.",
-                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/bathroom.jpg",
+              title: "Bathroom Vanities",
+              description:
+                "Update bathroom cabinets with moisture-resistant finishes designed for high-humidity environments.",
+              image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG",
               },
               {
-                title: "Built-In Cabinetry",
-                description:
-                  "Refresh entertainment centers, bookcases, and other built-ins to match your updated décor.",
-                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/built-in.jpg",
+              title: "Built-In Cabinetry",
+              description:
+                "Refresh entertainment centers, bookcases, and other built-ins to match your updated décor.",
+              image: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cab-basmentr_nwrnFbc9Ss.JPG",
               },
               {
-                title: "Cabinet Color Changes",
-                description:
-                  "Completely change your cabinet color from dark to light, light to dark, or any custom color.",
-                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/color-change.jpg",
+              title: "Cabinet Color Changes",
+              description:
+                "Completely change your cabinet color from dark to light, light to dark, or any custom color.",
+              image: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cab_bA-gdseS7.JPG",
               },
               {
-                title: "Glazing & Distressing",
-                description: "Add character with decorative glazing or distressed finishes for a unique, custom look.",
-                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/glazing.jpg",
+              title: "Staining & Glazing",
+              description: "Add character with decorative stains or glazing for a unique, custom look.",
+              image: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cabinet-stain_9w9t8rJOR.JPG",
               },
               {
-                title: "Hardware Replacement",
-                description: "Complete your cabinet transformation with updated knobs, pulls, and hinges.",
-                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/hardware.jpg",
+              title: "Hardware Replacement",
+              description: "Complete your cabinet transformation with updated knobs, pulls, and hinges.",
+              image: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cabinet-hardware_EzSYHNksXZ.JPG",
               },
             ].map((service, index) => (
               <div
-                key={index}
-                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
+              key={index}
+              className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
               >
-                <div className="h-48 relative overflow-hidden">
-                  <Image
-                    src={service.image || "/placeholder.svg?height=300&width=400"}
-                    alt={service.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                </div>
+              <div className="h-48 relative overflow-hidden">
+                <Image
+                src={service.image || "/placeholder.svg?height=300&width=400"}
+                alt={service.title}
+                width={400}
+                height={300}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                <p className="text-gray-600 mb-4">{service.description}</p>
+              </div>
               </div>
             ))}
           </div>

@@ -165,9 +165,9 @@ export default function InteriorPaintingPage() {
                 image: ASSETS.services.accentWall || ASSETS.placeholders.image,
               },
               {
-                title: "Specialty Finishes",
+                title: "Staining Finishes",
                 description:
-                  "Unique textures and decorative finishes including faux finishes and textured applications.",
+                  "Enhance the natural beauty of wood surfaces with our professional staining services.",
                 image: ASSETS.services.specialtyFinish || ASSETS.placeholders.image,
               },
             ].map((service, index) => (
