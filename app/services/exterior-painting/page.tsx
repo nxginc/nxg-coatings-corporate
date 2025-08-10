@@ -1,6 +1,7 @@
 "use client"
 
 import EnhancedHero from "@/components/enhanced-hero"
+import { ASSETS } from "@/lib/assets"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import Link from "next/link"
@@ -15,7 +16,7 @@ export default function ExteriorPaintingPage() {
       <EnhancedHero
         title="Exterior Painting Services"
         subtitle="Transform your home's curb appeal with our premium exterior painting services that protect and beautify."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/banner_BWS_dLAhw.jpeg?updatedAt=1747919188436"
+        backgroundImage={ASSETS.services.exterior}
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,31 +115,12 @@ export default function ExteriorPaintingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/featured_-lZGm1HUi.jpeg?updatedAt=1747919188436"
+                  src={ASSETS.services.exterior}
                   alt="Exterior house painting project"
                   width={600}
                   height={800}
                   className="w-full h-auto object-cover"
                 />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
-                <div className="flex items-start mb-2">
-                  <div className="bg-green-100 rounded-full p-1 mr-2">
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    Professional exterior painting services with premium materials and expert craftsmanship.
-                  </p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-brand-blue mr-2 flex items-center justify-center">
-                    <CheckCircle className="h-4 w-4 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold">Quality Guarantee</p>
-                    <p className="text-xs text-gray-500">Professional Service</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -160,41 +142,37 @@ export default function ExteriorPaintingPage() {
               {
                 title: "Siding Painting",
                 description: "Expert painting for all siding types including vinyl, wood, fiber cement, and aluminum.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/siding.jpg?updatedAt=1741960872540",
+                image: ASSETS.services.siding || ASSETS.placeholders.image,
               },
               {
                 title: "Trim & Fascia",
                 description:
                   "Detailed painting of trim, fascia, soffits, and architectural details that frame your home.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/trim.jpg?updatedAt=1741960872540",
+                image: ASSETS.services.trim || ASSETS.placeholders.image,
               },
               {
                 title: "Door & Window Painting",
                 description:
                   "Transform entryways and windows with expert painting that enhances curb appeal and protection.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/doors.jpg?updatedAt=1741960872540",
+                image: ASSETS.services.doors || ASSETS.placeholders.image,
               },
               {
                 title: "Deck & Fence Painting",
                 description:
                   "Revitalize outdoor living spaces with specialized coatings for decks, fences, and railings.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/deck.jpg?updatedAt=1741960872540",
+                image: ASSETS.services.deck || ASSETS.placeholders.image,
               },
               {
                 title: "Garage Doors & Shutters",
                 description:
                   "Refresh and protect garage doors and shutters with durable paints designed for high-use surfaces.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/garage.jpg?updatedAt=1741960872540",
+                image: ASSETS.services.garage || ASSETS.placeholders.image,
               },
               {
                 title: "Stucco & Brick Painting",
                 description:
                   "Specialized coatings and techniques for masonry surfaces that allow proper breathability.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/stucco.jpg?updatedAt=1741960872540",
+                image: ASSETS.services.stucco || ASSETS.placeholders.image,
               },
             ].map((service, index) => (
               <div

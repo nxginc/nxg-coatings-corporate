@@ -20,6 +20,20 @@ export const ASSETS = {
     cabinet: "https://ik.imagekit.io/j98e6hcfnkn/services/cabinet-refinishing/banner_pYH44QwJ1.jpeg?updatedAt=1747919188437",
     deck: "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/banner_dAJqKYo2H.jpeg?updatedAt=1747919188435",
     colorConsultation: "https://ik.imagekit.io/j98e6hcfnkn/Banners/f3_ER1drZAJS.jpg?updatedAt=1679013242072",
+    // Exterior painting service images
+    siding: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/siding.jpg?updatedAt=1741960872540",
+    trim: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/trim.jpg?updatedAt=1741960872540",
+    doors: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/doors.jpg?updatedAt=1741960872540",
+    garage: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/garage.jpg?updatedAt=1741960872540",
+    stucco: "https://ik.imagekit.io/j98e6hcfnkn/services/exterior-painting/stucco.jpg?updatedAt=1741960872540",
+    // Deck is already present as 'deck'
+    // Interior painting service images
+    livingAreas: "https://cdn.nxgcoatings.com/services/interior-painting/living-areas.jpg",
+    kitchenBathroom: "https://cdn.nxgcoatings.com/services/interior-painting/kitchen-bathroom.jpg",
+    bedroom: "https://cdn.nxgcoatings.com/services/interior-painting/bedroom.jpg",
+    trimCeiling: "https://cdn.nxgcoatings.com/services/interior-painting/trim-ceiling.jpg",
+    accentWall: "https://cdn.nxgcoatings.com/services/interior-painting/accent-wall.jpg",
+    specialtyFinish: "https://cdn.nxgcoatings.com/services/interior-painting/specialty-finish.jpg",
   },
   industries: {
     residential: "https://ik.imagekit.io/j98e6hcfnkn/Industries/residential_FqQDni9Oa.jpg?updatedAt=1665175459020",
