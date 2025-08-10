@@ -132,7 +132,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/PressureCleaning_MN_UW1Y64ry3.png?updatedAt=1666951996755"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/PressureCleaning_MN_Z7jMuG9Dv.png?updatedAt=1666951495789"
                   alt="Pressure Washing"
                   width={800}
                   height={600}
@@ -200,12 +200,12 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            {/* Fine Finishes & Millwork */}
+            {/* Fine Finish and Millworker Painting */}
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
                   src="https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg?updatedAt=1666774120425"
-                  alt="Fine Finishes & Millwork"
+                  alt="Fine Finish and Millworker Painting"
                   width={800}
                   height={600}
                   className="object-cover w-full h-full"
@@ -216,7 +216,7 @@ export default function ServicesPage() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-brand-blue mb-3">Fine Finishes & Millwork</h3>
+                <h3 className="text-xl font-bold text-brand-blue mb-3">Fine Finish and Millworker Painting</h3>
                 <p className="text-gray-600 mb-4">
                   Specialized painting for trim, windows, doors, and architectural millwork requiring precise technique and attention to detail.
                 </p>

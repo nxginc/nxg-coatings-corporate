@@ -64,8 +64,8 @@ export default function ProcessPage() {
       title: "Final Walkthrough",
       description:
         "We conduct a final walkthrough with you to ensure your complete satisfaction. We'll address any concerns and provide maintenance recommendations to help you get the most out of your new coating.",
-      cta: "Customer testimonials",
-      link: "/testimonials",
+  cta: "Book a follow-up",
+  link: "/contact",
     },
   ]
 
