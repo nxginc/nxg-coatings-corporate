@@ -1,7 +1,6 @@
-import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { CalendarDays, Clock, ArrowRight } from "lucide-react"
+import { CalendarDays, Clock, ArrowRight } from 'lucide-react'
 import { cn } from "@/lib/utils"
 
 export interface BlogPostMeta {
@@ -29,7 +28,7 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement
     target.onerror = null // Prevents infinite loop
-    target.src = "/placeholder.svg?height=600&width=800" // Fallback image
+    target.src = "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438" // Fallback image
   }
 
   return (
@@ -43,11 +42,17 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
       <div className={cn("grid", featured ? "md:grid-cols-2" : "grid-cols-1")}>
         <div className="relative overflow-hidden aspect-video md:aspect-auto">
           <Image
-            src={post.coverImage || "/placeholder.svg?height=600&width=800"}
+            src={post.coverImage || "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"}
             alt={post.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
-            onError={handleImageError}
+            onError={(e) => {
+              const target = e.target as HTMLImageElement
+              if (!target.src.includes("/diverse-team-brainstorm.png")) {
+                target.onerror = null
+                target.src = "/diverse-team-brainstorm.png"
+              }
+            }}
           />
           <div className="absolute top-4 left-4">
             <span className="bg-brand-blue text-white text-xs font-semibold px-3 py-1 rounded-full">
@@ -80,12 +85,11 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
             {post.author && (
               <div className="flex items-center gap-3 mb-4">
                 <Image
-                  src={post.author.avatar || "/placeholder.svg?height=40&width=40"}
+                  src={post.author.avatar || "https://ik.imagekit.io/j98e6hcfnkn/logo/nxg-professional_8SkCG5O3z.jpeg?updatedAt=1747919123959"}
                   alt={post.author.name}
                   width={40}
                   height={40}
                   className="rounded-full"
-                  onError={handleImageError}
                 />
                 <span className="text-sm font-medium">{post.author.name}</span>
               </div>

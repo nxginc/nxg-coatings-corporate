@@ -15,6 +15,7 @@ import {
   RefreshCw,
   Brush,
   AppWindowIcon as WindowIcon,
+// no-dd-sa:typescript-code-style/no-duplicate-imports
 } from "lucide-react"
 import { FancyButton } from "@/components/ui/fancy-button"
 
@@ -26,36 +27,37 @@ if (typeof window !== "undefined") {
 const services = [
   {
     title: "Exterior Painting",
-    description: "Transform and protect your home's exterior with our professional painting services.",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080",
+    description: "Protect and enhance your home with our durable and beautiful exterior painting solutions.",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/Services/exteriorpainting_3WGvHiRuy.jpg?updatedAt=1666774074567",
     icon: ExternalLink,
     link: "/services#exterior",
   },
   {
     title: "Interior Painting",
     description: "Transform your living spaces with our premium interior painting services.",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/Interiorpainting_MN_5EW8oTEyHx?updatedAt=1666951441694",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/Services/interiorpainting_OwFKqI2BC.jpg?updatedAt=1666774074618",
     icon: Home,
     link: "/services#interior",
   },
   {
-    title: "Deck Staining & Refinishing",
-    description: "Protect and beautify your outdoor living spaces with our professional deck staining and refinishing services.",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088",
+    title: "Deck Staining",
+    description: "Protect and beautify your outdoor living spaces with our professional deck staining services.",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/Services/DeckStaining_MN_a3mceDUkH.png?updatedAt=1666951996630",
     icon: Paintbrush,
     link: "/services#decks",
   },
   {
     title: "Cabinet Refinishing",
     description: "Revitalize your kitchen with our expert cabinet refinishing and painting services.",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/Services/CabinetRefinishing_MN_8XLSgP4b9.jpg?updatedAt=1666953740495",
     icon: Palette,
     link: "/services#cabinets",
   },
   {
-    title: "Fine Finish & Millwork Painting",
-    description: "Fine finish and millwork painting for a refined, elegant look.",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg?updatedAt=1666774120425",
+  // Renamed from "Fine Finishes" per content update request
+  title: "Fine Finish and Millworker Painting",
+    description: "Add character and elegance to your walls with our specialty finishes and textures.",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/Services/finefinishes_Dq4bB4CJa.jpg?updatedAt=1666774073303",
     icon: Brush,
     link: "/services",
   },
@@ -69,7 +71,7 @@ const services = [
   {
     title: "Restoration",
     description: "Bring damaged surfaces back to life with our comprehensive restoration services.",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/Services/restoration_1rbm1Ax_Q.jpg?updatedAt=1741369714492",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/Services/Restoration_MN_xne_zkvLl.png?updatedAt=1666951498592",
     icon: RefreshCw,
     link: "/services",
   },
@@ -241,7 +243,7 @@ export default function ServicesSlider() {
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full border border-gray-200 hover:shadow-2xl hover:border-brand-blue/20 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
                       <div className="relative h-56">
                         <Image
-                          src={service.image || "/placeholder.svg"}
+                          src={service.image || "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"}
                           alt={service.title}
                           width={800}
                           height={600}

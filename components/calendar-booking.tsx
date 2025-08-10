@@ -32,7 +32,7 @@ export function CalendarBooking() {
         <TabsContent value="virtual" className="space-y-4">
           <div className="aspect-video relative rounded-md overflow-hidden border">
             <Image
-              src="https://sjc.microlink.io/RxFKY6Ch0G_7Kmt_Ai9WxDF_mQhQgAl0A-rzoyxrxl2luJKB5UKzMzyu3LHd2GK21wNloMEr23put6_OAH7jEQ.jpeg"
+              src="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-before_4Y7kRH7w_.jpeg?updatedAt=1747919186999"
               alt="Virtual consultation calendar"
               fill
               className="object-cover"
@@ -51,7 +51,7 @@ export function CalendarBooking() {
         <TabsContent value="in-person" className="space-y-4">
           <div className="aspect-video relative rounded-md overflow-hidden border">
             <Image
-              src="https://sjc.microlink.io/9WRdfls7QuE8UWzYI9p05RMbc9c3yyXdP5y-UPLQ5U9sn8AbytYH0l7ISlgcYpDcNEPAXVlAcapOqiVdhIYfhg.jpeg"
+              src="https://ik.imagekit.io/j98e6hcfnkn/services/exterior-after_nnOiJtRsL.jpeg?updatedAt=1747919186999"
               alt="In-person consultation calendar"
               fill
               className="object-cover"

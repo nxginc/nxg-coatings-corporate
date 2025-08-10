@@ -51,7 +51,7 @@ export default function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
       <div className="grid md:grid-cols-2 gap-0">
         <div className="featured-image relative h-full min-h-[300px]">
           <Image
-            src={post.coverImage || "/placeholder.svg"}
+            src={post.coverImage || "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"}
             alt={post.title}
             fill
             className="object-cover"
@@ -88,14 +88,14 @@ export default function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
           {post.author && (
             <div className="flex items-center gap-3 mb-6">
               <Image
-                src={post.author.avatar || "/placeholder.svg?height=40&width=40"}
+                src={post.author.avatar || "https://ik.imagekit.io/j98e6hcfnkn/logo/nxg-professional_8SkCG5O3z.jpeg?updatedAt=1747919123959"}
                 alt={post.author.name}
                 width={40}
                 height={40}
                 className="rounded-full"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement
-                  target.src = "/placeholder.svg?height=40&width=40"
+                  target.src = "https://ik.imagekit.io/j98e6hcfnkn/logo/nxg-professional_8SkCG5O3z.jpeg?updatedAt=1747919123959"
                 }}
               />
               <span className="text-sm font-medium">{post.author.name}</span>

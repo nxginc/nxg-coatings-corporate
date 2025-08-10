@@ -13,8 +13,8 @@ export default function CabinetRefinishingPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="Cabinet Refinishing Services"
-        description="Transform your kitchen and bathroom cabinets with our professional refinishing services—a cost-effective alternative to full replacement."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602"
+        subtitle="Transform your kitchen and bathroom cabinets with our professional refinishing services—a cost-effective alternative to full replacement."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/cabinet-refinishing/banner_pYH44QwJ1.jpeg?updatedAt=1747919188437"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,7 +114,7 @@ export default function CabinetRefinishingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://res.cloudinary.com/dvty0qsht/image/upload/v1745088241/cabinets_l3g1vl"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/services/cabinet-refinishing/featured_pTK-TIUWp.jpeg?updatedAt=1747919188437"
                   alt="Cabinet refinishing project - kitchen"
                   width={600}
                   height={800}
@@ -142,58 +142,56 @@ export default function CabinetRefinishingPage() {
                 title: "Kitchen Cabinets",
                 description:
                   "Transform your kitchen with beautifully refinished cabinets in your choice of color and finish.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088241/cabinets_l3g1vl",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/kitchen.jpg",
               },
               {
                 title: "Bathroom Vanities",
                 description:
                   "Update bathroom cabinets with moisture-resistant finishes designed for high-humidity environments.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088240/cabinet-bathroom_ec85pp",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/bathroom.jpg",
               },
               {
                 title: "Built-In Cabinetry",
                 description:
                   "Refresh entertainment centers, bookcases, and other built-ins to match your updated décor.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088241/cabinets_l3g1vl",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/built-in.jpg",
               },
               {
                 title: "Cabinet Color Changes",
                 description:
                   "Completely change your cabinet color from dark to light, light to dark, or any custom color.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088241/cabinets_l3g1vl",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/color-change.jpg",
               },
               {
                 title: "Glazing & Distressing",
                 description: "Add character with decorative glazing or distressed finishes for a unique, custom look.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088241/cabinets_l3g1vl",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/glazing.jpg",
               },
               {
                 title: "Hardware Replacement",
                 description: "Complete your cabinet transformation with updated knobs, pulls, and hinges.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088240/hardware_lclucm",
+                image: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/hardware.jpg",
               },
-            ]
-              .filter((service) => service.image !== "/placeholder.svg?height=300&width=400")
-              .map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="h-48 relative overflow-hidden">
-                    <Image
-                      src={service.image || "/placeholder.svg?height=300&width=400"}
-                      alt={service.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
-                  </div>
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
+              >
+                <div className="h-48 relative overflow-hidden">
+                  <Image
+                    src={service.image || "/placeholder.svg?height=300&width=400"}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-              ))}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

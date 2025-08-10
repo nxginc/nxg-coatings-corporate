@@ -14,8 +14,8 @@ export default function DeckStainingPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="Professional Deck Staining Services"
-        description="Protect and beautify your outdoor living spaces with our expert deck staining and sealing services."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/hero.jpg?updatedAt=1741960872540"
+        subtitle="Protect and beautify your outdoor living spaces with our expert deck staining and sealing services."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/banner_dAJqKYo2H.jpeg?updatedAt=1747919188435"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,7 +114,7 @@ export default function DeckStainingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/overview.jpg?updatedAt=1741960872540"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/featured_QPrH8S2P-.jpeg?updatedAt=1747919188435"
                   alt="Freshly stained wooden deck"
                   width={600}
                   height={800}
@@ -127,23 +127,16 @@ export default function DeckStainingPage() {
                     <CheckCircle className="h-4 w-4 text-green-600" />
                   </div>
                   <p className="text-sm text-gray-600">
-                    "NXG Coatings transformed our weathered deck into a beautiful outdoor space. The stain has held up
-                    beautifully through all seasons."
+                    Professional deck staining and sealing services to protect and enhance your outdoor living space.
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=32&width=32"
-                      alt="Customer"
-                      width={32}
-                      height={32}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-8 h-8 rounded-full bg-brand-blue mr-2 flex items-center justify-center">
+                    <Droplets className="h-4 w-4 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold">Michael Thompson</p>
-                    <p className="text-xs text-gray-500">Homeowner</p>
+                    <p className="text-xs font-bold">Weather Protection</p>
+                    <p className="text-xs text-gray-500">Professional Staining</p>
                   </div>
                 </div>
               </div>
@@ -202,28 +195,26 @@ export default function DeckStainingPage() {
                 image:
                   "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/maintenance.jpg?updatedAt=1741960872540",
               },
-            ]
-              .filter((service) => !service.image?.includes("placeholder.svg"))
-              .map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="h-48 relative overflow-hidden">
-                    <Image
-                      src={service.image || "/placeholder.svg?height=300&width=400"}
-                      alt={service.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
-                  </div>
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
+              >
+                <div className="h-48 relative overflow-hidden">
+                  <Image
+                    src={service.image || "/placeholder.svg?height=300&width=400"}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-              ))}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

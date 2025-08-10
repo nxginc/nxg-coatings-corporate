@@ -7,24 +7,20 @@ import { gsap } from "gsap"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
-interface EnhancedHeroProps {
+export interface EnhancedHeroProps {
   title: string
-  description?: string
+  subtitle?: string
   backgroundImage: string
-  children?: React.ReactNode
-  className?: string
   height?: "small" | "medium" | "large"
-  overlay?: "light" | "medium" | "dark"
+  children?: React.ReactNode
 }
 
 export default function EnhancedHero({
   title,
-  description,
+  subtitle,
   backgroundImage,
-  children,
-  className,
   height = "medium",
-  overlay = "medium",
+  children,
 }: EnhancedHeroProps) {
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -67,7 +63,7 @@ export default function EnhancedHero({
   }
 
   return (
-    <section ref={heroRef} className={cn("relative overflow-hidden text-white", heightClasses[height], className)}>
+    <section ref={heroRef} className={cn("relative overflow-hidden text-white", heightClasses[height])}>
       {/* Background Image */}
       <div className="hero-bg absolute inset-0 z-0">
         <Image
@@ -80,14 +76,14 @@ export default function EnhancedHero({
           priority
           className="object-cover"
         />
-        <div className={cn("absolute inset-0", overlayClasses[overlay])} />
+        <div className={cn("absolute inset-0", overlayClasses.medium)} />
       </div>
 
       {/* Content */}
       <div className="container relative z-10 mx-auto px-4">
         <div ref={contentRef} className="max-w-3xl">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase">{title}</h1>
-          {description && <p className="text-lg md:text-xl mb-8">{description}</p>}
+          <h1 className="text-4xl font-bold text-white mb-4">{title}</h1>
+          {subtitle && <p className="text-lg text-white mb-6">{subtitle}</p>}
           {children}
         </div>
       </div>

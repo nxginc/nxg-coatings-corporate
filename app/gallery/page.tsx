@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import GalleryPageClient from "./GalleryPageClient"
+import GalleryPageClient from "../../components/gallery-page-client"
 
 export const metadata: Metadata = {
   title: "Project Gallery | NXG Coatings",

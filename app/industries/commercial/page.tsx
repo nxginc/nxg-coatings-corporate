@@ -5,7 +5,7 @@ import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import Link from "next/link"
 import Image from "next/image"
-import { Building2, Clock, Briefcase, ShieldCheck, Users } from "lucide-react"
+import { CheckCircle, Building2, Clock, Briefcase, ShieldCheck, Users } from "lucide-react"
 import ConsultationBooking from "@/components/consultation-booking"
 
 export default function CommercialPage() {
@@ -14,8 +14,8 @@ export default function CommercialPage() {
       {/* Hero Section */}
       <EnhancedHero
         title="Commercial Coating Solutions"
-        description="Professional painting and coating services for offices, retail spaces, and commercial properties."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Industries/commercial-hero_mXY0A8JXz.jpeg?updatedAt=1665175458082"
+        subtitle="Professional painting and coating services for offices, retail spaces, and commercial properties."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/industries/commercial/banner_dWRiH2Tw5.jpeg?updatedAt=1747919188438"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -118,6 +118,17 @@ export default function CommercialPage() {
                   className="w-full h-auto object-cover"
                 />
               </div>
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
+                <div className="flex items-start mb-2">
+                  <div className="bg-green-100 rounded-full p-1 mr-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    "Professional commercial painting with attention to detail and quality results."
+                  </p>
+                </div>
+              
+              </div>
             </div>
           </div>
         </div>
@@ -138,7 +149,8 @@ export default function CommercialPage() {
               {
                 title: "Office Painting",
                 description: "Create a professional environment that inspires productivity and impresses clients.",
-                image: "https://res.cloudinary.com/dvty0qsht/image/upload/v1745088387/office-painting_mzd99e.jpg",
+                image:
+                  "https://ik.imagekit.io/j98e6hcfnkn/Services/office-painting_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
                 link: "/services/office-painting",
               },
               {
@@ -201,6 +213,88 @@ export default function CommercialPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-brand-blue mb-4">Benefits of Professional Commercial Painting</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Investing in professional commercial painting services offers numerous advantages for your business.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-brand-blue mb-4">Enhanced Brand Image</h3>
+              <ul className="space-y-3">
+                {[
+                  "Create a consistent visual identity across your locations",
+                  "Reinforce your brand colors and aesthetics",
+                  "Make a positive impression on clients and visitors",
+                  "Demonstrate attention to detail and professionalism",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-brand-blue mb-4">Improved Workplace Environment</h3>
+              <ul className="space-y-3">
+                {[
+                  "Boost employee morale and productivity",
+                  "Create a more pleasant atmosphere for staff and customers",
+                  "Reduce maintenance costs with durable finishes",
+                  "Improve lighting efficiency with reflective coatings",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-brand-blue mb-4">Property Protection</h3>
+              <ul className="space-y-3">
+                {[
+                  "Shield surfaces from wear, moisture, and damage",
+                  "Extend the lifespan of your building materials",
+                  "Prevent costly repairs with preventative maintenance",
+                  "Protect against environmental factors and pollutants",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-brand-blue mb-4">Operational Efficiency</h3>
+              <ul className="space-y-3">
+                {[
+                  "Minimize business disruption with flexible scheduling",
+                  "Quick project completion by professional teams",
+                  "Reduced maintenance requirements with quality finishes",
+                  "Compliance with industry regulations and standards",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

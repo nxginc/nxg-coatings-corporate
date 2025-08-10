@@ -5,6 +5,7 @@ import Image from "next/image"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import EnhancedHero from "@/components/enhanced-hero"
 import Link from "next/link"
 
 // FAQ categories and questions
@@ -120,28 +121,20 @@ export default function FAQsPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://cdn.nxgcoatings.com/banners/faqs-hero.jpg"
-            alt="Frequently Asked Questions"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/90 to-brand-blue/70" />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="max-w-2xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Frequently Asked Questions</h1>
-            <p className="text-xl text-white/90 mb-8">
-              Find answers to common questions about our services, process, and more.
-            </p>
-          </div>
-        </div>
-      </section>
+      <EnhancedHero
+        title="Frequently Asked Questions"
+        subtitle="Find answers to common questions about our professional coating services, process, and more."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
+        height="medium"
+      >
+        <CTAModal
+          trigger={
+            <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
+              Get Free Estimate
+            </FancyButton>
+          }
+        />
+      </EnhancedHero>
 
       {/* FAQ Content */}
       <section className="py-16">

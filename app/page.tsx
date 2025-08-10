@@ -3,11 +3,13 @@
 import ConsultationBooking from "@/components/consultation-booking"
 import ParallaxFeatures from "@/components/parallax-features"
 import ServicesSlider from "@/components/services-slider"
-import TestimonialsSection from "@/components/testimonials-section"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
-import EnhancedHero from "@/components/enhanced-hero"
+import Link from "next/link"
+import Image from "next/image"
 import IndustrySection from "@/components/industry-section"
+import ColorConsultation from "@/components/color-consultation"
+import EnhancedHero from "@/components/enhanced-hero"
 
 export default function Home() {
   return (
@@ -15,7 +17,7 @@ export default function Home() {
       {/* Hero Section */}
       <EnhancedHero
         title="Professional Coating Solutions for Your Home"
-        description="Transform and protect your property with our expert coating services. Schedule a consultation today."
+        subtitle="Transform and protect your property with our expert coating services. Schedule a consultation today."
         backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263"
         height="large"
       >
@@ -46,10 +48,9 @@ export default function Home() {
       <ParallaxFeatures />
 
       {/* Color Consultation Section */}
-      {/* <ColorConsultation /> */}
+      <ColorConsultation />
 
-      {/* Testimonials Section */}
-      <TestimonialsSection />
+  {/* Testimonials Section removed per request */}
 
       {/* Industry Section */}
       <IndustrySection />
@@ -58,7 +59,7 @@ export default function Home() {
       <ConsultationBooking />
 
       {/* Blog Preview Section */}
-      {/* <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Latest From Our Blog</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -121,7 +122,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section> */}
+      </section>
     </main>
   )
 }
