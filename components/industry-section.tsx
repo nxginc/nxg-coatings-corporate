@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ASSETS } from "@/lib/assets"
+// ...existing code...
 import { motion } from "framer-motion"
 import { ASSETS } from "@/lib/assets"
 import { FancyButton } from "@/components/ui/fancy-button"
