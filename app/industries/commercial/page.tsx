@@ -127,15 +127,7 @@ export default function CommercialPage() {
                     "Professional commercial painting with attention to detail and quality results."
                   </p>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-brand-blue mr-2 flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">NXG</span>
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold">NXG Coatings</p>
-                    <p className="text-xs text-gray-500">Commercial Specialists</p>
-                  </div>
-                </div>
+              
               </div>
             </div>
           </div>
