@@ -6,6 +6,11 @@ export const ASSETS = {
     alt: "https://ik.imagekit.io/j98e6hcfnkn/logo/nxg-professional_8SkCG5O3z.jpeg?updatedAt=1747919123959",
     login: "https://ik.imagekit.io/j98e6hcfnkn/logo_m2ODAWFyf.png?updatedAt=1741216795011",
   },
+  consultation: {
+    inPerson: "https://ik.imagekit.io/j98e6hcfnkn/inperson_HXeOinL7n.jpeg?updatedAt=1747996866887",
+    virtual: "https://ik.imagekit.io/j98e6hcfnkn/virtual_kBkeeo49T.webp?updatedAt=1747996861245",
+    color: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg?updatedAt=1748001132674",
+  },
   hero: {
     fallback: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263",
     services: "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438",

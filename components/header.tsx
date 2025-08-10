@@ -103,14 +103,7 @@ export default function Header() {
 								height={60}
 								className="h-12 w-auto"
 							/>
-							<Image
-								src={ASSETS.logo.primary}
-								alt="NXG Coatings"
-								fill
-								className={`object-contain transition-opacity duration-300 ${
-									isScrolled || isMobile ? "opacity-0" : "opacity-100"
-								}`}
-							/>
+						
 						</div>
 					</Link>
 
