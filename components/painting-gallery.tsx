@@ -48,7 +48,7 @@ const categories: Category[] = [
   {
     id: "commercial",
     name: "Commercial Painting",
-    image: "https://ik.imagekit.io/j98e6hcfnkn/Industries/commercial_iCqXeYgW_Z.jpeg?updatedAt=1699016621793",
+    image: "https://ik.imagekit.io/j98e6hcfnkn/Services/commercial_0p23O988Ix.heic?updatedAt=1741369712604",
     description: "Professional painting solutions for businesses and commercial properties.",
     icon: Building,
   },

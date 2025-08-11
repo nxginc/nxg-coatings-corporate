@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { CalendarDays, Clock, ArrowRight } from 'lucide-react'
+import { ASSETS } from "@/lib/assets"
 import { cn } from "@/lib/utils"
 
 export interface BlogPostMeta {
@@ -28,7 +29,7 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement
     target.onerror = null // Prevents infinite loop
-    target.src = "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438" // Fallback image
+  target.src = ASSETS.blog.coverFallback // Fallback image
   }
 
   return (
@@ -42,7 +43,7 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
       <div className={cn("grid", featured ? "md:grid-cols-2" : "grid-cols-1")}>
         <div className="relative overflow-hidden aspect-video md:aspect-auto">
           <Image
-            src={post.coverImage || "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"}
+            src={post.coverImage || ASSETS.blog.coverFallback}
             alt={post.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -50,7 +51,7 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
               const target = e.target as HTMLImageElement
               if (!target.src.includes("/diverse-team-brainstorm.png")) {
                 target.onerror = null
-                target.src = "/diverse-team-brainstorm.png"
+                target.src = ASSETS.blog.coverFallback
               }
             }}
           />
@@ -85,7 +86,7 @@ export default function BlogCard({ post, className, featured = false }: BlogCard
             {post.author && (
               <div className="flex items-center gap-3 mb-4">
                 <Image
-                  src={post.author.avatar || "https://ik.imagekit.io/j98e6hcfnkn/logo/nxg-professional_8SkCG5O3z.jpeg?updatedAt=1747919123959"}
+                  src={post.author.avatar || ASSETS.blog.authorAvatar}
                   alt={post.author.name}
                   width={40}
                   height={40}
