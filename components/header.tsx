@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, Phone, Menu, X } from "lucide-react"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
+import { ASSETS } from "@/lib/assets"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 const navLinks = [
@@ -96,20 +97,13 @@ export default function Header() {
 					<Link href="/" className="flex items-center">
 						<div className="relative h-10 w-40">
 							<Image
-								src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
+								src={ASSETS.logo.primary}
 								alt="NXG Coatings"
 								width={150}
 								height={60}
 								className="h-12 w-auto"
 							/>
-							<Image
-								src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
-								alt="NXG Coatings"
-								fill
-								className={`object-contain transition-opacity duration-300 ${
-									isScrolled || isMobile ? "opacity-0" : "opacity-100"
-								}`}
-							/>
+						
 						</div>
 					</Link>
 

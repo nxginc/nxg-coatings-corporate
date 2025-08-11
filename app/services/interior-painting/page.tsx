@@ -1,6 +1,7 @@
 "use client"
 
 import EnhancedHero from "@/components/enhanced-hero"
+import { ASSETS } from "@/lib/assets"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import Link from "next/link"
@@ -15,7 +16,7 @@ export default function InteriorPaintingPage() {
       <EnhancedHero
         title="Interior Painting Services"
         subtitle="Transform your living spaces with our premium interior painting services that combine quality, craftsmanship, and attention to detail."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/interior-painting/banner_b2Y8UyWyV.jpeg?updatedAt=1747919188435"
+        backgroundImage={ASSETS.services.interior}
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -112,31 +113,12 @@ export default function InteriorPaintingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/services/interior-painting/featured_-6AhYSzXe.jpeg?updatedAt=1747919188436"
+                  src={ASSETS.services.interior}
                   alt="Interior painting project - living room"
                   width={600}
                   height={800}
                   className="w-full h-auto object-cover"
                 />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
-                <div className="flex items-start mb-2">
-                  <div className="bg-green-100 rounded-full p-1 mr-2">
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    Professional interior painting services with premium materials and expert craftsmanship for your home.
-                  </p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-brand-blue mr-2 flex items-center justify-center">
-                    <Home className="h-4 w-4 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold">Interior Excellence</p>
-                    <p className="text-xs text-gray-500">Quality Service</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -159,34 +141,34 @@ export default function InteriorPaintingPage() {
                 title: "Living Areas",
                 description:
                   "Create inviting living rooms, family rooms, and entertainment spaces with perfect color schemes.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/living-areas.jpg",
+                image: ASSETS.services.livingAreas || ASSETS.placeholders.image,
               },
               {
                 title: "Kitchens & Bathrooms",
                 description:
                   "Specialized moisture-resistant paints for high-humidity areas that stand up to daily use.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/kitchen-bathroom.jpg",
+                image: ASSETS.services.kitchenBathroom || ASSETS.placeholders.image,
               },
               {
                 title: "Bedrooms",
                 description: "Transform bedrooms into peaceful retreats with soothing colors and perfect finishes.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/bedroom.jpg",
+                image: ASSETS.services.bedroom || ASSETS.placeholders.image,
               },
               {
                 title: "Ceilings & Trim",
                 description: "Expert painting of ceilings, crown molding, baseboards, and other architectural details.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/trim-ceiling.jpg",
+                image: ASSETS.services.trimCeiling || ASSETS.placeholders.image,
               },
               {
                 title: "Accent Walls",
                 description: "Create visual interest with bold accent walls that become the focal point of your room.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/accent-wall.jpg",
+                image: ASSETS.services.accentWall || ASSETS.placeholders.image,
               },
               {
-                title: "Specialty Finishes",
+                title: "Staining Finishes",
                 description:
-                  "Unique textures and decorative finishes including faux finishes and textured applications.",
-                image: "https://cdn.nxgcoatings.com/services/interior-painting/specialty-finish.jpg",
+                  "Enhance the natural beauty of wood surfaces with our professional staining services.",
+                image: ASSETS.services.specialtyFinish || ASSETS.placeholders.image,
               },
             ].map((service, index) => (
               <div

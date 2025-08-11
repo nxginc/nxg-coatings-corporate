@@ -155,27 +155,8 @@ export default function HOAPage() {
                 description: "Maintenance and protection for outdoor community areas.",
                 image: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/hoa/4CB662A8-7DB8-43B7-BE85-6329C3C19063_4k7OHF_iI6.jpeg?updatedAt=1746446597753",
                 link: "/services/community-deck",
-              },
-              {
-                title: "Color Consultation",
-                description: "Expert guidance on color schemes that enhance property value.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg",
-                link: "/services/hoa-color",
-              },
-              {
-                title: "Maintenance Programs",
-                description: "Ongoing maintenance plans to keep properties looking their best year-round.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/Services/maintenance-program_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
-                link: "/services/maintenance-program",
-              },
-              {
-                title: "Waterproofing",
-                description: "Protect buildings from water damage with specialized waterproofing coatings.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/Services/waterproofing_Xt7Hs9Kkl.jpg?updatedAt=1741216795011",
-                link: "/services/waterproofing",
-              },
+              }
+            
             ].map((service, index) => (
               <div
                 key={index}
