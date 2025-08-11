@@ -38,10 +38,10 @@ export const ASSETS = {
     // Deck is already present as 'deck'
     // Interior painting service images
     livingAreas: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/living%20area_KNQhLDoDK-.PNG",
-    kitchenBathroom: "",
+    kitchenBathroom: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/interior/7264EB3A-C9B6-4A23-84FF-4D110018851D_zpgnpqtb8.jpeg?updatedAt=1746446572210",
     bedroom: "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior8_itIcVGmT1.jpg?updatedAt=1699015715638",
     trimCeiling: "https://ik.imagekit.io/j98e6hcfnkn/trim-ceiling_zZ7QQ34l0.png?updatedAt=1754856790818",
-    accentWall: "",
+    accentWall: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/living_A1_Jw6aZbm.PNG?updatedAt=1746533518542",
     specialtyFinish: "https://ik.imagekit.io/j98e6hcfnkn/Services/WindowStaining_MN_EFqt22s-6.jpg?updatedAt=1666951484146",
   },
   industries: {

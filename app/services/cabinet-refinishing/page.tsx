@@ -249,66 +249,7 @@ export default function CabinetRefinishingPage() {
         </div>
       </section>
 
-      {/* Before & After Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Before & After Transformations</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              See the dramatic difference our cabinet refinishing services can make in these real project examples.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {[
-              {
-                title: "Traditional Oak to Modern White",
-                description:
-                  "This kitchen transformation took dated oak cabinets to a bright, contemporary white finish.",
-                before: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/before-1.jpg",
-                after: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/after-1.jpg",
-              },
-              {
-                title: "Dark Cherry to Light Gray",
-                description:
-                  "These dark cherry cabinets were transformed with a trendy light gray finish for a fresh look.",
-                before: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/before-2.jpg",
-                after: "https://cdn.nxgcoatings.com/services/cabinet-refinishing/after-2.jpg",
-              },
-            ].map((example, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden">
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-brand-blue mb-2">{example.title}</h3>
-                  <p className="text-gray-600 mb-4">{example.description}</p>
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <div>
-                    <p className="text-center font-bold mb-2">Before</p>
-                    <Image
-                      src={example.before || "/placeholder.svg?height=300&width=400"}
-                      alt={`Before - ${example.title}`}
-                      width={400}
-                      height={300}
-                      className="w-full h-64 object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-center font-bold mb-2">After</p>
-                    <Image
-                      src={example.after || "/placeholder.svg?height=300&width=400"}
-                      alt={`After - ${example.title}`}
-                      width={400}
-                      height={300}
-                      className="w-full h-64 object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+    
       {/* FAQ Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">

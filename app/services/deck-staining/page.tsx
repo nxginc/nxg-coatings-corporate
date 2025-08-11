@@ -155,69 +155,7 @@ export default function DeckStainingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Deck Cleaning & Preparation",
-                description:
-                  "Thorough cleaning, sanding, and preparation to ensure optimal stain adhesion and longevity.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/cleaning.jpg?updatedAt=1741960872540",
-              },
-              {
-                title: "Transparent & Semi-Transparent Stains",
-                description:
-                  "Enhance the natural wood grain while providing protection against moisture and UV damage.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/transparent.jpg?updatedAt=1741960872540",
-              },
-              {
-                title: "Solid Color Deck Stains",
-                description: "Maximum protection and color options to completely transform the look of your deck.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/solid.jpg?updatedAt=1741960872540",
-              },
-              {
-                title: "Waterproofing & Sealing",
-                description:
-                  "Additional protection against moisture penetration to prevent warping, cracking, and rot.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/waterproofing.jpg?updatedAt=1741960872540",
-              },
-              {
-                title: "Deck Restoration",
-                description:
-                  "Revitalize weathered and gray decks to restore their original beauty and extend their lifespan.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/restoration.jpg?updatedAt=1741960872540",
-              },
-              {
-                title: "Maintenance Programs",
-                description: "Scheduled maintenance plans to keep your deck looking its best year after year.",
-                image:
-                  "https://ik.imagekit.io/j98e6hcfnkn/services/deck-staining/maintenance.jpg?updatedAt=1741960872540",
-              },
-            ].map((service, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
-              >
-                <div className="h-48 relative overflow-hidden">
-                  <Image
-                    src={service.image || "/placeholder.svg?height=300&width=400"}
-                    alt={service.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+       
 
       {/* Process Section */}
       <section className="py-16 bg-white">
