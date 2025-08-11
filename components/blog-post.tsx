@@ -2,6 +2,7 @@
 
 import type React from "react"
 import Image from "next/image"
+import { ASSETS } from "@/lib/assets"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CalendarDays, Clock, Share2 } from "lucide-react"
 
@@ -65,7 +66,7 @@ export default function BlogPost({
 
         <div className="relative h-[300px] md:h-[400px] w-full mb-8 overflow-hidden rounded-xl">
           <Image
-            src={coverImage || 'https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438'}
+            src={coverImage || ASSETS.blog.coverFallback}
             alt={title}
             width={800}
             height={400}

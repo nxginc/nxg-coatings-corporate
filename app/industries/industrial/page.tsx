@@ -15,7 +15,7 @@ export default function IndustrialPage() {
       <EnhancedHero
         title="Industrial Coating Solutions"
         subtitle="Specialized coatings for industrial facilities that withstand harsh environments and demanding conditions."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/industries/industrial/banner_Y0T8jEiH8.jpeg?updatedAt=1747919188439"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/industrial/ind-painting_kAE5i326rL.jpg?updatedAt=1746877905315"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -113,7 +113,7 @@ export default function IndustrialPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Industries/industrial-detail_02easFwrP.jpeg?updatedAt=1665175459210"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/industrial/industrial-structure-painting-services_7VncZWEPH.jpg?updatedAt=1746877905251"
                   alt="Industrial coating project"
                   width={600}
                   height={800}

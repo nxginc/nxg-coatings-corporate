@@ -119,7 +119,7 @@ export default function ColorConsultation() {
             <div className="relative rounded-xl overflow-hidden shadow-xl">
               <div className="aspect-[4/3]">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/color_vOe9g6lGSg.jpg?updatedAt=1744881916753"
+                  src={require("@/lib/assets").ASSETS.consultation.color}
                   alt="Color consultation service"
                   fill
                   className="object-cover"

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { gsap } from "gsap"
+import { ASSETS } from "@/lib/assets"
 import { CalendarDays, Clock, ArrowRight } from "lucide-react"
 import type { BlogPostMeta } from "@/components/blog-card"
 
@@ -51,13 +52,13 @@ export default function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
       <div className="grid md:grid-cols-2 gap-0">
         <div className="featured-image relative h-full min-h-[300px]">
           <Image
-            src={post.coverImage || "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"}
+            src={post.coverImage || ASSETS.blog.coverFallback}
             alt={post.title}
             fill
             className="object-cover"
             onError={(e) => {
               const target = e.target as HTMLImageElement
-              target.src = "/blog-post-brainstorm.png"
+              target.src = ASSETS.blog.coverFallback
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center">
@@ -88,14 +89,14 @@ export default function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
           {post.author && (
             <div className="flex items-center gap-3 mb-6">
               <Image
-                src={post.author.avatar || "https://ik.imagekit.io/j98e6hcfnkn/logo/nxg-professional_8SkCG5O3z.jpeg?updatedAt=1747919123959"}
+                src={post.author.avatar || ASSETS.blog.authorAvatar}
                 alt={post.author.name}
                 width={40}
                 height={40}
                 className="rounded-full"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement
-                  target.src = "https://ik.imagekit.io/j98e6hcfnkn/logo/nxg-professional_8SkCG5O3z.jpeg?updatedAt=1747919123959"
+                  target.src = ASSETS.blog.authorAvatar
                 }}
               />
               <span className="text-sm font-medium">{post.author.name}</span>
