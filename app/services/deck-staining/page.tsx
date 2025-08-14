@@ -10,22 +10,52 @@ import ConsultationBooking from "@/components/consultation-booking"
 
 export default function DeckStainingPage() {
   return (
-              <ul className="space-y-3">
-                {[
-                  "Shields wood from harmful UV rays that cause fading and deterioration",
-                  "Creates a water-resistant barrier to prevent moisture damage",
-                  "Reduces the risk of warping, cracking, and splintering",
-                  "Prevents mold and mildew growth that can damage wood",
-                ].map((item) => (
-                  <li key={item} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-600">{item}</span>
-                  </li>
-                ))}
-              </ul>
-                restoration, our expert team delivers exceptional results that stand the test of time.
-              </p>
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <EnhancedHero
+        title="Professional Deck Staining Services"
+        subtitle="Protect and beautify your outdoor living spaces with our expert deck staining and sealing services."
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg"
+        height="medium"
+      >
+        <div className="flex flex-col sm:flex-row gap-4">
+          <CTAModal
+            trigger={
+              <FancyButton variant="shine" size="xl" hasArrow={true} rounded="full">
+                Get Free Estimate
+              </FancyButton>
+            }
+          />
+          <FancyButton
+            variant="outline"
+            size="xl"
+            rounded="full"
+            className="bg-transparent border-white text-white hover:bg-white/10"
+            onClick={() => window.open("https://cal.com/nxgcoatings/virtual-consultation", "_blank")}
+          >
+            Book Consultation
+          </FancyButton>
+        </div>
+      </EnhancedHero>
 
+      {/* Services Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-blue/10 text-brand-blue font-medium mb-6">
+                <Droplets className="h-5 w-5 mr-2" />
+                <span>Outdoor Protection</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-6">
+                Extend the Life and Beauty of Your Deck
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Your deck is an extension of your home—a place for relaxation, entertainment, and enjoying the outdoors. Our professional deck staining services help protect this valuable investment from the elements while enhancing its natural beauty.
+              </p>
+              <p className="text-gray-600 mb-8">
+                Whether you have a brand new deck that needs its first protective coat or an older deck that requires restoration, our expert team delivers exceptional results that stand the test of time.
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div className="flex items-start">
                   <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
@@ -36,7 +66,6 @@ export default function DeckStainingPage() {
                     <p className="text-gray-600 text-sm">Guards against moisture, UV rays, and mildew</p>
                   </div>
                 </div>
-
                 <div className="flex items-start">
                   <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
                     <Sun className="h-6 w-6 text-brand-blue" />
@@ -46,7 +75,6 @@ export default function DeckStainingPage() {
                     <p className="text-gray-600 text-sm">Brings out the natural beauty of wood</p>
                   </div>
                 </div>
-
                 <div className="flex items-start">
                   <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
                     <Clock className="h-6 w-6 text-brand-blue" />
@@ -56,7 +84,6 @@ export default function DeckStainingPage() {
                     <p className="text-gray-600 text-sm">Prevents premature aging and deterioration</p>
                   </div>
                 </div>
-
                 <div className="flex items-start">
                   <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
                     <Paintbrush className="h-6 w-6 text-brand-blue" />
@@ -67,7 +94,6 @@ export default function DeckStainingPage() {
                   </div>
                 </div>
               </div>
-
               <CTAModal
                 trigger={
                   <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
@@ -76,7 +102,6 @@ export default function DeckStainingPage() {
                 }
               />
             </div>
-
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
@@ -111,88 +136,6 @@ export default function DeckStainingPage() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <section className="py-16 bg-white">
-            <div className="container mx-auto px-4">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-blue/10 text-brand-blue font-medium mb-6">
-                    <Droplets className="h-5 w-5 mr-2" />
-                    <span>Outdoor Protection</span>
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-6">
-                    Extend the Life and Beauty of Your Deck
-                  </h2>
-                  <p className="text-gray-600 mb-6">
-                    Your deck is an extension of your home—a place for relaxation, entertainment, and enjoying the outdoors. Our professional deck staining services help protect this valuable investment from the elements while enhancing its natural beauty.
-                  </p>
-                  <p className="text-gray-600 mb-8">
-                    Whether you have a brand new deck that needs its first protective coat or an older deck that requires restoration, our expert team delivers exceptional results that stand the test of time.
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                    <div className="flex items-start">
-                      <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
-                        <Shield className="h-6 w-6 text-brand-blue" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-800 mb-1">Weather Protection</h3>
-                        <p className="text-gray-600 text-sm">Guards against moisture, UV rays, and mildew</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
-                        <Sun className="h-6 w-6 text-brand-blue" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-800 mb-1">Enhanced Appearance</h3>
-                        <p className="text-gray-600 text-sm">Brings out the natural beauty of wood</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
-                        <Clock className="h-6 w-6 text-brand-blue" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-800 mb-1">Extended Lifespan</h3>
-                        <p className="text-gray-600 text-sm">Prevents premature aging and deterioration</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
-                        <Paintbrush className="h-6 w-6 text-brand-blue" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-800 mb-1">Custom Finishes</h3>
-                        <p className="text-gray-600 text-sm">Multiple stain options to match your style</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-              "Brings out the natural beauty of wood",
-              "Prevents premature aging and deterioration",
-              "Multiple stain options to match your style",
-            ].map((item) => (
-              <li key={item} className="flex items-start">
-                <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-600">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="text-center">
-            <Link href="/process">
-              <FancyButton variant="outline" size="lg">
-                View Our Full Process
-              </FancyButton>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Benefits Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -202,7 +145,6 @@ export default function DeckStainingPage() {
               Investing in professional deck staining offers numerous advantages for your outdoor living spaces.
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-xl p-8 shadow-md">
               <h3 className="text-xl font-bold text-brand-blue mb-4">Protection from the Elements</h3>
@@ -220,8 +162,6 @@ export default function DeckStainingPage() {
                 ))}
               </ul>
             </div>
-            {/* Add other benefit cards here, each with their own <ul> and .map as needed */}
-
             <div className="bg-white rounded-xl p-8 shadow-md">
               <h3 className="text-xl font-bold text-brand-blue mb-4">Professional Results</h3>
               <ul className="space-y-3">
@@ -251,7 +191,6 @@ export default function DeckStainingPage() {
               Find answers to common questions about our deck staining services.
             </p>
           </div>
-
           <div className="max-w-3xl mx-auto">
             {[
               {
