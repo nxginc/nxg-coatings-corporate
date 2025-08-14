@@ -125,4 +125,47 @@ export const blogPosts: BlogPostMeta[] = [
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
+  ,
+  {
+    slug: "deck-staining-tips",
+    title: "Deck Staining Tips for a Long-Lasting Finish",
+    excerpt: "Get the most out of your deck with these professional staining tips and maintenance advice.",
+    publishDate: "August 10, 2025",
+    readTime: "7 min read",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/Services/DeckStaining_MN_a3mceDUkH.png?updatedAt=1666951996630",
+    category: "Exterior",
+    featured: true,
+    author: {
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+    },
+  },
+  {
+    slug: "cabinet-refinishing-guide",
+    title: "The Ultimate Guide to Cabinet Refinishing",
+    excerpt: "Transform your kitchen or bathroom with our expert cabinet refinishing guide.",
+    publishDate: "August 12, 2025",
+    readTime: "8 min read",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/Services/CabinetRefinishing_MN_8XLSgP4b9.jpg?updatedAt=1666953740495",
+    category: "Interior",
+    featured: true,
+    author: {
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+    },
+  },
+  {
+    slug: "color-consultation-benefits",
+    title: "Why a Professional Color Consultation Matters",
+    excerpt: "Discover how expert color advice can elevate your next painting project.",
+    publishDate: "August 14, 2025",
+    readTime: "5 min read",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg?updatedAt=1748001132674",
+    category: "Tips",
+    featured: true,
+    author: {
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+    },
+  }
 ]

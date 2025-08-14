@@ -143,12 +143,7 @@ export default function InteriorPaintingPage() {
                   "Create inviting living rooms, family rooms, and entertainment spaces with perfect color schemes.",
                 image: ASSETS.services.livingAreas || ASSETS.placeholders.image,
               },
-              {
-                title: "Kitchens & Bathrooms",
-                description:
-                  "Specialized moisture-resistant paints for high-humidity areas that stand up to daily use.",
-                image: ASSETS.services.kitchenBathroom || ASSETS.placeholders.image,
-              },
+            
               {
                 title: "Bedrooms",
                 description: "Transform bedrooms into peaceful retreats with soothing colors and perfect finishes.",
@@ -159,17 +154,8 @@ export default function InteriorPaintingPage() {
                 description: "Expert painting of ceilings, crown molding, baseboards, and other architectural details.",
                 image: ASSETS.services.trimCeiling || ASSETS.placeholders.image,
               },
-              {
-                title: "Accent Walls",
-                description: "Create visual interest with bold accent walls that become the focal point of your room.",
-                image: ASSETS.services.accentWall || ASSETS.placeholders.image,
-              },
-              {
-                title: "Staining Finishes",
-                description:
-                  "Enhance the natural beauty of wood surfaces with our professional staining services.",
-                image: ASSETS.services.specialtyFinish || ASSETS.placeholders.image,
-              },
+            
+            
             ].map((service, index) => (
               <div
                 key={index}
