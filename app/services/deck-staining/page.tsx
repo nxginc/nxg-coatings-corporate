@@ -10,53 +10,19 @@ import ConsultationBooking from "@/components/consultation-booking"
 
 export default function DeckStainingPage() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <EnhancedHero
-        title="Professional Deck Staining Services"
-        subtitle="Protect and beautify your outdoor living spaces with our expert deck staining and sealing services."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg"
-        height="medium"
-      >
-        <div className="flex flex-col sm:flex-row gap-4">
-          <CTAModal
-            trigger={
-              <FancyButton variant="shine" size="xl" hasArrow={true} rounded="full">
-                Get Free Estimate
-              </FancyButton>
-            }
-          />
-          <FancyButton
-            variant="outline"
-            size="xl"
-            rounded="full"
-            className="bg-transparent border-white text-white hover:bg-white/10"
-            onClick={() => window.open("https://cal.com/nxgcoatings/virtual-consultation", "_blank")}
-          >
-            Book Consultation
-          </FancyButton>
-        </div>
-      </EnhancedHero>
-
-      {/* Overview Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-blue/10 text-brand-blue font-medium mb-6">
-                <Droplets className="h-5 w-5 mr-2" />
-                <span>Outdoor Protection</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-6">
-                Extend the Life and Beauty of Your Deck
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Your deck is an extension of your home—a place for relaxation, entertainment, and enjoying the outdoors.
-                Our professional deck staining services help protect this valuable investment from the elements while
-                enhancing its natural beauty.
-              </p>
-              <p className="text-gray-600 mb-8">
-                Whether you have a brand new deck that needs its first protective coat or an older deck that requires
+              <ul className="space-y-3">
+                {[
+                  "Shields wood from harmful UV rays that cause fading and deterioration",
+                  "Creates a water-resistant barrier to prevent moisture damage",
+                  "Reduces the risk of warping, cracking, and splintering",
+                  "Prevents mold and mildew growth that can damage wood",
+                ].map((item) => (
+                  <li key={item} className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
                 restoration, our expert team delivers exceptional results that stand the test of time.
               </p>
 
@@ -148,76 +114,78 @@ export default function DeckStainingPage() {
       {/* Services Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Deck Staining Services</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              We offer comprehensive deck staining solutions to protect and beautify your outdoor spaces.
-            </p>
-          </div>
-
-       
-
-      {/* Process Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Deck Staining Process</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              We follow a meticulous process to ensure exceptional results for every deck staining project.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {[
-              {
-                step: "1",
-                title: "Inspection",
-                description: "We thoroughly assess your deck's condition and discuss your goals and preferences.",
-              },
-              {
-                step: "2",
-                title: "Cleaning",
-                description: "We clean the deck surface to remove dirt, mildew, and old finishes.",
-              },
-              {
-                step: "3",
-                title: "Preparation",
-                description:
-                  "We sand rough areas, replace damaged boards, and ensure the surface is ready for staining.",
-              },
-              {
-                step: "4",
-                title: "Staining",
-                description:
-                  "We apply premium stains using techniques that ensure even coverage and optimal absorption.",
-              },
-              {
-                step: "5",
-                title: "Inspection",
-                description: "We conduct a final inspection and provide maintenance recommendations.",
-              },
-            ].map((process, index) => (
-              <div
-                key={index}
-                className="relative p-6 rounded-xl border border-gray-100 hover:border-brand-blue hover:shadow-md transition-all duration-300"
-              >
-                <div className="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-lg">
-                  {process.step}
+          <section className="py-16 bg-white">
+            <div className="container mx-auto px-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                  <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-blue/10 text-brand-blue font-medium mb-6">
+                    <Droplets className="h-5 w-5 mr-2" />
+                    <span>Outdoor Protection</span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-6">
+                    Extend the Life and Beauty of Your Deck
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    Your deck is an extension of your home—a place for relaxation, entertainment, and enjoying the outdoors. Our professional deck staining services help protect this valuable investment from the elements while enhancing its natural beauty.
+                  </p>
+                  <p className="text-gray-600 mb-8">
+                    Whether you have a brand new deck that needs its first protective coat or an older deck that requires restoration, our expert team delivers exceptional results that stand the test of time.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <div className="flex items-start">
+                      <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
+                        <Shield className="h-6 w-6 text-brand-blue" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-800 mb-1">Weather Protection</h3>
+                        <p className="text-gray-600 text-sm">Guards against moisture, UV rays, and mildew</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
+                        <Sun className="h-6 w-6 text-brand-blue" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-800 mb-1">Enhanced Appearance</h3>
+                        <p className="text-gray-600 text-sm">Brings out the natural beauty of wood</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
+                        <Clock className="h-6 w-6 text-brand-blue" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-800 mb-1">Extended Lifespan</h3>
+                        <p className="text-gray-600 text-sm">Prevents premature aging and deterioration</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-brand-blue/10 rounded-full p-2 mr-4">
+                        <Paintbrush className="h-6 w-6 text-brand-blue" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-800 mb-1">Custom Finishes</h3>
+                        <p className="text-gray-600 text-sm">Multiple stain options to match your style</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-2 mt-4">{process.title}</h3>
-                <p className="text-gray-600">{process.description}</p>
               </div>
+            </div>
+          </section>
+              "Brings out the natural beauty of wood",
+              "Prevents premature aging and deterioration",
+              "Multiple stain options to match your style",
+            ].map((item) => (
+              <li key={item} className="flex items-start">
+                <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-600">{item}</span>
+              </li>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
+          </ul>
+          <div className="text-center">
             <Link href="/process">
-              <FancyButton
-                variant="outline"
-                size="lg"
-                rounded="full"
-                className="border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white"
-              >
+              <FancyButton variant="outline" size="lg">
                 View Our Full Process
               </FancyButton>
             </Link>
@@ -244,48 +212,15 @@ export default function DeckStainingPage() {
                   "Creates a water-resistant barrier to prevent moisture damage",
                   "Reduces the risk of warping, cracking, and splintering",
                   "Prevents mold and mildew growth that can damage wood",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start">
+                ].map((item) => (
+                  <li key={item} className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-600">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <h3 className="text-xl font-bold text-brand-blue mb-4">Enhanced Appearance</h3>
-              <ul className="space-y-3">
-                {[
-                  "Highlights the natural beauty and grain pattern of wood",
-                  "Provides a range of color options to complement your home",
-                  "Creates a uniform, professional finish across the entire deck",
-                  "Revitalizes the appearance of older, weathered decks",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-600">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <h3 className="text-xl font-bold text-brand-blue mb-4">Extended Lifespan</h3>
-              <ul className="space-y-3">
-                {[
-                  "Significantly extends the life of your deck investment",
-                  "Reduces the need for costly repairs and replacements",
-                  "Prevents premature aging and deterioration of wood",
-                  "Maintains structural integrity over time",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-600">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* Add other benefit cards here, each with their own <ul> and .map as needed */}
 
             <div className="bg-white rounded-xl p-8 shadow-md">
               <h3 className="text-xl font-bold text-brand-blue mb-4">Professional Results</h3>
@@ -344,8 +279,8 @@ export default function DeckStainingPage() {
                 answer:
                   "Light foot traffic is typically possible after 24-48 hours, but we recommend waiting 72 hours before replacing furniture. Full curing takes about 7 days, during which you should avoid dragging furniture or exposing the deck to heavy use. We'll provide specific timeline recommendations based on the products used and weather conditions.",
               },
-            ].map((faq, index) => (
-              <div key={index} className="mb-6 border-b border-gray-200 pb-6 last:border-0">
+            ].map((faq) => (
+              <div key={faq.question} className="mb-6 border-b border-gray-200 pb-6 last:border-0">
                 <h3 className="text-xl font-bold text-brand-blue mb-2">{faq.question}</h3>
                 <p className="text-gray-600">{faq.answer}</p>
               </div>
