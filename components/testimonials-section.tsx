@@ -10,42 +10,7 @@ if (typeof window !== "undefined") {
 }
 
 const testimonials = [
-  {
-    id: 1,
-    name: "Sarah Johnson",
-    role: "Homeowner",
-    quote:
-      "NXG Coatings transformed our home's exterior. The attention to detail and quality of work was exceptional. Our house looks brand new!",
-    avatar: "/placeholder.svg?height=100&width=100",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: "Michael Rodriguez",
-    role: "Property Manager",
-    quote:
-      "As a property manager, I've worked with many painting contractors. NXG Coatings stands out for their professionalism, reliability, and consistent quality.",
-    avatar: "/placeholder.svg?height=100&width=100",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Jennifer Williams",
-    role: "Business Owner",
-    quote:
-      "The color consultation service was invaluable. Their expert helped us choose the perfect palette for our office, and the execution was flawless.",
-    avatar: "/placeholder.svg?height=100&width=100",
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: "David Thompson",
-    role: "Homeowner",
-    quote:
-      "From start to finish, the team at NXG Coatings was professional, courteous, and skilled. They completed our project on time and within budget.",
-    avatar: "/placeholder.svg?height=100&width=100",
-    rating: 5,
-  },
+
 ]
 
 export default function TestimonialsSection() {

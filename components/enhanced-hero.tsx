@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
+import { ASSETS } from "@/lib/assets"
 
 export interface EnhancedHeroProps {
   title: string
@@ -67,10 +68,7 @@ export default function EnhancedHero({
       {/* Background Image */}
       <div className="hero-bg absolute inset-0 z-0">
         <Image
-          src={
-            backgroundImage ||
-            "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263"
-          }
+          src={backgroundImage || ASSETS.hero.fallback}
           alt={title}
           fill
           priority

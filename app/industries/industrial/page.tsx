@@ -15,7 +15,7 @@ export default function IndustrialPage() {
       <EnhancedHero
         title="Industrial Coating Solutions"
         subtitle="Specialized coatings for industrial facilities that withstand harsh environments and demanding conditions."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/industries/industrial/banner_Y0T8jEiH8.jpeg?updatedAt=1747919188439"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/industrial/ind-painting_kAE5i326rL.jpg?updatedAt=1746877905315"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -113,39 +113,14 @@ export default function IndustrialPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Industries/industrial-detail_02easFwrP.jpeg?updatedAt=1665175459210"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/industrial/industrial-structure-painting-services_7VncZWEPH.jpg?updatedAt=1746877905251"
                   alt="Industrial coating project"
                   width={600}
                   height={800}
                   className="w-full h-auto object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
-                <div className="flex items-start mb-2">
-                  <div className="bg-green-100 rounded-full p-1 mr-2">
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    "NXG Coatings provided exceptional epoxy flooring for our manufacturing facility. Their work has
-                    withstood heavy machinery and daily wear."
-                  </p>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-gray-200 mr-2 overflow-hidden">
-                    <Image
-                      src="https://ik.imagekit.io/j98e6hcfnkn/testimonials/testimonial-3_Xt7Hs9Kkl.jpg?updatedAt=1741216795011"
-                      alt="Customer"
-                      width={32}
-                      height={32}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold">Robert Martinez</p>
-                    <p className="text-xs text-gray-500">Facility Manager</p>
-                  </div>
-                </div>
-              </div>
+              {/* Removed testimonial callout per content update */}
             </div>
           </div>
         </div>

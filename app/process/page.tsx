@@ -64,8 +64,8 @@ export default function ProcessPage() {
       title: "Final Walkthrough",
       description:
         "We conduct a final walkthrough with you to ensure your complete satisfaction. We'll address any concerns and provide maintenance recommendations to help you get the most out of your new coating.",
-      cta: "Customer testimonials",
-      link: "/testimonials",
+  cta: "Book a follow-up",
+  link: "/contact",
     },
   ]
 
@@ -75,7 +75,7 @@ export default function ProcessPage() {
       <EnhancedHero
         title="Our Professional Process"
         subtitle="From initial consultation to final walkthrough, discover our proven 6-step approach that ensures exceptional results on every coating project."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/f4_aYaWf2GGw.jpg?updatedAt=1679013239596"
         height="medium"
       >
         <CTAModal
