@@ -113,7 +113,7 @@ export default function CommercialPage() {
             <div className="story-image relative">
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f1_8-Jfm4MWZ.jpg?updatedAt=1704333592818"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/lulu6_xWhP3XvI0.HEIC?updatedAt=1755167145928"
                   alt="NXG Coatings Team"
                   width={600}
                   height={400}
