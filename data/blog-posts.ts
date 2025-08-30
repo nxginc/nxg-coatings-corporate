@@ -125,7 +125,6 @@ export const blogPosts: BlogPostMeta[] = [
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
-  ,
   {
     slug: "deck-staining-tips",
     title: "Deck Staining Tips for a Long-Lasting Finish",

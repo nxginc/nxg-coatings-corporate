@@ -66,6 +66,25 @@ export default function AboutPageClient() {
 
   return (
     <main className="min-h-screen">
+      {/* Banner Photo Section */}
+      <div className="w-full h-64 md:h-96 relative mb-8">
+        <Image
+          src="https://ik.imagekit.io/j98e6hcfnkn/Services/wall-covering-services_0ZBLIjBeY.jpeg?updatedAt=1744880541476"
+          alt="NXG About Banner"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+          <Image
+            src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
+            alt="NXG Logo"
+            width={120}
+            height={120}
+            className="rounded-full bg-white/80 p-2 shadow-lg"
+          />
+        </div>
+      </div>
       {/* Hero Section */}
       <EnhancedHero
         title="About NXG Coatings"
