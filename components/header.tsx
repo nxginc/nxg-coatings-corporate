@@ -86,10 +86,10 @@ export default function Header() {
 
 	return (
 		<header
-			className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+			className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
 				isScrolled || isMobile
-					? "bg-white shadow-md py-2"
-					: "bg-gradient-to-b from-black/50 to-transparent py-4 backdrop-blur-sm"
+					? "bg-background/95 backdrop-blur-md shadow-premium py-2 border-b border-border/50"
+					: "bg-gradient-to-b from-foreground/60 to-transparent py-4 backdrop-blur-sm"
 			}`}
 		>
 			<div className="container mx-auto px-4">
@@ -113,9 +113,11 @@ export default function Header() {
 							<div key={link.label} className="relative group">
 								<Link
 									href={link.href}
-									className={`text-brand-blue hover:text-brand-blue/80 font-medium transition-colors ${
-										pathname === link.href ? "font-bold" : ""
-									}`}
+									className={`transition-colors text-sm font-medium tracking-wide ${
+										isScrolled 
+											? "text-foreground hover:text-accent" 
+											: "text-white hover:text-white/80"
+									} ${pathname === link.href ? "text-accent" : ""}`}
 								>
 									<span className="flex items-center">
 										{link.label}
@@ -127,13 +129,13 @@ export default function Header() {
 
 								{link.children && (
 									<div className="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left">
-										<div className="bg-white rounded-lg shadow-lg overflow-hidden">
+										<div className="bg-card rounded-lg shadow-premium-lg overflow-hidden border border-border/50">
 											<div className="py-2">
 												{link.children.map((child) => (
 													<Link
 														key={child.label}
 														href={child.href}
-														className="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-gray hover:text-brand-blue"
+														className="block px-4 py-2.5 text-sm text-foreground/80 hover:bg-secondary hover:text-accent transition-colors"
 													>
 														{child.label}
 													</Link>

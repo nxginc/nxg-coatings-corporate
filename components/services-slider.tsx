@@ -190,12 +190,15 @@ export default function ServicesSlider() {
   }, [])
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-24 bg-secondary/50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Our Professional Services</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Discover our comprehensive range of coating services designed to protect and beautify your property.
+        <div className="text-center mb-16">
+          <span className="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">What We Offer</span>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            Premium Coating Services
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Discover our comprehensive range of professional coating services designed to protect and elevate your property.
           </p>
         </div>
 
@@ -204,24 +207,24 @@ export default function ServicesSlider() {
           <div className="absolute top-1/2 -left-4 -translate-y-1/2 z-10">
             <button
               onClick={prevSlide}
-              className="bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors"
+              className="bg-card rounded-full p-3 shadow-premium hover:shadow-premium-lg border border-border/50 transition-all duration-300 hover:-translate-x-0.5"
               aria-label="Previous slide"
               onMouseEnter={stopAutoplay}
               onMouseLeave={startAutoplay}
             >
-              <ChevronLeft className="h-6 w-6 text-brand-blue" />
+              <ChevronLeft className="h-5 w-5 text-foreground" />
             </button>
           </div>
 
           <div className="absolute top-1/2 -right-4 -translate-y-1/2 z-10">
             <button
               onClick={nextSlide}
-              className="bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors"
+              className="bg-card rounded-full p-3 shadow-premium hover:shadow-premium-lg border border-border/50 transition-all duration-300 hover:translate-x-0.5"
               aria-label="Next slide"
               onMouseEnter={stopAutoplay}
               onMouseLeave={startAutoplay}
             >
-              <ChevronRight className="h-6 w-6 text-brand-blue" />
+              <ChevronRight className="h-5 w-5 text-foreground" />
             </button>
           </div>
 
@@ -240,29 +243,28 @@ export default function ServicesSlider() {
                   onMouseEnter={stopAutoplay}
                   onMouseLeave={startAutoplay}
                 >
-                  <Link href={service.link} className="block h-full">
-                    <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full border border-gray-200 hover:shadow-2xl hover:border-brand-blue/20 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]">
-                      <div className="relative h-56">
+                  <Link href={service.link} className="block h-full group">
+                    <div className="bg-card rounded-xl shadow-premium overflow-hidden h-full border border-border/30 hover:shadow-premium-lg transition-all duration-500 transform hover:-translate-y-2">
+                      <div className="relative h-56 overflow-hidden">
                         <Image
                           src={service.image || ASSETS.hero.services}
                           alt={service.title}
                           width={800}
                           height={600}
-                          className="object-cover w-full h-full"
+                          className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                          <h3 className="text-xl font-semibold p-4 text-white">{service.title}</h3>
+                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent flex items-end">
+                          <h3 className="text-xl font-serif font-semibold p-5 text-white">{service.title}</h3>
                         </div>
-                        <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2">
+                        <div className="absolute top-4 right-4 bg-accent/90 backdrop-blur-sm rounded-full p-2.5 transition-transform duration-300 group-hover:scale-110">
                           <service.icon className="h-5 w-5 text-white" />
                         </div>
                       </div>
                       <div className="p-6">
-                        <p className="text-gray-700">{service.description}</p>
-                        <div className="mt-4">
-                          <FancyButton variant="outline" size="sm" className="w-full">
-                            Learn More
-                          </FancyButton>
+                        <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                        <div className="mt-5 flex items-center text-accent font-medium text-sm group-hover:translate-x-1 transition-transform duration-300">
+                          Learn More
+                          <ChevronRight className="h-4 w-4 ml-1" />
                         </div>
                       </div>
                     </div>
@@ -273,13 +275,13 @@ export default function ServicesSlider() {
           </div>
 
           {/* Indicators */}
-          <div ref={indicatorsRef} className="flex justify-center mt-8 gap-2">
+          <div ref={indicatorsRef} className="flex justify-center mt-10 gap-2">
             {Array.from({ length: totalSlides - getVisibleSlideCount() + 1 }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`indicator w-3 h-3 rounded-full transition-colors ${
-                  index === activeIndexRef.current ? "bg-brand-blue" : "bg-gray-300"
+                className={`indicator w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === activeIndexRef.current ? "bg-accent w-6" : "bg-border hover:bg-muted-foreground"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
                 onMouseEnter={stopAutoplay}

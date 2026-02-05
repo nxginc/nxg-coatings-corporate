@@ -129,35 +129,38 @@ export default function ParallaxFeatures() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 relative bg-fixed bg-cover bg-center"
+      className="py-28 relative bg-fixed bg-cover bg-center"
       style={{
         backgroundImage:
-          "linear-gradient(to bottom, #000035, #000035), url('https://ik.imagekit.io/j98e6hcfnkn/backgrounds/features-pattern-bg_g-Fz8m9mJ.jpg?updatedAt=1747919186999')",
+          "linear-gradient(to bottom, hsl(220, 60%, 15%), hsl(220, 60%, 12%)), url('https://ik.imagekit.io/j98e6hcfnkn/backgrounds/features-pattern-bg_g-Fz8m9mJ.jpg?updatedAt=1747919186999')",
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-900 via-transparent to-navy-900 opacity-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-primary/30"></div>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase">
-            Why Choose Our Coating Solutions
+        <div className="text-center mb-20">
+          <span className="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">Our Advantages</span>
+          <h2 ref={titleRef} className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
+            Why Choose Our
+            <br />
+            Coating Solutions
           </h2>
-          <p ref={subtitleRef} className="text-xl text-white/90 max-w-3xl mx-auto">
+          <p ref={subtitleRef} className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
             Experience the difference with our professional coating services that deliver lasting results and
             exceptional value.
           </p>
         </div>
 
-        <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="feature-card bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-lg hover:transform hover:scale-105 transition-transform duration-300"
+              className="feature-card bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 group"
             >
-              <div className="bg-red-600 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+              <div className="bg-accent p-4 rounded-xl w-16 h-16 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110">
                 <feature.icon className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2 uppercase">{feature.title}</h3>
-              <p className="text-white/80">{feature.description}</p>
+              <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
+              <p className="text-white/70 leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

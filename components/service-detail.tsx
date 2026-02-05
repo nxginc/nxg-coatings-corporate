@@ -60,18 +60,21 @@ export default function ServiceDetail({ title, description, features, image, rev
   }, [reversed])
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white">
+    <section ref={sectionRef} className="py-20 lg:py-28 bg-card">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div ref={contentRef} className={`${reversed ? "order-2" : "order-2 md:order-1"}`}>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-4 animate-item">{title}</h2>
-            <p className="text-lg text-gray-600 mb-8 animate-item">{description}</p>
+            <div className="w-12 h-1 bg-accent mb-6 animate-item" />
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-item">{title}</h2>
+            <p className="text-lg text-muted-foreground mb-10 leading-relaxed animate-item">{description}</p>
 
-            <ul className="space-y-3 mb-8 animate-item">
+            <ul className="space-y-4 mb-10 animate-item">
               {features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-brand-blue flex-shrink-0 mt-1" />
-                  <span>{feature}</span>
+                <li key={index} className="flex items-start gap-4">
+                  <div className="bg-accent/10 rounded-lg p-1.5 mt-0.5">
+                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
+                  </div>
+                  <span className="text-foreground/80">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -79,7 +82,7 @@ export default function ServiceDetail({ title, description, features, image, rev
             <div className="flex flex-col sm:flex-row gap-4 animate-item">
               <CTAModal
                 trigger={
-                  <FancyButton variant="gradient" size="lg" hasArrow={true} rounded="full">
+                  <FancyButton variant="accent" size="lg" hasArrow={true} rounded="full">
                     Get Free Estimate
                   </FancyButton>
                 }
@@ -88,6 +91,7 @@ export default function ServiceDetail({ title, description, features, image, rev
                 variant="outline"
                 size="lg"
                 rounded="full"
+                className="border-2"
                 onClick={() => window.open("https://cal.com/nxgcoatings/virtual-consultation", "_blank")}
               >
                 Book Consultation
@@ -96,11 +100,11 @@ export default function ServiceDetail({ title, description, features, image, rev
           </div>
 
           <div ref={imageRef} className={`${reversed ? "order-1" : "order-1 md:order-2"}`}>
-            <div className="relative rounded-xl overflow-hidden shadow-xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-premium-xl group">
               <div className="aspect-[4/3]">
-                <Image src={image || "/placeholder.svg"} alt={title} fill className="object-cover" />
+                <Image src={image || "/placeholder.svg"} alt={title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent"></div>
             </div>
           </div>
         </div>

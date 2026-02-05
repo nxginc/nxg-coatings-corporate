@@ -88,37 +88,38 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-brand-blue text-white">
+    <footer className="bg-primary text-primary-foreground">
       {/* Newsletter Section */}
       <div className="border-b border-white/10">
-        <div className="container mx-auto px-4 py-10">
-          <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-2">Get NXG Coatings Updates</h2>
-            <p className="text-gray-300 mb-6">
+        <div className="container mx-auto px-4 py-14">
+          <div className="max-w-2xl mx-auto text-center">
+            <span className="text-accent font-medium tracking-widest uppercase text-sm mb-3 block">Stay Updated</span>
+            <h2 className="font-serif text-3xl font-bold mb-3">Get NXG Coatings Updates</h2>
+            <p className="text-primary-foreground/70 mb-8 text-lg">
               Subscribe to our newsletter for the latest painting tips and exclusive offers.
             </p>
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
               <Input
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12 rounded-xl"
               />
-              <FancyButton type="submit" variant="accent" className="whitespace-nowrap">
-                Subscribe Now
+              <FancyButton type="submit" variant="accent" className="whitespace-nowrap h-12 px-8 rounded-xl">
+                Subscribe
               </FancyButton>
             </form>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <Link href="/" className="block mb-6">
+            <Link href="/" className="block mb-8">
               <Image
                 src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
                 alt="NXG Coatings Logo"
@@ -127,40 +128,40 @@ export default function Footer() {
                 className="brightness-0 invert"
               />
             </Link>
-            <p className="text-gray-300 mb-6">
+            <p className="text-primary-foreground/70 mb-8 leading-relaxed">
               Professional painting and coating solutions for residential, commercial, and industrial properties.
               Transform your space with our expert services.
             </p>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="bg-brand-red rounded-full p-2 flex-shrink-0">
+            <div className="space-y-5">
+              <div className="flex items-start gap-4">
+                <div className="bg-accent rounded-xl p-2.5 flex-shrink-0">
                   <Mail className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <p className="font-medium">Email Us</p>
-                  <a href="mailto:info@nxgcoatingsinc.com" className="text-gray-300 hover:text-white">
+                  <p className="font-semibold text-sm mb-0.5">Email Us</p>
+                  <a href="mailto:info@nxgcoatingsinc.com" className="text-primary-foreground/70 hover:text-white transition-colors">
                     info@nxgcoatingsinc.com
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="bg-brand-red rounded-full p-2 flex-shrink-0">
+              <div className="flex items-start gap-4">
+                <div className="bg-accent rounded-xl p-2.5 flex-shrink-0">
                   <Phone className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <p className="font-medium">Call Us</p>
-                  <a href="tel:+19529004222" className="text-gray-300 hover:text-white">
+                  <p className="font-semibold text-sm mb-0.5">Call Us</p>
+                  <a href="tel:+19529004222" className="text-primary-foreground/70 hover:text-white transition-colors">
                     (952) 900-4222
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="bg-brand-red rounded-full p-2 flex-shrink-0">
+              <div className="flex items-start gap-4">
+                <div className="bg-accent rounded-xl p-2.5 flex-shrink-0">
                   <MapPin className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <p className="font-medium">Visit Us</p>
-                  <address className="text-gray-300 not-italic">
+                  <p className="font-semibold text-sm mb-0.5">Visit Us</p>
+                  <address className="text-primary-foreground/70 not-italic leading-relaxed">
                     5200 Willson Blvd STE 150
                     <br />
                     Edina, MN 55424
@@ -171,15 +172,15 @@ export default function Footer() {
           </div>
 
           {/* Navigation - Desktop */}
-          <div className="hidden lg:col-span-3 lg:grid lg:grid-cols-4 lg:gap-8">
+          <div className="hidden lg:col-span-3 lg:grid lg:grid-cols-4 lg:gap-10">
             {footerLinks.map((section) => (
               <div key={section.title}>
-                <h3 className="font-bold mb-4 text-[#ffffff]">{section.title}</h3>
+                <h3 className="font-semibold mb-5 text-white tracking-wide">{section.title}</h3>
                 <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className="text-gray-300 hover:text-white flex items-center group">
-                        <ChevronRight className="h-3 w-3 text-brand-red opacity-0 -ml-2 group-hover:opacity-100 transition-all" />
+                      <Link href={link.href} className="text-primary-foreground/60 hover:text-white flex items-center group transition-colors">
+                        <ChevronRight className="h-3 w-3 text-accent opacity-0 -ml-3 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
                         <span>{link.label}</span>
                       </Link>
                     </li>
@@ -214,23 +215,23 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex gap-4">
+        <div className="mt-14 pt-10 border-t border-white/10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors"
+                  className="bg-white/5 hover:bg-accent/80 p-3 rounded-xl transition-all duration-300 hover:scale-105"
                   aria-label={social.label}
                 >
                   <social.icon className="h-5 w-5 text-white" />
                 </a>
               ))}
             </div>
-            <div className="text-gray-400 text-sm text-center md:text-right">
+            <div className="text-primary-foreground/50 text-sm text-center md:text-right">
               <p>&copy; {new Date().getFullYear()} NXG Coatings Inc. All rights reserved.</p>
             </div>
           </div>

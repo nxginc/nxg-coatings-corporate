@@ -19,49 +19,66 @@ export default function ConsultationBooking() {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-12">
-      <h2 className="text-3xl font-bold text-center mb-8">Schedule a Consultation</h2>
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <span className="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">Book Today</span>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            Schedule a Consultation
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Connect with our coating professionals for a personalized consultation tailored to your needs.
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
 
       <Tabs
         defaultValue="virtual"
         className="w-full"
         onValueChange={(value) => setConsultationType(value as "virtual" | "in-person")}
       >
-        <TabsList className="grid w-full grid-cols-2 mb-8">
-          <TabsTrigger value="virtual" className="text-lg py-3">
-            <Video className="mr-2 h-5 w-5" />
+        <TabsList className="grid w-full grid-cols-2 mb-10 bg-secondary/50 p-1.5 rounded-xl">
+          <TabsTrigger value="virtual" className="text-base py-3.5 rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-premium">
+            <Video className="mr-2.5 h-5 w-5" />
             Virtual Consultation
           </TabsTrigger>
-          <TabsTrigger value="in-person" className="text-lg py-3">
-            <MapPin className="mr-2 h-5 w-5" />
+          <TabsTrigger value="in-person" className="text-base py-3.5 rounded-lg data-[state=active]:bg-card data-[state=active]:shadow-premium">
+            <MapPin className="mr-2.5 h-5 w-5" />
             In-Person Consultation
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="virtual">
-          <Card className="border-2 border-brand-blue/10">
-            <CardHeader className="bg-gradient-to-r from-brand-blue/10 to-brand-lightBlue/5">
-              <CardTitle className="text-2xl flex items-center">
-                <Video className="mr-3 h-6 w-6 text-brand-blue" />
+          <Card className="border border-border/50 shadow-premium-lg rounded-2xl overflow-hidden">
+            <CardHeader className="bg-secondary/30 pb-6">
+              <CardTitle className="text-2xl flex items-center font-serif">
+                <div className="bg-accent/10 p-2.5 rounded-xl mr-4">
+                  <Video className="h-6 w-6 text-accent" />
+                </div>
                 Virtual Coatings Consultation
               </CardTitle>
-              <CardDescription className="text-base">
+              <CardDescription className="text-base mt-2">
                 Connect with our coating professionals from the comfort of your home
               </CardDescription>
             </CardHeader>
-            <CardContent className="pt-6">
-              <div className="grid gap-4">
+            <CardContent className="pt-8 pb-6">
+              <div className="grid gap-5">
                 <div className="flex items-start gap-4">
-                  <Clock className="h-5 w-5 mt-1 text-brand-blue" />
+                  <div className="bg-primary/5 p-2 rounded-lg">
+                    <Clock className="h-5 w-5 text-primary" />
+                  </div>
                   <div>
-                    <h3 className="font-medium">30 Minutes</h3>
+                    <h3 className="font-semibold text-foreground">30 Minutes</h3>
                     <p className="text-sm text-muted-foreground">Quick and convenient video consultation</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <Calendar className="h-5 w-5 mt-1 text-brand-blue" />
+                  <div className="bg-primary/5 p-2 rounded-lg">
+                    <Calendar className="h-5 w-5 text-primary" />
+                  </div>
                   <div>
-                    <h3 className="font-medium">Flexible Scheduling</h3>
+                    <h3 className="font-semibold text-foreground">Flexible Scheduling</h3>
                     <p className="text-sm text-muted-foreground">Choose a time that works for you</p>
                   </div>
                 </div>
@@ -71,14 +88,14 @@ export default function ConsultationBooking() {
                     alt="Virtual consultation calendar"
                     width={600}
                     height={400}
-                    className="rounded-lg shadow-lg w-full h-auto"
+                    className="rounded-xl shadow-premium w-full h-auto"
                   />
                 </div>
               </div>
             </CardContent>
-            <CardFooter className="flex justify-end bg-gradient-to-r from-brand-blue/5 to-brand-lightBlue/10 py-4">
+            <CardFooter className="flex justify-end bg-secondary/20 py-5 px-6">
               <FancyButton
-                variant="shine"
+                variant="accent"
                 size="lg"
                 hasArrow={true}
                 rounded="full"
@@ -91,29 +108,35 @@ export default function ConsultationBooking() {
         </TabsContent>
 
         <TabsContent value="in-person">
-          <Card className="border-2 border-brand-blue/10">
-            <CardHeader className="bg-gradient-to-r from-brand-blue/10 to-brand-lightBlue/5">
-              <CardTitle className="text-2xl flex items-center">
-                <MapPin className="mr-3 h-6 w-6 text-brand-blue" />
+          <Card className="border border-border/50 shadow-premium-lg rounded-2xl overflow-hidden">
+            <CardHeader className="bg-secondary/30 pb-6">
+              <CardTitle className="text-2xl flex items-center font-serif">
+                <div className="bg-accent/10 p-2.5 rounded-xl mr-4">
+                  <MapPin className="h-6 w-6 text-accent" />
+                </div>
                 In-Person Coatings Consultation
               </CardTitle>
-              <CardDescription className="text-base">
+              <CardDescription className="text-base mt-2">
                 Experience a personalized one-on-one consultation with our experts
               </CardDescription>
             </CardHeader>
-            <CardContent className="pt-6">
-              <div className="grid gap-4">
+            <CardContent className="pt-8 pb-6">
+              <div className="grid gap-5">
                 <div className="flex items-start gap-4">
-                  <Clock className="h-5 w-5 mt-1 text-brand-blue" />
+                  <div className="bg-primary/5 p-2 rounded-lg">
+                    <Clock className="h-5 w-5 text-primary" />
+                  </div>
                   <div>
-                    <h3 className="font-medium">28 Minutes</h3>
+                    <h3 className="font-semibold text-foreground">28 Minutes</h3>
                     <p className="text-sm text-muted-foreground">Detailed in-person assessment and consultation</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <Calendar className="h-5 w-5 mt-1 text-brand-blue" />
+                  <div className="bg-primary/5 p-2 rounded-lg">
+                    <Calendar className="h-5 w-5 text-primary" />
+                  </div>
                   <div>
-                    <h3 className="font-medium">Flexible Scheduling</h3>
+                    <h3 className="font-semibold text-foreground">Flexible Scheduling</h3>
                     <p className="text-sm text-muted-foreground">Choose a time that works for you</p>
                   </div>
                 </div>
@@ -123,14 +146,14 @@ export default function ConsultationBooking() {
                     alt="In-person consultation calendar"
                     width={600}
                     height={400}
-                    className="rounded-lg border shadow-sm"
+                    className="rounded-xl shadow-premium w-full h-auto"
                   />
                 </div>
               </div>
             </CardContent>
-            <CardFooter className="flex justify-end bg-gradient-to-r from-brand-blue/5 to-brand-lightBlue/10 py-4">
+            <CardFooter className="flex justify-end bg-secondary/20 py-5 px-6">
               <FancyButton
-                variant="shine"
+                variant="accent"
                 size="lg"
                 hasArrow={true}
                 rounded="full"
@@ -142,6 +165,8 @@ export default function ConsultationBooking() {
           </Card>
         </TabsContent>
       </Tabs>
-    </div>
+        </div>
+      </div>
+    </section>
   )
 }

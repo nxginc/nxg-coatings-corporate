@@ -43,25 +43,27 @@ export default function IndustrySection() {
   ]
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-28 bg-card">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Industries We Serve</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
-            We provide specialized coating solutions for a wide range of industries, each with unique requirements and
-            challenges.
+        <div className="text-center mb-20">
+          <span className="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">Expertise</span>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            Industries We Serve
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            We provide specialized coating solutions for a wide range of industries, each with unique requirements and challenges.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {industries.map((industry) => (
             <motion.div
               key={industry.id}
-              className="relative overflow-hidden rounded-xl shadow-xl h-[400px] group cursor-pointer"
-              initial={{ opacity: 0, y: 20 }}
+              className="relative overflow-hidden rounded-2xl shadow-premium-lg h-[420px] group cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.6 }}
               onMouseEnter={() => setHoveredIndustry(industry.id)}
               onMouseLeave={() => setHoveredIndustry(null)}
             >
@@ -71,29 +73,29 @@ export default function IndustrySection() {
                   src={industry.image || ASSETS.hero.services}
                   alt={industry.name}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority={industry.id === "residential" || industry.id === "commercial"}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/95 via-foreground/50 to-foreground/20 transition-opacity duration-300" />
               </div>
 
               {/* Content Overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8 z-10">
-                <div className="transform transition-all duration-300 group-hover:-translate-y-4">
-                  <h3 className="text-3xl font-bold text-white mb-3">{industry.name}</h3>
-                  <p className="text-white/90 mb-6 max-w-md text-lg">{industry.description}</p>
+              <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-10 z-10">
+                <div className="transform transition-all duration-500 group-hover:-translate-y-2">
+                  <h3 className="font-serif text-3xl lg:text-4xl font-bold text-white mb-4">{industry.name}</h3>
+                  <p className="text-white/85 mb-8 max-w-md text-lg leading-relaxed">{industry.description}</p>
                   <Link href={industry.href} passHref>
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
-                        Learn More
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <FancyButton variant="accent" size="lg" hasArrow={true} rounded="full">
+                        Explore Services
                       </FancyButton>
                     </motion.div>
                   </Link>
                 </div>
               </div>
 
-              {/* Decorative Element */}
-              <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-brand-blue/40 to-transparent rounded-br-3xl backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Decorative accent line */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             </motion.div>
           ))}
         </div>

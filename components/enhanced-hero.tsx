@@ -14,6 +14,7 @@ export interface EnhancedHeroProps {
   backgroundImage: string
   height?: "small" | "medium" | "large"
   children?: React.ReactNode
+  align?: "left" | "center"
 }
 
 export default function EnhancedHero({
@@ -22,6 +23,7 @@ export default function EnhancedHero({
   backgroundImage,
   height = "medium",
   children,
+  align = "left",
 }: EnhancedHeroProps) {
   const heroRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -34,16 +36,16 @@ export default function EnhancedHero({
     // Animate the background image
     tl.fromTo(
       heroRef.current.querySelector(".hero-bg"),
-      { scale: 1.1, opacity: 0.8 },
-      { scale: 1, opacity: 1, duration: 1.5, ease: "power2.out" },
+      { scale: 1.05, opacity: 0.9 },
+      { scale: 1, opacity: 1, duration: 1.8, ease: "power2.out" },
     )
 
     // Animate the content
     tl.fromTo(
       contentRef.current.children,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power2.out" },
-      "-=1",
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out" },
+      "-=1.2",
     )
 
     return () => {
@@ -52,19 +54,13 @@ export default function EnhancedHero({
   }, [])
 
   const heightClasses = {
-    small: "py-12 md:py-16",
-    medium: "py-16 md:py-24",
-    large: "py-20 md:py-32",
-  }
-
-  const overlayClasses = {
-    light: "bg-brand-blue/30",
-    medium: "bg-brand-blue/50",
-    dark: "bg-brand-blue/70",
+    small: "min-h-[40vh] py-16 md:py-20",
+    medium: "min-h-[60vh] py-20 md:py-28",
+    large: "min-h-[85vh] py-24 md:py-36",
   }
 
   return (
-    <section ref={heroRef} className={cn("relative overflow-hidden text-white", heightClasses[height])}>
+    <section ref={heroRef} className={cn("relative overflow-hidden flex items-center", heightClasses[height])}>
       {/* Background Image */}
       <div className="hero-bg absolute inset-0 z-0">
         <Image
@@ -74,17 +70,42 @@ export default function EnhancedHero({
           priority
           className="object-cover"
         />
-        <div className={cn("absolute inset-0", overlayClasses.medium)} />
+        {/* Premium gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
       <div className="container relative z-10 mx-auto px-4">
-        <div ref={contentRef} className="max-w-3xl">
-          <h1 className="text-4xl font-bold text-white mb-4">{title}</h1>
-          {subtitle && <p className="text-lg text-white mb-6">{subtitle}</p>}
+        <div 
+          ref={contentRef} 
+          className={cn(
+            "max-w-3xl",
+            align === "center" && "mx-auto text-center"
+          )}
+        >
+          {/* Decorative line */}
+          <div className={cn(
+            "w-16 h-1 bg-accent mb-8",
+            align === "center" && "mx-auto"
+          )} />
+          
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight text-balance leading-tight">
+            {title}
+          </h1>
+          
+          {subtitle && (
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
+              {subtitle}
+            </p>
+          )}
+          
           {children}
         </div>
       </div>
+
+      {/* Bottom decorative element */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
     </section>
   )
 }
