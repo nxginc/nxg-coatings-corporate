@@ -141,19 +141,21 @@ export function MultiStepForm({ onClose }: MultiStepFormProps) {
 
   if (isSuccess) {
     return (
-      <div className="flex flex-col items-center justify-center py-10 text-center">
-        <CheckCircle2 className="h-16 w-16 text-green-500 mb-4" />
-        <h3 className="text-2xl font-bold mb-2 uppercase">Thank You!</h3>
-        <p className="text-muted-foreground mb-6">
+      <div className="flex flex-col items-center justify-center py-12 text-center">
+        <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-6">
+          <CheckCircle2 className="h-10 w-10 text-green-600" />
+        </div>
+        <h3 className="font-serif text-2xl font-bold mb-3 text-foreground">Thank You!</h3>
+        <p className="text-muted-foreground mb-8 max-w-sm">
           Your estimate request has been submitted successfully. Our team will contact you shortly.
         </p>
-        <div className="space-y-4 w-full max-w-md">
-          <FancyButton variant="accent" size="lg" className="w-full" onClick={goToCalendar}>
+        <div className="space-y-3 w-full max-w-sm">
+          <FancyButton variant="accent" size="lg" className="w-full rounded-xl" onClick={goToCalendar}>
             Schedule a Consultation
             <ExternalLink className="ml-2 h-4 w-4" />
           </FancyButton>
 
-          <FancyButton variant="outline" size="lg" className="w-full" onClick={onClose}>
+          <FancyButton variant="outline" size="lg" className="w-full rounded-xl border-2" onClick={onClose}>
             Close
           </FancyButton>
         </div>
@@ -162,23 +164,32 @@ export function MultiStepForm({ onClose }: MultiStepFormProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Progress indicator */}
-      <div className="flex justify-between mb-8">
+      <div className="flex justify-between mb-10 relative">
+        {/* Progress line */}
+        <div className="absolute top-4 left-0 right-0 h-0.5 bg-border -z-10" />
+        <div 
+          className="absolute top-4 left-0 h-0.5 bg-accent transition-all duration-500 -z-10" 
+          style={{ width: `${(step / (STEPS.length - 1)) * 100}%` }}
+        />
+        
         {STEPS.map((s, i) => (
-          <div key={s.id} className="flex flex-col items-center">
+          <div key={s.id} className="flex flex-col items-center relative">
             <div
-              className={`rounded-full w-8 h-8 flex items-center justify-center text-sm font-medium ${
+              className={`rounded-xl w-9 h-9 flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
                 i < step
-                  ? "bg-green-500 text-white"
+                  ? "bg-accent text-white shadow-md"
                   : i === step
-                    ? "bg-brand-blue text-white"
-                    : "bg-gray-200 text-gray-500 dark:bg-gray-700"
+                    ? "bg-primary text-primary-foreground shadow-lg scale-110"
+                    : "bg-secondary text-muted-foreground"
               }`}
             >
               {i < step ? <CheckCircle2 className="h-5 w-5" /> : i + 1}
             </div>
-            <span className="text-xs mt-1 hidden md:block">{s.title}</span>
+            <span className={`text-xs mt-2 hidden md:block font-medium transition-colors ${
+              i <= step ? "text-foreground" : "text-muted-foreground"
+            }`}>{s.title}</span>
           </div>
         ))}
       </div>
