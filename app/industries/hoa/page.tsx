@@ -114,7 +114,7 @@ export default function HOAPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/industries/hoa/featured_zTLhOJ45-.jpeg?updatedAt=1747919188438"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/hoa-exterior_gQCOAvl8Q.JPG?updatedAt=1747490345040"
                   alt="HOA painting project"
                   width={600}
                   height={800}
