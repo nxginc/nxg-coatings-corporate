@@ -154,8 +154,8 @@ export default function DeckStainingPage() {
               We offer comprehensive deck staining solutions to protect and beautify your outdoor spaces.
             </p>
           </div>
-
-       
+        </div>
+      </section>
 
       {/* Process Section */}
       <section className="py-16 bg-white">
