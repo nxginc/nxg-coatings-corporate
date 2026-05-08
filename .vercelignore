@@ -1,0 +1,13 @@
+.git
+.github
+.vscode
+.DS_Store
+README.md
+assets.md
+*.md
+*.log
+*.env
+.env*
+package-lock.json
+pnpm-workspace.yaml
+npm-debug.log
