@@ -66,6 +66,25 @@ export default function AboutPageClient() {
 
   return (
     <main className="min-h-screen">
+      {/* Banner Photo Section */}
+      <div className="w-full h-64 md:h-96 relative mb-8">
+        <Image
+          src="https://ik.imagekit.io/j98e6hcfnkn/Services/wall-covering-services_0ZBLIjBeY.jpeg?updatedAt=1744880541476"
+          alt="NXG About Banner"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+          <Image
+            src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
+            alt="NXG Logo"
+            width={120}
+            height={120}
+            className="rounded-full bg-white/80 p-2 shadow-lg"
+          />
+        </div>
+      </div>
       {/* Hero Section */}
       <EnhancedHero
         title="About NXG Coatings"
@@ -115,7 +134,7 @@ export default function AboutPageClient() {
             <div className="story-image relative">
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/About/team_photo_Xt7Hs9Kkl.jpg?updatedAt=1741216795011"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f1_8-Jfm4MWZ.jpg?updatedAt=1704333592818"
                   alt="NXG Coatings Team"
                   width={600}
                   height={400}
@@ -125,16 +144,13 @@ export default function AboutPageClient() {
               <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
                 <div className="relative h-16 w-16">
                   <Image
-                    src="https://ik.imagekit.io/j98e6hcfnkn/logo/nxg_logo_icon_Xt7Hs9Kkl.png?updatedAt=1741216795011"
+                    src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
                     alt="NXG Coatings Logo"
                     fill
                     className="object-contain"
                   />
                 </div>
-                <div className="text-center mt-2">
-                  <p className="text-sm font-bold text-brand-blue">15+ Years</p>
-                  <p className="text-xs text-gray-600">of excellence</p>
-                </div>
+              
               </div>
             </div>
           </div>

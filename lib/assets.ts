@@ -79,7 +79,8 @@ export const ASSETS = {
   },
   blog: {
     coverFallback: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg",
-    authorAvatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png",
+    authorAvatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
+    aboutBanner: "https://ik.imagekit.io/j98e6hcfnkn/Services/wall-covering-services_0ZBLIjBeY.jpeg?updatedAt=1744880541476",
   },
 } as const
 
