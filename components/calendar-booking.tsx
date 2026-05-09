@@ -138,3 +138,5 @@ export default function CalendarBooking() {
     </Card>
   )
 }
+
+export { CalendarBooking }

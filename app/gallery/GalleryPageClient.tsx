@@ -7,7 +7,6 @@ import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import PaintingGallery from "@/components/painting-gallery"
 
-
 // Metadata helper for the gallery page
 export const galleryMetadata = {
   title: "Project Gallery | NXG Coatings",
@@ -25,8 +24,6 @@ export const galleryMetadata = {
     ]
   }
 }
-export default function GalleryPageClient() {
-
 
 export default function GalleryPageClient() {
   const categories = [
@@ -53,12 +50,10 @@ export default function GalleryPageClient() {
     }
   ]
 
-
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
       <EnhancedHero
-
         title="Our Project Gallery"
         description="Browse our portfolio of completed projects and see the quality and craftsmanship we bring to every job."
         backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/2B4F5211-53AA-4898-9318-E70FD6AE6811_3vhLxTnmN.jpeg?"
@@ -75,10 +70,10 @@ export default function GalleryPageClient() {
         </div>
       </EnhancedHero>
 
-      {/* Gallery Categories */}
+      {/* Gallery Showcase */}
       <PaintingGallery />
 
-      {/* Gallery Categories */}
+      {/* Browse by Category */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -90,8 +85,8 @@ export default function GalleryPageClient() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {categories.map((category) => (
-              <Link 
-                key={category.id} 
+              <Link
+                key={category.id}
                 href={`/gallery/${category.id}`}
                 className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
               >
@@ -104,7 +99,7 @@ export default function GalleryPageClient() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                
+
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
                     {category.title}
@@ -119,12 +114,9 @@ export default function GalleryPageClient() {
                 </div>
               </Link>
             ))}
-
           </div>
         </div>
       </section>
-
-
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-brand-blue to-brand-lightBlue text-white">
@@ -137,6 +129,29 @@ export default function GalleryPageClient() {
             <CTAModal
               trigger={
                 <FancyButton variant="shine" size="xl" hasArrow={true} rounded="full">
+                  Get Free Estimate
+                </FancyButton>
+              }
+            />
+
+            <FancyButton
+              variant="outline"
+              size="xl"
+              rounded="full"
+              className="bg-transparent border-white text-white hover:bg-white/10"
+              onClick={() => window.open("https://cal.com/nxgcoatings/virtual-consultation", "_blank")}
+            >
+              Book Consultation
+            </FancyButton>
+
+            <Link href="/contact">
+              <FancyButton size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-blue-600">
+                Contact Us
+              </FancyButton>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Featured Projects */}
       <section className="py-16">
@@ -160,10 +175,9 @@ export default function GalleryPageClient() {
             Let us transform your space with our professional coating services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAModal 
+            <CTAModal
               trigger={
                 <FancyButton size="lg" variant="secondary">
-
                   Get Free Estimate
                 </FancyButton>
               }
@@ -184,11 +198,9 @@ export default function GalleryPageClient() {
                 Contact Us
               </FancyButton>
             </Link>
-
           </div>
         </div>
       </section>
     </main>
   )
-}
 }

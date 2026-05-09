@@ -4,26 +4,15 @@ import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, ArrowRight } from "lucide-react"
 import { format } from "date-fns"
+import type { BlogPostMeta } from "@/components/blog-card"
 
 interface BlogFeaturedPostProps {
-  slug: string
-  title: string
-  excerpt: string
-  publishedAt: string
-  coverImage?: string
-  category?: string
-  readTime?: number
+  post: BlogPostMeta
 }
 
-export default function BlogFeaturedPost({
-  slug,
-  title,
-  excerpt,
-  publishedAt,
-  coverImage,
-  category,
-  readTime
-}: BlogFeaturedPostProps) {
+export default function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
+  const { slug, title, excerpt, publishedAt, publishDate, coverImage, category, readTime } = post
+  const publishedDate = publishedAt ?? publishDate ?? ""
   return (
     <article className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
       {coverImage && (
@@ -47,7 +36,7 @@ export default function BlogFeaturedPost({
       <div className="p-8">
         <div className="flex items-center text-sm text-gray-500 mb-4">
           <Calendar className="w-4 h-4 mr-1" />
-          {format(new Date(publishedAt), "MMMM dd, yyyy")}
+          {format(new Date(publishedDate), "MMMM dd, yyyy")}
           {readTime && (
             <>
               <span className="mx-2">•</span>

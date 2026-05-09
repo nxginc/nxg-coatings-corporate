@@ -7,29 +7,28 @@ import { Calendar, Clock, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface BlogPostProps {
-  post: {
-    slug: string
-    title: string
-    excerpt: string
-    content?: string
-    author?: string
-    publishedAt: string
-    readingTime?: number
-    coverImage?: string
-    category?: string
-    tags?: string[]
+  title: string
+  excerpt: string
+  publishDate: string
+  readTime: string
+  coverImage?: string
+  author: {
+    name: string
+    avatar?: string
   }
+  content?: React.ReactNode
+  slug?: string
   className?: string
 }
 
-export default function BlogPost({ post, className }: BlogPostProps) {
+export default function BlogPost({ title, excerpt, publishDate, readTime, coverImage, author, content, slug, className }: BlogPostProps) {
   return (
     <article className={cn("bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow", className)}>
-      {post.coverImage && (
+      {coverImage && (
         <div className="relative h-48 overflow-hidden">
           <Image
-            src={post.coverImage}
-            alt={post.title}
+            src={coverImage}
+            alt={title}
             fill
             className="object-cover"
           />
@@ -37,51 +36,53 @@ export default function BlogPost({ post, className }: BlogPostProps) {
       )}
 
       <div className="p-6">
-        {post.category && (
-          <div className="inline-block px-3 py-1 bg-brand-blue/10 text-brand-blue text-sm font-medium rounded-full mb-3">
-            {post.category}
-          </div>
-        )}
-
         <h2 className="text-xl font-bold text-gray-900 mb-3 hover:text-brand-blue transition-colors">
-          <Link href={`/blog/${post.slug}`}>
-            {post.title}
-          </Link>
+          {slug ? (
+            <Link href={`/blog/${slug}`}>
+              {title}
+            </Link>
+          ) : (
+            <span>{title}</span>
+          )}
         </h2>
 
         <p className="text-gray-600 mb-4 line-clamp-3">
-          {post.excerpt}
+          {excerpt}
         </p>
 
         <div className="flex items-center text-sm text-gray-500 space-x-4">
-          {post.author && (
-            <div className="flex items-center">
-              <User className="w-4 h-4 mr-1" />
-              {post.author}
-            </div>
-          )}
+          <div className="flex items-center">
+            <User className="w-4 h-4 mr-1" />
+            {author.name}
+          </div>
 
           <div className="flex items-center">
             <Calendar className="w-4 h-4 mr-1" />
-            {format(new Date(post.publishedAt), "MMM dd, yyyy")}
+            {publishDate}
           </div>
 
-          {post.readingTime && (
-            <div className="flex items-center">
-              <Clock className="w-4 h-4 mr-1" />
-              {post.readingTime} min read
-            </div>
-          )}
+          <div className="flex items-center">
+            <Clock className="w-4 h-4 mr-1" />
+            {readTime}
+          </div>
         </div>
 
         <div className="mt-4">
-          <Link
-            href={`/blog/${post.slug}`}
-            className="text-brand-blue hover:text-brand-blue/80 font-medium transition-colors"
-          >
-            Read More →
-          </Link>
+          {slug && (
+            <Link
+              href={`/blog/${slug}`}
+              className="text-brand-blue hover:text-brand-blue/80 font-medium transition-colors"
+            >
+              Read More →
+            </Link>
+          )}
         </div>
+
+        {content && (
+          <div className="mt-6 prose prose-gray max-w-none">
+            {content}
+          </div>
+        )}
       </div>
     </article>
   )

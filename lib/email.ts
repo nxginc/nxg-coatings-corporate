@@ -31,6 +31,23 @@ export async function sendEmail({ to, subject, html, text }: EmailData) {
   return info
 }
 
+export async function sendContactEmail(data: {
+  name: string
+  email: string
+  phone?: string
+  message: string
+  service?: string
+}) {
+  const html = generateContactEmailTemplate(data)
+
+  return await sendEmail({
+    to: process.env.CONTACT_EMAIL || 'contact@nxgcoatings.com',
+    subject: `New Contact Form Submission from ${data.name}`,
+    html,
+    text: `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'Not provided'}\nService: ${data.service || 'Not specified'}\nMessage: ${data.message}`
+  })
+}
+
 export function generateContactEmailTemplate(data: {
   name: string
   email: string
@@ -61,49 +78,28 @@ export function generateContactEmailTemplate(data: {
           </div>
           <div class="content">
             <div class="field">
-              <div class="label">Name:</div>
-              <div>${data.name}</div>
+              <span class="label">Name:</span> ${data.name}
             </div>
             <div class="field">
-              <div class="label">Email:</div>
-              <div>${data.email}</div>
+              <span class="label">Email:</span> ${data.email}
             </div>
-            ${data.phone ? `
             <div class="field">
-              <div class="label">Phone:</div>
-              <div>${data.phone}</div>
+              <span class="label">Phone:</span> ${data.phone || 'Not provided'}
             </div>
-            ` : ''}
-            ${data.service ? `
             <div class="field">
-              <div class="label">Service:</div>
-              <div>${data.service}</div>
+              <span class="label">Service:</span> ${data.service || 'Not specified'}
             </div>
-            ` : ''}
             <div class="field">
-              <div class="label">Message:</div>
-              <div>${data.message.replace(/\n/g, '<br>')}</div>
+              <span class="label">Message:</span> ${data.message}
             </div>
           </div>
           <div class="footer">
-            <p>This email was sent from the NXG Coatings website contact form.</p>
+            <p>This message was sent from the NXG Coatings website contact form.</p>
           </div>
         </div>
       </body>
     </html>
   `
 
-  const text = `
-New Contact Form Submission
-
-Name: ${data.name}
-Email: ${data.email}
-${data.phone ? `Phone: ${data.phone}\n` : ''}${data.service ? `Service: ${data.service}\n` : ''}
-Message:
-${data.message}
-
-This email was sent from the NXG Coatings website contact form.
-  `
-
-  return { html, text }
+  return html
 }

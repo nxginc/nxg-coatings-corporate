@@ -9,7 +9,7 @@ import { Calendar, Users, DollarSign, BarChart2, Clock, FileText } from "lucide-
 
 export default function DashboardClient() {
   // Mock session for demo purposes
-  const status = "authenticated"
+  const status = "authenticated" as "authenticated" | "unauthenticated" | "loading"
   const session = {
     user: {
       name: "Admin User",

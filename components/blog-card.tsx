@@ -5,27 +5,33 @@ import Image from "next/image"
 import { Calendar, Clock } from "lucide-react"
 import { format } from "date-fns"
 
-interface BlogCardProps {
+export interface BlogPostMeta {
   slug: string
   title: string
   excerpt: string
-  publishedAt: string
+  publishedAt?: string
+  publishDate?: string
   coverImage?: string
   category?: string
-  readTime?: number
+  readTime?: string | number
+  featured?: boolean
+  author?: {
+    name: string
+    avatar?: string
+  }
 }
 
-export default function BlogCard({
-  slug,
-  title,
-  excerpt,
-  publishedAt,
-  coverImage,
-  category,
-  readTime
-}: BlogCardProps) {
+interface BlogCardProps {
+  post: BlogPostMeta
+  className?: string
+}
+
+export default function BlogCard({ post, className }: BlogCardProps) {
+  const { slug, title, excerpt, publishedAt, publishDate, coverImage, category, readTime } = post
+  const publishedDate = publishedAt ?? publishDate ?? ""
+
   return (
-    <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    <article className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow ${className ?? ""}`}>
       {coverImage && (
         <div className="relative h-48 overflow-hidden">
           <Image
@@ -57,7 +63,7 @@ export default function BlogCard({
         <div className="flex items-center justify-between text-xs text-gray-500">
           <div className="flex items-center">
             <Calendar className="w-3 h-3 mr-1" />
-            {format(new Date(publishedAt), "MMM dd, yyyy")}
+            {format(new Date(publishedDate), "MMM dd, yyyy")}
           </div>
           {readTime && (
             <div className="flex items-center">
