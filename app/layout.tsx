@@ -1,16 +1,32 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Fraunces } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+})
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  axes: ["opsz"],
+})
 
 export const metadata: Metadata = {
-  title: "NXG Coatings - Professional Painting & Coating Services",
-  description: "Transform and protect your property with expert coating solutions from NXG Coatings.",
+  metadataBase: new URL("https://nxgcoatings.com"),
+  title: {
+    default: "NXG Coatings — Premium Painting & Protective Coatings",
+    template: "%s · NXG Coatings",
+  },
+  description:
+    "Architect-grade painting and protective coatings for homes, HOAs, commercial, and industrial properties. Precision surface preparation, durable finishes, and a guaranteed result.",
   manifest: "/manifest.json",
   icons: [
     {
@@ -75,17 +91,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${fraunces.variable} bg-background`}>
       <head>
         <link rel="icon" href="https://ik.imagekit.io/j98e6hcfnkn/favicon_io/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>
-        <>
-          <Header />
-          <div className="pt-16">{children}</div>
-          <Footer />
-          <Toaster />
-        </>
+      <body className="font-sans">
+        <Header />
+        <main className="pt-20">{children}</main>
+        <Footer />
+        <Toaster />
       </body>
     </html>
   )

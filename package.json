@@ -5,14 +5,14 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "next lint",
+    "lint": "eslint .",
     "start": "next start",
     "vercel:build": "next build",
     "vercel:deploy": "vercel deploy --prod --confirm",
     "vercel:preview": "vercel deploy --preview --confirm"
   },
   "engines": {
-    "node": ">=18.18.0 <21"
+    "node": ">=18.18.0"
   },
   "dependencies": {
     "@auth/core": "latest",
