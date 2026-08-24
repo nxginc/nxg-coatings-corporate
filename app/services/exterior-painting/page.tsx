@@ -128,7 +128,7 @@ export default function ExteriorPaintingPage() {
       </section>
 
       {/* Services Section */}
-    {/*}  <section className="py-16 bg-gray-50">
+     <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Exterior Painting Services</h2>
@@ -142,37 +142,37 @@ export default function ExteriorPaintingPage() {
               {
                 title: "Siding Painting",
                 description: "Expert painting for all siding types including vinyl, wood, fiber cement, and aluminum.",
-                image: ASSETS.services.siding || ASSETS.placeholders.image,
+               image: ASSETS.services.siding,
               },
               {
                 title: "Trim & Fascia",
                 description:
                   "Detailed painting of trim, fascia, soffits, and architectural details that frame your home.",
-                image: ASSETS.services.trim || ASSETS.placeholders.image,
+               image: ASSETS.services.trim,
               },
               {
                 title: "Door & Window Painting",
                 description:
                   "Transform entryways and windows with expert painting that enhances curb appeal and protection.",
-                image: ASSETS.services.doors || ASSETS.placeholders.image,
+               image: ASSETS.services.doors,
               },
               {
                 title: "Deck & Fence Painting",
                 description:
                   "Revitalize outdoor living spaces with specialized coatings for decks, fences, and railings.",
-                image: ASSETS.services.deck || ASSETS.placeholders.image,
+               image: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/deckstain-solid.jpg?updatedAt=1747995087459",
               },
               {
                 title: "Garage Doors & Shutters",
                 description:
                   "Refresh and protect garage doors and shutters with durable paints designed for high-use surfaces.",
-                image: ASSETS.services.garage || ASSETS.placeholders.image,
+               image: ASSETS.services.garage,
               },
               {
                 title: "Stucco & Brick Painting",
                 description:
                   "Specialized coatings and techniques for masonry surfaces that allow proper breathability.",
-                image: ASSETS.services.stucco || ASSETS.placeholders.image,
+               image: ASSETS.services.stucco,
               },
             ].map((service, index) => (
               <div
@@ -195,8 +195,8 @@ export default function ExteriorPaintingPage() {
               </div>
             ))}
           </div>
-        </div> 
-      </section>. */}
+       </div>
+     </section>
 
       {/* Process Section */}
       <section className="py-16 bg-white">

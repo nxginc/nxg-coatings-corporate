@@ -30,11 +30,11 @@ export const ASSETS = {
     deck: "https://ik.imagekit.io/j98e6hcfnkn/Services/DeckStaining_MN_a3mceDUkH.png",
     colorConsultation: "https://ik.imagekit.io/j98e6hcfnkn/Banners/f3_ER1drZAJS.jpg?updatedAt=1679013242072",
     // Exterior painting service images
-    siding: "",
-    trim: "",
-    doors: "",
-    garage: "",
-    stucco: "",
+    siding: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/EXTERIOR_m2tKUqgQb.png?updatedAt=1747490370155",
+    trim: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/fasica_7pJ1Q6j7H.JPG?updatedAt=1747490360556",
+    doors: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/door-painting.JPG?updatedAt=1747829587587",
+    garage: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/garage-painting.JPG?updatedAt=1747829609356",
+    stucco: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/stucco.jpeg?updatedAt=1747829566633",
     // Deck is already present as 'deck'
     // Interior painting service images
     livingAreas: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/living%20area_KNQhLDoDK-.PNG",
