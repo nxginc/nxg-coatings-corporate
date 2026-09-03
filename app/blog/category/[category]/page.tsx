@@ -23,7 +23,7 @@ export default function BlogCategoryPage() {
   const blogGridRef = useRef<HTMLDivElement>(null)
 
   // Filter posts by category
-  const filteredPosts = blogPosts.filter((post) => post.category.toLowerCase() === category.toLowerCase())
+  const filteredPosts = blogPosts.filter((post) => (post.category ?? "").toLowerCase() === category.toLowerCase())
 
   useEffect(() => {
     if (!blogGridRef.current) return
