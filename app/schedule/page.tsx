@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import EnhancedHero from "@/components/enhanced-hero"
-import { CalendarBooking } from "@/components/calendar-booking"
+import CalendarBooking from "@/components/calendar-booking"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import { Check, Calendar, Phone } from "lucide-react"

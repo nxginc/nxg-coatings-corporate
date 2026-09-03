@@ -31,6 +31,28 @@ export async function sendEmail({ to, subject, html, text }: EmailData) {
   return info
 }
 
+export async function sendContactEmail(data: {
+  name: string
+  email: string
+  phone?: string
+  message: string
+  service?: string
+}) {
+  try {
+    const { html, text } = generateContactEmailTemplate(data)
+    const info = await sendEmail({
+      to: process.env.CONTACT_EMAIL || process.env.FROM_EMAIL || "info@nxgcoatings.com",
+      subject: `New Contact Form Submission from ${data.name}`,
+      html,
+      text,
+    })
+
+    return { success: true, messageId: info.messageId }
+  } catch (error) {
+    return { success: false, error, messageId: undefined as string | undefined }
+  }
+}
+
 export function generateContactEmailTemplate(data: {
   name: string
   email: string

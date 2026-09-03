@@ -27,7 +27,6 @@ export default function CalendarBooking() {
     setIsBooking(false)
     setIsBooked(true)
   }
-
   if (isBooked) {
     return (
       <Card className="max-w-md mx-auto">
@@ -58,7 +57,7 @@ export default function CalendarBooking() {
     )
   }
 
-  return (
+    return (
     <Card className="max-w-md mx-auto">
       <CardHeader>
         <CardTitle className="flex items-center">
