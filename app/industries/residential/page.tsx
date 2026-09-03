@@ -140,31 +140,31 @@ export default function ResidentialPage() {
               {
                 title: "Exterior Painting",
                 description: "Enhance your home's curb appeal with our premium exterior painting services.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/exterior-painting/f2_68GzpfZpi.jpg?updatedAt=1681575708835",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080",
                 link: "/services/exterior-painting",
               },
               {
                 title: "Interior Painting",
                 description: "Transform your living spaces with our expert interior painting services.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior3_39KLnxz51.jpeg?updatedAt=1699015715785",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879",
                 link: "/services/interior-painting",
               },
               {
                 title: "Deck & Fence Staining",
                 description: "Protect and beautify your outdoor wooden surfaces with our staining services.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/DeckStaining_MN_a3mceDUkH.png?updatedAt=1666951996630",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088",
                 link: "/services/deck-staining",
               },
               {
                 title: "Cabinet Refinishing",
                 description: "Give your kitchen a fresh look with our cabinet refinishing services.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/fine-finishes/IMG_0793_NpCgq3um_9.jpg?updatedAt=1699015624835",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/CabinetRefinishing_MN_8XLSgP4b9.jpg?updatedAt=1666953740495",
                 link: "/services/cabinet-refinishing",
               },
               {
                 title: "Color Consultation",
                 description: "Get expert advice on choosing the perfect colors for your home.",
-                image: "https://ik.imagekit.io/j98e6hcfnkn/Services/colorconsultation-mn_miqWZS3YT.jpg?updatedAt=1676855833037",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg?updatedAt=1748001132674",
                 link: "/services/color-consultation",
               },
               {
@@ -277,9 +277,9 @@ export default function ResidentialPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior5_ufsPPapVx.jpg?updatedAt=1699015717982",
-              "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior4_Hh1MOJzIH.jpg?updatedAt=1699015720375",
-              "https://ik.imagekit.io/j98e6hcfnkn/featured/exterior-painting/IMG_1401_Q3f3bdWD5i.jpg?updatedAt=1681571776302",
-              "https://ik.imagekit.io/j98e6hcfnkn/featured/exterior-painting/7mound-exterior_y4MS7vsj5.HEIC?updatedAt=1681571709452",
+              "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f3_Tdt47-4oA.jpg?updatedAt=1704333594335",
+              "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f1_8-Jfm4MWZ.jpg?updatedAt=1704333592818",
+              "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f4_dVndSb6E6.jpg?updatedAt=1704333592978",
             ].map((image, index) => (
               <div key={index} className="relative aspect-square overflow-hidden rounded-lg group">
                 <Image

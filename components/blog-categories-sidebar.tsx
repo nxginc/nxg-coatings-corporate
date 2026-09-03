@@ -11,15 +11,31 @@ interface Category {
 }
 
 interface BlogCategoriesSidebarProps {
-  categories: Category[]
+  categories?: Category[]
+  posts?: Array<{ category?: string }>
+  currentCategory?: string
   className?: string
 }
 
 export default function BlogCategoriesSidebar({
   categories,
+  posts,
   className
 }: BlogCategoriesSidebarProps) {
   const pathname = usePathname()
+  const resolvedCategories: Category[] =
+    categories ??
+    Object.entries(
+      (posts ?? []).reduce<Record<string, number>>((acc, post) => {
+        const key = post.category ?? "uncategorized"
+        acc[key] = (acc[key] ?? 0) + 1
+        return acc
+      }, {})
+    ).map(([name, count]) => ({
+      name,
+      slug: name.toLowerCase().replace(/\s+/g, "-"),
+      count,
+    }))
 
   return (
     <div className={cn("bg-white rounded-lg shadow-md p-6", className)}>
@@ -38,7 +54,7 @@ export default function BlogCategoriesSidebar({
           All Posts
         </Link>
 
-        {categories.map((category) => (
+        {resolvedCategories.map((category) => (
           <Link
             key={category.slug}
             href={`/blog/category/${category.slug}`}

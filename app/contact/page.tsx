@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { CalendarBooking } from "@/components/calendar-booking"
+import CalendarBooking from "@/components/calendar-booking"
 import { Mail, Phone, MapPin } from "lucide-react"
 import EnhancedHero from "@/components/enhanced-hero"
 import ContactForm from "@/components/contact-form"

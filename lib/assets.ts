@@ -1,8 +1,5 @@
 // Centralized asset URL definitions for NXG Coatings site.
 
-import IndustriesLayout from "@/app/industries/layout"
-import { blogPosts } from "@/data/blog-posts"
-
 // Modify here to swap CDN paths or update branding without searching codebase.
 export const ASSETS = {
   logo: {
@@ -17,32 +14,32 @@ export const ASSETS = {
   },
   hero: {
     fallback: "",
-    services: "https://ik.imagekit.io/j98e6hcfnkn/Services/decks_05lTy4nPk.jpg?updatedAt=1666774074251",
+    services: "https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438",
     process: "https://ik.imagekit.io/j98e6hcfnkn/Services/WindowStaining_MN_EFqt22s-6.jpg?updatedAt=1666951484146",
     blog: "",
     gallery: "",
   },
   services: {
     fineFinish: "https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg",
-    interior: "https://ik.imagekit.io/j98e6hcfnkn/Services/InteriorPainting_MN_zrSP9lrUz.png",
-    exterior: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/2B4F5211-53AA-4898-9318-E70FD6AE6811_3vhLxTnmN.jpeg",
+    interior: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879",
+    exterior: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080",
     cabinet: "https://ik.imagekit.io/j98e6hcfnkn/Services/CabinetRefinishing_MN_8XLSgP4b9.jpg?updatedAt=1666953740495",
-    deck: "https://ik.imagekit.io/j98e6hcfnkn/Services/DeckStaining_MN_a3mceDUkH.png",
-    colorConsultation: "https://ik.imagekit.io/j98e6hcfnkn/Banners/f3_ER1drZAJS.jpg?updatedAt=1679013242072",
+    deck: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088",
+    colorConsultation: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg?updatedAt=1748001132674",
     // Exterior painting service images
-    siding: "",
-    trim: "",
-    doors: "",
-    garage: "",
-    stucco: "",
+    siding: "https://ik.imagekit.io/j98e6hcfnkn/Banners/f1_8khZANtVn.jpg?updatedAt=1679013241962",
+    trim: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/fasica_7pJ1Q6j7H.JPG?updatedAt=1747490360556",
+    doors: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/door-painting.JPG?updatedAt=1747829587587",
+    garage: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/garage-painting.JPG?updatedAt=1747829609356",
+    stucco: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/stucco.jpeg?updatedAt=1747829566633",
     // Deck is already present as 'deck'
     // Interior painting service images
-    livingAreas: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/living%20area_KNQhLDoDK-.PNG",
-    kitchenBathroom: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/interior/7264EB3A-C9B6-4A23-84FF-4D110018851D_zpgnpqtb8.jpeg?updatedAt=1746446572210",
-    bedroom: "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior8_itIcVGmT1.jpg?updatedAt=1699015715638",
-    trimCeiling: "https://ik.imagekit.io/j98e6hcfnkn/trim-ceiling_zZ7QQ34l0.png?updatedAt=1754856790818",
-    accentWall: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/living_A1_Jw6aZbm.PNG?updatedAt=1746533518542",
-    specialtyFinish: "https://ik.imagekit.io/j98e6hcfnkn/Services/WindowStaining_MN_EFqt22s-6.jpg?updatedAt=1666951484146",
+    livingAreas: "https://ik.imagekit.io/j98e6hcfnkn/Banners/Interiorpainting_MN_5EW8oTEyHx?updatedAt=1666951441694",
+    kitchenBathroom: "https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602",
+    bedroom: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/edina_interior/IMG_5293_CsM7Otvqv.jpg?updatedAt=1666794094502",
+    trimCeiling: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/Ceiling_Paint_Edina/IMG_5300_f8yw8tkj0.jpg?updatedAt=1682690019878",
+    accentWall: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/carole_interior/IMG_0158_OrHXMg23M.jpg?updatedAt=1666794187821",
+    specialtyFinish: "https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg?updatedAt=1666774120425",
   },
   industries: {
     residential: "https://ik.imagekit.io/j98e6hcfnkn/Industries/residential_FqQDni9Oa.jpg",
@@ -57,10 +54,10 @@ export const ASSETS = {
     hoa_featured: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/64377d87f8cf768523c106d0_hoa-painting-hero-02_WTec4soEPA.webp?updatedAt=1747490345547"
   },
   cabinets: {
-    hero: "https://ik.imagekit.io/j98e6hcfnkn/Services/CabinetRefinishing_MN_8XLSgP4b9.jpg",
-    kitchen: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cabinets2_gudIC6M4Z.JPG",
-    bathroom: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG",
-    built: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cab-basmentr_nwrnFbc9Ss.JPG",
+    hero: "https://ik.imagekit.io/j98e6hcfnkn/Services/CabinetRefinishing_MN_8XLSgP4b9.jpg?updatedAt=1666953740495",
+    kitchen: "https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602",
+    bathroom: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG?updatedAt=1747490422629",
+    built: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/hardware_UfI0BnzxG.jpeg?updatedAt=1747490422675",
     colorchange: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cab_bA-gdseS7.JPG",
     staining: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cabinet-stain_9w9t8rJOR.JPG",
     hardware: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cabinet-hardware_EzSYHNksXZ.JPG"

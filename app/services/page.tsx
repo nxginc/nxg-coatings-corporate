@@ -132,7 +132,7 @@ export default function ServicesPage() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/PressureCleaning_MN_Z7jMuG9Dv.png?updatedAt=1666951495789"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/pressurewashing_VWnZEA2qNm.jpg?updatedAt=1741369712585"
                   alt="Pressure Washing"
                   width={800}
                   height={600}

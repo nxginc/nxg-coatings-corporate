@@ -1,12 +1,9 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "NXG Coatings - Professional Painting & Coating Services",
@@ -63,12 +60,6 @@ export const viewport: Viewport = {
   themeColor: '#003399'
 }
 
-const calComUrl = process.env.NEXT_PUBLIC_CAL_COM_URL
-const bookingPhone = process.env.NEXT_PUBLIC_BOOKING_PHONE
-const bookingEmail = process.env.NEXT_PUBLIC_BOOKING_EMAIL
-
-// Use these variables in your CTAs, scheduling, and marketing scripts
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -79,7 +70,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="https://ik.imagekit.io/j98e6hcfnkn/favicon_io/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>
+      <body>
         <>
           <Header />
           <div className="pt-16">{children}</div>

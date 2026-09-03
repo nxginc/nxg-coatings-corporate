@@ -10,16 +10,18 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 
 const galleryCategories = [
-  { id: "all", name: "All Projects", count: 24 },
-  { id: "interior", name: "Interior Painting", count: 12 },
-  { id: "exterior", name: "Exterior Painting", count: 8 },
-  { id: "commercial", name: "Commercial", count: 4 }
+  { id: "all", name: "All Projects", count: 8 },
+  { id: "interior", name: "Interior Painting", count: 3 },
+  { id: "exterior", name: "Exterior Painting", count: 2 },
+  { id: "commercial", name: "Commercial", count: 1 },
+  { id: "deck", name: "Deck Staining", count: 1 },
+  { id: "cabinet", name: "Cabinet Refinishing", count: 1 },
 ]
 
 const galleryImages = [
   {
     id: 1,
-    src: "/images/gallery/interior-1.jpg",
+    src: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879",
     alt: "Modern living room interior painting",
     category: "interior",
     title: "Modern Living Room",
@@ -27,7 +29,7 @@ const galleryImages = [
   },
   {
     id: 2,
-    src: "/images/gallery/exterior-1.jpg",
+    src: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080",
     alt: "House exterior painting",
     category: "exterior",
     title: "Residential Exterior",
@@ -35,13 +37,52 @@ const galleryImages = [
   },
   {
     id: 3,
-    src: "/images/gallery/commercial-1.jpg",
+    src: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/commercial/office-painting_4E4EaH-7y.JPG?updatedAt=1747490385376",
     alt: "Commercial office painting",
     category: "commercial",
     title: "Corporate Office",
     description: "Professional office space renovation"
   },
-  // Add more images as needed
+  {
+    id: 4,
+    src: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088",
+    alt: "Deck staining project",
+    category: "deck",
+    title: "Deck Staining",
+    description: "Weather-protected deck restoration and staining"
+  },
+  {
+    id: 5,
+    src: "https://ik.imagekit.io/j98e6hcfnkn/Services/CabinetRefinishing_MN_8XLSgP4b9.jpg?updatedAt=1666953740495",
+    alt: "Cabinet refinishing project",
+    category: "cabinet",
+    title: "Cabinet Refinishing",
+    description: "Kitchen cabinet refinishing with durable finish"
+  },
+  {
+    id: 6,
+    src: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f1_8-Jfm4MWZ.jpg?updatedAt=1704333592818",
+    alt: "Interior repaint project",
+    category: "interior",
+    title: "Interior Refresh",
+    description: "Whole-home interior repaint with coordinated color flow"
+  },
+  {
+    id: 7,
+    src: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263",
+    alt: "Exterior coating project",
+    category: "exterior",
+    title: "Exterior Transformation",
+    description: "Complete exterior preparation and premium coating system"
+  },
+  {
+    id: 8,
+    src: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f3_Tdt47-4oA.jpg?updatedAt=1704333594335",
+    alt: "Residential interior project",
+    category: "interior",
+    title: "Color Consultation Result",
+    description: "Interior repaint executed from professional color consultation"
+  },
 ]
 
 export default function GalleryPageClient() {
