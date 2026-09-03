@@ -29,7 +29,7 @@ const blogPosts: BlogPostMeta[] = [
     featured: true,
     author: {
       name: "NXG Coatings Team",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -42,8 +42,8 @@ const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog2_shlL_xb-0.jpeg?updatedAt=1741212349719",
     category: "Exterior",
     author: {
-      name: "Alex Thompson",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -56,8 +56,8 @@ const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-3_M4piDalkB9.jpeg?updatedAt=1741213130328",
     category: "Interior",
     author: {
-      name: "Jessica Chen",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -69,8 +69,8 @@ const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-4_WhGK1g1BA.jpg?updatedAt=1741213130440",
     category: "Products",
     author: {
-      name: "Michael Rodriguez",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -84,7 +84,7 @@ const blogPosts: BlogPostMeta[] = [
     category: "Commercial",
     author: {
       name: "NXG Coatings Team",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
   {
@@ -97,8 +97,8 @@ const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog-6_47xxAjqVC.jpg?updatedAt=1741213130701",
     category: "Tips",
     author: {
-      name: "Sarah Johnson",
-      avatar: "/placeholder.svg?height=80&width=80",
+      name: "NXG Coatings Team",
+      avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
     },
   },
 ]

@@ -1,5 +1,7 @@
 import EnhancedHero from "@/components/enhanced-hero"
-import ColorConsultationClient from "@/components/color-consultation-client"
+import Image from "next/image"
+import { CTAModal } from "@/components/cta-modal"
+import { FancyButton } from "@/components/ui/fancy-button"
 
 export const metadata = {
   title: "Color Consultation Services - NXG Coatings",
@@ -9,7 +11,7 @@ export const metadata = {
     description: "Expert color consultation services for interior and exterior painting projects.",
     images: [
       {
-        url: "https://ik.imagekit.io/j98e6hcfnkn/Banners/f3_ER1drZAJS.jpg?updatedAt=1679013242072",
+        url: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg?updatedAt=1748001132674",
         width: 1200,
         height: 630,
         alt: "Color consultation hero image",
@@ -42,10 +44,16 @@ export default function ColorConsultationPage() {
       <EnhancedHero
         title="Professional Color Consultation"
         subtitle="Transform your space with expert color guidance tailored to your style, lighting, and architectural features."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/f3_ER1drZAJS.jpg?updatedAt=1679013242072"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg?updatedAt=1748001132674"
         height="large"
       >
-        <ColorConsultationClient />
+        <CTAModal
+          trigger={
+            <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
+              Schedule Consultation
+            </FancyButton>
+          }
+        />
       </EnhancedHero>
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
@@ -56,9 +64,11 @@ export default function ColorConsultationPage() {
                 className="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
               >
                 <div className="relative h-48">
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
+                    width={800}
+                    height={600}
                     className="w-full h-full object-cover"
                   />
                 </div>

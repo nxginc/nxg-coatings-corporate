@@ -18,7 +18,7 @@ export default function CommercialPage() {
       <EnhancedHero
         title="Commercial Coating Solutions"
         subtitle="Professional painting and coating services for offices, retail spaces, and commercial properties."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/lulu1_HD8MXxVvi.jpeg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/commercial/office-painting_4E4EaH-7y.JPG?updatedAt=1747490385376"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -113,7 +113,7 @@ export default function CommercialPage() {
             <div className="story-image relative">
               <div className="rounded-xl overflow-hidden shadow-xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/lulu6_xWhP3XvI0.HEIC?updatedAt=1755167145928"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/commercial/overhead-structures-and-pipe-painting_AkpOx8NnB.jpg?updatedAt=1746877877926"
                   alt="NXG Coatings Team"
                   width={600}
                   height={400}
@@ -128,17 +128,6 @@ export default function CommercialPage() {
                     fill
                     className="object-contain"
                   />
-                </div>
-              </div>
-              {/* Testimonial Card */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-xs">
-                <div className="flex items-start mb-2">
-                  <div className="bg-green-100 rounded-full p-1 mr-2">
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    "Professional commercial painting with attention to detail and quality results."
-                  </p>
                 </div>
               </div>
             </div>

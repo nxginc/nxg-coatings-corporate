@@ -1,10 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Palette, CheckCircle, Star } from "lucide-react"
+import { Palette, CheckCircle } from "lucide-react"
 
 const colorSchemes = [
   {
@@ -26,19 +25,6 @@ const colorSchemes = [
     name: "Bold & Dramatic",
     colors: ["#2C3E50", "#34495E", "#E74C3C", "#F39C12"],
     description: "Strong contrast with vibrant accents"
-  }
-]
-
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    text: "The color consultation completely transformed our home. The colors they suggested were perfect!",
-    rating: 5
-  },
-  {
-    name: "Mike Chen",
-    text: "Professional service and great attention to detail. Highly recommend their color expertise.",
-    rating: 5
   }
 ]
 
@@ -163,27 +149,6 @@ export default function ColorConsultation() {
                 Schedule Consultation
               </Button>
             </div>
-          </div>
-        </div>
-
-        {/* Testimonials */}
-        <div className="bg-white rounded-lg p-8 shadow-lg">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
-            What Our Clients Say
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-2">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 italic mb-2">"{testimonial.text}"</p>
-                <p className="text-sm font-medium text-gray-900">- {testimonial.name}</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>

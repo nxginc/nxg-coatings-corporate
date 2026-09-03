@@ -1,6 +1,7 @@
 "use client"
 
 import EnhancedHero from "@/components/enhanced-hero"
+import { ASSETS } from "@/lib/assets"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import Link from "next/link"
@@ -15,7 +16,7 @@ export default function DeckStainingPage() {
       <EnhancedHero
         title="Professional Deck Staining Services"
         subtitle="Protect and beautify your outdoor living spaces with our expert deck staining and sealing services."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg"
+        backgroundImage={ASSETS.services.deck}
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -105,7 +106,7 @@ export default function DeckStainingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/4_WI2HGCsBC.jpg?updatedAt=1681571779303"
+                  src="https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/deckstain-solid.jpg?updatedAt=1747995087459"
                   alt="Freshly stained wooden deck"
                   width={600}
                   height={800}

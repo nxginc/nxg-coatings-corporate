@@ -1,6 +1,7 @@
 "use client"
 
 import EnhancedHero from "@/components/enhanced-hero"
+import { ASSETS } from "@/lib/assets"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import Image from "next/image"
@@ -14,7 +15,7 @@ export default function CabinetRefinishingPage() {
       <EnhancedHero
         title="Cabinet Refinishing Services"
         subtitle="Transform your kitchen and bathroom cabinets with our professional refinishing services—a cost-effective alternative to full replacement."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602"
+        backgroundImage={ASSETS.services.cabinet}
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -114,7 +115,7 @@ export default function CabinetRefinishingPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/page-assets/cabinets_SBQV4kCmA.JPG?updatedAt=1746533528450"
+                  src={ASSETS.services.cabinet}
                   alt="Cabinet refinishing project - kitchen"
                   width={600}
                   height={800}
@@ -142,19 +143,19 @@ export default function CabinetRefinishingPage() {
               title: "Kitchen Cabinets",
               description:
                 "Transform your kitchen with beautifully refinished cabinets in your choice of color and finish.",
-              image: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cabinets2_gudIC6M4Z.JPG",
+              image: "https://ik.imagekit.io/j98e6hcfnkn/Banners/CabinetRefinishing_MN_8WVfe1ZqR.jpg?updatedAt=1666950615602",
               },
               {
               title: "Bathroom Vanities",
               description:
                 "Update bathroom cabinets with moisture-resistant finishes designed for high-humidity environments.",
-              image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG",
+              image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG?updatedAt=1747490422629",
               },
               {
               title: "Built-In Cabinetry",
               description:
                 "Refresh entertainment centers, bookcases, and other built-ins to match your updated décor.",
-              image: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cab-basmentr_nwrnFbc9Ss.JPG",
+              image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/hardware_UfI0BnzxG.jpeg?updatedAt=1747490422675",
               },
               {
               title: "Cabinet Color Changes",
