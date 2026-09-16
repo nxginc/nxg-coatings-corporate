@@ -9,8 +9,8 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "NXG Coatings - Professional Painting & Coating Services",
-  description: "Transform and protect your property with expert coating solutions from NXG Coatings.",
+  title: "NXG Coatings | Commercial Painting & Coating Systems",
+  description: "Commercial coatings and painting systems built for the spaces that move business forward.",
   manifest: "/manifest.json",
   icons: [
     {
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://nxgcoatings.com",
-    title: "NXG Coatings - Professional Painting & Coating Services",
-    description: "Transform and protect your property with expert coating solutions from NXG Coatings.",
+    title: "NXG Coatings | Commercial Painting & Coating Systems",
+    description: "Commercial coatings and painting systems built for the spaces that move business forward.",
     siteName: "NXG Coatings",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NXG Coatings - Professional Painting & Coating Services",
-    description: "Transform and protect your property with expert coating solutions from NXG Coatings.",
+    title: "NXG Coatings | Commercial Painting & Coating Systems",
+    description: "Commercial coatings and painting systems built for the spaces that move business forward.",
   },
     generator: 'v0.dev'
 }

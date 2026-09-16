@@ -57,3 +57,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .section-kicker {
+    @apply text-[10px] font-semibold uppercase tracking-[0.24em] text-[#e74736];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

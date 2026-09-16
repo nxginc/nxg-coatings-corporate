@@ -1,0 +1,5 @@
+import Link from "next/link"
+
+export default function Footer() {
+  return <footer className="bg-[#101010] px-6 py-12 text-white lg:px-10"><div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-10 border-t border-white/15 pt-10 md:flex-row"><div><p className="text-xl font-semibold tracking-[-0.04em]">NXG<span className="text-[#e74736]">.</span></p><p className="mt-3 max-w-xs text-sm leading-6 text-white/45">Commercial coatings and painting systems built for the spaces that move business forward.</p></div><div className="flex flex-wrap gap-x-8 gap-y-3 text-[10px] uppercase tracking-[0.18em] text-white/55"><Link href="/services" className="hover:text-white">Services</Link><Link href="/industries" className="hover:text-white">Industries</Link><Link href="/gallery" className="hover:text-white">Work</Link><Link href="/contact" className="hover:text-white">Contact</Link></div><p className="text-[10px] uppercase tracking-[0.16em] text-white/35">© {new Date().getFullYear()} NXG Coatings</p></div></footer>
+}
