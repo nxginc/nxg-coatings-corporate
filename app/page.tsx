@@ -1,128 +1,31 @@
-"use client"
-
-import ConsultationBooking from "@/components/consultation-booking"
-import ParallaxFeatures from "@/components/parallax-features"
-import ServicesSlider from "@/components/services-slider"
-import { FancyButton } from "@/components/ui/fancy-button"
-import { CTAModal } from "@/components/cta-modal"
-import Link from "next/link"
 import Image from "next/image"
-import IndustrySection from "@/components/industry-section"
-import ColorConsultation from "@/components/color-consultation"
-import EnhancedHero from "@/components/enhanced-hero"
+import Link from "next/link"
+import { ASSETS } from "@/lib/assets"
+import { CTAModal } from "@/components/cta-modal"
+
+const capabilities = [
+  { number: "01", title: "Craftsmanship", text: "Surface preparation, application, and detailing executed with the discipline your project demands." },
+  { number: "02", title: "Coordination", text: "A clear, accountable process that keeps owners, GCs, and trades moving in the same direction." },
+  { number: "03", title: "Control", text: "Technology-enabled estimating and quality systems that make every finish measurable." },
+]
+
+const industries = ["Commercial", "Multifamily", "Healthcare", "Industrial", "Institutional", "Government"]
 
 export default function Home() {
-  return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <EnhancedHero
-        title="Professional Coating Solutions for Your Home"
-        subtitle="Transform and protect your property with our expert coating services. Schedule a consultation today."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263"
-        height="large"
-      >
-        <div className="flex flex-col sm:flex-row gap-4">
-          <CTAModal
-            trigger={
-              <FancyButton variant="shine" size="xl" hasArrow={true} rounded="full">
-                Get Free Estimate
-              </FancyButton>
-            }
-          />
-          <FancyButton
-            variant="outline"
-            size="xl"
-            rounded="full"
-            className="bg-transparent border-white text-white hover:bg-white/10"
-            onClick={() => window.open("https://cal.com/nxgcoatings/virtual-consultation", "_blank")}
-          >
-            Book Consultation
-          </FancyButton>
-        </div>
-      </EnhancedHero>
+  return <main className="overflow-hidden bg-[#f3f1ed] text-[#171717]">
+    <section className="relative flex min-h-[clamp(680px,92vh,920px)] items-end bg-[#161616] text-white">
+      <Image src={ASSETS.industries.industrial} alt="NXG crew coating a large commercial structure" fill priority className="object-cover opacity-70" sizes="100vw" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/20" />
+      <div className="relative mx-auto w-full max-w-[1440px] px-6 pb-20 pt-40 lg:px-10 lg:pb-28"><p className="mb-7 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#e74736]">Commercial coatings · Since 2012</p><h1 className="max-w-5xl text-[clamp(3.4rem,8vw,8.8rem)] font-semibold leading-[.86] tracking-[-.075em]">Precision built.<br /><span className="text-white/55">Technology enabled.</span><br />Future ready.</h1><div className="mt-12 flex flex-col gap-7 sm:flex-row sm:items-center"><CTAModal trigger={<button className="inline-flex w-fit items-center gap-8 bg-[#e74736] px-6 py-4 text-xs font-semibold uppercase tracking-[0.15em] transition hover:bg-white hover:text-[#171717]">Request a bid <span className="text-xl leading-none">↗</span></button>} /><Link href="#approach" className="text-xs font-semibold uppercase tracking-[0.16em] text-white/65 transition hover:text-white">Explore our approach <span aria-hidden="true">↓</span></Link></div></div>
+      <div className="absolute bottom-7 right-6 hidden text-right text-[10px] uppercase tracking-[0.18em] text-white/45 md:block lg:right-10"><span className="text-white/80">01</span> / 03<br />Built for the big picture</div>
+    </section>
 
-      {/* Services Slider Section */}
-      <ServicesSlider />
+    <section id="approach" className="mx-auto grid max-w-[1440px] gap-14 px-6 py-24 lg:grid-cols-[.8fr_1.4fr] lg:px-10 lg:py-36"><div><p className="section-kicker">The NXG difference</p><p className="mt-5 max-w-sm text-3xl font-medium leading-[1.05] tracking-[-.045em] lg:text-5xl">The finish is only as strong as the system behind it.</p></div><div><p className="max-w-2xl text-xl leading-8 text-black/60 lg:text-3xl lg:leading-[1.25]">We bring a commercial mindset to every surface: rigorous planning, experienced crews, and a finish that performs long after the last lift leaves the site.</p><div className="mt-16 grid gap-8 border-t border-black/15 pt-7 md:grid-cols-3">{capabilities.map((item) => <article key={item.number}><p className="text-xs text-[#e74736]">{item.number}</p><h2 className="mt-10 text-xl font-semibold tracking-[-.03em]">{item.title}</h2><p className="mt-3 text-sm leading-6 text-black/55">{item.text}</p></article>)}</div></div></section>
 
-      {/* Parallax Features Section */}
-      <ParallaxFeatures />
+    <section className="bg-[#ddd9d2] px-6 py-6 lg:px-10"><div className="mx-auto grid max-w-[1440px] gap-6 lg:grid-cols-[1.2fr_.8fr]"><div className="relative min-h-[500px] overflow-hidden bg-[#b1aaa0]"><Image src={ASSETS.services.exterior} alt="Fresh coating application on a commercial exterior" fill className="object-cover transition duration-700 hover:scale-105" sizes="(min-width: 1024px) 60vw, 100vw" /><div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-7 text-white"><p className="text-[10px] uppercase tracking-[.2em] text-white/60">01 / Application</p><p className="mt-2 text-2xl tracking-[-.04em]">Built to hold up.</p></div></div><div className="flex min-h-[500px] flex-col justify-between bg-[#e74736] p-8 text-white lg:p-12"><div><p className="text-[10px] uppercase tracking-[.2em] text-white/65">Systems, not shortcuts</p><p className="mt-20 max-w-sm text-4xl font-medium leading-[.97] tracking-[-.06em] lg:text-6xl">Beautiful work is engineered.</p></div><Link href="/services" className="flex items-center justify-between border-t border-white/35 pt-5 text-xs font-semibold uppercase tracking-[.16em]">See our capabilities <span className="text-2xl">↗</span></Link></div></div></section>
 
-      {/* Color Consultation Section */}
-      <ColorConsultation />
+    <section className="mx-auto max-w-[1440px] px-6 py-24 lg:px-10 lg:py-36"><div className="flex flex-col justify-between gap-8 border-b border-black/15 pb-8 md:flex-row md:items-end"><div><p className="section-kicker">Where we work</p><h2 className="mt-4 text-5xl font-medium tracking-[-.07em] lg:text-8xl">Made for<br /><span className="text-black/30">momentum.</span></h2></div><p className="max-w-xs text-sm leading-6 text-black/55">From occupied facilities to ground-up construction, our teams understand what&apos;s at stake.</p></div><div className="grid grid-cols-2 gap-x-6 gap-y-0 pt-8 md:grid-cols-3">{industries.map((industry, index) => <Link href="/industries" key={industry} className="group flex items-center justify-between border-b border-black/15 py-6 text-lg tracking-[-.03em] transition hover:text-[#e74736]"><span><span className="mr-4 text-[10px] text-black/35">0{index + 1}</span>{industry}</span><span className="text-xl opacity-0 transition group-hover:opacity-100">↗</span></Link>)}</div></section>
 
-  {/* Testimonials Section removed per request */}
-
-      {/* Industry Section */}
-      <IndustrySection />
-
-      {/* Consultation Booking Section */}
-      <ConsultationBooking />
-
-      {/* Blog Preview Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Latest From Our Blog</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-md overflow-hidden">
-              <div className="h-48 bg-gray-200 relative">
-                <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/blog-6_LmokjCe1Xb.jpg?updatedAt=1741213087003"
-                  alt="Peeling exterior paint on house siding"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                  <h3 className="text-white text-xl font-bold p-6">How to Repair Peeling Exterior House Paint</h3>
-                </div>
-              </div>
-              <div className="p-6">
-                <p className="text-gray-600 mb-4">
-                  Peeling paint is one of the most common issues homeowners face. Learn how to restore your home's
-                  exterior with our step-by-step guide.
-                </p>
-                <Link href="/blog/repair-peeling-exterior-paint">
-                  <FancyButton variant="link" hasArrow={true} className="p-0">
-                    Read Full Article
-                  </FancyButton>
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-md overflow-hidden">
-              <div className="h-48 bg-blue-200 relative">
-                <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688"
-                  alt="Professional exterior coating application"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                  <h3 className="text-white text-xl font-bold p-6">5 Benefits of Professional Exterior Coating</h3>
-                </div>
-              </div>
-              <div className="p-6">
-                <p className="text-gray-600 mb-4">
-                  Discover how professional exterior coating can protect your home, increase its value, and reduce
-                  maintenance costs over time.
-                </p>
-                <Link href="/blog/benefits-of-professional-exterior-coating">
-                  <FancyButton variant="link" hasArrow={true} className="p-0">
-                    Read Full Article
-                  </FancyButton>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/blog">
-              <FancyButton variant="outline" size="lg" rounded="full">
-                View All Blog Posts
-              </FancyButton>
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
-  )
+    <section className="relative bg-[#171717] px-6 py-24 text-white lg:px-10 lg:py-36"><div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-16 lg:flex-row lg:items-end"><div><p className="section-kicker text-[#e74736]">Start a conversation</p><h2 className="mt-6 max-w-4xl text-6xl font-medium leading-[.9] tracking-[-.075em] lg:text-[8.5rem]">Build better.<br /><span className="text-white/35">Finish strong.</span></h2></div><div className="max-w-xs lg:pb-3"><p className="text-sm leading-6 text-white/55">Tell us what you&apos;re building. We&apos;ll bring the right people, process, and finish to the table.</p><CTAModal trigger={<button className="mt-8 inline-flex items-center gap-8 border border-white/35 px-6 py-4 text-xs font-semibold uppercase tracking-[.15em] transition hover:border-[#e74736] hover:bg-[#e74736]">Request a bid <span className="text-xl">↗</span></button>} /></div></div></section>
+  </main>
 }
