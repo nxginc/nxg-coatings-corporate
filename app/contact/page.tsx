@@ -1,13 +1,11 @@
 import type { Metadata } from "next"
+import { seo } from "@/lib/seo"
 import { CalendarBooking } from "@/components/calendar-booking"
 import { Mail, Phone, MapPin } from "lucide-react"
 import EnhancedHero from "@/components/enhanced-hero"
 import ContactForm from "@/components/contact-form"
 
-export const metadata: Metadata = {
-  title: "Contact Us | NXG Coatings",
-  description: "Get in touch with NXG Coatings for a free estimate or consultation.",
-}
+export const metadata: Metadata = seo("contact", "/contact")
 
 export default function ContactPage() {
   return (
