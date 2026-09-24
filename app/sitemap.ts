@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "/", "/about", "/services", "/services/interior-painting", "/services/exterior-painting",
     "/services/deck-staining", "/services/cabinet-refinishing", "/services/color-consultation",
-    "/industries", "/gallery", "/blog", "/faqs", "/process", "/contact", "/quote",
+    "/industries", "/servicearea", "/gallery", "/blog", "/faqs", "/process", "/contact", "/quote",
   ]
   return routes.map((path) => ({
     url: new URL(path, SITE_URL).toString(),
