@@ -10,9 +10,6 @@ import { FancyButton } from "@/components/ui/fancy-button"
 
 import { ExternalLink, Home, Paintbrush, Palette, Shield, Droplet, RefreshCw, Package, Brush } from 'lucide-react'
 
-import type { Metadata } from "next"
-import { seo } from "@/lib/seo"
-
 export const metadata: Metadata = seo("services", "/services")
 
 export default function ServicesPage() {
