@@ -15,7 +15,7 @@ export default function DeckStainingPage() {
       <EnhancedHero
         title="Professional Deck Staining Services"
         subtitle="Protect and beautify your outdoor living spaces with our expert deck staining and sealing services."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg"
+        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Services/DeckStaining_MN_a3mceDUkH.png?updatedAt=1666951996630"
         height="medium"
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -132,6 +132,71 @@ export default function DeckStainingPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Deck Staining Services</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Comprehensive deck care solutions from cleaning to restoration and long-term maintenance.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Deck Cleaning & Preparation",
+                description: "Thorough pressure washing and sanding to remove old finish, dirt, and grey wood.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/deck-cleaning_qqxmpljBN.jpeg",
+              },
+              {
+                title: "Transparent & Semi-Transparent Stains",
+                description: "Preserve the natural grain of your wood while adding rich color and UV protection.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/deck-stain-semi_b3gOWiS0x.jpg",
+              },
+              {
+                title: "Solid Color Deck Stains",
+                description: "Full-coverage solid stains that hide imperfections and provide maximum protection.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/deckstain-solid.jpg?updatedAt=1747995087459",
+              },
+              {
+                title: "Waterproofing & Sealing",
+                description: "Advanced waterproofing treatments that lock out moisture and extend your deck's life.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/Deck-Waterproofing_K7LZBfwIk.webp",
+              },
+              {
+                title: "Deck Restoration",
+                description: "Revive weathered or damaged decks with our multi-step restoration process.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/semi_25BPGPjn6.webp",
+              },
+              {
+                title: "Maintenance Programs",
+                description: "Annual inspection and re-coat programs to keep your deck looking its best year after year.",
+                image: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/maintence_J87HCCwCk.jpg",
+              },
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300"
+              >
+                <div className="h-48 relative overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-brand-blue mb-2">{service.title}</h3>
+                  <p className="text-gray-600">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
