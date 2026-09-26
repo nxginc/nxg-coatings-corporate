@@ -1,4 +1,15 @@
-"use client"
+import IndustryLandingPage from "@/components/industry-landing-page"
+import { industryPages } from "@/data/industry-pages"
+
+export default function ResidentialIndustryPage() {
+  return <IndustryLandingPage industry={industryPages.residential} />
+}
+import IndustryLandingPage from "@/components/industry-landing-page"
+import { industryPages } from "@/data/industry-pages"
+
+export default function ResidentialIndustryPage() {
+  return <IndustryLandingPage industry={industryPages.residential} />
+}"use client"
 
 import EnhancedHero from "@/components/enhanced-hero"
 import { FancyButton } from "@/components/ui/fancy-button"

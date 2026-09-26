@@ -1,78 +1,32 @@
-"use client"
-
 import Link from "next/link"
 import Image from "next/image"
-import { Calendar, Clock, ArrowRight } from "lucide-react"
-import { format } from "date-fns"
+import { ArrowUpRight } from "lucide-react"
+import type { BlogPostMeta } from "@/data/blog-posts"
 
 interface BlogFeaturedPostProps {
-  slug: string
-  title: string
-  excerpt: string
-  publishedAt: string
-  coverImage?: string
-  category?: string
-  readTime?: number
+  post: BlogPostMeta
 }
 
-export default function BlogFeaturedPost({
-  slug,
-  title,
-  excerpt,
-  publishedAt,
-  coverImage,
-  category,
-  readTime
-}: BlogFeaturedPostProps) {
+export default function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
   return (
-    <article className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-      {coverImage && (
-        <div className="relative h-64 overflow-hidden">
-          <Image
-            src={coverImage}
-            alt={title}
-            fill
-            className="object-cover"
-          />
-          {category && (
-            <div className="absolute top-4 left-4">
-              <div className="inline-block px-3 py-1 bg-brand-blue text-white text-sm font-medium rounded-full">
-                {category}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      <div className="p-8">
-        <div className="flex items-center text-sm text-gray-500 mb-4">
-          <Calendar className="w-4 h-4 mr-1" />
-          {format(new Date(publishedAt), "MMMM dd, yyyy")}
-          {readTime && (
-            <>
-              <span className="mx-2">•</span>
-              <Clock className="w-4 h-4 mr-1" />
-              {readTime} min read
-            </>
-          )}
-        </div>
-
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 hover:text-brand-blue transition-colors">
-          <Link href={`/blog/${slug}`}>
-            {title}
-          </Link>
-        </h2>
-
-        <p className="text-gray-600 text-lg mb-6 line-clamp-3">
-          {excerpt}
+    <article className="grid overflow-hidden border border-[var(--nxg-line)] bg-white md:grid-cols-[1.15fr_0.85fr]">
+      <Link href={`/blog/${post.slug}`} className="group relative block min-h-72 overflow-hidden bg-[var(--nxg-paper)] md:min-h-[420px]">
+        <Image src={post.coverImage} alt={post.title} fill priority sizes="(min-width: 768px) 58vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.035]" />
+        <span className="absolute left-5 top-5 bg-[var(--nxg-red)] px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-white">Featured / {post.category}</span>
+      </Link>
+      <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-12">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[var(--nxg-muted)]">
+          {new Date(`${post.publishDate}T12:00:00`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+          <span className="px-2 text-[var(--nxg-red)]">/</span>{post.readTime}
         </p>
-
-        <Link
-          href={`/blog/${slug}`}
-          className="inline-flex items-center text-brand-blue font-medium hover:text-brand-blue/80 transition-colors"
-        >
-          Read More
-          <ArrowRight className="w-4 h-4 ml-2" />
+        <h2 className="mt-5 text-3xl font-medium leading-tight text-[var(--nxg-navy)] sm:text-4xl lg:text-5xl">{post.title}</h2>
+        <p className="mt-5 text-base leading-7 text-[var(--nxg-muted)]">{post.excerpt}</p>
+        <div className="mt-8 flex items-center gap-3 border-t border-[var(--nxg-line)] pt-5">
+          <Image src={post.author.avatar} alt="" width={36} height={36} className="h-9 w-9 object-contain" />
+          <span className="text-xs font-medium text-[var(--nxg-navy)]">{post.author.name}</span>
+        </div>
+        <Link href={`/blog/${post.slug}`} className="mt-7 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]">
+          Read the story <ArrowUpRight className="h-4 w-4" />
         </Link>
       </div>
     </article>

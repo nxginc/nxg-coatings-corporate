@@ -1,0 +1,65 @@
+{
+    "version": 1,
+    "pipeline": [
+        {
+            "event": "admin.asset.upload.requested",
+            "action": "sign-staging-upload",
+            "status": "implemented",
+            "gate": "admin-auth-and-cloudinary-enabled"
+        },
+        {
+            "event": "cloudinary.asset.uploaded",
+            "action": "register-provenance-and-review",
+            "status": "contract-only",
+            "gate": "rights-alt-text-source-and-tenant-required"
+        },
+        {
+            "event": "asset.metadata.approved",
+            "action": "create-render-jobs",
+            "status": "contract-only",
+            "gate": "asset-approval"
+        },
+        {
+            "event": "render.completed",
+            "action": "validate-profile-and-create-proof",
+            "status": "contract-only",
+            "gate": "render-qa-pass"
+        },
+        {
+            "event": "render.approved",
+            "action": "link-to-campaign-and-channel",
+            "status": "contract-only",
+            "gate": "campaign-copy-and-creative-approval"
+        },
+        {
+            "event": "social.post.approved",
+            "action": "queue-vista-social",
+            "status": "provider-pending",
+            "gate": "provider-credentials-and-platform-policy"
+        },
+        {
+            "event": "meta.ad.approved",
+            "action": "prepare-region-adset-draft",
+            "status": "human-operated",
+            "gate": "targeting-location-id-budget-and-policy-confirmation"
+        },
+        {
+            "event": "provider.publish.succeeded",
+            "action": "record-provider-id-and-published-state",
+            "status": "contract-only",
+            "gate": "provider-response-required"
+        },
+        {
+            "event": "provider.publish.failed",
+            "action": "retain-failed-state-and-idempotent-retry",
+            "status": "contract-only",
+            "gate": "operator-review-before-retry"
+        }
+    ],
+    "automationBoundaries": [
+        "No asset becomes production-ready based on successful upload alone.",
+        "Asset, campaign copy, targeting/budget, and publication approvals are separate records.",
+        "Auto-generated images and copy stay draft until reviewed; do not invent project outcomes, discounts, warranties, or customer quotes.",
+        "A publish operation must use an idempotency key and persist the external provider ID before status becomes published."
+    ]
+}

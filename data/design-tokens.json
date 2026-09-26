@@ -1,0 +1,57 @@
+{
+    "$schema": "https://design-tokens.github.io/community-group/format/",
+    "name": "NXG Coatings V3",
+    "version": "1.0.0",
+    "tokens": {
+        "color": {
+            "brand.navy": {
+                "value": "#0C1D34",
+                "type": "color"
+            },
+            "brand.red": {
+                "value": "#86001A",
+                "type": "color"
+            },
+            "brand.platinum": {
+                "value": "#C0C0C0",
+                "type": "color"
+            },
+            "brand.charcoal": {
+                "value": "#1A1A1A",
+                "type": "color"
+            },
+            "surface.paper": {
+                "value": "#F5F6F7",
+                "type": "color"
+            },
+            "border.default": {
+                "value": "#D9DEE3",
+                "type": "color"
+            },
+            "text.muted": {
+                "value": "#66727F",
+                "type": "color"
+            }
+        },
+        "layout": {
+            "content.maxWidth": {
+                "value": "1440px",
+                "type": "dimension"
+            },
+            "radius.control": {
+                "value": "4px",
+                "type": "dimension"
+            },
+            "radius.card": {
+                "value": "4px",
+                "type": "dimension"
+            }
+        }
+    },
+    "figma": {
+        "collection": "NXG Foundations",
+        "variablePathSeparator": "/",
+        "syncMode": "tokens-first",
+        "note": "Keep names stable when mapping these tokens to Figma variables. The JSON is the handoff contract; it does not sync to Figma by itself."
+    }
+}

@@ -1,86 +1,47 @@
 import type { Metadata } from "next"
-import { seo } from "@/lib/seo"
+import Link from "next/link"
 import { CalendarBooking } from "@/components/calendar-booking"
-import { Mail, Phone, MapPin } from "lucide-react"
-import EnhancedHero from "@/components/enhanced-hero"
 import ContactForm from "@/components/contact-form"
+import EnhancedHero from "@/components/enhanced-hero"
+import { Mail, MapPin, Phone } from "lucide-react"
+import { ASSETS } from "@/lib/assets"
+import { seo } from "@/lib/seo"
 
 export const metadata: Metadata = seo("contact", "/contact")
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
+    <main className="bg-white text-[var(--nxg-charcoal)]">
       <EnhancedHero
-        title="Contact NXG Coatings"
-        subtitle="Ready to transform your property? Get in touch with our professional team for a free estimate and consultation."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
+        title="Start with a useful conversation."
+        subtitle="Share what you are planning or schedule time to discuss the property and its surfaces."
+        backgroundImage={ASSETS.hero.fallback}
         height="medium"
       />
 
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Request a Free Estimate</h2>
-              <p className="text-gray-600 mb-8">
-                Fill out the form below and our team will get back to you with a detailed quote for your project.
-              </p>
-
-              <div className="bg-white rounded-xl shadow-md p-6">
-                <ContactForm />
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Schedule a Consultation</h2>
-              <p className="text-gray-600 mb-8">
-                Choose a time that works for you to speak with one of our coating specialists.
-              </p>
-
-              <div className="bg-white rounded-xl shadow-md p-6">
-                <CalendarBooking />
-              </div>
-
-              <div className="mt-12 space-y-6">
-                <h3 className="text-2xl font-bold">Contact Information</h3>
-
-                <div className="flex items-start gap-4">
-                  <Mail className="h-6 w-6 text-brand-blue mt-1" />
-                  <div>
-                    <h4 className="font-medium">Email</h4>
-                    <a href="mailto:info@nxgcoatingsinc.com" className="text-brand-blue hover:underline">
-                      info@nxgcoatingsinc.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <Phone className="h-6 w-6 text-brand-blue mt-1" />
-                  <div>
-                    <h4 className="font-medium">Phone</h4>
-                    <a href="tel:+19529004222" className="text-brand-blue hover:underline">
-                      (952) 900-4222
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <MapPin className="h-6 w-6 text-brand-blue mt-1" />
-                  <div>
-                    <h4 className="font-medium">Office</h4>
-                    <address className="not-italic">
-                      5200 Willson Blvd
-                      <br />
-                      Suite 150
-                      <br />
-                      Edina, MN 55424
-                    </address>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-14 lg:px-10 lg:py-20">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:gap-14">
+          <div>
+            <p className="section-kicker">Project inquiry</p>
+            <h2 className="mt-3 text-3xl font-medium text-[var(--nxg-navy)] sm:text-4xl">Tell us what needs a new finish.</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--nxg-muted)]">Add the service, location, timing, and any details that will help us prepare for the next step.</p>
+            <div className="mt-7 border border-[var(--nxg-line)] bg-white p-4 sm:p-6"><ContactForm /></div>
           </div>
+
+          <aside className="lg:border-l lg:border-[var(--nxg-line)] lg:pl-8">
+            <p className="section-kicker">Schedule</p>
+            <h2 className="mt-3 text-2xl font-medium text-[var(--nxg-navy)]">Choose a consultation time.</h2>
+            <p className="mt-3 text-sm leading-6 text-[var(--nxg-muted)]">Use the calendar to request a time to discuss the property, goals, and project scope.</p>
+            <div className="mt-6 border border-[var(--nxg-line)] bg-white p-4 sm:p-5"><CalendarBooking /></div>
+
+            <div className="mt-8 border-t border-[var(--nxg-line)] pt-5">
+              <h3 className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--nxg-muted)]">Direct contact</h3>
+              <a href="tel:+19529004222" className="mt-4 flex items-center gap-3 text-sm text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]"><Phone className="h-4 w-4" /> (952) 900-4222</a>
+              <a href="mailto:info@nxgcoatingsinc.com" className="mt-3 flex items-center gap-3 text-sm text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]"><Mail className="h-4 w-4" /> info@nxgcoatingsinc.com</a>
+              <div className="mt-3 flex items-start gap-3 text-sm leading-6 text-[var(--nxg-muted)]"><MapPin className="mt-1 h-4 w-4 shrink-0" /><address className="not-italic">5200 Willson Blvd, Suite 150<br />Edina, MN 55424</address></div>
+              <Link href="/servicearea" className="mt-5 inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] underline-offset-4">Service areas</Link>
+            </div>
+          </aside>
         </div>
       </section>
     </main>

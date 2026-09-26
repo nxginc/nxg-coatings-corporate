@@ -9,7 +9,8 @@
     "start": "next start",
     "vercel:build": "next build",
     "vercel:deploy": "vercel deploy --prod --confirm",
-    "vercel:preview": "vercel deploy --preview --confirm"
+    "vercel:preview": "vercel deploy --preview --confirm",
+    "admin:secrets": "node scripts/setup-admin-secrets.mjs"
   },
   "engines": {
     "node": ">=18.18.0 <21"

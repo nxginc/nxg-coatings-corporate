@@ -1,321 +1,69 @@
 import type { Metadata } from "next"
-import { seo } from "@/lib/seo"
 import Image from "next/image"
 import Link from "next/link"
-
-import EnhancedHero from "@/components/enhanced-hero"
-import ServiceDetail from "@/components/service-detail"
-import ServicesSlider from "@/components/services-slider"
-import { FancyButton } from "@/components/ui/fancy-button"
-
-import { ExternalLink, Home, Paintbrush, Palette, Shield, Droplet, RefreshCw, Package, Brush } from 'lucide-react'
+import { ArrowUpRight } from "lucide-react"
+import ParallaxHero from "@/components/parallax-hero"
+import { ASSETS } from "@/lib/assets"
+import { seo } from "@/lib/seo"
 
 export const metadata: Metadata = seo("services", "/services")
 
+const services = [
+  { title: "Exterior painting", description: "Surface preparation and finish planning for siding, trim, doors, and exposed details.", image: ASSETS.services.exterior, href: "/services/exterior-painting", type: "Residential" },
+  { title: "Interior painting", description: "Careful room-by-room painting with protection, preparation, and a coordinated finish.", image: ASSETS.services.interior, href: "/services/interior-painting", type: "Residential" },
+  { title: "Cabinet refinishing", description: "A new finish for sound kitchen and bath cabinetry without a full replacement project.", image: ASSETS.cabinets.hero, href: "/services/cabinet-refinishing", type: "Specialty" },
+  { title: "Deck staining", description: "Cleaning, preparation, and stain or sealer selection for outdoor wood surfaces.", image: ASSETS.services.deck, href: "/services/deck-staining", type: "Exterior" },
+  { title: "Fine finish and millwork", description: "Detail-focused finishing for trim, windows, doors, and architectural woodwork.", image: ASSETS.services.fineFinish, href: "/quote?service=fine-finish", type: "Specialty" },
+  { title: "Pressure cleaning", description: "Surface cleaning and preparation for exterior and outdoor projects.", image: ASSETS.services.pressureCleaning, href: "/quote?service=pressure-cleaning", type: "Preparation" },
+  { title: "Paint restoration", description: "Repair and repainting plans for worn or damaged painted surfaces.", image: ASSETS.services.restoration, href: "/quote?service=restoration", type: "Restoration" },
+  { title: "Commercial painting", description: "Phased painting plans for offices, retail, and active commercial properties.", image: ASSETS.industries.commercial, href: "/industries/commercial", type: "Commercial" },
+  { title: "Industrial coatings", description: "Coating scopes for facility surfaces, floors, equipment, and safety markings.", image: ASSETS.industries.industrial, href: "/industries/industrial", type: "Industrial" },
+]
+
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <EnhancedHero
-        title="Our Professional Services"
-        subtitle="Discover our comprehensive range of coating services designed to protect and beautify your property."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
-        height="medium"
+    <main className="bg-white text-[var(--nxg-charcoal)]">
+      <ParallaxHero
+        eyebrow="NXG Coatings / Services"
+        title="The right finish begins with the right plan."
+        description="Painting and coating services for homes, businesses, and facilities across the Twin Cities."
+        image={ASSETS.hero.services}
+        imageAlt="NXG Coatings project photography"
+        height="large"
       >
-        <div className="flex flex-wrap gap-4 justify-center">
-          <Link href="#exterior">
-            <FancyButton variant="outline" size="sm" className="bg-white/20 backdrop-blur-sm border-white text-white">
-              <ExternalLink className="h-4 w-4 mr-2" />
-              Exterior
-            </FancyButton>
-          </Link>
-          <Link href="#interior">
-            <FancyButton variant="outline" size="sm" className="bg-white/20 backdrop-blur-sm border-white text-white">
-              <Home className="h-4 w-4 mr-2" />
-              Interior
-            </FancyButton>
-          </Link>
-          <Link href="#decks">
-            <FancyButton variant="outline" size="sm" className="bg-white/20 backdrop-blur-sm border-white text-white">
-              <Paintbrush className="h-4 w-4 mr-2" />
-              Decks
-            </FancyButton>
-          </Link>
-          <Link href="#cabinets">
-            <FancyButton variant="outline" size="sm" className="bg-white/20 backdrop-blur-sm border-white text-white">
-              <Palette className="h-4 w-4 mr-2" />
-              Cabinets
-            </FancyButton>
-          </Link>
+        <Link href="/quote" className="inline-flex min-h-12 items-center gap-5 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">Request an estimate <span aria-hidden="true" className="text-lg">↗</span></Link>
+        <Link href="/process" className="inline-flex min-h-12 items-center border border-white/55 px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">How we work</Link>
+      </ParallaxHero>
+
+      <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-14 lg:px-10 lg:py-20">
+        <div className="grid gap-6 border-b border-[var(--nxg-line)] pb-7 md:grid-cols-[1fr_0.8fr] md:items-end">
+          <div><p className="section-kicker">Service directory</p><h2 className="mt-4 max-w-2xl text-3xl font-medium leading-tight text-[var(--nxg-navy)] sm:text-5xl">Surfaces, spaces, and scopes.</h2></div>
+          <p className="max-w-xl text-sm leading-7 text-[var(--nxg-muted)]">Every estimate starts with the property and the work it needs. Explore a service, then share the details that matter for your project.</p>
         </div>
-      </EnhancedHero>
-
-      {/* Services Overview */}
-      <ServicesSlider />
-
-      {/* Exterior Painting */}
-      <div id="exterior">
-        <ServiceDetail
-          title="Exterior Painting"
-          description="Transform and protect your home's exterior with our professional painting services. We use premium quality paints and coatings that stand up to harsh weather conditions while enhancing your property's curb appeal."
-          features={[
-            "Premium weather-resistant paints and coatings",
-            "Thorough surface preparation and cleaning",
-            "Expert application techniques for lasting results",
-            "Color consultation and custom color matching",
-            "Comprehensive clean-up after project completion",
-          ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080"
-        />
-      </div>
-
-      {/* Interior Painting */}
-      <div id="interior">
-        <ServiceDetail
-          title="Interior Painting"
-          description="Revitalize your living spaces with our interior painting services. Our team of skilled professionals delivers flawless results with minimal disruption to your daily routine."
-          features={[
-            "Low-VOC and eco-friendly paint options",
-            "Precise cutting-in and trim work",
-            "Protection of furniture and flooring",
-            "Smooth, even application with no drips or streaks",
-            "Quick turnaround times to minimize disruption",
-          ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879"
-          reversed={true}
-        />
-      </div>
-
-      {/* Deck Staining */}
-      <div id="decks">
-        <ServiceDetail
-          title="Deck Staining & Refinishing"
-          description="Protect and beautify your outdoor living spaces with our professional deck staining services. We'll help you maintain the natural beauty of your wood while providing essential protection against the elements."
-          features={[
-            "Thorough cleaning and preparation",
-            "Repair of damaged boards and surfaces",
-            "Premium stains and sealers for maximum protection",
-            "Expert application for even coverage",
-            "Maintenance recommendations to extend lifespan",
-          ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088"
-        />
-      </div>
-
-      {/* Cabinet Refinishing */}
-      <div id="cabinets">
-        <ServiceDetail
-          title="Cabinet Refinishing"
-          description="Transform your kitchen or bathroom without the cost of a full remodel. Our cabinet refinishing services give your existing cabinets a fresh, new look at a fraction of the cost of replacement."
-          features={[
-            "Thorough cleaning and degreasing",
-            "Repair of damaged areas",
-            "Premium primers and paints for durability",
-            "Custom color matching and finishes",
-            "Hardware replacement and installation",
-          ]}
-          image="https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG?updatedAt=1747490422629"
-          reversed={true}
-        />
-      </div>
-
-      {/* Additional Services Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-brand-blue mb-12">Additional Services</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Pressure Washing */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-              <div className="relative h-48">
-                <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/PressureCleaning_MN_Z7jMuG9Dv.png?updatedAt=1666951495789"
-                  alt="Pressure Washing"
-                  width={800}
-                  height={600}
-                  className="object-cover w-full h-full"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-sm rounded-full p-3">
-                  <Droplet className="h-6 w-6 text-white" />
+        <div className="mt-7 grid gap-x-5 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, index) => (
+            <article key={service.title} className="group min-w-0 border-b border-[var(--nxg-line)] pb-5">
+              <Link href={service.href} className="block">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[var(--nxg-paper)]">
+                  <Image src={service.image} alt={`${service.title} project photography`} fill sizes="(min-width: 1024px) 31vw, (min-width: 640px) 48vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.035]" />
+                  <span className="absolute left-3 top-3 bg-white px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.13em] text-[var(--nxg-navy)]">{service.type}</span>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-brand-blue mb-3">Pressure Washing</h3>
-                <p className="text-gray-600 mb-4">
-                  Restore your surfaces to like-new condition with our thorough pressure cleaning services. Ideal for
-                  driveways, siding, decks, and more.
-                </p>
-              </div>
-            </div>
-
-            {/* Paint Restoration */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-              <div className="relative h-48">
-                <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/restoration_1rbm1Ax_Q.jpg?updatedAt=1741369714492"
-                  alt="Paint Restoration"
-                  width={800}
-                  height={600}
-                  className="object-cover w-full h-full"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-sm rounded-full p-3">
-                  <RefreshCw className="h-6 w-6 text-white" />
+                <div className="flex items-start justify-between gap-4 pt-4">
+                  <div><p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--nxg-red)]">0{index + 1}</p><h3 className="mt-2 text-xl font-semibold text-[var(--nxg-navy)]">{service.title}</h3><p className="mt-2 text-sm leading-6 text-[var(--nxg-muted)]">{service.description}</p></div>
+                  <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-[var(--nxg-navy)] transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[var(--nxg-red)]" />
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-brand-blue mb-3">Paint Restoration</h3>
-                <p className="text-gray-600 mb-4">
-                  Bring damaged surfaces back to life with our comprehensive restoration services. We repair, prime, and
-                  repaint to restore beauty and protection.
-                </p>
-              </div>
-            </div>
-
-            {/* Protective Coatings */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-              <div className="relative h-48">
-                <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Services/finefinishes_Dq4bB4CJa.jpg?updatedAt=1666774073303"
-                  alt="Protective Coatings"
-                  width={800}
-                  height={600}
-                  className="object-cover w-full h-full"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-sm rounded-full p-3">
-                  <Shield className="h-6 w-6 text-white" />
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-brand-blue mb-3">Protective Coatings</h3>
-                <p className="text-gray-600 mb-4">
-                  Extend the life of your surfaces with our specialized protective coatings. Ideal for high-traffic
-                  areas and surfaces exposed to harsh conditions.
-                </p>
-              </div>
-            </div>
-
-            {/* Fine Finish and Millworker Painting */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-              <div className="relative h-48">
-                <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg?updatedAt=1666774120425"
-                  alt="Fine Finish and Millworker Painting"
-                  width={800}
-                  height={600}
-                  className="object-cover w-full h-full"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-sm rounded-full p-3">
-                  <Brush className="h-6 w-6 text-white" />
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-brand-blue mb-3">Fine Finish and Millworker Painting</h3>
-                <p className="text-gray-600 mb-4">
-                  Specialized painting for trim, windows, doors, and architectural millwork requiring precise technique and attention to detail.
-                </p>
-              </div>
-            </div>
-          </div>
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Process Overview */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Painting Process</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We follow a proven process to ensure exceptional results on every project.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Step 1 */}
-            <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-md transition-all duration-300">
-              <div className="w-16 h-16 bg-brand-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">1</span>
-              </div>
-              <h3 className="text-xl font-bold text-brand-blue mb-2">Consultation</h3>
-              <p className="text-gray-600">
-                We start with a thorough consultation to understand your needs, preferences, and project goals.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-md transition-all duration-300">
-              <div className="w-16 h-16 bg-brand-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">2</span>
-              </div>
-              <h3 className="text-xl font-bold text-brand-blue mb-2">Preparation</h3>
-              <p className="text-gray-600">
-                Proper preparation is crucial. We clean, repair, and prepare surfaces to ensure optimal results.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-md transition-all duration-300">
-              <div className="w-16 h-16 bg-brand-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">3</span>
-              </div>
-              <h3 className="text-xl font-bold text-brand-blue mb-2">Application</h3>
-              <p className="text-gray-600">
-                Our skilled technicians apply coatings using professional techniques and high-quality materials.
-              </p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-md transition-all duration-300">
-              <div className="w-16 h-16 bg-brand-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">4</span>
-              </div>
-              <h3 className="text-xl font-bold text-brand-blue mb-2">Inspection</h3>
-              <p className="text-gray-600">
-                We conduct a thorough inspection to ensure every detail meets our high standards.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <Link href="/process">
-              <FancyButton variant="outline" size="lg" rounded="full">
-                Learn More About Our Process
-              </FancyButton>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gray-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <Image
-            src="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
-            alt="Background"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
-            Contact us today to schedule a consultation and get a free estimate for your project.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <FancyButton variant="gradient" size="lg" hasArrow={true} rounded="full">
-                Contact Us
-              </FancyButton>
-            </Link>
-            <Link href="/gallery">
-              <FancyButton variant="outline" size="lg" rounded="full">
-                View Our Gallery
-              </FancyButton>
-            </Link>
-          </div>
+      <section className="bg-[var(--nxg-navy)] px-6 py-14 text-white lg:px-10 lg:py-20">
+        <div className="mx-auto grid max-w-[var(--nxg-content-width)] gap-9 lg:grid-cols-[0.8fr_1.2fr]">
+          <div><p className="section-kicker">Across every scope</p><h2 className="mt-4 max-w-lg text-3xl font-medium leading-tight sm:text-5xl">Preparation, application, and a clear finish line.</h2></div>
+          <ol className="grid gap-x-7 sm:grid-cols-3">
+            {["Walk the property", "Agree on scope", "Review the work"].map((step, index) => <li key={step} className="border-t border-white/25 py-4"><span className="text-[10px] font-semibold text-[var(--nxg-platinum)]">0{index + 1}</span><h3 className="mt-3 text-lg font-semibold">{step}</h3><p className="mt-2 text-sm leading-6 text-white/65">A straightforward checkpoint to keep expectations aligned.</p></li>)}
+          </ol>
         </div>
       </section>
     </main>

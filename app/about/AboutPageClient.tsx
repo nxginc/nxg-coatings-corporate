@@ -1,300 +1,58 @@
-"use client"
-
-import { useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ArrowUpRight } from "lucide-react"
 import EnhancedHero from "@/components/enhanced-hero"
-import { FancyButton } from "@/components/ui/fancy-button"
-import { CTAModal } from "@/components/cta-modal"
-import { Shield, Users, Award } from "lucide-react"
+import { ASSETS } from "@/lib/assets"
 
-// Register ScrollTrigger plugin
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
-}
+const values = [
+  { title: "Quality and integrity", description: "Keep the scope clear, communicate directly, and take care with the details." },
+  { title: "Customer focus", description: "Plan around the property, the people who use it, and the priorities of the project." },
+  { title: "Excellence", description: "Give preparation, application, and cleanup equal attention." },
+]
 
 export default function AboutPageClient() {
-  const valuesRef = useRef<HTMLDivElement>(null)
-  const storyRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!valuesRef.current || !storyRef.current) return
-
-    // Animate values section
-    const valueCards = gsap.utils.toArray<HTMLElement>(".value-card")
-    gsap.from(valueCards, {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: valuesRef.current,
-        start: "top 75%",
-        toggleActions: "play none none none",
-      },
-    })
-
-    // Animate story section
-    gsap.from(".story-content", {
-      x: -50,
-      opacity: 0,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: storyRef.current,
-        start: "top 75%",
-        toggleActions: "play none none none",
-      },
-    })
-
-    gsap.from(".story-image", {
-      x: 50,
-      opacity: 0,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: storyRef.current,
-        start: "top 75%",
-        toggleActions: "play none none none",
-      },
-    })
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
-
   return (
-    <main className="min-h-screen">
-      {/* Banner Photo Section */}
-      <div className="w-full h-64 md:h-96 relative mb-8">
-        <Image
-          src="https://ik.imagekit.io/j98e6hcfnkn/Services/wall-covering-services_0ZBLIjBeY.jpeg?updatedAt=1744880541476"
-          alt="NXG About Banner"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-          <Image
-            src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
-            alt="NXG Logo"
-            width={120}
-            height={120}
-            className="rounded-full bg-white/80 p-2 shadow-lg"
-          />
-        </div>
-      </div>
-      {/* Hero Section */}
+    <main className="bg-white text-[var(--nxg-charcoal)]">
       <EnhancedHero
-        title="About NXG Coatings"
-        subtitle="Professional coating solutions delivered by a team that cares about quality, craftsmanship, and exceeding customer expectations."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
-        height="medium"
+        title="A company built around the work."
+        subtitle="NXG Coatings brings preparation, planning, and finish together on every project."
+        backgroundImage={ASSETS.blog.aboutBanner}
+        height="large"
       >
-        <CTAModal
-          trigger={
-            <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
-              Get Free Estimate
-            </FancyButton>
-          }
-        />
+        <Link href="/quote" className="inline-flex min-h-12 items-center gap-4 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">Start a project <span aria-hidden="true">↗</span></Link>
       </EnhancedHero>
 
-      {/* Our Story Section */}
-      <section ref={storyRef} className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="story-content">
-              <h2 className="text-3xl font-bold text-brand-blue mb-6">Our Story</h2>
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  Founded in 2008, NXG Coatings began as a small family-owned business with a passion for delivering
-                  exceptional painting and coating services. Over the years, we've grown into a trusted name in the
-                  industry with a team of skilled professionals who share our commitment to excellence.
-                </p>
-                <p>
-                  Our journey has been defined by a commitment to quality, innovation, and customer satisfaction. We've
-                  continuously refined our techniques and expanded our service offerings to meet the changing needs of
-                  our clients.
-                </p>
-                <p>
-                  Today, NXG Coatings serves residential, commercial, and industrial clients throughout the region,
-                  bringing the same dedication to excellence to every project we undertake.
-                </p>
-              </div>
-              <div className="mt-8">
-                <Link href="/process">
-                  <FancyButton variant="outline" size="lg">
-                    Learn About Our Process
-                  </FancyButton>
-                </Link>
-              </div>
-            </div>
-            <div className="story-image relative">
-              <div className="rounded-xl overflow-hidden shadow-xl">
-                <Image
-                  src="https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f1_8-Jfm4MWZ.jpg?updatedAt=1704333592818"
-                  alt="NXG Coatings Team"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
-                <div className="relative h-16 w-16">
-                  <Image
-                    src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
-                    alt="NXG Coatings Logo"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              
-              </div>
+      <section className="mx-auto grid max-w-[var(--nxg-content-width)] gap-10 px-6 py-16 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-28">
+        <div><p className="section-kicker">Our story / Since 2008</p><h2 className="mt-5 max-w-md text-3xl font-medium leading-tight text-[var(--nxg-navy)] sm:text-5xl">Good finishes are planned before they are applied.</h2></div>
+        <div className="max-w-3xl text-base leading-7 text-[var(--nxg-muted)]">
+          <p>Founded in 2008, NXG Coatings began with a focus on painting and coating work done with care. Today the team serves residential, commercial, and industrial projects throughout the Twin Cities region.</p>
+          <p className="mt-5">Each property has its own surfaces, access needs, and priorities. We work to understand those details, set a clear scope, and carry the plan through preparation, application, and the final walkthrough.</p>
+          <Link href="/process" className="mt-7 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] decoration-2 underline-offset-8">Explore the process <ArrowUpRight className="h-4 w-4" /></Link>
+        </div>
+      </section>
+
+      <section className="bg-[var(--nxg-paper)] px-6 py-14 lg:px-10 lg:py-20">
+        <div className="mx-auto grid max-w-[var(--nxg-content-width)] gap-7 lg:grid-cols-[1.1fr_0.9fr]">
+          <figure className="relative min-h-[330px] overflow-hidden bg-white sm:min-h-[520px]">
+            <Image src={ASSETS.featuredHome.one} alt="NXG Coatings exterior painting project" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" />
+            <figcaption className="absolute bottom-4 left-4 bg-white px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.13em] text-[var(--nxg-navy)]">NXG Coatings / Project photography</figcaption>
+          </figure>
+          <div className="flex flex-col justify-center">
+            <p className="section-kicker">What guides us</p>
+            <h2 className="mt-4 text-3xl font-medium leading-tight text-[var(--nxg-navy)] sm:text-4xl">The principles behind the finish.</h2>
+            <div className="mt-7 border-t border-[var(--nxg-line)]">
+              {values.map((value, index) => <article key={value.title} className="grid grid-cols-[40px_1fr] gap-3 border-b border-[var(--nxg-line)] py-5"><span className="text-[10px] font-semibold text-[var(--nxg-red)]">0{index + 1}</span><div><h3 className="text-lg font-semibold text-[var(--nxg-navy)]">{value.title}</h3><p className="mt-2 text-sm leading-6 text-[var(--nxg-muted)]">{value.description}</p></div></article>)}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Core Values Section */}
-      <section ref={valuesRef} className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Core Values</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              These principles guide everything we do and define who we are as a company.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="value-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-brand-blue/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                <Shield className="h-8 w-8 text-brand-blue" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Quality & Integrity</h3>
-              <p className="text-gray-600">
-                We never compromise on quality and always maintain the highest standards of honesty in every aspect of
-                our business.
-              </p>
-            </div>
-
-            <div className="value-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-brand-blue/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                <Users className="h-8 w-8 text-brand-blue" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Customer Focus</h3>
-              <p className="text-gray-600">
-                We put our customers at the center of everything we do, working tirelessly to exceed their expectations.
-              </p>
-            </div>
-
-            <div className="value-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-brand-blue/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                <Award className="h-8 w-8 text-brand-blue" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Excellence</h3>
-              <p className="text-gray-600">
-                We strive for excellence in every project, from preparation to cleanup, delivering results that stand
-                the test of time.
-              </p>
-            </div>
-          </div>
-        </div>
+      <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-16 lg:px-10 lg:py-20">
+        <div className="flex flex-col justify-between gap-5 border-b border-[var(--nxg-line)] pb-5 sm:flex-row sm:items-end"><div><p className="section-kicker">Where we work</p><h2 className="mt-3 text-3xl font-medium text-[var(--nxg-navy)] sm:text-4xl">Residential / Commercial / Industrial</h2></div><Link href="/industries" className="text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] underline-offset-4">Explore industries</Link></div>
+        <p className="mt-5 max-w-3xl text-sm leading-7 text-[var(--nxg-muted)]">NXG works with homeowners, business teams, facility managers, and property associations to plan painting and coating work around the needs of each place.</p>
       </section>
 
-      {/* Our Process Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our Process</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We follow a proven process to ensure exceptional results on every project.
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-4xl mx-auto">
-            <div className="flex flex-col items-center text-center mb-8 md:mb-0">
-              <div className="bg-brand-blue text-white rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <span className="font-bold">1</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Consultation</h3>
-              <p className="text-sm text-gray-600 max-w-[200px]">
-                We start with a thorough consultation to understand your needs, preferences, and goals.
-              </p>
-            </div>
-
-            <div className="hidden md:block border-t-2 border-dashed border-gray-300 w-full absolute"></div>
-
-            <div className="flex flex-col items-center text-center mb-8 md:mb-0">
-              <div className="bg-brand-blue text-white rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <span className="font-bold">2</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Preparation</h3>
-              <p className="text-sm text-gray-600 max-w-[200px]">
-                Proper preparation is crucial. We clean, repair, and prepare surfaces to ensure optimal results.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center text-center mb-8 md:mb-0">
-              <div className="bg-brand-blue text-white rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <span className="font-bold">3</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Application</h3>
-              <p className="text-sm text-gray-600 max-w-[200px]">
-                Our skilled technicians apply coatings using professional techniques and high-quality materials.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center text-center">
-              <div className="bg-brand-blue text-white rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <span className="font-bold">4</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Inspection</h3>
-              <p className="text-sm text-gray-600 max-w-[200px]">
-                We conduct a thorough inspection to ensure every detail meets our high standards for quality.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/process">
-              <FancyButton variant="gradient" size="lg" hasArrow={true}>
-                View Our Full Process
-              </FancyButton>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-brand-blue to-brand-lightBlue text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Property?</h2>
-          <p className="text-xl max-w-2xl mx-auto mb-8">
-            Contact our team today to schedule a consultation and get a free estimate for your project.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAModal
-              trigger={
-                <FancyButton variant="shine" size="xl" hasArrow={true} rounded="full">
-                  Get Free Estimate
-                </FancyButton>
-              }
-            />
-            <Link href="/contact">
-              <FancyButton
-                variant="outline"
-                size="xl"
-                rounded="full"
-                className="bg-transparent border-white text-white hover:bg-white/10"
-              >
-                Contact Us
-              </FancyButton>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <section className="grid gap-5 bg-[var(--nxg-red)] px-6 py-12 text-white sm:grid-cols-[1fr_auto] sm:items-center lg:px-[max(40px,calc((100vw-var(--nxg-content-width))/2))]"><div><p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-white/70">Work with NXG</p><h2 className="mt-2 text-2xl font-medium sm:text-3xl">Tell us what your property needs.</h2></div><Link href="/quote" className="inline-flex min-h-12 items-center justify-center gap-4 border border-white/65 px-5 text-[10px] font-semibold uppercase tracking-[0.13em] transition hover:bg-white hover:text-[var(--nxg-red)]">Request an estimate <span aria-hidden="true">↗</span></Link></section>
     </main>
   )
 }

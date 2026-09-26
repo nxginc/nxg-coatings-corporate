@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { ASSETS } from "@/lib/assets"
 
 export const SITE_URL = "https://nxgcoatingsinc.com"
 export const SITE_NAME = "NXG Coatings"
@@ -152,11 +153,13 @@ export function seo(page: SeoPage, path = "/"): Metadata {
       siteName: SITE_NAME,
       title: item.title,
       description: item.description,
+      images: [{ url: ASSETS.hero.fallback, alt: "NXG Coatings project photography" }],
     },
     twitter: {
       card: "summary_large_image",
       title: item.title,
       description: item.description,
+      images: [ASSETS.hero.fallback],
     },
   }
 }

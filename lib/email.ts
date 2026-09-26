@@ -38,6 +38,18 @@ export function generateContactEmailTemplate(data: {
   message: string
   service?: string
 }) {
+  const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  })[character] || character)
+  const name = escapeHtml(data.name)
+  const email = escapeHtml(data.email)
+  const phone = data.phone ? escapeHtml(data.phone) : ""
+  const service = data.service ? escapeHtml(data.service) : ""
+  const message = escapeHtml(data.message).replace(/\n/g, "<br>")
   const html = `
     <!DOCTYPE html>
     <html>
@@ -62,27 +74,27 @@ export function generateContactEmailTemplate(data: {
           <div class="content">
             <div class="field">
               <div class="label">Name:</div>
-              <div>${data.name}</div>
+              <div>${name}</div>
             </div>
             <div class="field">
               <div class="label">Email:</div>
-              <div>${data.email}</div>
+              <div>${email}</div>
             </div>
-            ${data.phone ? `
+            ${phone ? `
             <div class="field">
               <div class="label">Phone:</div>
-              <div>${data.phone}</div>
+              <div>${phone}</div>
             </div>
             ` : ''}
-            ${data.service ? `
+            ${service ? `
             <div class="field">
               <div class="label">Service:</div>
-              <div>${data.service}</div>
+              <div>${service}</div>
             </div>
             ` : ''}
             <div class="field">
               <div class="label">Message:</div>
-              <div>${data.message.replace(/\n/g, '<br>')}</div>
+              <div>${message}</div>
             </div>
           </div>
           <div class="footer">

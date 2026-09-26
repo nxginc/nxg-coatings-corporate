@@ -1,8 +1,5 @@
 // Centralized asset URL definitions for NXG Coatings site.
 
-import IndustriesLayout from "@/app/industries/layout"
-import { blogPosts } from "@/data/blog-posts"
-
 // Modify here to swap CDN paths or update branding without searching codebase.
 export const ASSETS = {
   logo: {
@@ -16,19 +13,33 @@ export const ASSETS = {
     color: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg?updatedAt=1748001132674",
   },
   hero: {
-    fallback: "",
+    fallback: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263",
     services: "https://ik.imagekit.io/j98e6hcfnkn/Services/decks_05lTy4nPk.jpg?updatedAt=1666774074251",
     process: "https://ik.imagekit.io/j98e6hcfnkn/Services/WindowStaining_MN_EFqt22s-6.jpg?updatedAt=1666951484146",
-    blog: "",
-    gallery: "",
+    blog: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688",
+    gallery: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f3_Tdt47-4oA.jpg?updatedAt=1704333594335",
+  },
+  featuredHome: {
+    one: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f1_8-Jfm4MWZ.jpg?updatedAt=1704333592818",
+    two: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263",
+    three: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f3_Tdt47-4oA.jpg?updatedAt=1704333594335",
+    four: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f4_dVndSb6E6.jpg?updatedAt=1704333592978",
   },
   services: {
-    fineFinish: "https://ik.imagekit.io/j98e6hcfnkn/Banners/finefinishes_BOJLvbsTP.jpg",
-    interior: "https://ik.imagekit.io/j98e6hcfnkn/Services/InteriorPainting_MN_zrSP9lrUz.png",
-    exterior: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/2B4F5211-53AA-4898-9318-E70FD6AE6811_3vhLxTnmN.jpeg",
+    fineFinish: "https://ik.imagekit.io/j98e6hcfnkn/Services/finefinishes_Dq4bB4CJa.jpg?updatedAt=1666774073303",
+    interior: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879",
+    exterior: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080",
     cabinet: "https://ik.imagekit.io/j98e6hcfnkn/Services/CabinetRefinishing_MN_8XLSgP4b9.jpg?updatedAt=1666953740495",
-    deck: "https://ik.imagekit.io/j98e6hcfnkn/Services/DeckStaining_MN_a3mceDUkH.png",
-    colorConsultation: "https://ik.imagekit.io/j98e6hcfnkn/Banners/f3_ER1drZAJS.jpg?updatedAt=1679013242072",
+    deck: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088",
+    colorConsultation: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg?updatedAt=1748001132674",
+    pressureCleaning: "https://ik.imagekit.io/j98e6hcfnkn/Services/pressurewashing_VWnZEA2qNm.jpg?updatedAt=1741369712585",
+    restoration: "https://ik.imagekit.io/j98e6hcfnkn/Services/restoration_1rbm1Ax_Q.jpg?updatedAt=1741369714492",
+    deckCleaning: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/deck-cleaning_qqxmpljBN.jpeg",
+    deckSemiTransparent: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/deck-stain-semi_b3gOWiS0x.jpg",
+    deckSolid: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/deckstain-solid.jpg?updatedAt=1747995087459",
+    deckWaterproofing: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/Deck-Waterproofing_K7LZBfwIk.webp",
+    deckMaintenance: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/maintence_J87HCCwCk.jpg",
+    cabinetBathroom: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG?updatedAt=1747490422629",
     // Exterior painting service images
     siding: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/EXTERIOR_m2tKUqgQb.png?updatedAt=1747490370155",
     trim: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/exterior/fasica_7pJ1Q6j7H.JPG?updatedAt=1747490360556",
@@ -42,22 +53,22 @@ export const ASSETS = {
     bedroom: "https://ik.imagekit.io/j98e6hcfnkn/featured/interior-painting/interior8_itIcVGmT1.jpg?updatedAt=1699015715638",
     trimCeiling: "https://ik.imagekit.io/j98e6hcfnkn/trim-ceiling_zZ7QQ34l0.png?updatedAt=1754856790818",
     accentWall: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/living_A1_Jw6aZbm.PNG?updatedAt=1746533518542",
-    specialtyFinish: "https://ik.imagekit.io/j98e6hcfnkn/Services/WindowStaining_MN_EFqt22s-6.jpg?updatedAt=1666951484146",
+    specialtyFinish: "https://ik.imagekit.io/j98e6hcfnkn/Services/finefinishes_Dq4bB4CJa.jpg?updatedAt=1666774073303",
   },
   industries: {
     residential: "https://ik.imagekit.io/j98e6hcfnkn/Industries/residential_FqQDni9Oa.jpg",
-    commercial: "https://ik.imagekit.io/j98e6hcfnkn/Services/commercial_0p23O988Ix.heic",
+    commercial: "https://ik.imagekit.io/j98e6hcfnkn/Services/commercial_0p23O988Ix.heic?updatedAt=1741369712604&tr=f-jpg",
     industrial: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/industrial/industrial-structure-painting-services_7VncZWEPH.jpg",
     hoa: "https://ik.imagekit.io/j98e6hcfnkn/Industries/hoa_4XZCTP8X4.jpeg",
   },
   industries_featured: {
-    residential_featured: "https://ik.imagekit.io/j98e6hcfnkn/Banners/Interiorpainting_MN_5EW8oTEyHx?updatedAt=1666951441694",
-    commercial_featured: "",
+    residential_featured: "https://ik.imagekit.io/j98e6hcfnkn/Industries/residential_FqQDni9Oa.jpg?updatedAt=1665175459020",
+    commercial_featured: "https://ik.imagekit.io/j98e6hcfnkn/Services/commercial_0p23O988Ix.heic?updatedAt=1741369712604&tr=f-jpg",
     industrial_featured: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/industrial_0tFoQ7mwD_.JPG?updatedAt=1746533518632",
     hoa_featured: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/64377d87f8cf768523c106d0_hoa-painting-hero-02_WTec4soEPA.webp?updatedAt=1747490345547"
   },
   cabinets: {
-    hero: "https://ik.imagekit.io/j98e6hcfnkn/Services/CabinetRefinishing_MN_8XLSgP4b9.jpg",
+    hero: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG?updatedAt=1747490422629",
     kitchen: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cabinets2_gudIC6M4Z.JPG",
     bathroom: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG",
     built: "https://ik.imagekit.io/j98e6hcfnkn/page-assets/cab-basmentr_nwrnFbc9Ss.JPG",

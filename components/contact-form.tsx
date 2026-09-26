@@ -15,7 +15,8 @@ export default function ContactForm() {
     email: "",
     phone: "",
     service: "",
-    message: ""
+    message: "",
+    website: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { toast } = useToast()
@@ -48,7 +49,8 @@ export default function ContactForm() {
           email: "",
           phone: "",
           service: "",
-          message: ""
+          message: "",
+          website: ""
         })
       } else {
         throw new Error('Failed to send message')
@@ -80,6 +82,7 @@ export default function ContactForm() {
 
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true"><label>Leave this field empty<input name="website" value={formData.website} onChange={handleInputChange} tabIndex={-1} autoComplete="off" /></label></div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name *</Label>
@@ -117,7 +120,7 @@ export default function ContactForm() {
                   type="tel"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  placeholder="(555) 123-4567"
+                  placeholder="Your phone number"
                 />
               </div>
 
@@ -183,7 +186,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <p className="font-medium text-gray-900">Phone</p>
-                <p className="text-gray-600">(555) 123-4567</p>
+                <a className="text-gray-600 hover:underline" href="tel:+19529004222">(952) 900-4222</a>
               </div>
             </div>
 
@@ -193,7 +196,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <p className="font-medium text-gray-900">Email</p>
-                <p className="text-gray-600">info@nxgcoatings.com</p>
+                <a className="text-gray-600 hover:underline" href="mailto:info@nxgcoatingsinc.com">info@nxgcoatingsinc.com</a>
               </div>
             </div>
 
@@ -204,8 +207,8 @@ export default function ContactForm() {
               <div>
                 <p className="font-medium text-gray-900">Address</p>
                 <p className="text-gray-600">
-                  123 Main Street<br />
-                  Anytown, USA 12345
+                  5200 Willson Blvd, Suite 150<br />
+                  Edina, MN 55424
                 </p>
               </div>
             </div>
