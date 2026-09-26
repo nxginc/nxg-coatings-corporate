@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { seo } from "@/lib/seo"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -9,11 +10,7 @@ import { FancyButton } from "@/components/ui/fancy-button"
 
 import { ExternalLink, Home, Paintbrush, Palette, Shield, Droplet, RefreshCw, Package, Brush } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: "Our Services | NXG Coatings",
-  description:
-    "Explore our comprehensive range of professional painting and coating services for residential, commercial, and industrial properties.",
-}
+export const metadata: Metadata = seo("services", "/services")
 
 export default function ServicesPage() {
   return (

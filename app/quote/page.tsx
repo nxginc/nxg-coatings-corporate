@@ -1,11 +1,9 @@
 import type { Metadata } from "next"
+import { seo } from "@/lib/seo"
 import EnhancedHero from "@/components/enhanced-hero"
 import { MultiStepForm } from "@/components/multi-step-form"
 
-export const metadata: Metadata = {
-  title: "Get a Free Quote | NXG Coatings",
-  description: "Request a free, no-obligation quote for your painting or coating project.",
-}
+export const metadata: Metadata = seo("quote", "/quote")
 
 export default function QuotePage() {
   return (

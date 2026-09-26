@@ -5,87 +5,32 @@ import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import { seo } from "@/lib/seo"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "NXG Coatings | Commercial Painting & Coating Systems",
-  description: "Commercial coatings and painting systems built for the spaces that move business forward.",
+  ...seo("home", "/"),
   manifest: "/manifest.json",
-  icons: [
-    {
-      rel: "icon",
-      url: "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/favicon-16x16_f57qqfaSC.png?updatedAt=1741369090544",
-      sizes: "16x16",
-      type: "image/png",
-    },
-    {
-      rel: "icon",
-      url: "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/favicon-32x32_uPDW_R2Cd.png?updatedAt=1741369090476",
-      sizes: "32x32",
-      type: "image/png",
-    },
-    {
-      rel: "apple-touch-icon",
-      url: "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/apple-touch-icon_yKAQZFqzxN.png?updatedAt=1741369090862",
-    },
-    {
-      rel: "mask-icon",
-      url: "https://ik.imagekit.io/j98e6hcfnkn/favicon_io/android-chrome-512x512_GHPz6HAEF.png?updatedAt=1741369090727",
-      color: "#003399",
-    },
-  ],
-  appleWebApp: {
-    title: "NXG Coatings",
-    statusBarStyle: "default",
-  },
-  // Moved viewport + themeColor to dedicated viewport export per Next.js guidance
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://nxgcoatings.com",
-    title: "NXG Coatings | Commercial Painting & Coating Systems",
-    description: "Commercial coatings and painting systems built for the spaces that move business forward.",
-    siteName: "NXG Coatings",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "NXG Coatings | Commercial Painting & Coating Systems",
-    description: "Commercial coatings and painting systems built for the spaces that move business forward.",
-  },
-    generator: 'v0.dev'
+  icons: [{ rel: "icon", url: "/favicon.ico", sizes: "any" }],
+  appleWebApp: { title: "NXG Coatings", statusBarStyle: "default" },
 }
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  themeColor: '#003399'
+  maximumScale: 2,
+  themeColor: "#003399",
 }
 
-const calComUrl = process.env.NEXT_PUBLIC_CAL_COM_URL
-const bookingPhone = process.env.NEXT_PUBLIC_BOOKING_PHONE
-const bookingEmail = process.env.NEXT_PUBLIC_BOOKING_EMAIL
-
-// Use these variables in your CTAs, scheduling, and marketing scripts
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="https://ik.imagekit.io/j98e6hcfnkn/favicon_io/favicon.ico" sizes="any" />
-      </head>
       <body className={inter.className}>
-        <>
-          <Header />
-          <div className="pt-16">{children}</div>
-          <Footer />
-          <Toaster />
-        </>
+        <Header />
+        <div className="pt-16">{children}</div>
+        <Footer />
+        <Toaster />
       </body>
     </html>
   )
