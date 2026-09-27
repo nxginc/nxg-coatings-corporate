@@ -25,7 +25,7 @@ export default function Footer() {
           ))}
           <div>
             <h2 className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">Talk with NXG</h2>
-            <a className="mt-4 block text-sm text-white/75 transition hover:text-white" href="tel:+19529004222">(952) 900-4222</a>
+            <a className="mt-4 block text-sm text-white/75 transition hover:text-white" href="tel:+19528553520">952-855-3520</a>
             <a className="mt-2 block text-sm text-white/75 transition hover:text-white" href="mailto:info@nxgcoatingsinc.com">info@nxgcoatingsinc.com</a>
             <p className="mt-3 text-sm text-white/60">Edina, Minnesota</p>
             <Link href="/quote" className="mt-5 inline-flex min-h-10 items-center gap-4 border border-white/45 px-4 text-[9px] font-semibold uppercase tracking-[0.12em] text-white transition hover:border-[var(--nxg-red)] hover:bg-[var(--nxg-red)]">Request an estimate <span aria-hidden="true">↗</span></Link>

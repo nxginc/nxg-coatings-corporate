@@ -138,7 +138,7 @@ export default function TermsOfServicePage() {
               <br />
               Email: legal@nxgcoatingsinc.com
               <br />
-              Phone: (952) 900-4222
+              Phone: 952-855-3520
             </p>
           </div>
 

@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
-import EnhancedHero from "@/components/enhanced-hero"
-import { CalendarBooking } from "@/components/calendar-booking"
+import ParallaxHero from "@/components/parallax-hero"
+import CalendarBooking from "@/components/calendar-booking"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import { Check, Calendar, Phone } from "lucide-react"
+import { ASSETS } from "@/lib/assets"
 
 export const metadata: Metadata = {
   title: "Schedule Service | NXG Coatings",
@@ -13,61 +14,63 @@ export const metadata: Metadata = {
 export default function SchedulePage() {
   return (
     <main className="min-h-screen">
-      <EnhancedHero
-        title="Schedule Your Service"
-        subtitle="Book a consultation or service appointment with our professional team. Choose a time that works best for you."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
+      <ParallaxHero
+        eyebrow="NXG Coatings / Schedule"
+        title="Choose a time to talk."
+        description="Request a consultation time to discuss the property, project scope, and next steps."
+        image={ASSETS.hero.fallback}
+        imageAlt="NXG residential coating project"
         height="medium"
       />
 
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
+      <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-12 lg:px-10 lg:py-16">
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
               <div>
-                <h2 className="text-2xl font-bold mb-6">Book a Consultation</h2>
-                <p className="text-gray-600 mb-8">
+                <p className="section-kicker">Consultation</p>
+                <h2 className="mt-3 text-2xl font-medium text-[var(--nxg-navy)]">Book a time to discuss your project.</h2>
+                <p className="mt-3 mb-6 text-sm leading-6 text-[var(--nxg-muted)]">
                   Choose a time that works for you to speak with one of our coating specialists about your project.
                 </p>
-                <div className="bg-gray-50 rounded-xl p-6 shadow-md">
+                <div className="border border-[var(--nxg-line)] p-4 sm:p-5">
                   <CalendarBooking />
                 </div>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold mb-6">Request an Estimate</h2>
-                <p className="text-gray-600 mb-8">
+                <p className="section-kicker">Project inquiry</p>
+                <h2 className="mt-3 text-2xl font-medium text-[var(--nxg-navy)]">Prefer to start with details?</h2>
+                <p className="mt-3 mb-6 text-sm leading-6 text-[var(--nxg-muted)]">
                   Fill out our detailed form to receive a comprehensive quote for your project.
                 </p>
-                <div className="bg-gray-50 rounded-xl p-6 shadow-md">
-                  <div className="space-y-6">
+                <div className="border border-[var(--nxg-line)] p-4 sm:p-6">
+                  <div className="space-y-5">
                     <div className="flex items-start gap-3">
-                      <div className="bg-brand-blue rounded-full p-2 flex-shrink-0">
-                        <Check className="h-5 w-5 text-white" />
+                      <div className="shrink-0 text-[var(--nxg-red)]">
+                        <Check className="h-4 w-4" />
                       </div>
                       <div>
-                        <h3 className="font-medium">Detailed Assessment</h3>
-                        <p className="text-gray-600">Get a comprehensive evaluation of your project needs</p>
+                        <h3 className="text-sm font-semibold text-[var(--nxg-navy)]">Project scope</h3>
+                        <p className="mt-1 text-sm text-[var(--nxg-muted)]">Share the surfaces, location, and timing.</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="bg-brand-blue rounded-full p-2 flex-shrink-0">
-                        <Check className="h-5 w-5 text-white" />
+                      <div className="shrink-0 text-[var(--nxg-red)]">
+                        <Check className="h-4 w-4" />
                       </div>
                       <div>
-                        <h3 className="font-medium">Transparent Pricing</h3>
-                        <p className="text-gray-600">Receive a clear breakdown of costs with no hidden fees</p>
+                        <h3 className="text-sm font-semibold text-[var(--nxg-navy)]">Written estimate</h3>
+                        <p className="mt-1 text-sm text-[var(--nxg-muted)]">Review the proposed work before making a decision.</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="bg-brand-blue rounded-full p-2 flex-shrink-0">
-                        <Check className="h-5 w-5 text-white" />
+                      <div className="shrink-0 text-[var(--nxg-red)]">
+                        <Check className="h-4 w-4" />
                       </div>
                       <div>
-                        <h3 className="font-medium">No Obligation</h3>
-                        <p className="text-gray-600">Our estimates are free and come with no pressure to commit</p>
+                        <h3 className="text-sm font-semibold text-[var(--nxg-navy)]">No obligation</h3>
+                        <p className="mt-1 text-sm text-[var(--nxg-muted)]">An inquiry is a conversation, not a commitment.</p>
                       </div>
                     </div>
 
@@ -83,37 +86,27 @@ export default function SchedulePage() {
               </div>
             </div>
 
-            <div className="mt-16 bg-gray-50 rounded-xl p-8 shadow-md">
-              <h2 className="text-2xl font-bold mb-6 text-center">Need Immediate Assistance?</h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="text-center">
-                  <div className="bg-brand-blue rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <Phone className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">Call Us</h3>
-                  <p className="text-gray-600 mb-4">Speak directly with our team</p>
-                  <a href="tel:+19529004222" className="text-xl font-bold text-brand-blue hover:underline">
-                    (952) 900-4222
+            <div className="mt-12 border-t border-[var(--nxg-line)] pt-7">
+              <h2 className="text-xl font-semibold text-[var(--nxg-navy)]">Prefer direct contact?</h2>
+              <div className="mt-5 grid gap-6 sm:grid-cols-2">
+                <div>
+                  <div className="flex items-center gap-2 text-[var(--nxg-red)]"><Phone className="h-4 w-4" /><h3 className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)]">Call NXG</h3></div>
+                  <a href="tel:+19528553520" className="mt-2 inline-block text-sm font-semibold text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]">
+                    952-855-3520
                   </a>
                 </div>
 
-                <div className="text-center">
-                  <div className="bg-brand-blue rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <Calendar className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">Email Us</h3>
-                  <p className="text-gray-600 mb-4">Send us your project details</p>
+                <div>
+                  <div className="flex items-center gap-2 text-[var(--nxg-red)]"><Calendar className="h-4 w-4" /><h3 className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)]">Email NXG</h3></div>
                   <a
                     href="mailto:info@nxgcoatingsinc.com"
-                    className="text-xl font-bold text-brand-blue hover:underline"
+                    className="mt-2 inline-block text-sm font-semibold text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]"
                   >
                     info@nxgcoatingsinc.com
                   </a>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
       </section>
     </main>
   )

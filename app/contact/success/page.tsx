@@ -64,7 +64,7 @@ export default function ContactSuccessPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <div className="flex items-center gap-2 text-gray-600">
                     <Phone className="w-4 h-4" />
-                    <a href="tel:+19529004222">(952) 900-4222</a>
+                    <a href="tel:+19528553520">952-855-3520</a>
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
                     <Mail className="w-4 h-4" />

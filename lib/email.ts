@@ -9,7 +9,7 @@ interface EmailData {
 
 export async function sendEmail({ to, subject, html, text }: EmailData) {
   // Create a transporter using SMTP
-  const transporter = nodemailer.createTransporter({
+  const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT || '587'),
     secure: process.env.SMTP_SECURE === 'true',
@@ -21,7 +21,7 @@ export async function sendEmail({ to, subject, html, text }: EmailData) {
 
   // Send email
   const info = await transporter.sendMail({
-    from: process.env.FROM_EMAIL || 'noreply@nxgcoatings.com',
+    from: process.env.FROM_EMAIL || 'noreply@nxgcoatingsinc.com',
     to,
     subject,
     html,

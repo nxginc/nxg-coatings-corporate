@@ -17,7 +17,7 @@ type BlogPostProps = {
 }
 
 export default function BlogPost({ title, excerpt, publishDate, readTime, coverImage, author, content, className }: BlogPostProps) {
-  const publishedDate = new Date(`${publishDate}T12:00:00`)
+  const publishedDate = new Date(`${publishDate} 12:00:00`)
 
   return (
     <main className={cn("bg-white", className)}>

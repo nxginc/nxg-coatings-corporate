@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Clock, MapPin, Phone } from "lucide-react"
 
@@ -71,7 +72,7 @@ export default function CalendarBooking() {
               </p>
               <p className="flex items-center justify-center">
                 <Phone className="w-4 h-4 mr-1" />
-                (952) 900-4222
+                952-855-3520
               </p>
             </div>
           </div>
@@ -155,7 +156,7 @@ export default function CalendarBooking() {
           <div className="space-y-1 text-sm text-gray-600">
             <p className="flex items-center">
               <Phone className="w-4 h-4 mr-2" />
-              Call us: (952) 900-4222
+                Call us: 952-855-3520
             </p>
             <p className="flex items-center">
               <MapPin className="w-4 h-4 mr-2" />

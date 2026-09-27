@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     if (!event.success) return NextResponse.json({ error: "Invalid revalidation event." }, { status: 400 })
     if (event.data.companyId !== NXG_COMPANY_ID) return NextResponse.json({ error: "Company scope mismatch." }, { status: 403 })
 
-    const paths = [...new Set(event.data.paths)]
+    const paths = Array.from(new Set(event.data.paths))
     if (paths.some((path) => !path.startsWith("/") || path.startsWith("//") || path.includes(".."))) {
         return NextResponse.json({ error: "Invalid revalidation path." }, { status: 400 })
     }

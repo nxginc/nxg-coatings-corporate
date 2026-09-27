@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import { ASSETS } from "@/lib/assets"
+import { NXG_SITE } from "@/lib/site-metadata"
 
-export const SITE_URL = "https://nxgcoatingsinc.com"
-export const SITE_NAME = "NXG Coatings"
+export const SITE_URL = NXG_SITE.url
+export const SITE_NAME = NXG_SITE.shortName
 
 export const SERVICE_AREAS = [
   "Minneapolis, MN",
@@ -42,6 +43,11 @@ const pages = {
     description:
       "Explore professional interior, exterior, commercial, industrial, drywall, fine finish, pressure washing, renovation and specialty painting services from NXG Coatings.",
     keywords: ["painting services Minneapolis", "painting contractors Twin Cities", "commercial painting", "industrial painting", "interior painting", "exterior painting"],
+  },
+  process: {
+    title: "Our Painting Process | NXG Coatings",
+    description: "See how NXG Coatings plans, prepares, applies, and reviews painting and coating projects throughout the Twin Cities.",
+    keywords: ["painting process", "professional painting preparation", "NXG Coatings process", "Twin Cities painting projects"],
   },
   interior: {
     title: "Professional Interior Painting Contractor | NXG Coatings",
@@ -161,6 +167,7 @@ export function seo(page: SeoPage, path = "/"): Metadata {
       description: item.description,
       images: [ASSETS.hero.fallback],
     },
+    robots: { index: true, follow: true },
   }
 }
 

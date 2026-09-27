@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../../../Volumes/NXGV2/NXGC_V2_UPDATE"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#571519",
+			"titleBar.activeBackground": "#7A1E23",
+			"titleBar.activeForeground": "#FEFBFB"
+		}
+	}
+}

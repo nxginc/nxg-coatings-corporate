@@ -1,0 +1,41 @@
+{
+  "schema_version": "nxg.sites.v1",
+  "umbrella": "NXG",
+  "sites": [
+    {
+      "id": "nxg-coatings",
+      "name": "NXG Coatings Inc.",
+      "domain": "nxgcoatingsinc.com",
+      "status": "active",
+      "role": "operating_company",
+      "primary": true,
+      "template": "nxg-master",
+      "contentNamespace": "nxg-coatings"
+    },
+    {
+      "id": "nxg-contractors",
+      "name": "NXG Contractors",
+      "domain": "nxgcontractors.com",
+      "status": "future",
+      "role": "contractor_network",
+      "primary": false,
+      "template": "nxg-network",
+      "contentNamespace": "nxg-contractors"
+    },
+    {
+      "id": "nxg-partners",
+      "name": "NXG Partner Network",
+      "domain": "nxgpartners.com",
+      "status": "future",
+      "role": "ecosystem",
+      "primary": false,
+      "template": "nxg-network",
+      "contentNamespace": "nxg-partners"
+    }
+  ],
+  "rules": [
+    "Only nxg-coatings is active in this deployment.",
+    "Future sites reuse shared contracts but do not inherit operating-company claims automatically.",
+    "Canonical brand changes require human approval."
+  ]
+}

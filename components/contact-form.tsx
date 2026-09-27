@@ -186,7 +186,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <p className="font-medium text-gray-900">Phone</p>
-                <a className="text-gray-600 hover:underline" href="tel:+19529004222">(952) 900-4222</a>
+            <a className="text-gray-600 hover:underline" href="tel:+19528553520">952-855-3520</a>
               </div>
             </div>
 

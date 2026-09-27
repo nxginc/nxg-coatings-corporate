@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { CalendarBooking } from "@/components/calendar-booking"
+import CalendarBooking from "@/components/calendar-booking"
 import ContactForm from "@/components/contact-form"
 import EnhancedHero from "@/components/enhanced-hero"
 import { Mail, MapPin, Phone } from "lucide-react"
@@ -36,7 +36,7 @@ export default function ContactPage() {
 
             <div className="mt-8 border-t border-[var(--nxg-line)] pt-5">
               <h3 className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--nxg-muted)]">Direct contact</h3>
-              <a href="tel:+19529004222" className="mt-4 flex items-center gap-3 text-sm text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]"><Phone className="h-4 w-4" /> (952) 900-4222</a>
+              <a href="tel:+19528553520" className="mt-4 flex items-center gap-3 text-sm text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]"><Phone className="h-4 w-4" /> 952-855-3520</a>
               <a href="mailto:info@nxgcoatingsinc.com" className="mt-3 flex items-center gap-3 text-sm text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]"><Mail className="h-4 w-4" /> info@nxgcoatingsinc.com</a>
               <div className="mt-3 flex items-start gap-3 text-sm leading-6 text-[var(--nxg-muted)]"><MapPin className="mt-1 h-4 w-4 shrink-0" /><address className="not-italic">5200 Willson Blvd, Suite 150<br />Edina, MN 55424</address></div>
               <Link href="/servicearea" className="mt-5 inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] underline-offset-4">Service areas</Link>
