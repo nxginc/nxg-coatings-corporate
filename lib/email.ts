@@ -9,7 +9,7 @@ interface EmailData {
 
 export async function sendEmail({ to, subject, html, text }: EmailData) {
   // Create a transporter using SMTP
-  const transporter = nodemailer.createTransporter({
+  const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT || '587'),
     secure: process.env.SMTP_SECURE === 'true',
@@ -21,7 +21,7 @@ export async function sendEmail({ to, subject, html, text }: EmailData) {
 
   // Send email
   const info = await transporter.sendMail({
-    from: process.env.FROM_EMAIL || 'noreply@nxgcoatings.com',
+    from: process.env.FROM_EMAIL || 'noreply@nxgcoatingsinc.com',
     to,
     subject,
     html,
@@ -31,23 +31,6 @@ export async function sendEmail({ to, subject, html, text }: EmailData) {
   return info
 }
 
-export async function sendContactEmail(data: {
-  name: string
-  email: string
-  phone?: string
-  message: string
-  service?: string
-}) {
-  const html = generateContactEmailTemplate(data)
-
-  return await sendEmail({
-    to: process.env.CONTACT_EMAIL || 'contact@nxgcoatings.com',
-    subject: `New Contact Form Submission from ${data.name}`,
-    html,
-    text: `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'Not provided'}\nService: ${data.service || 'Not specified'}\nMessage: ${data.message}`
-  })
-}
-
 export function generateContactEmailTemplate(data: {
   name: string
   email: string
@@ -55,6 +38,18 @@ export function generateContactEmailTemplate(data: {
   message: string
   service?: string
 }) {
+  const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  })[character] || character)
+  const name = escapeHtml(data.name)
+  const email = escapeHtml(data.email)
+  const phone = data.phone ? escapeHtml(data.phone) : ""
+  const service = data.service ? escapeHtml(data.service) : ""
+  const message = escapeHtml(data.message).replace(/\n/g, "<br>")
   const html = `
     <!DOCTYPE html>
     <html>
@@ -78,28 +73,49 @@ export function generateContactEmailTemplate(data: {
           </div>
           <div class="content">
             <div class="field">
-              <span class="label">Name:</span> ${data.name}
+              <div class="label">Name:</div>
+              <div>${name}</div>
             </div>
             <div class="field">
-              <span class="label">Email:</span> ${data.email}
+              <div class="label">Email:</div>
+              <div>${email}</div>
             </div>
+            ${phone ? `
             <div class="field">
-              <span class="label">Phone:</span> ${data.phone || 'Not provided'}
+              <div class="label">Phone:</div>
+              <div>${phone}</div>
             </div>
+            ` : ''}
+            ${service ? `
             <div class="field">
-              <span class="label">Service:</span> ${data.service || 'Not specified'}
+              <div class="label">Service:</div>
+              <div>${service}</div>
             </div>
+            ` : ''}
             <div class="field">
-              <span class="label">Message:</span> ${data.message}
+              <div class="label">Message:</div>
+              <div>${message}</div>
             </div>
           </div>
           <div class="footer">
-            <p>This message was sent from the NXG Coatings website contact form.</p>
+            <p>This email was sent from the NXG Coatings website contact form.</p>
           </div>
         </div>
       </body>
     </html>
   `
 
-  return html
+  const text = `
+New Contact Form Submission
+
+Name: ${data.name}
+Email: ${data.email}
+${data.phone ? `Phone: ${data.phone}\n` : ''}${data.service ? `Service: ${data.service}\n` : ''}
+Message:
+${data.message}
+
+This email was sent from the NXG Coatings website contact form.
+  `
+
+  return { html, text }
 }

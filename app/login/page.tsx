@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { signIn } from "next-auth/react"
 import Image from "next/image"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { Input } from "@/components/ui/input"
@@ -22,20 +23,19 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      // Demo login logic - just check if credentials match the demo account
-      if (email === "admin@example.com" && password === "password") {
-        toast({
-          title: "Login successful",
-          description: "You have been successfully logged in.",
-        })
-        router.push("/dashboard")
-      } else {
+      const result = await signIn("credentials", { email, password, redirect: false })
+      if (!result || result.error) {
         toast({
           title: "Login failed",
           description: "Invalid email or password. Please try again.",
           variant: "destructive",
         })
+        return
       }
+
+      toast({ title: "Login successful", description: "You are signed in." })
+      router.replace("/dashboard")
+      router.refresh()
     } catch (error) {
       toast({
         title: "An error occurred",

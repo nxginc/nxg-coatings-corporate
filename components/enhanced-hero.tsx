@@ -1,7 +1,7 @@
 "use client"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { ASSETS } from "@/lib/assets"
+import ParallaxHero from "@/components/parallax-hero"
 
 interface EnhancedHeroProps {
   title: string
@@ -29,33 +29,16 @@ export default function EnhancedHero({
   }
 
   return (
-    <section
-      className={cn(
-        "relative flex items-center justify-center overflow-hidden",
-        heightClasses[height],
-        className
-      )}
-      style={{
-        backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+    <ParallaxHero
+      eyebrow="NXG Coatings Inc. / Edina, Minnesota"
+      title={title}
+      description={subtitle || description || "Professional painting and coating services across the Twin Cities."}
+      image={backgroundImage || ASSETS.hero.fallback}
+      imageAlt={`${title} by NXG Coatings`}
+      height={height}
+      className={className}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">{title}</h1>
-        {subtitle && (
-          <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto">{subtitle}</p>
-        )}
-        {description && (
-          <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">{description}</p>
-        )}
-        {children}
-      </div>
-    </section>
+      {children}
+    </ParallaxHero>
   )
 }

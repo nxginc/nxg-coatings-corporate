@@ -23,13 +23,8 @@ interface RelatedPostsProps {
 }
 
 export default function RelatedPosts({ posts, title = "Related Articles", currentPostSlug, category }: RelatedPostsProps) {
-  if (!posts || posts.length === 0) return null
-
-  const filteredPosts = posts.filter(
-    (post) => post.slug !== currentPostSlug && (!category || post.category === category)
-  )
-
-  if (filteredPosts.length === 0) return null
+  const visiblePosts = (posts || []).filter((post) => post.slug !== currentPostSlug && (!category || post.category === category))
+  if (visiblePosts.length === 0) return null
 
   return (
     <section className="py-12 bg-gray-50">
@@ -37,7 +32,7 @@ export default function RelatedPosts({ posts, title = "Related Articles", curren
         <h2 className="text-2xl font-bold text-brand-blue mb-8 text-center">{title}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPosts.map((post) => (
+          {visiblePosts.map((post) => (
             <article key={post.slug} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               {post.coverImage && (
                 <div className="relative h-32 overflow-hidden">
@@ -69,7 +64,7 @@ export default function RelatedPosts({ posts, title = "Related Articles", curren
 
                 <div className="flex items-center text-xs text-gray-500">
                   <Calendar className="w-3 h-3 mr-1" />
-                  {format(new Date(post.publishedAt ?? post.publishDate ?? ""), "MMM dd, yyyy")}
+                  {format(new Date(post.publishedAt || post.publishDate || Date.now()), "MMM dd, yyyy")}
                 </div>
               </div>
             </article>

@@ -4,37 +4,38 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ASSETS } from "@/lib/assets"
 
 const services = [
   {
     title: "Interior Painting",
     description: "Transform your indoor spaces with our professional interior painting services.",
-    image: "/images/services/interior.jpg",
+    image: ASSETS.services.interior,
     link: "/services/interior-painting"
   },
   {
     title: "Exterior Painting",
     description: "Protect and beautify your home's exterior with our expert painting services.",
-    image: "/images/services/exterior.jpg",
+    image: ASSETS.services.exterior,
     link: "/services/exterior-painting"
   },
   {
     title: "Deck Staining",
     description: "Restore and protect your deck with our premium staining and sealing services.",
-    image: "/images/services/deck.jpg",
+    image: ASSETS.services.deck,
     link: "/services/deck-staining"
   },
   {
     title: "Cabinet Refinishing",
     description: "Give your cabinets a fresh new look with our professional refinishing services.",
-    image: "/images/services/cabinets.jpg",
+    image: ASSETS.services.cabinet,
     link: "/services/cabinet-refinishing"
   },
   {
     title: "Commercial Painting",
     description: "Professional painting services for businesses and commercial properties.",
-    image: "/images/services/commercial.jpg",
-    link: "/services/commercial"
+    image: ASSETS.industries.commercial,
+    link: "/industries/commercial"
   }
 ]
 
@@ -100,9 +101,7 @@ export default function ServicesSlider() {
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                     <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
                     <p className="text-lg mb-4">{service.description}</p>
-                    <Button asChild variant="secondary">
-                      <a href={service.link}>Learn More</a>
-                    </Button>
+                    <a href={service.link} className="inline-flex h-10 items-center justify-center rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80">Learn More</a>
                   </div>
                 </div>
               </div>

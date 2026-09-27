@@ -1,5 +1,5 @@
 import EnhancedHero from "@/components/enhanced-hero"
-import ColorConsultationClient from "@/components/color-consultation-client"
+import ColorConsultationClient from "@/app/services/color-consultation/ColorConsultationClient"
 
 export const metadata = {
   title: "Color Consultation Services - NXG Coatings",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import EnhancedHero from "@/components/enhanced-hero"
-import { FancyButton } from "@/components/ui/fancy-button"
+import ParallaxHero from "@/components/parallax-hero"
+import { ASSETS } from "@/lib/assets"
 
 export const metadata: Metadata = {
   title: "Privacy Policy | NXG Coatings",
@@ -11,17 +11,18 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen">
-      <EnhancedHero
-        title="Privacy Policy"
-        subtitle="Learn about how NXG Coatings collects, uses, and protects your personal information and privacy rights."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
+      <ParallaxHero
+        eyebrow="NXG Coatings / Legal"
+        title="Privacy policy"
+        description="How information is collected, used, and protected when you interact with NXG Coatings."
+        image={ASSETS.hero.fallback}
+        imageAlt="NXG Coatings residential project"
         height="medium"
       />
 
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto prose prose-lg">
-            <p className="text-gray-500 mb-8">Last Updated: March 14, 2025</p>
+      <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-12 lg:px-10 lg:py-16">
+          <div className="mx-auto max-w-3xl border-t border-[var(--nxg-line)] pt-5 prose prose-sm sm:prose-base prose-headings:font-medium prose-headings:text-[var(--nxg-navy)] prose-p:leading-7 prose-p:text-[var(--nxg-muted)] prose-li:text-[var(--nxg-muted)]">
+            <p className="text-xs uppercase tracking-[0.1em]">Last Updated: March 14, 2025</p>
 
             <h2>Introduction</h2>
             <p>
@@ -126,18 +127,13 @@ export default function PrivacyPolicyPage() {
               <br />
               Email: privacy@nxgcoatingsinc.com
               <br />
-              Phone: (952) 900-4222
+              Phone: 952-855-3520
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto mt-12 text-center">
-            <Link href="/contact">
-              <FancyButton variant="gradient" size="lg" rounded="full">
-                Contact Us With Questions
-              </FancyButton>
-            </Link>
+          <div className="mx-auto mt-10 max-w-3xl border-t border-[var(--nxg-line)] pt-6">
+            <Link href="/contact" className="inline-flex min-h-11 items-center bg-[var(--nxg-red)] px-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-white hover:bg-[var(--nxg-navy)]">Contact NXG</Link>
           </div>
-        </div>
       </section>
     </main>
   )

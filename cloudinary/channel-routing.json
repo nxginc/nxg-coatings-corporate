@@ -1,0 +1,89 @@
+{
+    "version": 1,
+    "routes": {
+        "website": {
+            "source": "ImageKit",
+            "fallback": "Cloudinary",
+            "profiles": [
+                "webHero",
+                "card",
+                "og"
+            ],
+            "publishGate": "content_approval"
+        },
+        "facebook-organic": {
+            "provider": "Vista Social",
+            "profiles": [
+                "socialSquare",
+                "socialPortrait",
+                "story"
+            ],
+            "publishGate": "social_post_approved_and_provider_ready"
+        },
+        "instagram-organic": {
+            "provider": "Vista Social",
+            "profiles": [
+                "socialSquare",
+                "socialPortrait",
+                "story"
+            ],
+            "publishGate": "social_post_approved_and_provider_ready"
+        },
+        "linkedin-organic": {
+            "provider": "Vista Social",
+            "profiles": [
+                "metaLandscape",
+                "socialSquare"
+            ],
+            "publishGate": "social_post_approved_and_provider_ready"
+        },
+        "meta-paid": {
+            "provider": "Meta Ads Manager",
+            "profiles": [
+                "metaLandscape",
+                "socialSquare",
+                "socialPortrait",
+                "story"
+            ],
+            "publishGate": "campaign_approved_and_ads_operator_confirmed"
+        },
+        "google-paid": {
+            "provider": "Google Ads",
+            "profiles": [
+                "googleSquare",
+                "metaLandscape"
+            ],
+            "publishGate": "campaign_approved_and_ads_operator_confirmed"
+        },
+        "google-business-profile": {
+            "provider": "Google Business Profile",
+            "profiles": [
+                "socialSquare",
+                "metaLandscape"
+            ],
+            "publishGate": "local_post_approved_and_provider_ready"
+        },
+        "facebook-marketplace": {
+            "provider": "Manual handoff",
+            "profiles": [
+                "socialSquare"
+            ],
+            "publishGate": "manual_review_required",
+            "autoPublish": false
+        },
+        "print": {
+            "provider": "Manual production handoff",
+            "profiles": [
+                "printOriginal"
+            ],
+            "publishGate": "print_proof_approved",
+            "autoPublish": false
+        }
+    },
+    "invariants": [
+        "Asset approval does not approve campaign copy, ad targeting, spend, or publication.",
+        "Website delivery remains ImageKit-first until a deliberate migration is approved.",
+        "Never mark a post published without a provider response and provider post ID.",
+        "Do not automate publishing into arbitrary Facebook Groups; use approved Page/Instagram destinations or a human-managed group handoff."
+    ]
+}

@@ -1,12 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
-import { FancyButton } from "@/components/ui/fancy-button"
-import { CTAModal } from "@/components/cta-modal"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import EnhancedHero from "@/components/enhanced-hero"
 import Link from "next/link"
+import ParallaxHero from "@/components/parallax-hero"
+import { ASSETS } from "@/lib/assets"
 
 // FAQ categories and questions
 const faqCategories = [
@@ -120,36 +118,31 @@ export default function FAQsPage() {
 
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
-      <EnhancedHero
-        title="Frequently Asked Questions"
-        subtitle="Find answers to common questions about our professional coating services, process, and more."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/services/banner_4xUQ8Hf5X.jpeg?updatedAt=1747919188438"
+      <ParallaxHero
+        eyebrow="NXG Coatings / FAQ"
+        title="Straight answers for your project."
+        description="Find useful details about our painting and coating services, project planning, and preparation."
+        image={ASSETS.hero.fallback}
+        imageAlt="NXG residential coating project"
         height="medium"
       >
-        <CTAModal
-          trigger={
-            <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
-              Get Free Estimate
-            </FancyButton>
-          }
-        />
-      </EnhancedHero>
+        <Link href="/quote" className="inline-flex min-h-12 items-center gap-4 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">Request an estimate <span aria-hidden="true">↗</span></Link>
+      </ParallaxHero>
 
       {/* FAQ Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-8">
+      <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-12 lg:px-10 lg:py-16">
+          <div className="grid gap-8 lg:grid-cols-[240px_1fr] lg:gap-14">
             {/* Category Navigation */}
-            <div className="lg:w-1/4">
-              <div className="bg-gray-50 rounded-xl p-6 sticky top-24">
-                <h2 className="text-xl font-bold mb-4">Categories</h2>
-                <nav className="space-y-2">
+            <div className="lg:sticky lg:top-24 lg:self-start">
+                <h2 className="section-kicker mb-4">Categories</h2>
+                <nav className="flex gap-2 overflow-x-auto lg:flex-col" aria-label="FAQ categories">
                   {faqCategories.map((category) => (
                     <button
                       key={category.id}
-                      className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
-                        activeCategory === category.id ? "bg-brand-blue text-white" : "hover:bg-gray-100"
+                      type="button"
+                      aria-pressed={activeCategory === category.id}
+                      className={`shrink-0 border px-3 py-2 text-left text-[10px] font-semibold uppercase tracking-[0.1em] transition lg:w-full ${
+                        activeCategory === category.id ? "border-[var(--nxg-navy)] bg-[var(--nxg-navy)] text-white" : "border-[var(--nxg-line)] text-[var(--nxg-navy)] hover:border-[var(--nxg-red)]"
                       }`}
                       onClick={() => setActiveCategory(category.id)}
                     >
@@ -157,20 +150,19 @@ export default function FAQsPage() {
                     </button>
                   ))}
                 </nav>
-              </div>
             </div>
 
             {/* FAQ Accordion */}
-            <div className="lg:w-3/4">
+            <div>
               {faqCategories.map((category) => (
                 <div key={category.id} className={activeCategory === category.id ? "block" : "hidden"}>
-                  <h2 className="text-3xl font-bold text-brand-blue mb-8">{category.name}</h2>
+                  <h2 className="mb-6 text-3xl font-medium text-[var(--nxg-navy)]">{category.name}</h2>
 
                   <Accordion type="single" collapsible className="w-full">
                     {category.faqs.map((faq, index) => (
-                      <AccordionItem key={index} value={`item-${index}`}>
-                        <AccordionTrigger className="text-lg font-medium text-left">{faq.question}</AccordionTrigger>
-                        <AccordionContent className="text-gray-600">{faq.answer}</AccordionContent>
+                      <AccordionItem key={index} value={`item-${index}`} className="border-[var(--nxg-line)]">
+                        <AccordionTrigger className="text-left text-sm font-semibold text-[var(--nxg-navy)]">{faq.question}</AccordionTrigger>
+                        <AccordionContent className="max-w-3xl text-sm leading-6 text-[var(--nxg-muted)]">{faq.answer}</AccordionContent>
                       </AccordionItem>
                     ))}
                   </Accordion>
@@ -178,29 +170,18 @@ export default function FAQsPage() {
               ))}
 
               {/* Still Have Questions */}
-              <div className="mt-12 p-6 bg-gray-50 rounded-xl">
-                <h3 className="text-xl font-bold mb-4">Still Have Questions?</h3>
-                <p className="text-gray-600 mb-6">
+              <div className="mt-12 border-t border-[var(--nxg-line)] py-7">
+                <h3 className="text-xl font-semibold text-[var(--nxg-navy)]">Still have questions?</h3>
+                <p className="mt-3 mb-6 max-w-2xl text-sm leading-6 text-[var(--nxg-muted)]">
                   If you couldn't find the answer you're looking for, please don't hesitate to contact us directly.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/contact">
-                    <FancyButton variant="gradient" hasArrow={true} rounded="full">
-                      Contact Us
-                    </FancyButton>
-                  </Link>
-                  <CTAModal
-                    trigger={
-                      <FancyButton variant="outline" rounded="full">
-                        Get Free Estimate
-                      </FancyButton>
-                    }
-                  />
+                  <Link href="/contact" className="inline-flex min-h-11 items-center border border-[var(--nxg-navy)] px-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)] hover:bg-[var(--nxg-navy)] hover:text-white">Contact NXG</Link>
+                  <Link href="/quote" className="inline-flex min-h-11 items-center bg-[var(--nxg-red)] px-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-white hover:bg-[var(--nxg-navy)]">Request an estimate</Link>
                 </div>
               </div>
             </div>
           </div>
-        </div>
       </section>
     </main>
   )

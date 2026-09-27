@@ -1,220 +1,53 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 import EnhancedHero from "@/components/enhanced-hero"
-import { FancyButton } from "@/components/ui/fancy-button"
-import { CTAModal } from "@/components/cta-modal"
-import { MessageCircle, FileText, Hammer, PaintBucket, CheckSquare, ThumbsUp, ArrowRight } from "lucide-react"
+import { ASSETS } from "@/lib/assets"
+import { seo } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Our Process | NXG Coatings",
-  description:
-    "Learn about our proven 6-step process that ensures exceptional results on every painting and coating project.",
-}
+export const metadata: Metadata = seo("process", "/process")
+
+const steps = [
+  { title: "Initial consultation", description: "Discuss the property, surfaces, desired finish, access needs, and project priorities." },
+  { title: "Detailed proposal", description: "Review the agreed scope, materials, preparation, schedule considerations, and estimate." },
+  { title: "Preparation", description: "Clean, protect, repair, and prepare the surfaces included in the project plan." },
+  { title: "Application", description: "Apply the selected coating system to the prepared surfaces with attention to the agreed finish." },
+  { title: "Inspection and cleanup", description: "Review completed work, address the agreed details, and leave the site orderly." },
+  { title: "Final walkthrough", description: "Walk the project together and discuss care or maintenance recommendations." },
+]
 
 export default function ProcessPage() {
-  const processSteps = [
-    {
-      id: 1,
-      icon: MessageCircle,
-      title: "Initial Consultation",
-      description:
-        "We begin with a thorough consultation to understand your vision, requirements, and timeline. Our experts will assess your property, discuss your goals, and answer any questions.",
-      cta: "Schedule consultation",
-      link: "https://cal.com/nxgcoatings/virtual-consultation",
-    },
-    {
-      id: 2,
-      icon: FileText,
-      title: "Detailed Proposal",
-      description:
-        "Based on our consultation, we provide a comprehensive proposal outlining the scope of work, timeline, materials, and pricing. Our transparent approach ensures you know exactly what to expect.",
-      cta: "Request proposal",
-      link: "/quote",
-    },
-    {
-      id: 3,
-      icon: Hammer,
-      title: "Preparation",
-      description:
-        "Proper preparation is crucial for a lasting finish. Our team will thoroughly clean, repair, and prepare surfaces to ensure optimal adhesion and a flawless final result.",
-      cta: "Learn about preparation",
-      link: "/blog/importance-of-surface-preparation",
-    },
-    {
-      id: 4,
-      icon: PaintBucket,
-      title: "Application",
-      description:
-        "Our skilled technicians apply premium coatings using professional techniques and high-quality materials. We follow manufacturer specifications and industry best practices for optimal results.",
-      cta: "View our materials",
-      link: "/services",
-    },
-    {
-      id: 5,
-      icon: CheckSquare,
-      title: "Inspection & Cleanup",
-      description:
-        "After application, we conduct a thorough inspection to ensure every detail meets our high standards. We then clean up completely, removing all equipment and materials from your property.",
-      cta: "Our quality standards",
-      link: "/about",
-    },
-    {
-      id: 6,
-      icon: ThumbsUp,
-      title: "Final Walkthrough",
-      description:
-        "We conduct a final walkthrough with you to ensure your complete satisfaction. We'll address any concerns and provide maintenance recommendations to help you get the most out of your new coating.",
-  cta: "Book a follow-up",
-  link: "/contact",
-    },
-  ]
-
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
+    <main className="bg-white text-[var(--nxg-charcoal)]">
       <EnhancedHero
-        title="Our Professional Process"
-        subtitle="From initial consultation to final walkthrough, discover our proven 6-step approach that ensures exceptional results on every coating project."
-        backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/f4_aYaWf2GGw.jpg?updatedAt=1679013239596"
-        height="medium"
+        title="A clear process from first walk to final walkthrough."
+        subtitle="Six practical checkpoints help keep scope, preparation, application, and review connected."
+        backgroundImage={ASSETS.hero.process}
+        height="large"
       >
-        <CTAModal
-          trigger={
-            <FancyButton variant="shine" size="lg" hasArrow={true} rounded="full">
-              Get Free Estimate
-            </FancyButton>
-          }
-        />
+        <Link href="/quote" className="inline-flex min-h-12 items-center gap-4 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">Start with an estimate <span aria-hidden="true">↗</span></Link>
       </EnhancedHero>
 
-      {/* Process Steps */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">Our 6-Step Process</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We follow a comprehensive process to ensure exceptional results on every project. Each step is carefully
-              designed to deliver the highest quality workmanship and customer satisfaction.
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Vertical Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200 hidden md:block"></div>
-
-            {processSteps.map((step, index) => (
-              <div key={step.id} className="mb-16 last:mb-0">
-                <div className="flex flex-col md:flex-row items-center md:items-start">
-                  <div
-                    className={`w-full md:w-1/2 mb-6 md:mb-0 md:pr-12 ${
-                      index % 2 === 0 ? "md:text-right order-1" : "md:pl-12 md:order-3"
-                    }`}
-                  >
-                    <div
-                      className={`bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow ${
-                        index % 2 === 0 ? "md:ml-auto" : ""
-                      }`}
-                    >
-                      <h3 className="text-2xl font-bold text-brand-blue mb-4">{step.title}</h3>
-                      <p className="text-gray-600 mb-6">{step.description}</p>
-                      <Link
-                        href={step.link}
-                        className="inline-flex items-center text-brand-blue font-medium hover:text-brand-lightBlue"
-                      >
-                        {step.cta}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className="order-2 z-10 mb-6 md:mb-0">
-                    <div className="bg-brand-blue text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg">
-                      <step.icon className="h-8 w-8" />
-                    </div>
-                  </div>
-
-                  <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pl-12 order-3" : "md:pr-12 md:order-1"}`}>
-                    <div className="hidden md:block h-full"></div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-16 lg:px-10 lg:py-24">
+        <div className="grid gap-8 border-b border-[var(--nxg-line)] pb-7 lg:grid-cols-[0.8fr_1.2fr]">
+          <div><p className="section-kicker">How a project moves</p><h2 className="mt-4 text-3xl font-medium leading-tight text-[var(--nxg-navy)] sm:text-5xl">Plan the work before the work begins.</h2></div>
+          <p className="max-w-2xl self-end text-base leading-7 text-[var(--nxg-muted)]">Each property is different. The proposal sets out the agreed scope and details; the project team uses those details to coordinate access, preparation, application, cleanup, and the final review.</p>
         </div>
+        <ol className="mt-4 grid md:grid-cols-2">
+          {steps.map((step, index) => (
+            <li key={step.title} className="grid grid-cols-[50px_1fr] gap-4 border-b border-[var(--nxg-line)] py-6 sm:gap-6 sm:py-8 md:pr-8">
+              <span className="text-xs font-semibold text-[var(--nxg-red)]">0{index + 1}</span>
+              <div><h3 className="text-xl font-semibold text-[var(--nxg-navy)] sm:text-2xl">{step.title}</h3><p className="mt-3 max-w-xl text-sm leading-6 text-[var(--nxg-muted)]">{step.description}</p></div>
+            </li>
+          ))}
+        </ol>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-brand-blue mb-4">The Benefits of Our Process</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our systematic approach delivers numerous advantages that ensure exceptional results and complete customer
-              satisfaction.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-brand-blue/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                <CheckSquare className="h-8 w-8 text-brand-blue" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Consistent Quality</h3>
-              <p className="text-gray-600">
-                Our structured process ensures consistent, high-quality results on every project, regardless of size or
-                complexity.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-brand-blue/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                <MessageCircle className="h-8 w-8 text-brand-blue" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Clear Communication</h3>
-              <p className="text-gray-600">
-                We maintain open communication throughout the project, keeping you informed and involved at every stage.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-brand-blue/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                <FileText className="h-8 w-8 text-brand-blue" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Detailed Planning</h3>
-              <p className="text-gray-600">
-                Our thorough planning process anticipates challenges and ensures smooth execution from start to finish.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-brand-blue to-brand-lightBlue text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-xl max-w-2xl mx-auto mb-8">
-            Contact us today to schedule a consultation and experience our professional approach firsthand.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAModal
-              trigger={
-                <FancyButton variant="shine" size="xl" hasArrow={true} rounded="full">
-                  Get Free Estimate
-                </FancyButton>
-              }
-            />
-            <Link href="/contact">
-              <FancyButton
-                variant="outline"
-                size="xl"
-                rounded="full"
-                className="bg-transparent border-white text-white hover:bg-white/10"
-              >
-                Contact Us
-              </FancyButton>
-            </Link>
-          </div>
+      <section className="bg-[var(--nxg-paper)] px-6 py-14 lg:px-10 lg:py-20">
+        <div className="mx-auto grid max-w-[var(--nxg-content-width)] gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div><p className="section-kicker">Before the estimate</p><h2 className="mt-4 text-3xl font-medium leading-tight text-[var(--nxg-navy)] sm:text-4xl">Bring the details you already know.</h2><p className="mt-4 max-w-xl text-sm leading-7 text-[var(--nxg-muted)]">Project type, location, surfaces, timing, and reference images help us prepare for a useful first conversation. It is fine if some details are still undecided.</p><Link href="/quote" className="mt-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] decoration-2 underline-offset-8">Request an estimate <ArrowUpRight className="h-4 w-4" /></Link></div>
+          <figure className="relative aspect-[4/3] overflow-hidden bg-white"><Image src={ASSETS.featuredHome.four} alt="NXG Coatings project finish" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" /></figure>
         </div>
       </section>
     </main>

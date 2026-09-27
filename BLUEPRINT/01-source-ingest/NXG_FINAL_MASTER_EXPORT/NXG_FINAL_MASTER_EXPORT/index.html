@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NXG Coatings Inc.</title>
+<meta name="description" content="NXG Coatings Inc. — professional painting and coating services.">
+<link rel="stylesheet" href="public/style.css">
+</head>
+<body>
+<header class="nxg-header">
+  <div class="nxg-container">
+    <a href="/" class="nxg-brand"><span class="nxg-logo" aria-label="NXG logo placeholder">NXG</span><span data-bind="brand.name">NXG Coatings Inc.</span></a>
+    <nav aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#network">Network</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="nxg-hero" id="top">
+  <div class="nxg-container">
+    <p class="eyebrow">Professional Painting &amp; Coatings</p>
+    <h1>Clean finish. Professional process.</h1>
+    <p>NXG Coatings Inc. provides painting and coating services with a foundation ready for the broader NXG contractor and partner ecosystem.</p>
+    <div class="actions">
+      <a class="button primary" href="#contact">Request a Quote</a>
+      <a class="button" href="#services">Explore Services</a>
+    </div>
+  </div>
+</section>
+<section class="nxg-section" id="services"><div class="nxg-container">
+  <p class="eyebrow">Services</p><h2>Built around the finish.</h2>
+  <div class="service-grid" id="service-grid"></div>
+</div></section>
+<section class="nxg-section" id="about"><div class="nxg-container">
+  <div class="split"><div class="media-placeholder">APPROVED CDN / CLOUDINARY MEDIA</div>
+  <div><p class="eyebrow">About NXG</p><h2>One master system. Multiple experiences.</h2><p>The same approved content, project records, assets and design system can render across the website, proposals, social content, capability statements and future NXG network properties.</p></div></div>
+</div></section>
+<section class="nxg-section" id="projects"><div class="nxg-container">
+  <p class="eyebrow">Projects</p><h2>Project stories.</h2>
+  <div class="project-slider"><div class="project-card">PROJECT MEDIA</div><div class="project-card">PROJECT MEDIA</div><div class="project-card">PROJECT MEDIA</div></div>
+</div></section>
+<section class="nxg-section dark" id="network"><div class="nxg-container">
+  <p class="eyebrow">NXG Ecosystem</p><h2>Coatings today. Network tomorrow.</h2>
+  <div class="network-grid"><div>NXG Coatings Inc.</div><div>NXG Contractors — Future</div><div>NXG Partner Network — Future</div></div>
+</div></section>
+<section class="nxg-section" id="contact"><div class="nxg-container">
+  <p class="eyebrow">Contact</p><h2>Start a project.</h2><p>Call <a href="tel:+19528553520">952-855-3520</a>.</p>
+</div></section>
+</main>
+<footer><div class="nxg-container">© NXG Coatings Inc.</div></footer>
+<script>
+fetch('data/content.json').then(r=>r.json()).then(d=>{
+  document.querySelectorAll('[data-bind="brand.name"]').forEach(e=>e.textContent=d.brand.name);
+  document.getElementById('service-grid').innerHTML=d.services.map(s=>`<article class="service-card"><h3>${s.title}</h3><p>Professional NXG service offering.</p></article>`).join('');
+});
+</script>
+</body>
+</html>

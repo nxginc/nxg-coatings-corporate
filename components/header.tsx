@@ -1,118 +1,47 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Phone, X } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { Menu, X } from "lucide-react"
+import { ASSETS } from "@/lib/assets"
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
+const links = [
+  { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "Projects", href: "/gallery" },
+  { label: "Process", href: "/process" },
+  { label: "About", href: "/about" },
+  { label: "Journal", href: "/blog" },
 ]
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-brand-blue rounded-md flex items-center justify-center">
-                <span className="text-white font-bold text-lg">N</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">NXG Coatings</span>
-            </Link>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-brand-blue",
-                  pathname === item.href
-                    ? "text-brand-blue"
-                    : "text-gray-600"
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm" className="flex items-center">
-              <Phone className="w-4 h-4 mr-2" />
-              (555) 123-4567
-            </Button>
-            <Button size="sm">Get Free Quote</Button>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="sm">
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Open menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <div className="flex flex-col space-y-4 mt-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-6 h-6 bg-brand-blue rounded flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">N</span>
-                      </div>
-                      <span className="text-lg font-bold text-gray-900">NXG Coatings</span>
-                    </div>
-                  </div>
-
-                  <nav className="flex flex-col space-y-2">
-                    {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className={cn(
-                          "px-3 py-2 text-sm font-medium rounded-md transition-colors",
-                          pathname === item.href
-                            ? "bg-brand-blue text-white"
-                            : "text-gray-600 hover:bg-gray-100"
-                        )}
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </nav>
-
-                  <div className="pt-4 border-t space-y-3">
-                    <Button variant="outline" className="w-full flex items-center justify-center">
-                      <Phone className="w-4 h-4 mr-2" />
-                      (555) 123-4567
-                    </Button>
-                    <Button className="w-full">Get Free Quote</Button>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+    <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-[var(--nxg-line)] bg-white/95 text-[var(--nxg-navy)] backdrop-blur-md">
+      <div className="mx-auto flex h-full max-w-[var(--nxg-content-width)] items-center justify-between px-5 sm:px-6 lg:px-10">
+        <Link href="/" aria-label="NXG Coatings home" onClick={() => setOpen(false)} className="shrink-0">
+          <Image src={ASSETS.logo.primary} alt="NXG Coatings" width={118} height={42} className="h-auto w-[104px]" priority />
+        </Link>
+        <nav className="hidden items-center gap-5 xl:flex" aria-label="Primary navigation">
+          {links.map((link) => <Link key={link.href} href={link.href} className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nxg-muted)] transition hover:text-[var(--nxg-red)]">{link.label}</Link>)}
+          <Link href="/quote" className="ml-1 inline-flex min-h-10 items-center gap-3 bg-[var(--nxg-navy)] px-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[var(--nxg-red)]">Request an estimate <span aria-hidden="true">↗</span></Link>
+        </nav>
+        <div className="flex items-center gap-3 xl:hidden">
+          <Link href="/quote" className="hidden min-h-10 items-center bg-[var(--nxg-red)] px-3 text-[9px] font-semibold uppercase tracking-[0.1em] text-white sm:inline-flex">Estimate</Link>
+          <button type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? "Close navigation menu" : "Open navigation menu"} className="grid h-10 w-10 place-items-center border border-[var(--nxg-line)] text-[var(--nxg-navy)] transition hover:border-[var(--nxg-red)] hover:text-[var(--nxg-red)]">
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
+      {open && (
+        <nav id="mobile-nav" className="fixed inset-x-0 top-16 bottom-0 overflow-y-auto border-t border-[var(--nxg-line)] bg-white px-6 pb-10 pt-3 xl:hidden" aria-label="Mobile navigation">
+          {links.map((link, index) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="flex min-h-14 items-center justify-between border-b border-[var(--nxg-line)] text-lg font-medium text-[var(--nxg-navy)]"><span>{link.label}</span><span className="text-[10px] font-semibold text-[var(--nxg-red)]">0{index + 1}</span></Link>)}
+          <Link href="/contact" onClick={() => setOpen(false)} className="block border-b border-[var(--nxg-line)] py-4 text-lg font-medium text-[var(--nxg-navy)]">Contact</Link>
+          <Link href="/quote" onClick={() => setOpen(false)} className="mt-6 flex min-h-12 items-center justify-center gap-4 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white">Request an estimate <span aria-hidden="true">↗</span></Link>
+        </nav>
+      )}
     </header>
   )
 }

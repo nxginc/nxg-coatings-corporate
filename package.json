@@ -9,7 +9,8 @@
     "start": "next start",
     "vercel:build": "next build",
     "vercel:deploy": "vercel deploy --prod --confirm",
-    "vercel:preview": "vercel deploy --preview --confirm"
+    "vercel:preview": "vercel deploy --preview --confirm",
+    "admin:secrets": "node scripts/setup-admin-secrets.mjs"
   },
   "engines": {
     "node": ">=18.18.0 <21"
@@ -48,6 +49,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "latest",
+    "date-fns": "^4.4.0",
     "embla-carousel-react": "latest",
     "framer-motion": "latest",
     "gsap": "latest",
@@ -71,6 +73,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@neon/config": "^1.8.2",
     "@types/node": "^22",
     "@types/nodemailer": "^6.4.14",
     "@types/pg": "^8.15.5",

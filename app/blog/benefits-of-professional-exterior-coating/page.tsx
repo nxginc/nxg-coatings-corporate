@@ -3,6 +3,7 @@
 import BlogPost from "@/components/blog-post"
 import RelatedPosts from "@/components/related-posts"
 import { blogPosts } from "@/data/blog-posts"
+import { ASSETS } from "@/lib/assets"
 
 export default function BenefitsOfProfessionalExteriorCoatingPage() {
   return (
@@ -12,10 +13,10 @@ export default function BenefitsOfProfessionalExteriorCoatingPage() {
         excerpt="Discover how professional exterior coating can protect your home, increase its value, and reduce maintenance costs over time."
         publishDate="February 28, 2025"
         readTime="6 min read"
-        coverImage="https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688"
+        coverImage="https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog2_shlL_xb-0.jpeg?updatedAt=1741212349719"
         author={{
-          name: "Alex Thompson",
-          avatar: "/placeholder.svg?height=80&width=80",
+          name: "NXG Coatings Team",
+          avatar: ASSETS.blog.authorAvatar,
         }}
         content={
           <>

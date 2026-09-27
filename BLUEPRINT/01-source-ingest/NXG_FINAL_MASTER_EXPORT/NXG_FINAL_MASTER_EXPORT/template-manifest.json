@@ -1,0 +1,31 @@
+{
+  "template_id": "nxg-master",
+  "version": "1.0.0-final",
+  "source_inputs": [
+    "style.css",
+    "NXG Coatings Inc \u2014 Professional Painting & Coating Services _ Edina MN \u2014 Clean Finish Exclusive.html",
+    "NXG Coatings Inc \u2014 Professional Painting & Coating Services _ Edina MN 2.html",
+    "TEMPLATE-START.zip"
+  ],
+  "content": "data/content.json",
+  "entities": "data/entities.json",
+  "api": "data/api-manifest.json",
+  "media": "data/cdn-media.json",
+  "contact": "952-855-3520",
+  "render_targets": [
+    "web",
+    "mobile",
+    "social",
+    "og",
+    "proposal-pdf",
+    "capability-statement-pdf"
+  ],
+  "design": {
+    "parallax_hero": true,
+    "responsive": true,
+    "service_cards": true,
+    "project_slider": true,
+    "split_logo_section": true,
+    "canonical_logo_placeholder": true
+  }
+}
