@@ -11,15 +11,31 @@ interface Category {
 }
 
 interface BlogCategoriesSidebarProps {
-  categories: Category[]
+  categories?: Category[]
+  posts?: Array<{ category?: string; slug?: string }>
+  currentCategory?: string
   className?: string
 }
 
 export default function BlogCategoriesSidebar({
   categories,
+  posts,
+  currentCategory,
   className
 }: BlogCategoriesSidebarProps) {
   const pathname = usePathname()
+  const categoryList = categories ?? (posts ? Array.from(
+    posts.reduce((acc, post) => {
+      const name = post.category || "Uncategorized"
+      const existing = acc.get(name)
+      if (existing) {
+        existing.count += 1
+      } else {
+        acc.set(name, { name, slug: name.toLowerCase().replace(/\s+/g, "-"), count: 1 })
+      }
+      return acc
+    }, new Map<string, Category>())
+  ).map(([, item]) => item) : [])
 
   return (
     <div className={cn("bg-white rounded-lg shadow-md p-6", className)}>
@@ -38,13 +54,13 @@ export default function BlogCategoriesSidebar({
           All Posts
         </Link>
 
-        {categories.map((category) => (
+        {categoryList.map((category) => (
           <Link
             key={category.slug}
             href={`/blog/category/${category.slug}`}
             className={cn(
               "flex items-center justify-between px-3 py-2 text-sm rounded-md transition-colors",
-              pathname === `/blog/category/${category.slug}`
+              pathname === `/blog/category/${category.slug}` || currentCategory === category.name
                 ? "bg-brand-blue text-white"
                 : "text-gray-700 hover:bg-gray-100"
             )}

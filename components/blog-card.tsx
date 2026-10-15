@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
+import { parse } from "date-fns"
 import type { BlogPostMeta } from "@/data/blog-posts"
 
 interface BlogCardProps {
@@ -28,7 +29,7 @@ export default function BlogCard({ post, className = "" }: BlogCardProps) {
         </div>
         <div className="pt-5">
           <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--nxg-muted)]">
-            {new Date(`${post.publishDate}T12:00:00`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+            {parse(post.publishDate, "MMMM d, yyyy", new Date()).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
             <span className="px-2 text-[var(--nxg-red)]">/</span>{post.readTime}
           </p>
           <h2 className="mt-3 text-2xl font-medium leading-tight text-[var(--nxg-navy)] group-hover:text-[var(--nxg-red)] sm:text-3xl">

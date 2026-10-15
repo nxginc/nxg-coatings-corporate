@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
 import { Calendar, Clock, MapPin, Phone } from "lucide-react"
 
 const timeSlots = [
@@ -10,7 +11,7 @@ const timeSlots = [
   "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"
 ]
 
-export default function CalendarBooking() {
+export function CalendarBooking() {
   const [selectedDate, setSelectedDate] = useState<string>("")
   const [selectedTime, setSelectedTime] = useState<string>("")
   const [name, setName] = useState("")
@@ -167,3 +168,5 @@ export default function CalendarBooking() {
     </Card>
   )
 }
+
+export default CalendarBooking

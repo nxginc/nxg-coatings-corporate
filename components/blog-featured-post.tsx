@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
+import { parse } from "date-fns"
 import type { BlogPostMeta } from "@/data/blog-posts"
 
 interface BlogFeaturedPostProps {
@@ -16,7 +17,7 @@ export default function BlogFeaturedPost({ post }: BlogFeaturedPostProps) {
       </Link>
       <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-12">
         <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[var(--nxg-muted)]">
-          {new Date(`${post.publishDate}T12:00:00`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+          {parse(post.publishDate, "MMMM d, yyyy", new Date()).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
           <span className="px-2 text-[var(--nxg-red)]">/</span>{post.readTime}
         </p>
         <h2 className="mt-5 text-3xl font-medium leading-tight text-[var(--nxg-navy)] sm:text-4xl lg:text-5xl">{post.title}</h2>

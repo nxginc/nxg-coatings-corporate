@@ -127,6 +127,12 @@ const pages = {
       "Read painting, coating, maintenance and project resources from NXG Coatings.",
     keywords: ["painting resources", "painting guides", "coating resources", "Minnesota painting"],
   },
+  process: {
+    title: "Our Painting Process | NXG Coatings",
+    description:
+      "Learn how NXG Coatings delivers a smooth, professional painting experience from consultation through final walkthrough.",
+    keywords: ["painting process", "painting workflow", "professional painting process", "painting project steps"],
+  },
   faqs: {
     title: "Painting & Coating FAQs | NXG Coatings",
     description:

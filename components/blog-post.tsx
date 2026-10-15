@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import type { ReactNode } from "react"
 import { ArrowLeft, CalendarDays, Clock3 } from "lucide-react"
-import { format } from "date-fns"
+import { format, parse } from "date-fns"
 import { cn } from "@/lib/utils"
 
 type BlogPostProps = {
@@ -17,7 +17,7 @@ type BlogPostProps = {
 }
 
 export default function BlogPost({ title, excerpt, publishDate, readTime, coverImage, author, content, className }: BlogPostProps) {
-  const publishedDate = new Date(`${publishDate}T12:00:00`)
+  const publishedDate = parse(publishDate, "MMMM d, yyyy", new Date())
 
   return (
     <main className={cn("bg-white", className)}>

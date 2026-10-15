@@ -3,13 +3,13 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar } from "lucide-react"
-import { format } from "date-fns"
+import { format, isValid, parse, parseISO } from "date-fns"
 
 interface RelatedPost {
   slug: string
   title: string
-  excerpt: string
-  publishedAt: string
+  excerpt?: string
+  publishedAt?: string
   coverImage?: string
   category?: string
 }
@@ -17,10 +17,18 @@ interface RelatedPost {
 interface RelatedPostsProps {
   posts: RelatedPost[]
   title?: string
+  currentPostSlug?: string
+  category?: string
 }
 
-export default function RelatedPosts({ posts, title = "Related Articles" }: RelatedPostsProps) {
-  if (!posts || posts.length === 0) return null
+export default function RelatedPosts({ posts, title = "Related Articles", currentPostSlug, category }: RelatedPostsProps) {
+  const filteredPosts = (posts ?? []).filter((post) => {
+    if (currentPostSlug && post.slug === currentPostSlug) return false
+    if (category && post.category && post.category !== category) return false
+    return true
+  })
+
+  if (!filteredPosts.length) return null
 
   return (
     <section className="py-12 bg-gray-50">
@@ -28,7 +36,7 @@ export default function RelatedPosts({ posts, title = "Related Articles" }: Rela
         <h2 className="text-2xl font-bold text-brand-blue mb-8 text-center">{title}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post) => (
+          {filteredPosts.map((post) => (
             <article key={post.slug} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               {post.coverImage && (
                 <div className="relative h-32 overflow-hidden">
@@ -54,14 +62,26 @@ export default function RelatedPosts({ posts, title = "Related Articles" }: Rela
                   </Link>
                 </h3>
 
-                <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                  {post.excerpt}
-                </p>
+                {post.excerpt && (
+                  <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                )}
 
-                <div className="flex items-center text-xs text-gray-500">
-                  <Calendar className="w-3 h-3 mr-1" />
-                  {format(new Date(post.publishedAt), "MMM dd, yyyy")}
-                </div>
+                {post.publishedAt ? (() => {
+                  const parsedDate = (() => {
+                    const isoDate = parseISO(post.publishedAt)
+                    if (isValid(isoDate)) return isoDate
+                    return parse(post.publishedAt, "MMMM d, yyyy", new Date())
+                  })()
+
+                  return isValid(parsedDate) ? (
+                    <div className="flex items-center text-xs text-gray-500">
+                      <Calendar className="w-3 h-3 mr-1" />
+                      {format(parsedDate, "MMM dd, yyyy")}
+                    </div>
+                  ) : null
+                })() : null}
               </div>
             </article>
           ))}
