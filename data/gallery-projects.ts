@@ -1,0 +1,14 @@
+export const galleryProjects = [
+  { id: "exterior-one", src: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f1_8-Jfm4MWZ.jpg?updatedAt=1704333592818", alt: "NXG residential exterior painting project", category: "Exterior", title: "Exterior finishes" },
+  { id: "exterior-two", src: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f2_ElysbPaNW.jpg?updatedAt=1704333595263", alt: "NXG home coating project", category: "Exterior", title: "Residential coating" },
+  { id: "exterior-three", src: "https://ik.imagekit.io/j98e6hcfnkn/service-pages/exterior/4911CC69-47B2-463A-975D-68E673E95627_V9zcEAcgC.jpeg?updatedAt=1746446543080", alt: "Exterior painting and surface preparation", category: "Exterior", title: "Exterior painting" },
+  { id: "interior-one", src: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f3_Tdt47-4oA.jpg?updatedAt=1704333594335", alt: "NXG residential painting project", category: "Interior", title: "Interior work" },
+  { id: "interior-two", src: "https://ik.imagekit.io/j98e6hcfnkn/portfolio/interior/cg2interior/c2interior0_WVVPL6JB6.jpg?updatedAt=1666795159879", alt: "Interior painting project", category: "Interior", title: "Interior painting" },
+  { id: "cabinets", src: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/cabinets/cabinet-bathroom_eCKG4guCX.JPG?updatedAt=1747490422629", alt: "Cabinet refinishing project", category: "Cabinets", title: "Cabinet refinishing" },
+  { id: "deck-one", src: "https://ik.imagekit.io/j98e6hcfnkn/featured/featured-home/f4_dVndSb6E6.jpg?updatedAt=1704333592978", alt: "NXG exterior and deck project", category: "Decks", title: "Outdoor surfaces" },
+  { id: "deck-two", src: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/6_Wsj3ws2Uw.jpg?updatedAt=1681571719088", alt: "Deck staining and refinishing project", category: "Decks", title: "Deck staining" },
+  { id: "commercial", src: "https://ik.imagekit.io/j98e6hcfnkn/Services/commercial_0p23O988Ix.heic?updatedAt=1741369712604&tr=f-jpg", alt: "Commercial painting project", category: "Commercial", title: "Commercial work" },
+  { id: "industrial", src: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/industrial/industrial-structure-painting-services_7VncZWEPH.jpg", alt: "Industrial coating project", category: "Industrial", title: "Industrial coatings" },
+  { id: "hoa", src: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/hoa/64377d87f8cf768523c106d0_hoa-painting-hero-02_WTec4soEPA.webp?updatedAt=1747490345547", alt: "Multi-family property painting project", category: "HOA and multi-family", title: "Community properties" },
+  { id: "specialty", src: "https://ik.imagekit.io/j98e6hcfnkn/Services/finefinishes_Dq4bB4CJa.jpg?updatedAt=1666774073303", alt: "Specialty finish and millwork painting", category: "Specialty finishes", title: "Fine finishes and millwork" },
+] as const

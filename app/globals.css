@@ -4,25 +4,33 @@
 
 @layer base {
   :root {
+    --nxg-navy: #0c1d34;
+    --nxg-red: #86001a;
+    --nxg-platinum: #c0c0c0;
+    --nxg-charcoal: #1a1a1a;
+    --nxg-paper: #f5f6f7;
+    --nxg-line: #d9dee3;
+    --nxg-muted: #66727f;
+    --nxg-content-width: 1440px;
     --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --foreground: 0 0% 10.2%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 0 0% 10.2%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 240 100% 10.6%; /* #000035 */
+    --popover-foreground: 0 0% 10.2%;
+    --primary: 213 62% 12%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 0 100% 50%; /* #FF0000 */
+    --secondary: 348 100% 26%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 100% 50%; /* #FF0000 */
+    --muted-foreground: 210 8% 45%;
+    --accent: 348 100% 26%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 240 100% 10.6%;
+    --border: 210 13% 87%;
+    --input: 210 13% 87%;
+    --ring: 213 62% 12%;
     --radius: 0.5rem;
   }
 
@@ -33,18 +41,18 @@
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 240 100% 10.6%; /* #000035 */
+    --primary: 213 62% 12%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 0 100% 50%; /* #FF0000 */
+    --secondary: 348 100% 26%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 100% 50%; /* #FF0000 */
+    --muted-foreground: 210 8% 70%;
+    --accent: 348 100% 26%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
+    --border: 210 13% 30%;
+    --input: 210 13% 30%;
     --ring: 0 0% 83.1%;
   }
 }
@@ -53,19 +61,37 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--nxg-red);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--nxg-navy);
+    color: #fff;
   }
 }
 
 @layer components {
   .section-kicker {
-    @apply text-[10px] font-semibold uppercase tracking-[0.24em] text-[#e74736];
+    @apply text-[10px] font-semibold uppercase tracking-[0.24em];
+    color: var(--nxg-red);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;

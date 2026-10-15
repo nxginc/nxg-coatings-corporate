@@ -30,8 +30,8 @@ export default function ContactSuccessPage() {
               <h1 className="text-4xl font-bold text-gray-900 mb-4">
                 Thank You!
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
-                Your message has been received successfully.
+                <p className="text-xl text-gray-600 mb-8">
+                Your request has been saved for review.
               </p>
 
               {/* Confirmation Details */}
@@ -43,15 +43,15 @@ export default function ContactSuccessPage() {
                 <ul className="space-y-3 text-blue-800">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span>You'll receive an email confirmation shortly</span>
+                    <span>A team member will follow up using the contact information you provided</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span>Our team will review your request within 24 hours</span>
+                    <span>Any requested appointment time remains pending until the team confirms it</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span>We'll contact you to schedule a free consultation</span>
+                    <span>We will confirm the next step for your project</span>
                   </li>
                 </ul>
               </div>
@@ -64,11 +64,11 @@ export default function ContactSuccessPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <div className="flex items-center gap-2 text-gray-600">
                     <Phone className="w-4 h-4" />
-                    <span>(555) 123-4567</span>
+                    <a href="tel:+19529004222">(952) 900-4222</a>
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
                     <Mail className="w-4 h-4" />
-                    <span>info@nxgcoatings.com</span>
+                    <a href="mailto:info@nxgcoatingsinc.com">info@nxgcoatingsinc.com</a>
                   </div>
                 </div>
               </div>

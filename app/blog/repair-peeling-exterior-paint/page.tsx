@@ -1,6 +1,7 @@
 "use client"
 
 import BlogPost from "@/components/blog-post"
+import { ASSETS } from "@/lib/assets"
 
 export default function RepairPeelingPaintPage() {
   return (
@@ -9,10 +10,10 @@ export default function RepairPeelingPaintPage() {
       excerpt="Learn how to fix peeling exterior paint and protect your home from further damage with our comprehensive guide."
       publishDate="March 5, 2025"
       readTime="8 min read"
-      coverImage="https://sjc.microlink.io/9FMd4VeQoSaRJelq1EpEu4rwYsiZFoIp8M11NJDJcnO2o7XgLYkogZpP7OmKAEZyano-VIu8pI2F75YaMDsB4g.jpeg"
+      coverImage={ASSETS.blogPosts.five}
       author={{
         name: "NXG Coatings Team",
-        avatar: "/placeholder.svg?height=80&width=80",
+        avatar: ASSETS.blog.authorAvatar,
       }}
       content={
         <>
