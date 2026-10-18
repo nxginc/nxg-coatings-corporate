@@ -144,7 +144,7 @@ export default function TermsOfServicePage() {
 
           <div className="max-w-4xl mx-auto mt-12 text-center">
             <Link href="/contact">
-              <FancyButton variant="gradient" size="lg" rounded="full">
+              <FancyButton variant="shine" size="lg" rounded="full">
                 Contact Us With Questions
               </FancyButton>
             </Link>

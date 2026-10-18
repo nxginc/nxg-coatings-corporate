@@ -4,7 +4,10 @@
 			"path": "."
 		},
 		{
-			"path": "../../../../../../Volumes/NXGV2/NXGC_V2_UPDATE"
+			"path": "../templates"
+		},
+		{
+			"path": "../../../../../Volumes/NXGXV9/NXGXV9/NXGXV9_HD/nxgcoatingsinc"
 		}
 	],
 	"settings": {

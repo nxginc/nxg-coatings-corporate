@@ -80,10 +80,10 @@ const pages = {
     keywords: ["drywall contractors MN", "Minneapolis drywall contractors", "drywall service", "drywall repair", "commercial drywall contractors", "Minneapolis painting contractors"],
   },
   fineFinishes: {
-    title: "Fine Finishes & Specialty Painting | NXG Coatings",
+    title: "Fine Finish & Millwork Painting | NXG Coatings",
     description:
-      "Achieve a refined, polished look with NXG Coatings fine finishes services. Our skilled painters focus on detailed preparation and high-quality finishing for residential and commercial spaces.",
-    keywords: ["fine finishes", "specialty painting", "decorative finishes", "professional painters", "specialty coatings"],
+      "Explore fine finish painting for trim, doors, windows, built-ins, and architectural millwork from NXG Coatings.",
+    keywords: ["fine finish painting", "millwork painting", "interior trim painting", "built-in painting", "Twin Cities painters"],
   },
   colorConsultation: {
     title: "Professional Color Consultation | NXG Coatings",
@@ -120,6 +120,12 @@ const pages = {
     description:
       "Request a free, no-obligation quote for your painting or coating project from NXG Coatings.",
     keywords: ["free painting quote", "painting estimate Minneapolis", "coating estimate Twin Cities"],
+  },
+  process: {
+    title: "Our Painting Project Process | NXG Coatings",
+    description:
+      "See how NXG Coatings plans painting and coating projects, from the initial walkthrough and scope through preparation and final review.",
+    keywords: ["painting project process", "painting preparation", "coating project planning", "NXG Coatings"],
   },
   industries: {
     title: "Industries We Serve | NXG Coatings",

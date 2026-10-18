@@ -10,9 +10,10 @@ const footerGroups = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--nxg-navy)] px-6 py-12 text-white lg:px-10 lg:py-16">
+    <footer className="nxg-site-footer relative mt-20 overflow-hidden bg-[var(--nxg-charcoal)] px-6 py-12 text-white lg:px-10 lg:py-16">
+      <div className="nxg-site-footer__rule absolute inset-x-0 top-0 h-[3px]" aria-hidden="true" />
       <div className="mx-auto max-w-[var(--nxg-content-width)]">
-        <div className="grid gap-10 border-t border-white/20 pt-9 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-12">
+        <div className="grid gap-10 pt-5 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-12">
           <div>
             <Link href="/" aria-label="NXG Coatings home"><Image src={ASSETS.logo.primary} alt="NXG Coatings" width={118} height={42} className="h-auto w-[104px] brightness-0 invert" /></Link>
             <p className="mt-5 max-w-xs text-sm leading-6 text-white/65">Professional painting and coating services for homes, businesses, and facilities across the Twin Cities.</p>

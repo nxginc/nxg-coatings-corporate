@@ -6,13 +6,22 @@ import { getDatabase } from "@/lib/db"
 
 export const runtime = "nodejs"
 
+const imageUrlSchema = z.string().url().max(1000).refine((value) => {
+    try {
+        const url = new URL(value)
+        return url.protocol === "https:" && url.hostname === "ik.imagekit.io"
+    } catch {
+        return false
+    }
+}).optional().or(z.literal(""))
+
 const updateSchema = z.object({
     title: z.string().trim().min(4).max(140).optional(),
     description: z.string().trim().min(20).max(5000).optional(),
     service: z.string().trim().min(2).max(120).optional(),
     audience: z.string().trim().min(2).max(160).optional(),
     landingPath: z.string().trim().regex(/^\/[a-z0-9\-/]*$/).max(240).optional(),
-    imageUrl: z.string().url().max(1000).optional().or(z.literal("")),
+    imageUrl: imageUrlSchema,
     assetIds: z.array(z.string().max(200)).max(100).optional(),
     channelVariants: z.record(z.string(), z.object({ caption: z.string().trim().max(5000), cta: z.string().max(200).optional(), hashtags: z.array(z.string().max(60)).max(40).default([]) })).optional(),
     action: z.enum(["submit_for_review", "approve", "reject", "revise"]).optional(),

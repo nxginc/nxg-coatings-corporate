@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { ASSETS } from "@/lib/assets"
 
 const services = [
@@ -101,7 +101,9 @@ export default function ServicesSlider() {
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                     <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
                     <p className="text-lg mb-4">{service.description}</p>
-                    <a href={service.link} className="inline-flex h-10 items-center justify-center rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80">Learn More</a>
+                    <Link href={service.link} className="inline-flex h-10 items-center rounded-md bg-[var(--nxg-red)] px-4 text-sm font-medium text-white transition-colors hover:bg-[var(--nxg-navy)]">
+                      Learn More
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -28,9 +28,13 @@ export default function BlogCard({ post, className = "" }: BlogCardProps) {
         </div>
         <div className="pt-5">
           <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--nxg-muted)]">
-            {new Date(`${post.publishDate}T12:00:00`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+            {new Date(post.publishDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
             <span className="px-2 text-[var(--nxg-red)]">/</span>{post.readTime}
           </p>
+          <div className="mt-4 flex items-center gap-2">
+            <Image src={post.author.avatar} alt="" width={24} height={24} className="h-6 w-6 object-contain" />
+            <span className="text-xs font-medium text-[var(--nxg-muted)]">{post.author.name}</span>
+          </div>
           <h2 className="mt-3 text-2xl font-medium leading-tight text-[var(--nxg-navy)] group-hover:text-[var(--nxg-red)] sm:text-3xl">
             {post.title}
           </h2>

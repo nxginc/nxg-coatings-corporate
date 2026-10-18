@@ -1,7 +1,11 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import { unstable_noStore as noStore } from "next/cache"
 import { notFound } from "next/navigation"
-import { campaigns, campaignSlugs } from "@/data/campaigns"
+import { ASSETS } from "@/lib/assets"
+import { campaigns, campaignSlugs, type CampaignDefinition } from "@/data/campaigns"
+import { NXG_COMPANY_ID } from "@/lib/company"
+import { getDatabase } from "@/lib/db"
 import { SITE_URL } from "@/lib/seo"
 
 type CampaignPageProps = {
@@ -9,15 +13,41 @@ type CampaignPageProps = {
     searchParams: Record<string, string | string[] | undefined>
 }
 
+async function getCampaign(slug: string): Promise<CampaignDefinition | null> {
+    const staticCampaign = Object.prototype.hasOwnProperty.call(campaigns, slug) ? campaigns[slug] : null
+    if (staticCampaign) return staticCampaign
+
+    noStore()
+    const database = getDatabase()
+    if (!database) return null
+
+    const { rows } = await database.query(
+        `select slug, title, description, service, audience, image_url as image
+         from nxg_campaigns
+         where company_id = $1 and slug = $2 and status = 'approved'
+         limit 1`,
+        [NXG_COMPANY_ID, slug],
+    )
+    const campaign = rows[0]
+    if (!campaign) return null
+
+    return {
+        ...campaign,
+        image: campaign.image || ASSETS.hero.fallback,
+        imageAlt: `${campaign.service} project by NXG Coatings`,
+        details: ["Project scope review", "Scheduling and site access discussion", "Project-specific estimate"],
+    }
+}
+
 export function generateStaticParams() {
     return campaignSlugs.map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }: CampaignPageProps): Metadata {
-    const campaign = campaigns[params.slug]
+export async function generateMetadata({ params }: CampaignPageProps): Promise<Metadata> {
+    const campaign = await getCampaign(params.slug)
     if (!campaign) return { title: "Campaign not found | NXG Coatings" }
 
-    const canonical = `https://go.nxgcoatingsinc.com/${campaign.slug}`
+    const canonical = `${SITE_URL}/campaigns/${campaign.slug}`
     return {
         title: `${campaign.service} | NXG Coatings`,
         description: campaign.description,
@@ -34,8 +64,8 @@ export function generateMetadata({ params }: CampaignPageProps): Metadata {
     }
 }
 
-export default function CampaignPage({ params, searchParams }: CampaignPageProps) {
-    const campaign = campaigns[params.slug]
+export default async function CampaignPage({ params, searchParams }: CampaignPageProps) {
+    const campaign = await getCampaign(params.slug)
     if (!campaign) notFound()
 
     const tracking = new URLSearchParams()
