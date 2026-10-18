@@ -22,6 +22,13 @@ asset intake → provenance + alt text → content draft → render QA
 | Facebook groups / Marketplace | Manual community publishing | Human review; no auto-post bypass |
 | Meta / Google Ads | Draft targeting and campaign operations | Budget, targeting, creative, and policy approval |
 
+## Admin review surfaces
+
+- `/dashboard` is the authenticated lead inbox and triage view.
+- `/dashboard/content` manages campaign drafts and social copy through review and approval states; it does not publish.
+- `/dashboard/connections` shows the template automation manifest alongside server-configuration readiness. Manifest capabilities are not live integration checks.
+- Dashboard navigation is protected by the admin session; API mutations keep their own authorization checks.
+
 ## Required safeguards
 
 - Keep uploaded assets in staging until rights, source, alt text, tenant, and approval metadata are complete.

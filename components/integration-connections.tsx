@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import automationManifest from "@/templates/nxg-master/automation-manifest.json"
 
 type Provider = {
     id: string
@@ -19,6 +20,10 @@ const readinessLabels: Record<string, string> = {
     credentials_ready: "Credentials ready; not connection-tested",
     needs_configuration: "Needs server configuration",
     manual_only: "Manual handoff only",
+}
+
+function formatManifestLabel(value: string) {
+    return value.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
 }
 
 export default function IntegrationConnections() {
@@ -85,6 +90,18 @@ export default function IntegrationConnections() {
     return <main className="min-h-screen bg-[var(--nxg-paper)] px-4 py-10 text-[var(--nxg-charcoal)] sm:px-8">
         <div className="mx-auto max-w-6xl">
             <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[var(--nxg-line)] pb-5"><div><p className="section-kicker">NXG platform</p><h1 className="mt-2 text-3xl font-semibold text-[var(--nxg-navy)]">Connections & automations</h1><p className="mt-2 text-sm text-[var(--nxg-muted)]">Company scope: <span className="font-semibold">{companyId || "..."}</span>. Secrets stay in the deployment environment.</p></div><button type="button" onClick={() => void load()} className="min-h-10 border border-[var(--nxg-line)] bg-white px-4 text-xs font-semibold uppercase tracking-[0.1em]">Refresh</button></div>
+            <section aria-labelledby="automation-policy-heading" className="mt-6 border border-[var(--nxg-line)] bg-white p-5 sm:p-6">
+                <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[var(--nxg-line)] pb-4">
+                    <div><p className="section-kicker">Template operating policy</p><h2 id="automation-policy-heading" className="mt-2 text-xl font-semibold text-[var(--nxg-navy)]">Automation manifest</h2><p className="mt-2 text-sm text-[var(--nxg-muted)]">{automationManifest.template_id} · {automationManifest.schema_version} · {formatManifestLabel(automationManifest.mode)}</p></div>
+                    <span className="border border-amber-300 bg-amber-50 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-amber-950">{automationManifest.live_connections_verified ? "Live connections verified" : "Live connections not verified"}</span>
+                </div>
+                <div className="grid gap-6 pt-5 md:grid-cols-2 xl:grid-cols-4">
+                    <div><h3 className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--nxg-navy)]">Enabled template features</h3><ul className="mt-3 space-y-2 text-sm text-[var(--nxg-muted)]">{automationManifest.enabled_now.map((feature) => <li key={feature}>{formatManifestLabel(feature)}</li>)}</ul></div>
+                    <div><h3 className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--nxg-navy)]">Integration boundaries</h3><ul className="mt-3 space-y-2 text-sm text-[var(--nxg-muted)]">{automationManifest.integration_boundaries.map((integration) => <li key={integration}>{formatManifestLabel(integration)}</li>)}</ul></div>
+                    <div><h3 className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--nxg-navy)]">Approval required for</h3><ul className="mt-3 space-y-2 text-sm text-[var(--nxg-muted)]">{automationManifest.approval_required_for.map((approval) => <li key={approval}>{approval}</li>)}</ul></div>
+                    <p className="border-l-2 border-[var(--nxg-red)] pl-4 text-sm leading-6 text-[var(--nxg-muted)] md:col-span-2 xl:col-span-1">Enabled template features do not mean external systems are connected. Provider readiness below reflects server configuration only; live connection verification remains a separate step.</p>
+                </div>
+            </section>
             {error && <p role="alert" className="mt-5 border border-red-300 bg-white p-4 text-sm text-red-900">{error}</p>}
             {notice && <p role="status" className="mt-5 border border-green-300 bg-white p-4 text-sm text-green-900">{notice}</p>}
             {!loading && providers.some((provider) => !provider.adminStoreConfigured) && <p className="mt-5 border-l-2 border-[var(--nxg-red)] bg-white p-4 text-sm text-[var(--nxg-muted)]">Database is not configured. Provider readiness is shown, but enable/disable changes cannot be persisted.</p>}

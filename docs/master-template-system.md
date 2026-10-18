@@ -12,6 +12,7 @@ This repository is the reusable implementation source for the NXG website, brand
 | Letters and proposals | `components/brand-letter-template.tsx`, `components/brand-proposal-template.tsx`, `components/commercial-painting-proposal-template.tsx` | Recipient, company profile, theme, scope, estimate, materials, terms, authorization |
 | Campaign and social masters | `data/marketing-templates.ts` | Caption starters, platform names, manual-only flag, channel limits, caption composition |
 | Campaign/review data | `/api/admin/campaigns`, `/api/admin/social-posts`, `/api/admin/social-posts/batch` | Company-scoped persistence and review workflow |
+| Automation policy | `templates/nxg-master/automation-manifest.json` | Read-only status summary in `/dashboard/connections`; manifest flags do not assert provider connectivity |
 | Brand preview | `/brand-preview` | Unlisted, noindex sample of foundations, UI components, and proposal |
 | Operating guidance | `docs/design-system.md`, `docs/marketing-playbooks.md` | Figma handoff and campaign process |
 
@@ -80,7 +81,7 @@ pnpm exec tsc --noEmit
 pnpm build
 ```
 
-Review the site pages and `/brand-preview`. The preview page is intentionally omitted from the sitemap and sets `noindex`. Use an authenticated session to review `/dashboard/content`; draft and approval states should be checked before content is shared.
+Review the site pages and `/brand-preview`. The preview page is intentionally omitted from the sitemap and sets `noindex`. Use an authenticated session to review `/dashboard` for lead triage, `/dashboard/content` for draft and approval states, and `/dashboard/connections` for provider configuration and manifest gates. The manifest status is policy metadata; it does not verify a live provider connection.
 
 Before a release: run the TypeScript check and production build, review changed pages at desktop and mobile widths, apply migrations in order in the intended environment, and verify authentication and company scoping. Only merge through an approved PR after the source/target branch diff and checks are reviewed. Never deploy the local uncommitted worktree directly to production.
 
