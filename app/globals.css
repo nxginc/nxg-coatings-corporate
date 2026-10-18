@@ -85,6 +85,10 @@
     @apply text-[10px] font-semibold uppercase tracking-[0.24em];
     color: var(--nxg-red);
   }
+
+  .section-kicker--inverse {
+    color: var(--nxg-platinum);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

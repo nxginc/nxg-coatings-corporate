@@ -101,9 +101,9 @@ export default function ServicesSlider() {
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                     <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
                     <p className="text-lg mb-4">{service.description}</p>
-                    <a href={service.link} className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-4 py-2">
-                      Learn More
-                    </a>
+                    <Button asChild variant="secondary">
+                      <a href={service.link}>Learn More</a>
+                    </Button>
                   </div>
                 </div>
               </div>

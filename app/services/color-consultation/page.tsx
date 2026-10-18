@@ -1,5 +1,5 @@
 import EnhancedHero from "@/components/enhanced-hero"
-import ColorConsultation from "@/components/color-consultation"
+import ColorConsultationClient from "@/components/color-consultation-client"
 
 export const metadata = {
   title: "Color Consultation Services - NXG Coatings",
@@ -45,7 +45,7 @@ export default function ColorConsultationPage() {
         backgroundImage="https://ik.imagekit.io/j98e6hcfnkn/Banners/f3_ER1drZAJS.jpg?updatedAt=1679013242072"
         height="large"
       >
-        <ColorConsultation />
+        <ColorConsultationClient />
       </EnhancedHero>
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">

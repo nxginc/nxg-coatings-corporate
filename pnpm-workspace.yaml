@@ -1,6 +1,3 @@
 packages:
   - "apps/*"
   - "packages/*"
-allowBuilds:
-  libpq: true
-  unrs-resolver: true
