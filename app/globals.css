@@ -12,6 +12,25 @@
     --nxg-line: #d9dee3;
     --nxg-muted: #66727f;
     --nxg-content-width: 1440px;
+    --nxg-control-min-height: 44px;
+    --nxg-radius-control: 4px;
+    --nxg-radius-card: 4px;
+    --nxg-space-1: 4px;
+    --nxg-space-2: 8px;
+    --nxg-space-3: 12px;
+    --nxg-space-4: 16px;
+    --nxg-space-6: 24px;
+    --nxg-space-8: 32px;
+    --nxg-space-12: 48px;
+    --nxg-space-16: 64px;
+    --nxg-font-sans: "Inter", Arial, sans-serif;
+    --nxg-font-display: "Inter", Arial, sans-serif;
+    --nxg-font-mono: "IBM Plex Mono", monospace;
+    --nxg-font-size-caption: 12px;
+    --nxg-font-size-body: 16px;
+    --nxg-font-size-title: 20px;
+    --nxg-font-size-heading: 32px;
+    --nxg-font-size-display: 48px;
     --background: 0 0% 100%;
     --foreground: 0 0% 10.2%;
     --card: 0 0% 100%;
@@ -89,6 +108,182 @@
   .section-kicker--inverse {
     color: var(--nxg-platinum);
   }
+
+  .brand-letter {
+    box-sizing: border-box;
+    width: min(8.5in, calc(100% - 2rem));
+    min-height: 11in;
+    margin: 2rem auto;
+    padding: 0.72in;
+    border-top: 5px solid var(--nxg-navy);
+    background: #fff;
+    color: var(--nxg-charcoal);
+    box-shadow: 0 12px 40px rgb(12 29 52 / 12%);
+    font-size: 11pt;
+    line-height: 1.65;
+  }
+
+  .brand-letter__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .brand-letter__identity {
+    display: grid;
+    align-content: start;
+    gap: 0.75rem;
+  }
+
+  .brand-letter__logo {
+    width: 160px;
+    height: auto;
+  }
+
+  .brand-letter__company {
+    margin: 0;
+    color: var(--nxg-navy);
+    font-size: 14pt;
+    font-weight: 700;
+  }
+
+  .brand-letter__tagline {
+    margin: 0;
+    color: var(--nxg-muted);
+    font-size: 8pt;
+  }
+
+  .brand-letter__contact,
+  .brand-letter__recipient {
+    display: grid;
+    gap: 0.15rem;
+    font-style: normal;
+  }
+
+  .brand-letter__contact {
+    color: var(--nxg-muted);
+    font-size: 9pt;
+    text-align: right;
+  }
+
+  .brand-letter__contact a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .brand-letter__rule {
+    height: 2px;
+    margin: 1.2rem 0 2rem;
+    background: linear-gradient(to right, var(--nxg-red) 0 20%, var(--nxg-platinum) 20% 100%);
+  }
+
+  .brand-letter__date {
+    margin-bottom: 1.5rem;
+    color: var(--nxg-muted);
+  }
+
+  .brand-letter__recipient {
+    margin-bottom: 1.5rem;
+  }
+
+  .brand-letter__subject {
+    color: var(--nxg-navy);
+    font-weight: 700;
+  }
+
+  .brand-letter__body > p {
+    margin: 0 0 1rem;
+  }
+
+  .brand-letter__signature {
+    margin-top: 2rem;
+  }
+
+  .brand-letter__signature-name {
+    margin: 2rem 0 0;
+    color: var(--nxg-navy);
+    font-weight: 700;
+  }
+
+  .brand-letter__footer {
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--nxg-platinum);
+    padding-top: 0.75rem;
+    color: var(--nxg-muted);
+    font-size: 8pt;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .brand-proposal {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .brand-proposal section {
+    break-inside: avoid;
+  }
+
+  .brand-proposal h2 {
+    margin: 0 0 0.4rem;
+    color: var(--nxg-navy);
+    font-size: 11pt;
+    font-weight: 700;
+  }
+
+  .brand-proposal p,
+  .brand-proposal ul {
+    margin: 0;
+  }
+
+  .brand-proposal ul {
+    padding-left: 1.25rem;
+  }
+
+  .brand-proposal__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    margin: 0;
+  }
+
+  .brand-proposal__meta div {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .brand-proposal__meta dt {
+    color: var(--nxg-muted);
+    font-weight: 600;
+  }
+
+  .brand-proposal__meta dd {
+    margin: 0;
+  }
+
+  .brand-proposal__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .brand-proposal__table th,
+  .brand-proposal__table td {
+    border-bottom: 1px solid var(--nxg-line);
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  .brand-proposal__table th:last-child,
+  .brand-proposal__table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .brand-proposal__table tfoot {
+    color: var(--nxg-navy);
+    font-weight: 700;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -99,5 +294,34 @@
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .brand-letter,
+  .brand-letter * {
+    visibility: visible !important;
+  }
+
+  .brand-letter {
+    position: absolute;
+    inset: 0;
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0;
+    padding: 0.72in;
+    border: 0;
+    box-shadow: none;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 }

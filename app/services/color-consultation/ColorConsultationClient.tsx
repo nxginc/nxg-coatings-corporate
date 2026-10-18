@@ -7,7 +7,7 @@ export default function ColorConsultationClient() {
   return (
     <CTAModal
       trigger={
-        <FancyButton variant="gradient" size="lg" hasArrow={true}>
+        <FancyButton variant="shine" size="lg" hasArrow={true}>
           Schedule Consultation
         </FancyButton>
       }

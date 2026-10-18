@@ -38,6 +38,10 @@
                 "value": "1440px",
                 "type": "dimension"
             },
+            "control.minHeight": {
+                "value": "44px",
+                "type": "dimension"
+            },
             "radius.control": {
                 "value": "4px",
                 "type": "dimension"
@@ -46,12 +50,110 @@
                 "value": "4px",
                 "type": "dimension"
             }
+        },
+        "spacing": {
+            "space.1": {
+                "value": "4px",
+                "type": "dimension"
+            },
+            "space.2": {
+                "value": "8px",
+                "type": "dimension"
+            },
+            "space.3": {
+                "value": "12px",
+                "type": "dimension"
+            },
+            "space.4": {
+                "value": "16px",
+                "type": "dimension"
+            },
+            "space.6": {
+                "value": "24px",
+                "type": "dimension"
+            },
+            "space.8": {
+                "value": "32px",
+                "type": "dimension"
+            },
+            "space.12": {
+                "value": "48px",
+                "type": "dimension"
+            },
+            "space.16": {
+                "value": "64px",
+                "type": "dimension"
+            }
+        },
+        "typography": {
+            "font.family.sans": {
+                "value": "Inter, Arial, sans-serif",
+                "type": "fontFamily"
+            },
+            "font.family.display": {
+                "value": "Inter, Arial, sans-serif",
+                "type": "fontFamily"
+            },
+            "font.family.mono": {
+                "value": "IBM Plex Mono, monospace",
+                "type": "fontFamily"
+            },
+            "font.size.caption": {
+                "value": "12px",
+                "type": "fontSize"
+            },
+            "font.size.body": {
+                "value": "16px",
+                "type": "fontSize"
+            },
+            "font.size.title": {
+                "value": "20px",
+                "type": "fontSize"
+            },
+            "font.size.heading": {
+                "value": "32px",
+                "type": "fontSize"
+            },
+            "font.size.display": {
+                "value": "48px",
+                "type": "fontSize"
+            }
         }
     },
     "figma": {
         "collection": "NXG Foundations",
         "variablePathSeparator": "/",
         "syncMode": "tokens-first",
-        "note": "Keep names stable when mapping these tokens to Figma variables. The JSON is the handoff contract; it does not sync to Figma by itself."
+        "variableMappings": {
+            "brand.navy": "Color/Brand/Navy",
+            "brand.red": "Color/Brand/Red",
+            "brand.platinum": "Color/Brand/Platinum",
+            "brand.charcoal": "Color/Brand/Charcoal",
+            "surface.paper": "Color/Surface/Paper",
+            "border.default": "Color/Border/Default",
+            "text.muted": "Color/Text/Muted",
+            "layout.content.maxWidth": "Layout/Content/Max Width",
+            "layout.control.minHeight": "Layout/Control/Min Height",
+            "layout.radius.control": "Radius/Control",
+            "layout.radius.card": "Radius/Card",
+            "spacing.space.1": "Spacing/1",
+            "spacing.space.2": "Spacing/2",
+            "spacing.space.3": "Spacing/3",
+            "spacing.space.4": "Spacing/4",
+            "spacing.space.6": "Spacing/6",
+            "spacing.space.8": "Spacing/8",
+            "spacing.space.12": "Spacing/12",
+            "spacing.space.16": "Spacing/16",
+            "typography.font.family.sans": "Typography/Family/Sans",
+            "typography.font.family.display": "Typography/Family/Display",
+            "typography.font.family.mono": "Typography/Family/Mono",
+            "typography.font.size.caption": "Typography/Size/Caption",
+            "typography.font.size.body": "Typography/Size/Body",
+            "typography.font.size.title": "Typography/Size/Title",
+            "typography.font.size.heading": "Typography/Size/Heading",
+            "typography.font.size.display": "Typography/Size/Display"
+        },
+        "platinumUsage": "Use brand.platinum for structural accents, dividers, and large inverse display details. Do not use it for small text on white; use brand.navy or brand.charcoal.",
+        "note": "Keep token keys stable. variableMappings are the canonical Figma variable paths. This JSON is the handoff contract; it does not sync to a Figma file by itself."
     }
 }

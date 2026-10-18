@@ -6,6 +6,15 @@ import { getDatabase } from "@/lib/db"
 
 export const runtime = "nodejs"
 
+const imageUrlSchema = z.string().url().max(1000).refine((value) => {
+    try {
+        const url = new URL(value)
+        return url.protocol === "https:" && url.hostname === "ik.imagekit.io"
+    } catch {
+        return false
+    }
+}).optional().or(z.literal(""))
+
 const campaignSchema = z.object({
     slug: z.string().trim().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).max(100),
     title: z.string().trim().min(4).max(140),
@@ -13,13 +22,16 @@ const campaignSchema = z.object({
     service: z.string().trim().min(2).max(120),
     audience: z.string().trim().min(2).max(160),
     landingPath: z.string().trim().regex(/^\/[a-z0-9\-/]*$/).max(240),
-    imageUrl: z.string().url().max(1000).optional().or(z.literal("")),
+    imageUrl: imageUrlSchema,
     assetIds: z.array(z.string().max(200)).max(100).default([]),
     channelVariants: z.record(z.string(), z.object({
         caption: z.string().trim().max(5000),
         cta: z.string().max(200).optional(),
         hashtags: z.array(z.string().max(60)).max(40).default([]),
     })).default({}),
+}).refine((campaign) => campaign.landingPath === `/campaigns/${campaign.slug}`, {
+    message: "Campaign landing path must match its slug.",
+    path: ["landingPath"],
 })
 
 export async function GET() {

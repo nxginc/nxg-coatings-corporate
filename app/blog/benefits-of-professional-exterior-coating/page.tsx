@@ -2,7 +2,7 @@
 
 import BlogPost from "@/components/blog-post"
 import RelatedPosts from "@/components/related-posts"
-import { blogPosts } from "@/data/blog-posts"
+import { publishedBlogPosts } from "@/data/blog-posts"
 import { ASSETS } from "@/lib/assets"
 
 export default function BenefitsOfProfessionalExteriorCoatingPage() {
@@ -180,7 +180,7 @@ export default function BenefitsOfProfessionalExteriorCoatingPage() {
       <div className="container mx-auto px-4 sm:px-6">
         <RelatedPosts
           currentPostSlug="benefits-of-professional-exterior-coating"
-          posts={blogPosts}
+          posts={publishedBlogPosts}
           category="Exterior"
         />
       </div>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import ParallaxHero from "@/components/parallax-hero"
-import { CalendarBooking } from "@/components/calendar-booking"
+import CalendarBooking from "@/components/calendar-booking"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
 import { Check, Calendar, Phone } from "lucide-react"
@@ -76,7 +76,7 @@ export default function SchedulePage() {
 
                     <CTAModal
                       trigger={
-                        <FancyButton variant="gradient" size="lg" hasArrow={true} className="w-full mt-4">
+                        <FancyButton variant="shine" size="lg" hasArrow={true} className="w-full mt-4">
                           Request Free Estimate
                         </FancyButton>
                       }

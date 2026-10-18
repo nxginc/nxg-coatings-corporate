@@ -101,7 +101,7 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <FancyButton type="submit" variant="gradient" size="lg" className="w-full" disabled={isLoading}>
+            <FancyButton type="submit" variant="shine" size="lg" className="w-full" disabled={isLoading}>
               {isLoading ? "Signing in..." : "Sign in"}
             </FancyButton>
           </div>

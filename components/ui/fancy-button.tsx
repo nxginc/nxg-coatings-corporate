@@ -12,6 +12,7 @@ interface FancyButtonProps {
   hasArrow?: boolean
   loading?: boolean
   disabled?: boolean
+  type?: "button" | "submit" | "reset"
   className?: string
   onClick?: () => void
 }
@@ -24,14 +25,15 @@ export function FancyButton({
   hasArrow = false,
   loading = false,
   disabled = false,
+  type = "button",
   className,
   onClick,
 }: FancyButtonProps) {
   const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
 
   const variantClasses = {
-    default: "bg-brand-blue text-white hover:bg-brand-blue/90 focus:ring-brand-blue",
-    shine: "bg-gradient-to-r from-brand-blue to-blue-600 text-white hover:from-blue-600 hover:to-brand-blue shadow-lg hover:shadow-xl transform hover:scale-105",
+    default: "bg-[var(--nxg-red)] text-white hover:bg-[var(--nxg-navy)] focus:ring-[var(--nxg-red)]",
+    shine: "bg-gradient-to-r from-[var(--nxg-red)] to-[var(--nxg-navy)] text-white shadow-lg hover:brightness-110 focus:ring-[var(--nxg-red)]",
     outline: "border-2 border-current text-current bg-transparent hover:bg-current hover:text-white",
     ghost: "text-current hover:bg-current/10",
   }
@@ -53,6 +55,7 @@ export function FancyButton({
 
   return (
     <button
+      type={type}
       className={cn(
         baseClasses,
         variantClasses[variant],
