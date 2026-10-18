@@ -55,6 +55,7 @@ export default function ContentWorkbench() {
     return new Date(first.scheduledAt).getTime() - new Date(second.scheduledAt).getTime()
   }), [posts])
   const selectedCampaign = approvedCampaigns.find((campaign) => campaign.id === campaignId)
+  const selectedVariant = selectedCampaign?.channelVariants?.[platform]
   const platformLimit = platforms.find((item) => item.value === platform)!.limit
 
   async function refresh() {
@@ -217,7 +218,7 @@ export default function ContentWorkbench() {
           <fieldset className="space-y-2"><legend className={labelClass}>Caption starters</legend><p className="mb-2 text-xs text-[var(--nxg-muted)]">Use as a starting point, adapt to the channel, and verify project details before review.</p><div className="flex flex-wrap gap-2">{SOCIAL_CAPTION_STARTERS.map((starter) => <button key={starter.label} type="button" onClick={() => setCaption(starter.caption)} className="min-h-9 border border-[var(--nxg-line)] px-3 text-xs font-medium text-[var(--nxg-navy)] hover:bg-[var(--nxg-paper)]">{starter.label}</button>)}</div></fieldset>
           <label className="block"><span className={labelClass}>Caption *</span><textarea name="caption" className="min-h-36 w-full border border-[var(--nxg-line)] p-3 text-sm" required value={caption} maxLength={platformLimit} onChange={(event) => setCaption(event.target.value)} aria-describedby="caption-count" /></label>
           <div id="caption-count" className="text-right text-xs text-[var(--nxg-muted)]">{caption.length} / {platformLimit}</div>
-          {selectedCampaign?.channelVariants?.[platform]?.cta && <p className="text-xs text-[var(--nxg-muted)]">Campaign CTA: {selectedCampaign.channelVariants[platform].cta}</p>}
+          {selectedVariant?.cta && <p className="text-xs text-[var(--nxg-muted)]">Campaign CTA: {selectedVariant.cta}</p>}
           <label className="block"><span className={labelClass}>Destination URL</span><input name="destinationUrl" type="url" className={inputClass} value={destinationUrl} onChange={(event) => setDestinationUrl(event.target.value)} /></label>
           <label className="block"><span className={labelClass}>Requested publish time (optional)</span><input name="scheduledAt" type="datetime-local" className={inputClass} min={scheduleMin} /><span className="mt-1 block text-xs leading-5 text-[var(--nxg-muted)]">Shown in your local time and saved as a requested schedule only. It does not publish or queue content with a provider.</span></label>
           <button disabled={!approvedCampaigns.length} className="min-h-11 bg-[var(--nxg-navy)] px-4 text-xs font-semibold uppercase tracking-[0.1em] text-white disabled:opacity-40">Save social draft</button>

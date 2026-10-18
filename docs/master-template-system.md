@@ -9,7 +9,7 @@ This repository is the reusable implementation source for the NXG website, brand
 | Color, type, spacing, layout | `data/design-tokens.json` | CSS custom properties, typed company theme, Figma variable paths |
 | Company identity | `data/corporate-profile.ts` | Letterhead, proposals, print previews |
 | Shared web primitives | `components/ui/button.tsx`, `components/ui/card.tsx`, form primitives in `components/ui/` | Site and campaign interfaces |
-| Letters and proposals | `components/brand-letter-template.tsx`, `components/brand-proposal-template.tsx` | Recipient, company profile, theme, scope, estimate, terms |
+| Letters and proposals | `components/brand-letter-template.tsx`, `components/brand-proposal-template.tsx`, `components/commercial-painting-proposal-template.tsx` | Recipient, company profile, theme, scope, estimate, materials, terms, authorization |
 | Campaign and social masters | `data/marketing-templates.ts` | Caption starters, platform names, manual-only flag, channel limits, caption composition |
 | Campaign/review data | `/api/admin/campaigns`, `/api/admin/social-posts`, `/api/admin/social-posts/batch` | Company-scoped persistence and review workflow |
 | Brand preview | `/brand-preview` | Unlisted, noindex sample of foundations, UI components, and proposal |
@@ -36,7 +36,9 @@ The CSS `--nxg-*` variables mirror this contract. `NXG_BRAND_THEME` consumes its
 
 - `BrandLetterTemplate`: company profile, letter date, recipient, subject, paragraphs/custom body, and sign-off.
 - `BrandProposalTemplate`: letter shell plus overview, scope, optional timeline, line-item estimate, exclusions, validity, terms, and sign-off.
+- `CommercialPaintingProposalTemplate`: commercial project identity, bid dates, schedule, included scope and exclusions, detailed line items and total, specifications, warranty duration, reviewable terms, and client/contractor authorization.
 - Keep estimates as numeric values for formatting. Do not infer rates, project commitments, or legal terms from sample data. Review all commercial terms before sending or signing.
+- `COMMERCIAL_PROPOSAL_TERMS_TEMPLATE` contains draft clause text and open placeholders, not approved contract language. Confirm the final terms and company assertions (including insurance, license, warranty, fees, and liability) before use. The sample estimate in `/brand-preview` is clearly identified as not a quote.
 
 ### Marketing
 
@@ -61,10 +63,25 @@ Figma is currently a documented handoff, not a live synchronized library: this w
 
 ## Run and review
 
+The project pins Node.js `20.17.0` in `.nvmrc` and requires `>=18.18.0 <21`. With nvm installed, select the supported runtime and install from the pnpm lockfile:
+
 ```sh
+source "$HOME/.nvm/nvm.sh"
+nvm install
+nvm use
+pnpm install --frozen-lockfile
 pnpm dev
+```
+
+Run `nvm use` in each new terminal before npm or pnpm commands; nvm changes the active version for that shell. Do not bypass `engine-strict` or change the package engine range to work around an unsupported Node version. Use pnpm, not `npm install`, because `pnpm-lock.yaml` is the checked-in dependency lockfile.
+
+```sh
+pnpm exec tsc --noEmit
+pnpm build
 ```
 
 Review the site pages and `/brand-preview`. The preview page is intentionally omitted from the sitemap and sets `noindex`. Use an authenticated session to review `/dashboard/content`; draft and approval states should be checked before content is shared.
 
 Before a release: run the TypeScript check and production build, review changed pages at desktop and mobile widths, apply migrations in order in the intended environment, and verify authentication and company scoping. Only merge through an approved PR after the source/target branch diff and checks are reviewed. Never deploy the local uncommitted worktree directly to production.
+
+The established company profile uses `(952) 900-4222`; the provided commercial proposal source text lists a different number. Confirm the authoritative business number and legal company/contact details before customizing a proposal or sending it externally.

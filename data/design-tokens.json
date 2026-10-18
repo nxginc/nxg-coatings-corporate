@@ -38,6 +38,14 @@
                 "value": "1440px",
                 "type": "dimension"
             },
+            "header.height": {
+                "value": "72px",
+                "type": "dimension"
+            },
+            "header.heightWide": {
+                "value": "80px",
+                "type": "dimension"
+            },
             "control.minHeight": {
                 "value": "44px",
                 "type": "dimension"
@@ -133,6 +141,8 @@
             "border.default": "Color/Border/Default",
             "text.muted": "Color/Text/Muted",
             "layout.content.maxWidth": "Layout/Content/Max Width",
+            "layout.header.height": "Layout/Header/Height",
+            "layout.header.heightWide": "Layout/Header/Height Wide",
             "layout.control.minHeight": "Layout/Control/Min Height",
             "layout.radius.control": "Radius/Control",
             "layout.radius.card": "Radius/Card",

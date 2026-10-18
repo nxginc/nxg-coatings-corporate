@@ -25,9 +25,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} nxg-site`}>
         <Header />
-        <div className="pt-16">{children}</div>
+        <div className="pt-[72px] xl:pt-20">{children}</div>
         <Footer />
         <Toaster />
       </body>

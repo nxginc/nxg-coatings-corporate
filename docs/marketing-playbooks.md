@@ -108,5 +108,6 @@ On success, the response contains the created `posts` array and returns HTTP `20
 - Keep color, layout, spacing, and typography tokens in `data/design-tokens.json`; the corporate profile derives its shared document theme from those values.
 - Keep platform limits, manual-only metadata, copy starters, and caption assembly in `data/marketing-templates.ts`.
 - Use `BrandLetterTemplate` for letters and `BrandProposalTemplate` for proposal layouts. Verify recipient, estimate, scope, exclusions, validity, and terms before export or signature.
+- Use `CommercialPaintingProposalTemplate` for commercial painting bids. Supply approved project-specific amounts, specifications, schedule, warranty, and terms; `COMMERCIAL_PROPOSAL_TERMS_TEMPLATE` is an editable draft only. The preview's sample cost breakdown is not an offer or an approved price list.
 - Figma mapping is documented in `docs/design-system.md`; it is a manual token handoff until the user supplies an authorized target file and requests a sync.
 - Visit `/brand-preview` in the local app to review the coded design-system sample; its route is intentionally noindex and excluded from the sitemap.

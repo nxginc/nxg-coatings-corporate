@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
-import BrandProposalTemplate from "@/components/brand-proposal-template"
+import CommercialPaintingProposalTemplate from "@/components/commercial-painting-proposal-template"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { COMMERCIAL_PROPOSAL_TERMS_TEMPLATE } from "@/data/commercial-proposal-terms"
 import { NXG_BRAND_THEME } from "@/data/corporate-profile"
 
 export const metadata: Metadata = {
@@ -92,28 +93,62 @@ export default function BrandPreviewPage() {
             Sample-only content for design review. Replace scope, pricing, and terms with an approved estimate.
           </p>
           <div className="mt-4">
-            <BrandProposalTemplate
-              date="October 18, 2026"
-              recipientName="Sample Client"
-              recipientOrganization="Example Property Group"
-              recipientAddress={["100 Example Avenue", "Edina, MN 55424"]}
-              projectTitle="Interior repaint · sample layout"
-              proposalNumber="SAMPLE-NOT-A-QUOTE"
-              validUntil="Sample only"
-              overview="Illustrative content for reviewing the reusable NXG proposal document layout. It is not a project quote or offer."
-              scope={[
-                "Confirm rooms, surfaces, and preparation during the project review.",
-                "Protect work areas and complete only the approved written scope.",
-                "Confirm color, sheen, access, and start date before work begins.",
-              ]}
-              lineItems={[
-                { description: "Illustrative labor and materials (sample only)", amount: 6400 },
-              ]}
-              exclusions={["Repairs and work not listed in an approved scope."]}
-              timeline="To be confirmed after site review and written approval."
-              terms={["Example terms only; use the approved company agreement for real projects."]}
-              signatureName="NXG Coatings Team"
-            />
+          <CommercialPaintingProposalTemplate
+            projectName="Commercial interior repaint · sample layout"
+            shortLocation="Edina, MN"
+            location="100 Example Avenue, Edina, MN 55424"
+            preparedFor="Sample Client"
+            preparedForTitle="Facilities Manager"
+            preparedForCompany="Example Property Group"
+            proposalDate="October 18, 2026"
+            validityPeriod="30 days · sample only"
+            proposalNumber="SAMPLE-NOT-A-QUOTE"
+            bidDue="Sample only"
+            estimatedStart="To be confirmed"
+            estimatedDuration="To be confirmed"
+            estimatedCompletion="To be confirmed"
+            scopeDescription="Illustrative scope only. Confirm surfaces, substrate conditions, access, and project phasing during site review."
+            includedWork={[
+              "Labor",
+              "Materials",
+              "Premium coatings (confirm specification)",
+              "Surface preparation (per approved scope)",
+              "Minor patching (define limits)",
+              "Daily cleanup",
+              "Project supervision",
+              "Final walkthrough",
+              "Workmanship warranty (confirm terms)",
+            ]}
+            exclusions={[
+              "Repairs beyond the approved scope",
+              "Hazardous-material abatement",
+              "Work not listed in the executed agreement",
+            ]}
+            lineItems={[
+              { name: "Mobilization & Project Management", description: "Sample: project setup, scheduling, supervision, reporting", amount: 600 },
+              { name: "Jobsite Protection & Masking", description: "Sample: floor / fixture protection, masking, dust control", amount: 700 },
+              { name: "Surface Preparation", description: "Sample: patching, sanding, scraping, caulking", amount: 2100 },
+              { name: "Priming & Spot Repairs", description: "Sample: spot priming and primer application per substrate", amount: 1000 },
+              { name: "Interior Wall Painting", description: "Sample: finish coats on approved wall surfaces", amount: 4700 },
+              { name: "Ceiling Painting", description: "Sample: ceiling surfaces and touch-up", amount: 1200 },
+              { name: "Doors, Frames & Trim", description: "Sample: approved doors, frames, and trim", amount: 1500 },
+              { name: "Final Touch-Ups & Cleanup", description: "Sample: final walk, touch-ups, and cleanup", amount: 700 },
+              { name: "Warranty & Closeout", description: "Sample: closeout documentation; warranty subject to written terms", amount: 1500 },
+            ]}
+            paintSpecification="To be specified after substrate and finish review"
+            primerSpecification="To be specified by substrate"
+            surfacePreparation="Per approved scope and verified site conditions"
+            applicationMethod="To be approved in project specifications"
+            estimatedMaterialUsage="To be confirmed after quantity takeoff"
+            warrantyPeriod="Confirm written warranty terms"
+            terms={COMMERCIAL_PROPOSAL_TERMS_TEMPLATE}
+            clientNameAndTitle="Sample Client · Facilities Manager"
+            clientCompany="Example Property Group"
+            representativeNameAndTitle="Authorized NXG Representative"
+            licenseNumber="Confirm if applicable"
+            county="Hennepin County"
+            state="Minnesota"
+          />
           </div>
         </section>
       </div>

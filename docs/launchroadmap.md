@@ -66,3 +66,6 @@ Run `npm run admin:secrets` in a trusted local terminal. The password is entered
 ## Migrations and Launch Gate
 
 Apply SQL migrations in numeric order: leads/partners, campaigns/social, then companies/integrations. Confirm `NXG_COMPANY_ID` exists in `nxg_companies` before enabling a connection. Launch only after form writes, CRM isolation, auth, partner consent, campaign approvals, webhook signature checks, UTM capture, backups, and provider permissions have been verified in the development deployment.
+
+all connections workos and hubspot stripe etc and content social etc and automated admin etc
+npm installs etc 

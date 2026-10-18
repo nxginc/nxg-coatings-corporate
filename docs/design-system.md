@@ -63,8 +63,15 @@ Example:
 />
 ```
 
+`components/commercial-painting-proposal-template.tsx` exports `CommercialPaintingProposalTemplate` and typed project, schedule, scope, cost, material, warranty, terms, and authorization props. It renders the seven-part commercial painting proposal, totals line items, interpolates county/state/validity placeholders in the supplied terms, and supports the shared company profile/theme. `data/commercial-proposal-terms.ts` provides an editable draft clause set with placeholders for terms requiring company/legal review. It intentionally does not claim specific payment, insurance, license, liability, or warranty terms as fact. Replace and approve those clauses before customer use.
+
+The proposal print layout is multipage and letter-size. The live `[brand-preview](/brand-preview)` route contains sample-only line items and terms for internal review; the `SAMPLE-NOT-A-QUOTE` identifier and `noindex` metadata must remain on preview content.
+
 ## Figma handoff and synchronization
 
 The token JSON is not an automated Figma sync. Its declared collection is `NXG Foundations`, `variablePathSeparator` is `/`, and `figma.variableMappings` holds the explicit variable paths; map these tokens without renaming the source tokens. Platinum maps to `Color/Brand/Platinum` and retains `#C0C0C0`.
 
 Before applying or syncing changes in Figma, obtain the target design-file URL and confirm access to the relevant library/page. Then map the token contract to Figma variables and reusable components, verify component properties and variants against this document, and review the resulting file before treating the sync as complete. No live Figma file was changed as part of this repository work. See [Master Template System](./master-template-system.md) for the component/library structure and [Figma handoff checklist](./master-template-system.md#figma-library-setup-and-variable-map).
+# Website application
+
+The master visual language is applied through the shared root layout, global design tokens, shared navigation/footer, reusable page hero, and section-kicker styles. The design-token JSON includes the mobile and wide header heights used by the site shell. `/brand-preview` is a review/sample route for these shared styles and corporate documents; it is not the implementation surface or a replacement for styling the site's pages.
