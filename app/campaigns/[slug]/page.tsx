@@ -7,6 +7,7 @@ import { campaigns, campaignSlugs, type CampaignDefinition } from "@/data/campai
 import { NXG_COMPANY_ID } from "@/lib/company"
 import { getDatabase } from "@/lib/db"
 import { SITE_URL } from "@/lib/seo"
+import { NXG_SITE } from "@/lib/site-metadata"
 
 type CampaignPageProps = {
     params: { slug: string }
@@ -83,7 +84,7 @@ export default async function CampaignPage({ params, searchParams }: CampaignPag
                 <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">NXG Coatings / {campaign.service}</p>
                 <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[0.98] sm:text-7xl">{campaign.title}</h1>
                 <p className="mt-6 max-w-2xl text-base leading-7 text-white/75 sm:text-lg">{campaign.description}</p>
-                <div className="mt-8 flex flex-wrap gap-3"><a href={quoteUrl} className="inline-flex min-h-12 items-center gap-6 bg-[var(--nxg-red)] px-5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">Request a project review <span aria-hidden="true" className="text-xl">↗</span></a><a href="tel:+19528553520" className="inline-flex min-h-12 items-center border border-white/45 px-5 text-xs font-semibold uppercase tracking-[0.12em] text-white hover:bg-white hover:text-[var(--nxg-navy)]">Call 952-855-3520</a></div>
+                <div className="mt-8 flex flex-wrap gap-3"><a href={quoteUrl} className="inline-flex min-h-12 items-center gap-6 bg-[var(--nxg-red)] px-5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">Request a project review <span aria-hidden="true" className="text-xl">↗</span></a><a href={`tel:${NXG_SITE.phoneE164}`} className="inline-flex min-h-12 items-center border border-white/45 px-5 text-xs font-semibold uppercase tracking-[0.12em] text-white hover:bg-white hover:text-[var(--nxg-navy)]">Call {NXG_SITE.phoneDisplay}</a></div>
                 <p className="mt-10 text-[10px] uppercase tracking-[0.15em] text-white/65">For {campaign.audience}</p>
             </div>
         </section>

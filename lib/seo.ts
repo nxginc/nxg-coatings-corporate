@@ -44,11 +44,6 @@ const pages = {
       "Explore professional interior, exterior, commercial, industrial, drywall, fine finish, pressure washing, renovation and specialty painting services from NXG Coatings.",
     keywords: ["painting services Minneapolis", "painting contractors Twin Cities", "commercial painting", "industrial painting", "interior painting", "exterior painting"],
   },
-  process: {
-    title: "Our Painting Process | NXG Coatings",
-    description: "See how NXG Coatings plans, prepares, applies, and reviews painting and coating projects throughout the Twin Cities.",
-    keywords: ["painting process", "professional painting preparation", "NXG Coatings process", "Twin Cities painting projects"],
-  },
   interior: {
     title: "Professional Interior Painting Contractor | NXG Coatings",
     description:

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { CheckCircle2, ArrowLeft, Mail, Phone } from "lucide-react"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { Card, CardContent } from "@/components/ui/card"
+import { NXG_SITE } from "@/lib/site-metadata"
 
 export const metadata: Metadata = {
   title: "Thank You | NXG Coatings",
@@ -11,62 +12,62 @@ export const metadata: Metadata = {
 
 export default function ContactSuccessPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 py-16">
-      <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto">
-          <Card className="shadow-xl border-0 overflow-hidden">
-            <CardContent className="p-12 text-center">
+    <main className="min-h-screen bg-[var(--nxg-paper)] px-6 py-16 text-[var(--nxg-charcoal)] lg:px-10">
+      <div className="mx-auto max-w-[var(--nxg-content-width)]">
+        <div className="mx-auto max-w-2xl">
+          <Card className="overflow-hidden">
+            <CardContent className="p-8 text-center sm:p-12">
               {/* Success Icon */}
               <div className="flex justify-center mb-8">
                 <div className="relative">
-                  <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
-                    <CheckCircle2 className="w-12 h-12 text-green-600" />
+                  <div className="grid h-20 w-20 place-items-center border border-[var(--nxg-line)] bg-[var(--nxg-paper)]">
+                    <CheckCircle2 className="h-10 w-10 text-[var(--nxg-red)]" />
                   </div>
-                  <div className="absolute -inset-2 bg-green-200 rounded-full opacity-20 animate-ping"></div>
                 </div>
               </div>
 
               {/* Thank You Message */}
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                Thank You!
+              <p className="section-kicker justify-center">Request received</p>
+              <h1 className="mb-4 mt-4 text-4xl font-medium text-[var(--nxg-navy)]">
+                Thank you.
               </h1>
-                <p className="text-xl text-gray-600 mb-8">
+                <p className="mb-8 text-lg text-[var(--nxg-muted)]">
                 Your request has been saved for review.
               </p>
 
               {/* Confirmation Details */}
-              <div className="bg-blue-50 rounded-xl p-6 mb-8 text-left">
-                <h2 className="text-lg font-semibold text-blue-900 mb-4 flex items-center gap-2">
-                  <Mail className="w-5 h-5" />
+              <div className="mb-8 border-y border-[var(--nxg-line)] bg-[var(--nxg-paper)] p-6 text-left">
+                <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-[var(--nxg-navy)]">
+                  <Mail className="h-5 w-5 text-[var(--nxg-red)]" />
                   What happens next?
                 </h2>
-                <ul className="space-y-3 text-blue-800">
+                <ul className="space-y-3 text-sm leading-6 text-[var(--nxg-muted)]">
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--nxg-red)]" />
                     <span>A team member will follow up using the contact information you provided</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--nxg-red)]" />
                     <span>Any requested appointment time remains pending until the team confirms it</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--nxg-red)]" />
                     <span>We will confirm the next step for your project</span>
                   </li>
                 </ul>
               </div>
 
               {/* Contact Information */}
-              <div className="border-t pt-8 mb-8">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <div className="mb-8 border-t border-[var(--nxg-line)] pt-8">
+                <h3 className="mb-4 text-lg font-semibold text-[var(--nxg-navy)]">
                   Need immediate assistance?
                 </h3>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <div className="flex items-center gap-2 text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-[var(--nxg-muted)]">
                     <Phone className="w-4 h-4" />
-                    <a href="tel:+19528553520">952-855-3520</a>
+                    <a href={`tel:${NXG_SITE.phoneE164}`}>{NXG_SITE.phoneDisplay}</a>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-[var(--nxg-muted)]">
                     <Mail className="w-4 h-4" />
                     <a href="mailto:info@nxgcoatingsinc.com">info@nxgcoatingsinc.com</a>
                   </div>

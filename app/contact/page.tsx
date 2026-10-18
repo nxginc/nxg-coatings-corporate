@@ -6,6 +6,7 @@ import EnhancedHero from "@/components/enhanced-hero"
 import { Mail, MapPin, Phone } from "lucide-react"
 import { ASSETS } from "@/lib/assets"
 import { seo } from "@/lib/seo"
+import { NXG_SITE } from "@/lib/site-metadata"
 
 export const metadata: Metadata = seo("contact", "/contact")
 
@@ -36,7 +37,7 @@ export default function ContactPage() {
 
             <div className="mt-8 border-t border-[var(--nxg-line)] pt-5">
               <h3 className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--nxg-muted)]">Direct contact</h3>
-              <a href="tel:+19528553520" className="mt-4 flex items-center gap-3 text-sm text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]"><Phone className="h-4 w-4" /> 952-855-3520</a>
+              <a href={`tel:${NXG_SITE.phoneE164}`} className="mt-4 flex items-center gap-3 text-sm text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]"><Phone className="h-4 w-4" /> {NXG_SITE.phoneDisplay}</a>
               <a href="mailto:info@nxgcoatingsinc.com" className="mt-3 flex items-center gap-3 text-sm text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]"><Mail className="h-4 w-4" /> info@nxgcoatingsinc.com</a>
               <div className="mt-3 flex items-start gap-3 text-sm leading-6 text-[var(--nxg-muted)]"><MapPin className="mt-1 h-4 w-4 shrink-0" /><address className="not-italic">5200 Willson Blvd, Suite 150<br />Edina, MN 55424</address></div>
               <Link href="/servicearea" className="mt-5 inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] underline-offset-4">Service areas</Link>

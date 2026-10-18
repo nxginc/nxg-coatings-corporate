@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { NXG_SITE } from "@/lib/site-metadata"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -186,7 +187,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <p className="font-medium text-gray-900">Phone</p>
-            <a className="text-gray-600 hover:underline" href="tel:+19528553520">952-855-3520</a>
+            <a className="text-gray-600 hover:underline" href={`tel:${NXG_SITE.phoneE164}`}>{NXG_SITE.phoneDisplay}</a>
               </div>
             </div>
 

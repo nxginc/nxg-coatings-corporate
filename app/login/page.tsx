@@ -10,6 +10,7 @@ import { FancyButton } from "@/components/ui/fancy-button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
+import { ASSETS } from "@/lib/assets"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -48,20 +49,20 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-md">
+    <main className="flex min-h-screen items-center justify-center bg-[var(--nxg-paper)] px-4 py-12 text-[var(--nxg-charcoal)] sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8 border border-[var(--nxg-line)] bg-white p-8 sm:p-10">
         <div className="text-center">
           <div className="flex justify-center mb-4">
             <Image
-              src="https://ik.imagekit.io/j98e6hcfnkn/logo_m2ODAWFyf.png?updatedAt=1741216795011"
+              src={ASSETS.logo.primary}
               alt="NXG Coatings Logo"
               width={180}
               height={45}
               className="h-12 w-auto"
             />
           </div>
-          <h2 className="text-3xl font-bold text-gray-900">Sign in to your account</h2>
-          <p className="mt-2 text-sm text-gray-600">Enter your credentials to access your dashboard</p>
+          <h1 className="text-3xl font-medium text-[var(--nxg-navy)]">Sign in to your account</h1>
+          <p className="mt-2 text-sm text-[var(--nxg-muted)]">Enter your credentials to access your dashboard.</p>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -83,8 +84,8 @@ export default function LoginPage() {
             <div>
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <a href="#" className="text-sm font-medium text-brand-blue hover:text-brand-lightBlue">
-                  Forgot your password?
+                <a href="mailto:info@nxgcoatingsinc.com?subject=Dashboard%20access%20help" className="text-sm font-medium text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] underline-offset-4">
+                  Need login help?
                 </a>
               </div>
               <Input

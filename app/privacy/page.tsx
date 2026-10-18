@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import ParallaxHero from "@/components/parallax-hero"
 import { ASSETS } from "@/lib/assets"
+import { NXG_SITE } from "@/lib/site-metadata"
 
 export const metadata: Metadata = {
   title: "Privacy Policy | NXG Coatings",
@@ -25,7 +26,7 @@ export default function PrivacyPolicyPage() {
             <p className="text-xs uppercase tracking-[0.1em]">Last Updated: March 14, 2025</p>
 
             <h2>Introduction</h2>
-          
+            <p>For questions about privacy or personal information submitted to NXG Coatings through this website, please contact us using the details below.</p>
 
             <h2>Contact Us</h2>
             <p>If you have questions or concerns about this Privacy Policy, please contact us at:</p>
@@ -38,7 +39,7 @@ export default function PrivacyPolicyPage() {
               <br />
               Email: privacy@nxgcoatingsinc.com
               <br />
-              Phone: 952-855-3520
+              Phone: {NXG_SITE.phoneDisplay}
             </p>
           </div>
 

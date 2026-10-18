@@ -1,5 +1,6 @@
 import designTokens from "@/data/design-tokens.json"
 import { ASSETS } from "@/lib/assets"
+import { NXG_SITE } from "@/lib/site-metadata"
 
 export type BrandTheme = {
   navy: string
@@ -43,8 +44,8 @@ export const NXG_CORPORATE_PROFILE: CorporateProfile = {
   displayName: "NXG Coatings Inc.",
   tagline: "Professional painting and coating services",
   addressLines: ["5200 Willson Blvd, Suite 150", "Edina, MN 55424"],
-  phone: "(952) 900-4222",
-  email: "info@nxgcoatingsinc.com",
+  phone: NXG_SITE.phoneDisplay,
+  email: NXG_SITE.email,
   website: "nxgcoatingsinc.com",
   logoUrl: ASSETS.logo.primary,
   theme: NXG_BRAND_THEME,
