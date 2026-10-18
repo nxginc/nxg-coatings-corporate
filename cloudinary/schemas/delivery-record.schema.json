@@ -1,0 +1,128 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "NXG Channel Delivery Record",
+    "type": "object",
+    "required": [
+        "deliveryId",
+        "companyId",
+        "campaignId",
+        "channel",
+        "renderId",
+        "status",
+        "approval",
+        "idempotencyKey"
+    ],
+    "properties": {
+        "deliveryId": {
+            "type": "string"
+        },
+        "companyId": {
+            "type": "string"
+        },
+        "campaignId": {
+            "type": "string"
+        },
+        "channel": {
+            "enum": [
+                "facebook-organic",
+                "instagram-organic",
+                "linkedin-organic",
+                "meta-paid",
+                "google-paid",
+                "google-business-profile",
+                "facebook-marketplace",
+                "print"
+            ]
+        },
+        "renderId": {
+            "type": "string"
+        },
+        "captionVersion": {
+            "type": "string"
+        },
+        "destinationUrl": {
+            "type": "string",
+            "format": "uri"
+        },
+        "utm": {
+            "type": "object",
+            "properties": {
+                "utm_source": {
+                    "type": "string"
+                },
+                "utm_medium": {
+                    "type": "string"
+                },
+                "utm_campaign": {
+                    "type": "string"
+                },
+                "utm_content": {
+                    "type": "string"
+                },
+                "utm_term": {
+                    "type": "string"
+                },
+                "qr_id": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "regionGroupId": {
+            "type": "string"
+        },
+        "status": {
+            "enum": [
+                "draft",
+                "review",
+                "approved",
+                "queued",
+                "published",
+                "failed",
+                "cancelled"
+            ]
+        },
+        "approval": {
+            "type": "object",
+            "required": [
+                "status"
+            ],
+            "properties": {
+                "status": {
+                    "enum": [
+                        "pending",
+                        "approved",
+                        "rejected"
+                    ]
+                },
+                "approvedBy": {
+                    "type": "string"
+                },
+                "approvedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "additionalProperties": false
+        },
+        "scheduledAt": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "providerPostId": {
+            "type": "string"
+        },
+        "idempotencyKey": {
+            "type": "string",
+            "minLength": 12
+        },
+        "lastErrorCode": {
+            "type": "string"
+        },
+        "attemptCount": {
+            "type": "integer",
+            "minimum": 0
+        }
+    },
+    "additionalProperties": false
+}

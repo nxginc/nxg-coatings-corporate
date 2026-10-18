@@ -1,4 +1,18 @@
-import type { BlogPostMeta } from "@/components/blog-card"
+export type BlogPostMeta = {
+  slug: string
+  title: string
+  excerpt: string
+  publishDate: string
+  readTime: string
+  coverImage: string
+  category: string
+  featured?: boolean
+  published?: boolean
+  author: {
+    name: string
+    avatar: string
+  }
+}
 
 export const blogPosts: BlogPostMeta[] = [
   {
@@ -11,6 +25,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688",
     category: "Exterior",
     featured: true,
+    published: true,
     author: {
       name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
@@ -23,8 +38,9 @@ export const blogPosts: BlogPostMeta[] = [
       "Discover how professional exterior coating can protect your home, increase its value, and reduce maintenance costs over time.",
     publishDate: "February 28, 2025",
     readTime: "6 min read",
-    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog1_o0PS2vfo9K.jpeg?updatedAt=1741212349688",
+    coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog2_shlL_xb-0.jpeg?updatedAt=1741212349719",
     category: "Exterior",
+    published: true,
     author: {
       name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
@@ -168,3 +184,5 @@ export const blogPosts: BlogPostMeta[] = [
     },
   }
 ]
+
+export const publishedBlogPosts = blogPosts.filter((post) => post.published === true)

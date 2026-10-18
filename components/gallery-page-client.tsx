@@ -3,216 +3,68 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, X } from "lucide-react"
+import ParallaxHero from "@/components/parallax-hero"
+import { ASSETS } from "@/lib/assets"
+import { galleryProjects } from "@/data/gallery-projects"
 
-const galleryCategories = [
-  { id: "all", name: "All Projects", count: 24 },
-  { id: "interior", name: "Interior Painting", count: 12 },
-  { id: "exterior", name: "Exterior Painting", count: 8 },
-  { id: "commercial", name: "Commercial", count: 4 }
-]
-
-const galleryImages = [
-  {
-    id: 1,
-    src: "/images/gallery/interior-1.jpg",
-    alt: "Modern living room interior painting",
-    category: "interior",
-    title: "Modern Living Room",
-    description: "Complete interior painting with premium finishes"
-  },
-  {
-    id: 2,
-    src: "/images/gallery/exterior-1.jpg",
-    alt: "House exterior painting",
-    category: "exterior",
-    title: "Residential Exterior",
-    description: "Full house exterior with weather-resistant coating"
-  },
-  {
-    id: 3,
-    src: "/images/gallery/commercial-1.jpg",
-    alt: "Commercial office painting",
-    category: "commercial",
-    title: "Corporate Office",
-    description: "Professional office space renovation"
-  },
-  // Add more images as needed
-]
+const categories = ["All", ...Array.from(new Set(galleryProjects.map((image) => image.category)))]
 
 export default function GalleryPageClient() {
-  const [selectedCategory, setSelectedCategory] = useState("all")
-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  const [category, setCategory] = useState("All")
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const filteredImages = galleryProjects.filter((image) => category === "All" || image.category === category)
+  const selectedIndex = filteredImages.findIndex((image) => image.id === selectedId)
+  const selectedImage = selectedIndex >= 0 ? filteredImages[selectedIndex] : null
 
-  const filteredImages = selectedCategory === "all"
-    ? galleryImages
-    : galleryImages.filter(img => img.category === selectedCategory)
-
-  const openLightbox = (imageId: number) => {
-    setSelectedImage(imageId)
+  function moveSelection(direction: -1 | 1) {
+    if (selectedIndex < 0 || filteredImages.length === 0) return
+    const nextIndex = (selectedIndex + direction + filteredImages.length) % filteredImages.length
+    setSelectedId(filteredImages[nextIndex].id)
   }
-
-  const closeLightbox = () => {
-    setSelectedImage(null)
-  }
-
-  const navigateImage = (direction: 'prev' | 'next') => {
-    if (selectedImage === null) return
-
-    const currentIndex = filteredImages.findIndex(img => img.id === selectedImage)
-    let newIndex
-
-    if (direction === 'prev') {
-      newIndex = currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1
-    } else {
-      newIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1
-    }
-
-    setSelectedImage(filteredImages[newIndex].id)
-  }
-
-  const selectedImageData = selectedImage
-    ? filteredImages.find(img => img.id === selectedImage)
-    : null
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Our Project Gallery
-            </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore our portfolio of completed painting and coating projects.
-              See the quality craftsmanship and attention to detail we bring to every job.
-            </p>
-          </div>
-        </div>
-      </div>
+    <main className="bg-white text-[var(--nxg-charcoal)]">
+      <ParallaxHero
+        eyebrow="NXG Coatings / Selected work"
+        title="See the surface. Consider the finish."
+        description="Browse project photography across residential, commercial, industrial, and multi-family work."
+        image={ASSETS.hero.gallery}
+        imageAlt="NXG Coatings project gallery photography"
+        height="medium"
+      >
+        <Link href="/quote" className="inline-flex min-h-12 items-center gap-4 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">Plan a project <span aria-hidden="true">↗</span></Link>
+      </ParallaxHero>
 
-      {/* Category Filter */}
-      <div className="bg-white border-b">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-wrap justify-center gap-4">
-            {galleryCategories.map((category) => (
-              <Button
-                key={category.id}
-                variant={selectedCategory === category.id ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category.id)}
-                className="flex items-center space-x-2"
-              >
-                <span>{category.name}</span>
-                <Badge variant="secondary" className="ml-2">
-                  {category.count}
-                </Badge>
-              </Button>
-            ))}
-          </div>
+      <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-12 lg:px-10 lg:py-16">
+        <div className="flex flex-col justify-between gap-5 border-b border-[var(--nxg-line)] pb-5 sm:flex-row sm:items-end">
+          <div><p className="section-kicker">Project photography</p><h2 className="mt-3 text-3xl font-medium text-[var(--nxg-navy)] sm:text-4xl">Selected NXG work</h2></div>
+          <p className="max-w-md text-sm leading-6 text-[var(--nxg-muted)]">Images are organized by service type. Project details can be added as verified case studies are approved.</p>
         </div>
-      </div>
-
-      {/* Gallery Grid */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="flex gap-2 overflow-x-auto py-5" aria-label="Filter gallery by service">
+          {categories.map((item) => <button key={item} type="button" aria-pressed={category === item} onClick={() => setCategory(item)} className={`shrink-0 border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition ${category === item ? "border-[var(--nxg-navy)] bg-[var(--nxg-navy)] text-white" : "border-[var(--nxg-line)] text-[var(--nxg-navy)] hover:border-[var(--nxg-red)]"}`}>{item}<span className="ml-2 opacity-65">{item === "All" ? galleryProjects.length : galleryProjects.filter((image) => image.category === item).length}</span></button>)}
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {filteredImages.map((image) => (
-            <Card key={image.id} className="group cursor-pointer overflow-hidden hover:shadow-lg transition-shadow">
-              <CardContent className="p-0">
-                <div
-                  className="relative aspect-square overflow-hidden"
-                  onClick={() => openLightbox(image.id)}
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                  <div className="absolute top-2 left-2">
-                    <Badge className="capitalize">
-                      {image.category}
-                    </Badge>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-1">{image.title}</h3>
-                  <p className="text-sm text-gray-600">{image.description}</p>
-                </div>
-              </CardContent>
-            </Card>
+            <button key={image.id} type="button" onClick={() => setSelectedId(image.id)} className="group relative block min-w-0 overflow-hidden bg-[var(--nxg-paper)] text-left focus-visible:outline-offset-4">
+              <div className="relative aspect-[4/3] overflow-hidden"><Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.035]" /></div>
+              <span className="absolute left-3 top-3 bg-white px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.13em] text-[var(--nxg-navy)]">{image.category}</span>
+              <span className="flex items-center justify-between gap-3 px-4 py-3 text-sm font-medium text-[var(--nxg-navy)]"><span>{image.title}</span><span aria-hidden="true" className="text-[var(--nxg-red)]">↗</span></span>
+            </button>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* Lightbox */}
-      <Dialog open={selectedImage !== null} onOpenChange={closeLightbox}>
-        <DialogContent className="max-w-4xl w-full h-full max-h-[90vh] p-0">
-          {selectedImageData && (
-            <div className="relative w-full h-full flex items-center justify-center bg-black">
-              <button
-                onClick={closeLightbox}
-                className="absolute top-4 right-4 z-10 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
-
-              <button
-                onClick={() => navigateImage('prev')}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-
-              <button
-                onClick={() => navigateImage('next')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-
-              <div className="relative w-full h-full max-w-3xl max-h-full">
-                <Image
-                  src={selectedImageData.src}
-                  alt={selectedImageData.alt}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-
-              <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4">
-                <h3 className="text-xl font-semibold mb-1">{selectedImageData.title}</h3>
-                <p className="text-sm opacity-90">{selectedImageData.description}</p>
-              </div>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
-
-      {/* CTA Section */}
-      <div className="bg-brand-blue text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Contact us today for a free consultation and quote.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" variant="secondary">
-              <Link href="/contact">Get Free Quote</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue">
-              <Link href="/services">View Services</Link>
-            </Button>
+      {/* Before/after slider remains disabled until each matched pair clears visual and rights approval. */}
+      {selectedImage && (
+        <div role="dialog" aria-modal="true" aria-label={`${selectedImage.title} image`} className="fixed inset-0 z-[70] grid place-items-center bg-[var(--nxg-navy)]/95 p-4 text-white" onClick={() => setSelectedId(null)}>
+          <div className="relative w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
+            <div className="mb-3 flex items-center justify-between gap-4"><div><p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/60">{selectedImage.category}</p><h2 className="mt-1 text-xl font-medium">{selectedImage.title}</h2></div><button type="button" aria-label="Close image" onClick={() => setSelectedId(null)} className="grid h-10 w-10 place-items-center border border-white/35"><X className="h-5 w-5" /></button></div>
+            <div className="relative aspect-[4/3] max-h-[78svh] bg-black"><Image src={selectedImage.src} alt={selectedImage.alt} fill sizes="95vw" className="object-contain" /></div>
+            {filteredImages.length > 1 && <div className="mt-4 flex justify-between"><button type="button" aria-label="Previous image" onClick={() => moveSelection(-1)} className="grid h-10 w-10 place-items-center border border-white/35"><ChevronLeft className="h-5 w-5" /></button><button type="button" aria-label="Next image" onClick={() => moveSelection(1)} className="grid h-10 w-10 place-items-center border border-white/35"><ChevronRight className="h-5 w-5" /></button></div>}
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </main>
   )
 }

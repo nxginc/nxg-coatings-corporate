@@ -7,8 +7,14 @@ import { useParams } from "next/navigation"
 import BlogCard from "@/components/blog-card"
 import BlogCategoriesSidebar from "@/components/blog-categories-sidebar"
 import BlogNewsletter from "@/components/blog-newsletter"
-import { blogPosts } from "@/data/blog-posts"
+import { publishedBlogPosts } from "@/data/blog-posts"
 import EnhancedHero from "@/components/enhanced-hero"
+
+const blogCategories = Array.from(new Set(publishedBlogPosts.map((post) => post.category))).map((name) => ({
+  name,
+  slug: name.toLowerCase(),
+  count: publishedBlogPosts.filter((post) => post.category === name).length,
+}))
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
@@ -23,7 +29,7 @@ export default function BlogCategoryPage() {
   const blogGridRef = useRef<HTMLDivElement>(null)
 
   // Filter posts by category
-  const filteredPosts = blogPosts.filter((post) => post.category.toLowerCase() === category.toLowerCase())
+  const filteredPosts = publishedBlogPosts.filter((post) => post.category.toLowerCase() === category.toLowerCase())
 
   useEffect(() => {
     if (!blogGridRef.current) return
@@ -87,7 +93,7 @@ export default function BlogCategoryPage() {
 
             {/* Sidebar */}
             <div className="space-y-8">
-              <BlogCategoriesSidebar posts={blogPosts} currentCategory={formattedCategory} />
+              <BlogCategoriesSidebar categories={blogCategories} />
               <BlogNewsletter />
             </div>
           </div>

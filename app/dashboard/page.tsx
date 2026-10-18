@@ -1,17 +1,10 @@
-"use client"
+import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
+import LeadsDashboard from "@/components/leads-dashboard"
+import { authOptions } from "@/lib/auth-options"
 
-import dynamic from "next/dynamic"
-
-const DashboardPage = dynamic(() => import("./DashboardClient"), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-blue mx-auto"></div>
-        <p className="mt-4 text-gray-600">Loading dashboard...</p>
-      </div>
-    </div>
-  ),
-})
-
-export default DashboardPage
+export default async function DashboardPage() {
+  const session = await getServerSession(authOptions)
+  if (!session?.user) redirect("/login")
+  return <LeadsDashboard />
+}
