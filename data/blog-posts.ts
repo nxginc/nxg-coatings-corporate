@@ -55,6 +55,7 @@ export const blogPosts: BlogPostMeta[] = [
     readTime: "5 min read",
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/nxg-blog/blog2_R6bm4rz7wm.jpeg?updatedAt=1741212349705",
     category: "Interior",
+    published: true,
     author: {
       name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
@@ -150,6 +151,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/Services/DeckStaining_MN_a3mceDUkH.png?updatedAt=1666951996630",
     category: "Exterior",
     featured: true,
+    published: true,
     author: {
       name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",
@@ -164,6 +166,7 @@ export const blogPosts: BlogPostMeta[] = [
     coverImage: "https://ik.imagekit.io/j98e6hcfnkn/Services/CabinetRefinishing_MN_8XLSgP4b9.jpg?updatedAt=1666953740495",
     category: "Interior",
     featured: true,
+    published: true,
     author: {
       name: "NXG Coatings Team",
       avatar: "https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501",

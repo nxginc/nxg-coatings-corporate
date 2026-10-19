@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
@@ -18,8 +18,18 @@ const links = [
 export default function Header() {
   const [open, setOpen] = useState(false)
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : ""
+    const close = () => window.innerWidth >= 1280 && setOpen(false)
+    window.addEventListener("resize", close)
+    return () => {
+      document.body.style.overflow = ""
+      window.removeEventListener("resize", close)
+    }
+  }, [open])
+
   return (
-    <header className="nxg-site-header fixed inset-x-0 top-0 z-50 h-[72px] border-b border-[var(--nxg-line)] bg-white/95 text-[var(--nxg-navy)] backdrop-blur-md xl:h-20">
+    <header className="nxg-site-header fixed inset-x-0 top-0 z-50 h-[72px] border-b border-[var(--nxg-line)] bg-white text-[var(--nxg-navy)] xl:h-20">
       <div className="mx-auto flex h-full max-w-[var(--nxg-content-width)] items-center justify-between px-5 sm:px-6 lg:px-10">
         <Link href="/" aria-label="NXG Coatings home" onClick={() => setOpen(false)} className="shrink-0">
           <Image src={ASSETS.logo.primary} alt="NXG Coatings" width={118} height={42} className="h-auto w-[112px]" priority />
@@ -36,7 +46,7 @@ export default function Header() {
         </div>
       </div>
       {open && (
-        <nav id="mobile-nav" className="fixed inset-x-0 top-[72px] bottom-0 overflow-y-auto border-t border-[var(--nxg-line)] bg-white px-6 pb-10 pt-3 xl:hidden" aria-label="Mobile navigation">
+        <nav id="mobile-nav" className="fixed inset-x-0 top-[72px] bottom-0 z-50 overflow-y-auto border-t border-[var(--nxg-line)] bg-white px-6 pb-10 pt-3 xl:hidden" aria-label="Mobile navigation">
           {links.map((link, index) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="flex min-h-16 items-center justify-between border-b border-[var(--nxg-line)] text-lg font-medium text-[var(--nxg-navy)]"><span>{link.label}</span><span className="font-mono text-[10px] font-medium text-[var(--nxg-red)]">0{index + 1}</span></Link>)}
           <Link href="/contact" onClick={() => setOpen(false)} className="flex min-h-16 items-center justify-between border-b border-[var(--nxg-line)] text-lg font-medium text-[var(--nxg-navy)]">Contact <span className="font-mono text-[10px] font-medium text-[var(--nxg-red)]">07</span></Link>
           <Link href="/quote" onClick={() => setOpen(false)} className="mt-6 flex min-h-12 items-center justify-center gap-4 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white">Request an estimate <span aria-hidden="true">↗</span></Link>
