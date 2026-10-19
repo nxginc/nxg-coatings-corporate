@@ -13,7 +13,7 @@
     "admin:secrets": "node scripts/setup-admin-secrets.mjs"
   },
   "engines": {
-    "node": ">=18.18.0 <21"
+    "node": ">=20.19.0 <21"
   },
   "dependencies": {
     "@auth/core": "latest",
