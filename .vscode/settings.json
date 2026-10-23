@@ -4,5 +4,6 @@
         "activityBar.background": "#571519",
         "titleBar.activeBackground": "#7A1E23",
         "titleBar.activeForeground": "#FEFBFB"
-    }
+    },
+    "chat.mcp.serverSampling": {}
 }

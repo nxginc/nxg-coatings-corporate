@@ -1,0 +1,10 @@
+{
+  "name": "NXG Coatings Inc.",
+  "short_name": "NXG Coatings",
+  "description": "Professional painting and coating services throughout the Twin Cities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0C1D34",
+  "icons": []
+}

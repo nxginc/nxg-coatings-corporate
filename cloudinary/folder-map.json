@@ -1,0 +1,80 @@
+{
+    "version": 1,
+    "cloudRoot": "nxgcoatings",
+    "sourceOfTruth": "ImageKit",
+    "policy": {
+        "preserveSourceReferences": true,
+        "overwriteOriginals": false,
+        "uploadDefaultStage": "staging",
+        "productionPromotionRequiresApproval": true,
+        "brandLogoImmutable": true
+    },
+    "folders": {
+        "staging": {
+            "intake": [
+                "site",
+                "services",
+                "industries",
+                "gallery",
+                "blog",
+                "campaigns/{campaignSlug}/{channel}"
+            ],
+            "renders": [
+                "web",
+                "og",
+                "social/square",
+                "social/portrait",
+                "social/story",
+                "ads/meta/feed",
+                "ads/meta/story",
+                "ads/google/square",
+                "ads/google/landscape",
+                "email",
+                "print"
+            ],
+            "quarantine": [
+                "rejected",
+                "rights-pending",
+                "metadata-incomplete"
+            ]
+        },
+        "approved": [
+            "site",
+            "services",
+            "industries",
+            "gallery",
+            "blog",
+            "campaigns/{campaignSlug}/{channel}"
+        ],
+        "production": [
+            "site",
+            "services",
+            "industries",
+            "gallery",
+            "blog",
+            "campaigns/{campaignSlug}/{channel}",
+            "ads/meta/{campaignSlug}/{regionGroup}",
+            "ads/google/{campaignSlug}/{regionGroup}"
+        ],
+        "archive": [
+            "retired",
+            "superseded",
+            "audit/{yyyy}/{mm}"
+        ]
+    },
+    "lockedFolders": [
+        {
+            "path": "nxgcoatings/brand/locked",
+            "reason": "Exact approved NXG logo source only; no recolor, redraw, crop, or overwrite."
+        }
+    ],
+    "folderSemantics": {
+        "intake": "Uploaded candidates; not publicly promoted or eligible for posting.",
+        "renders": "Generated delivery variants tied to a source asset and render manifest.",
+        "approved": "Human-approved master media eligible for an explicit production promotion.",
+        "production": "Published website/campaign/ad assets; immutable public IDs, supersede rather than overwrite.",
+        "quarantine": "Failed or incomplete assets excluded from all routes and posting queues.",
+        "archive": "Retained historical media with source and campaign provenance.",
+        "brand/locked": "Reserved for the exact logo record; uploader cannot target this path."
+    }
+}

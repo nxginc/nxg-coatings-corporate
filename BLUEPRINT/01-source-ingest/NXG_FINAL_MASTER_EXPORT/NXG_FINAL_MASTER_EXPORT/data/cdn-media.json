@@ -1,0 +1,14 @@
+{
+  "provider": "Cloudinary",
+  "folders": {
+    "brand": "nxg/brand",
+    "projects": "nxg/projects",
+    "services": "nxg/services",
+    "social": "nxg/social",
+    "ads": "nxg/ads",
+    "apparel": "nxg/apparel",
+    "renders": "nxg/renders"
+  },
+  "source_of_truth": "cloudinary",
+  "asset_binding": "asset.cloudinary_public_id"
+}

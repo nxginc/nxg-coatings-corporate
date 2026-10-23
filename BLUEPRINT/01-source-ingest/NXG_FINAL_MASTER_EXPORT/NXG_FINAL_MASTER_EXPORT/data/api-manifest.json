@@ -1,0 +1,31 @@
+{
+  "schema": "NXG API v1",
+  "routes": [
+    "/api/v1/crm",
+    "/api/v1/projects",
+    "/api/v1/takeoffs",
+    "/api/v1/proposals",
+    "/api/v1/bids",
+    "/api/v1/purchase-orders",
+    "/api/v1/invoices",
+    "/api/v1/payments",
+    "/api/v1/contractors",
+    "/api/v1/partners",
+    "/api/v1/social/accounts",
+    "/api/v1/social/groups",
+    "/api/v1/social/posts",
+    "/api/v1/assets",
+    "/api/v1/templates",
+    "/api/v1/figma",
+    "/api/v1/cloudinary",
+    "/api/v1/gov",
+    "/api/v1/grants",
+    "/api/v1/agents"
+  ],
+  "rules": [
+    "UUID primary keys; NXG IDs are human-facing identifiers.",
+    "Mutating requests support idempotency keys.",
+    "External provider IDs are stored separately.",
+    "Government submissions, contracts, financial transfers, and public publishing require configured approval gates."
+  ]
+}

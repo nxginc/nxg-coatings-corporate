@@ -4,43 +4,37 @@ import Link from "next/link"
 import Image from "next/image"
 import { Calendar } from "lucide-react"
 import { format } from "date-fns"
-
-interface RelatedPost {
-  slug: string
-  title: string
-  excerpt: string
-  publishedAt?: string
-  publishDate?: string
-  coverImage?: string
-  category?: string
-}
+import type { BlogPostMeta } from "@/data/blog-posts"
 
 interface RelatedPostsProps {
-  posts: RelatedPost[]
-  title?: string
+  posts: BlogPostMeta[]
   currentPostSlug?: string
   category?: string
+  title?: string
 }
 
-export default function RelatedPosts({ posts, title = "Related Articles", currentPostSlug, category }: RelatedPostsProps) {
-  if (!posts || posts.length === 0) return null
+export default function RelatedPosts({
+  posts,
+  currentPostSlug,
+  category,
+  title = "Related Articles",
+}: RelatedPostsProps) {
+  const relatedPosts = posts
+    .filter((post) => post.published === true && post.slug !== currentPostSlug && (!category || post.category === category))
+    .slice(0, 3)
 
-  const filteredPosts = posts.filter(
-    (post) => post.slug !== currentPostSlug && (!category || post.category === category)
-  )
-
-  if (filteredPosts.length === 0) return null
+  if (relatedPosts.length === 0) return null
 
   return (
-    <section className="py-12 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-brand-blue mb-8 text-center">{title}</h2>
+    <section className="bg-[var(--nxg-paper)] px-6 py-16 lg:px-10">
+      <div className="mx-auto max-w-[var(--nxg-content-width)]">
+        <h2 className="mb-8 text-3xl font-medium text-[var(--nxg-navy)]">{title}</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPosts.map((post) => (
-            <article key={post.slug} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {relatedPosts.map((post) => (
+            <article key={post.slug} className="min-w-0 overflow-hidden border border-[var(--nxg-line)] bg-white transition-colors hover:border-[var(--nxg-platinum)]">
               {post.coverImage && (
-                <div className="relative h-32 overflow-hidden">
+                <div className="relative aspect-[16/9] overflow-hidden bg-[var(--nxg-paper)]">
                   <Image
                     src={post.coverImage}
                     alt={post.title}
@@ -50,26 +44,26 @@ export default function RelatedPosts({ posts, title = "Related Articles", curren
                 </div>
               )}
 
-              <div className="p-4">
+              <div className="p-5">
                 {post.category && (
-                  <div className="inline-block px-2 py-1 bg-brand-blue/10 text-brand-blue text-xs font-medium rounded-full mb-2">
+                  <div className="mb-2 inline-block border border-[var(--nxg-line)] px-2 py-1 text-xs font-medium text-[var(--nxg-muted)]">
                     {post.category}
                   </div>
                 )}
 
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 hover:text-brand-blue transition-colors">
+                <h3 className="mb-2 text-lg font-semibold text-[var(--nxg-navy)] transition-colors hover:text-[var(--nxg-red)]">
                   <Link href={`/blog/${post.slug}`}>
                     {post.title}
                   </Link>
                 </h3>
 
-                <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                <p className="mb-3 line-clamp-2 text-sm leading-6 text-[var(--nxg-muted)]">
                   {post.excerpt}
                 </p>
 
-                <div className="flex items-center text-xs text-gray-500">
+                <div className="flex items-center text-xs text-[var(--nxg-muted)]">
                   <Calendar className="w-3 h-3 mr-1" />
-                  {format(new Date(post.publishedAt ?? post.publishDate ?? ""), "MMM dd, yyyy")}
+                  {format(new Date(`${post.publishDate} 12:00:00`), "MMM dd, yyyy")}
                 </div>
               </div>
             </article>

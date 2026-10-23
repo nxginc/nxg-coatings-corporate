@@ -1,0 +1,27 @@
+{
+  "schema_version": "nxg.content.v1",
+  "siteId": "nxg-coatings",
+  "brand": {
+    "name": "NXG Coatings Inc.",
+    "tagline": "Clean Finish. Exclusive.",
+    "description": "Professional painting and coating services for residential, commercial, industrial, HOA, and multifamily projects throughout the Twin Cities.",
+    "phone": "952-855-3520",
+    "email": "info@nxgcoatingsinc.com"
+  },
+  "navigation": [
+    { "label": "Services", "href": "/services" },
+    { "label": "Industries", "href": "/industries" },
+    { "label": "Projects", "href": "/gallery" },
+    { "label": "Journal", "href": "/blog" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "pages": {
+    "home": { "status": "active", "heroTemplate": "parallax-hero", "metadataKey": "home" },
+    "services": { "status": "active", "heroTemplate": "parallax-hero", "metadataKey": "services" },
+    "industries": { "status": "active", "heroTemplate": "parallax-hero", "metadataKey": "industries" },
+    "projects": { "status": "active", "heroTemplate": "parallax-hero", "metadataKey": "portfolio" },
+    "journal": { "status": "active", "heroTemplate": "parallax-hero", "metadataKey": "blog" },
+    "partners": { "status": "active", "heroTemplate": "parallax-hero", "metadataKey": "about" }
+  },
+  "future_site_content": ["nxg-contractors", "nxg-partners"]
+}

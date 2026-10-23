@@ -1,0 +1,14 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"NXGXC Opportunity",
+  "type":"object",
+  "required":["opportunity_id","source","client","project","sales"],
+  "properties":{
+    "opportunity_id":{"type":"string"},"source":{"type":"string"},
+    "client":{"type":"object","properties":{"name":{"type":"string"},"email":{"type":"string"},"phone":{"type":"string"},"address":{"type":"string"}}},
+    "project":{"type":"object","properties":{"type":{"type":"string"},"service":{"type":"string"},"interior_exterior":{"type":"string"},"estimated_size":{"type":"string"},"condition":{"type":"string"},"timeline":{"type":"string"}}},
+    "conversation":{"type":"object","properties":{"transcript":{"type":"string"},"summary":{"type":"string"},"questions":{"type":"array"},"client_requests":{"type":"array"}}},
+    "sales":{"type":"object","properties":{"cost_discussed":{"type":"boolean"},"estimate_status":{"type":"string"},"proposal_status":{"type":"string"}}},
+    "next_action":{"type":"string"}
+  }
+}
