@@ -1,0 +1,26 @@
+{
+  "schema_version": "nxg.automation.v1",
+  "template_id": "nxg-master",
+  "mode": "approval-gated",
+  "enabled_now": [
+    "metadata-rendering",
+    "asset-manifest-binding",
+    "responsive-ui-template",
+    "structured-data-rendering"
+  ],
+  "integration_boundaries": [
+    "crm",
+    "cloudinary",
+    "figma",
+    "vercel",
+    "estimate-routing"
+  ],
+  "approval_required_for": [
+    "canonical brand changes",
+    "public publishing",
+    "production credentials",
+    "pricing commitments",
+    "production schema migrations"
+  ],
+  "live_connections_verified": false
+}

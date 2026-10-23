@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import EnhancedHero from "@/components/enhanced-hero"
 import { FancyButton } from "@/components/ui/fancy-button"
+import { NXG_SITE } from "@/lib/site-metadata"
 
 export const metadata: Metadata = {
   title: "Terms of Service | NXG Coatings",
@@ -138,13 +139,13 @@ export default function TermsOfServicePage() {
               <br />
               Email: legal@nxgcoatingsinc.com
               <br />
-              Phone: (952) 900-4222
+              Phone: {NXG_SITE.phoneDisplay}
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto mt-12 text-center">
             <Link href="/contact">
-              <FancyButton variant="gradient" size="lg" rounded="full">
+              <FancyButton variant="shine" size="lg" rounded="full">
                 Contact Us With Questions
               </FancyButton>
             </Link>

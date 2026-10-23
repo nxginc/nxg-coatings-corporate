@@ -1,0 +1,142 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "NXG Render Manifest",
+    "type": "object",
+    "required": [
+        "renderId",
+        "sourceAssetId",
+        "campaignId",
+        "profile",
+        "channel",
+        "dimensions",
+        "qa",
+        "approval"
+    ],
+    "properties": {
+        "renderId": {
+            "type": "string"
+        },
+        "sourceAssetId": {
+            "type": "string"
+        },
+        "sourceSha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+        },
+        "campaignId": {
+            "type": "string"
+        },
+        "profile": {
+            "enum": [
+                "webHero",
+                "card",
+                "socialSquare",
+                "socialPortrait",
+                "story",
+                "metaLandscape",
+                "og",
+                "googleSquare",
+                "printOriginal"
+            ]
+        },
+        "channel": {
+            "enum": [
+                "website",
+                "facebook-organic",
+                "instagram-organic",
+                "linkedin-organic",
+                "meta-paid",
+                "google-paid",
+                "google-business-profile",
+                "facebook-marketplace",
+                "print"
+            ]
+        },
+        "dimensions": {
+            "type": "object",
+            "required": [
+                "width",
+                "height"
+            ],
+            "properties": {
+                "width": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "height": {
+                    "type": "integer",
+                    "minimum": 1
+                }
+            },
+            "additionalProperties": false
+        },
+        "cloudinaryPublicId": {
+            "type": "string"
+        },
+        "deliveryUrl": {
+            "type": "string",
+            "format": "uri"
+        },
+        "jobId": {
+            "type": "string"
+        },
+        "copyVersion": {
+            "type": "string"
+        },
+        "qa": {
+            "type": "object",
+            "required": [
+                "status",
+                "checks"
+            ],
+            "properties": {
+                "status": {
+                    "enum": [
+                        "pass",
+                        "fail",
+                        "quarantine"
+                    ]
+                },
+                "checks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "reviewer": {
+                    "type": "string"
+                },
+                "reviewedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "additionalProperties": false
+        },
+        "approval": {
+            "type": "object",
+            "required": [
+                "status"
+            ],
+            "properties": {
+                "status": {
+                    "enum": [
+                        "draft",
+                        "review",
+                        "approved",
+                        "rejected"
+                    ]
+                },
+                "approvedBy": {
+                    "type": "string"
+                },
+                "approvedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}

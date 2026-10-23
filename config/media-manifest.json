@@ -1,0 +1,24 @@
+{
+  "schema_version": "nxg.media.v1",
+  "source_of_truth": "asset-record",
+  "delivery_provider": "ImageKit",
+  "staging_provider": "Cloudinary",
+  "folders": {
+    "brand": "nxg/brand",
+    "services": "nxg/services",
+    "industries": "nxg/industries",
+    "gallery": "nxg/gallery",
+    "blog": "nxg/blog",
+    "campaigns": "nxg/campaigns",
+    "social": "nxg/social",
+    "ads": "nxg/ads"
+  },
+  "required_metadata": ["assetId", "siteId", "source", "altText", "rightsStatus", "approvalStatus"],
+  "renditions": ["web", "mobile", "og", "social", "proposal-pdf"],
+  "approval_statuses": ["intake", "review", "approved", "rejected", "archived"],
+  "rules": [
+    "Do not publish assets without rights and alt text metadata.",
+    "Do not migrate ImageKit originals automatically; register provenance first.",
+    "Auto-generated media stays in draft until approved."
+  ]
+}

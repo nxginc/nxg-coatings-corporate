@@ -18,6 +18,7 @@ export default function ConsultationBooking() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState("")
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -27,12 +28,25 @@ export default function ConsultationBooking() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    setError("")
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          type: "consultation",
+          message: formData.message || `Consultation request for ${formData.projectType || "a painting project"}.`,
+        }),
+      })
+      const result = await response.json().catch(() => null)
+      if (!response.ok) throw new Error(result?.error || "Your request could not be submitted.")
+      setIsSubmitted(true)
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : "Your request could not be submitted.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -45,9 +59,9 @@ export default function ConsultationBooking() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Consultation Scheduled!</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Consultation request received</h3>
             <p className="text-gray-600">
-              Thank you for your interest. We'll contact you within 24 hours to confirm your consultation appointment.
+              Thank you. Your preferred date and time are requests, not a confirmed appointment. NXG will follow up to confirm availability.
             </p>
           </div>
         </CardContent>
@@ -114,7 +128,7 @@ export default function ConsultationBooking() {
               type="tel"
               value={formData.phone}
               onChange={handleInputChange}
-              placeholder="(555) 123-4567"
+                placeholder="(952) 900-4222"
             />
           </div>
 
@@ -170,6 +184,12 @@ export default function ConsultationBooking() {
               <option value="commercial">Commercial Painting</option>
               <option value="deck">Deck Staining</option>
               <option value="cabinet">Cabinet Refinishing</option>
+              <option value="fine-finish">Fine Finish and Millwork</option>
+              <option value="color-consultation">Color Consultation</option>
+              <option value="pressure-cleaning">Pressure Cleaning</option>
+              <option value="restoration">Paint Restoration</option>
+              <option value="protective-coatings">Protective Coatings</option>
+              <option value="industrial">Industrial Coatings</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -196,6 +216,7 @@ export default function ConsultationBooking() {
           >
             {isSubmitting ? "Scheduling..." : "Schedule Consultation"}
           </Button>
+          {error && <p role="alert" className="text-sm text-red-800">{error}</p>}
         </form>
       </CardContent>
     </Card>

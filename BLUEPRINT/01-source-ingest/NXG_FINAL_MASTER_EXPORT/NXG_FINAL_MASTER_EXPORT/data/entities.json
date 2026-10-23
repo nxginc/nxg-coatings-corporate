@@ -1,0 +1,38 @@
+{
+  "ids": {
+    "company": "NXGC-########",
+    "project": "NXGPRJ-########",
+    "takeoff": "NXGTAKE-########",
+    "proposal": "NXGPROP-########",
+    "bid": "NXGBID-########",
+    "purchase_order": "NXGPO-########",
+    "invoice": "NXGINV-########",
+    "payment": "NXGPMT-########",
+    "document": "NXGDOC-########",
+    "asset": "NXGASSET-########",
+    "campaign": "NXGCAM-########",
+    "social_post": "NXGPOST-########",
+    "agent": "NXGAG-########"
+  },
+  "primary_key": "uuidv7",
+  "project_flow": [
+    "client",
+    "project",
+    "takeoff",
+    "estimate",
+    "proposal",
+    "bid",
+    "award",
+    "contract",
+    "purchase_order",
+    "work_order",
+    "invoice",
+    "payment",
+    "closeout"
+  ],
+  "proposal_options": [
+    "essential",
+    "recommended",
+    "premium"
+  ]
+}
