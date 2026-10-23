@@ -62,7 +62,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
           "SELECT 1 FROM nxg_partner_applications WHERE company_id = $1 AND id = $2",
           [companyId, id.data],
         )
-        return { application: null, found: exists.rowCount > 0 }
+        return { application: null, found: (exists.rowCount ?? 0) > 0 }
       }
 
       await client.query(

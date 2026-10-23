@@ -46,6 +46,7 @@ export default function CalendarBooking() {
     } finally {
       setIsBooking(false)
     }
+
   }
 
   if (isBooked) {
@@ -194,3 +195,5 @@ export default function CalendarBooking() {
     </Card>
   )
 }
+
+export { CalendarBooking }

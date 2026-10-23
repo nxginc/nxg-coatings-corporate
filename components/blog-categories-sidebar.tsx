@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
+import type { BlogPostMeta } from "@/data/blog-types"
 
 interface Category {
   name: string
@@ -11,15 +12,27 @@ interface Category {
 }
 
 interface BlogCategoriesSidebarProps {
-  categories: Category[]
+  categories?: Category[]
+  posts?: BlogPostMeta[]
+  currentCategory?: string
   className?: string
 }
 
 export default function BlogCategoriesSidebar({
-  categories,
+  categories: categoriesProp,
+  posts = [],
   className
 }: BlogCategoriesSidebarProps) {
   const pathname = usePathname()
+  const categories = categoriesProp ?? Array.from(
+    posts.reduce((counts, post) => {
+      if (post.category) {
+        const slug = post.category.toLowerCase()
+        counts.set(slug, { name: post.category, slug, count: (counts.get(slug)?.count ?? 0) + 1 })
+      }
+      return counts
+    }, new Map<string, Category>()).values(),
+  )
 
   return (
     <div className={cn("bg-white rounded-lg shadow-md p-6", className)}>
