@@ -1,10 +1,9 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
+import { signIn } from "next-auth/react"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -22,21 +21,24 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      // Demo login logic - just check if credentials match the demo account
-      if (email === "admin@example.com" && password === "password") {
-        toast({
-          title: "Login successful",
-          description: "You have been successfully logged in.",
-        })
-        router.push("/dashboard")
-      } else {
+      const result = await signIn("credentials", {
+        email,
+        password,
+        callbackUrl: "/dashboard",
+        redirect: false,
+      })
+
+      if (result?.error) {
         toast({
           title: "Login failed",
           description: "Invalid email or password. Please try again.",
           variant: "destructive",
         })
+      } else {
+        router.replace(result?.url ?? "/dashboard")
+        router.refresh()
       }
-    } catch (error) {
+    } catch {
       toast({
         title: "An error occurred",
         description: "Please try again later.",
@@ -53,7 +55,7 @@ export default function LoginPage() {
         <div className="text-center">
           <div className="flex justify-center mb-4">
             <Image
-              src="https://ik.imagekit.io/j98e6hcfnkn/logo_m2ODAWFyf.png?updatedAt=1741216795011"
+              src="https://ik.imagekit.io/j98e6hcfnkn/logo_xIU9EqxGF.png?updatedAt=1747918120501"
               alt="NXG Coatings Logo"
               width={180}
               height={45}
@@ -83,9 +85,6 @@ export default function LoginPage() {
             <div>
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <a href="#" className="text-sm font-medium text-brand-blue hover:text-brand-lightBlue">
-                  Forgot your password?
-                </a>
               </div>
               <Input
                 id="password"
@@ -106,6 +105,9 @@ export default function LoginPage() {
             </FancyButton>
           </div>
         </form>
+        <p className="text-center text-xs text-gray-500">
+          Administrator access is available only to the account configured for this environment.
+        </p>
       </div>
     </main>
   )

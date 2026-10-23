@@ -18,6 +18,7 @@ export default function ConsultationBooking() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState("")
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -27,12 +28,34 @@ export default function ConsultationBooking() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError("")
+    const message = [
+      formData.preferredDate && `Preferred date: ${formData.preferredDate}`,
+      formData.preferredTime && `Preferred time: ${formData.preferredTime}`,
+      formData.projectType && `Project type: ${formData.projectType}`,
+      formData.message,
+    ].filter(Boolean).join("\n")
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: "Consultation request",
+          message: message || "The customer requested a consultation.",
+        }),
+      })
+      const result = (await response.json()) as { error?: string }
+      if (!response.ok) throw new Error(result.error || "Your request could not be sent.")
+      setIsSubmitted(true)
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : "Your request could not be sent.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -45,9 +68,9 @@ export default function ConsultationBooking() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Consultation Scheduled!</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Consultation request sent</h3>
             <p className="text-gray-600">
-              Thank you for your interest. We'll contact you within 24 hours to confirm your consultation appointment.
+              NXG received your preferred details. The date and time are not confirmed until the team contacts you.
             </p>
           </div>
         </CardContent>
@@ -63,7 +86,7 @@ export default function ConsultationBooking() {
           Schedule Your Free Consultation
         </CardTitle>
         <CardDescription>
-          Get expert advice on your painting project. Our consultants will assess your needs and provide a detailed quote.
+          Share your project details and a preferred time. NXG will contact you to confirm availability.
         </CardDescription>
       </CardHeader>
 
@@ -114,7 +137,7 @@ export default function ConsultationBooking() {
               type="tel"
               value={formData.phone}
               onChange={handleInputChange}
-              placeholder="(555) 123-4567"
+              placeholder="Your phone number"
             />
           </div>
 
@@ -194,8 +217,9 @@ export default function ConsultationBooking() {
             disabled={isSubmitting}
             className="w-full"
           >
-            {isSubmitting ? "Scheduling..." : "Schedule Consultation"}
+            {isSubmitting ? "Sending request..." : "Request consultation"}
           </Button>
+          {error && <p className="text-sm text-red-700" role="alert">{error}</p>}
         </form>
       </CardContent>
     </Card>

@@ -1,38 +1,50 @@
 import { NextResponse } from "next/server"
-import { sendContactEmail } from "@/lib/email"
+import { z } from "zod"
+import { isSmtpConfigured, sendContactEmail } from "@/lib/email"
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2).max(120),
+  email: z.string().trim().email().max(254),
+  phone: z.string().trim().max(40).optional().default(""),
+  service: z.string().trim().max(120).optional().default(""),
+  message: z.string().trim().min(2).max(5000),
+})
 
 export async function POST(request: Request) {
+  let body: unknown
   try {
-    const body = await request.json()
-    const { name, email, phone, message } = body
+    body = await request.json()
+  } catch (error) {
+    return NextResponse.json({ error: "The submitted form data is not valid JSON." }, { status: 400 })
+  }
 
-    // Validate the input
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: "Name, email, and message are required" }, { status: 400 })
-    }
+  const parsed = contactSchema.safeParse(body)
+  if (!parsed.success) {
+    return NextResponse.json(
+      { error: "Please provide a valid name, email, and message." },
+      { status: 400 },
+    )
+  }
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
-      return NextResponse.json({ error: "Please enter a valid email address" }, { status: 400 })
-    }
+  if (!isSmtpConfigured()) {
+    return NextResponse.json(
+      { error: "Email delivery is not configured. Please call or email NXG directly." },
+      { status: 503 },
+    )
+  }
 
-    // Send emails (customer confirmation + company notification)
-    const emailResult = await sendContactEmail({ name, email, phone, message })
-
-    if (!emailResult.success) {
-      console.error("Email sending failed:", emailResult.error)
-      // Still return success to user, but log the email failure
-    }
-
-    // Return success response
-    return NextResponse.json({ 
-      success: true, 
-      message: "Thank you for your message! We'll be in touch soon.",
-      messageId: emailResult.messageId 
+  try {
+    const emailResult = await sendContactEmail(parsed.data)
+    return NextResponse.json({
+      success: true,
+      message: "Your message was sent to NXG.",
+      messageId: emailResult.messageId,
     })
   } catch (error) {
-    console.error("Contact form error:", error)
-    return NextResponse.json({ error: "An unexpected error occurred" }, { status: 500 })
+    console.error("Contact form email delivery failed.", error)
+    return NextResponse.json(
+      { error: "Your message was not sent. Please try again or contact NXG directly." },
+      { status: 502 },
+    )
   }
 }

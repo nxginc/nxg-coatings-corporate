@@ -3,6 +3,7 @@ import Link from "next/link"
 import { CheckCircle2, ArrowLeft, Mail, Phone } from "lucide-react"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { Card, CardContent } from "@/components/ui/card"
+import { corporateProfile } from "@/data/corporate-profile"
 
 export const metadata: Metadata = {
   title: "Thank You | NXG Coatings",
@@ -64,11 +65,11 @@ export default function ContactSuccessPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <div className="flex items-center gap-2 text-gray-600">
                     <Phone className="w-4 h-4" />
-                    <span>(555) 123-4567</span>
+                    <a href={`tel:${corporateProfile.contact.phoneE164}`}>{corporateProfile.contact.phone}</a>
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
                     <Mail className="w-4 h-4" />
-                    <span>info@nxgcoatings.com</span>
+                    <a href={`mailto:${corporateProfile.contact.email}`}>{corporateProfile.contact.email}</a>
                   </div>
                 </div>
               </div>

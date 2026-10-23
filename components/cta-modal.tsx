@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { X } from "lucide-react"
+import { corporateProfile } from "@/data/corporate-profile"
 
 interface CTAModalProps {
   trigger: React.ReactNode
@@ -33,7 +34,7 @@ export function CTAModal({ trigger, title = "Get Your Free Estimate", descriptio
               </p>
               <div className="flex gap-3">
                 <Button
-                  onClick={() => window.open("tel:+15551234567", "_blank")}
+                  onClick={() => window.open(`tel:${corporateProfile.contact.phoneE164}`, "_self")}
                   className="flex-1"
                 >
                   Call Now

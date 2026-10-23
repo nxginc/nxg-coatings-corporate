@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Clock, MapPin, Phone } from "lucide-react"
+import { corporateProfile } from "@/data/corporate-profile"
 
 const timeSlots = [
   "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
@@ -15,17 +16,36 @@ export default function CalendarBooking() {
   const [selectedTime, setSelectedTime] = useState<string>("")
   const [isBooking, setIsBooking] = useState(false)
   const [isBooked, setIsBooked] = useState(false)
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [error, setError] = useState("")
 
   const handleBooking = async () => {
-    if (!selectedDate || !selectedTime) return
+    if (!selectedDate || !selectedTime || !name || !email) return
 
     setIsBooking(true)
-
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    setIsBooking(false)
-    setIsBooked(true)
+    setError("")
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          service: "Consultation request",
+          message: `Requested date: ${selectedDate}\nPreferred time: ${selectedTime}\nThis is a preferred time, not a confirmed appointment.`,
+        }),
+      })
+      const result = (await response.json()) as { error?: string }
+      if (!response.ok) throw new Error(result.error || "Your request could not be sent.")
+      setIsBooked(true)
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : "Your request could not be sent.")
+    } finally {
+      setIsBooking(false)
+    }
   }
 
   if (isBooked) {
@@ -38,18 +58,18 @@ export default function CalendarBooking() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Appointment Booked!</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Consultation request sent</h3>
             <p className="text-gray-600 mb-4">
-              Your consultation is scheduled for {selectedDate} at {selectedTime}.
+              Your preferred time is {selectedDate} at {selectedTime}. NXG must confirm it before the appointment is booked.
             </p>
             <div className="text-sm text-gray-500">
               <p className="flex items-center justify-center mb-1">
                 <MapPin className="w-4 h-4 mr-1" />
-                123 Main St, Anytown, USA
+                {corporateProfile.contact.city}, {corporateProfile.contact.state}
               </p>
               <p className="flex items-center justify-center">
                 <Phone className="w-4 h-4 mr-1" />
-                (555) 123-4567
+                {corporateProfile.contact.phone}
               </p>
             </div>
           </div>
@@ -66,7 +86,7 @@ export default function CalendarBooking() {
           Schedule Your Visit
         </CardTitle>
         <CardDescription>
-          Choose a convenient date and time for your in-home consultation.
+          Choose a preferred date and time. Your request is not a confirmed appointment until NXG replies.
         </CardDescription>
       </CardHeader>
 
@@ -85,16 +105,51 @@ export default function CalendarBooking() {
           />
         </div>
 
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <label className="block text-sm font-medium text-gray-700">
+            Name
+            <input
+              required
+              autoComplete="name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-base"
+            />
+          </label>
+          <label className="block text-sm font-medium text-gray-700">
+            Email
+            <input
+              required
+              type="email"
+              autoComplete="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-base"
+            />
+          </label>
+        </div>
+        <label className="block text-sm font-medium text-gray-700">
+          Phone (optional)
+          <input
+            type="tel"
+            autoComplete="tel"
+            value={phone}
+            onChange={(event) => setPhone(event.target.value)}
+            className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-base"
+          />
+        </label>
+
         {/* Time Selection */}
         {selectedDate && (
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Select Time
+              Preferred Time
             </label>
             <div className="grid grid-cols-3 gap-2">
               {timeSlots.map((time) => (
                 <button
                   key={time}
+                  type="button"
                   onClick={() => setSelectedTime(time)}
                   className={`px-3 py-2 text-sm border rounded-md transition-colors ${
                     selectedTime === time
@@ -116,9 +171,10 @@ export default function CalendarBooking() {
             disabled={isBooking}
             className="w-full"
           >
-            {isBooking ? "Booking..." : "Book Appointment"}
+            {isBooking ? "Sending request..." : "Request this time"}
           </Button>
         )}
+        {error && <p className="text-sm text-red-700" role="alert">{error}</p>}
 
         {/* Contact Info */}
         <div className="pt-4 border-t border-gray-200">
@@ -126,11 +182,11 @@ export default function CalendarBooking() {
           <div className="space-y-1 text-sm text-gray-600">
             <p className="flex items-center">
               <Phone className="w-4 h-4 mr-2" />
-              Call us: (555) 123-4567
+              Call us: {corporateProfile.contact.phone}
             </p>
             <p className="flex items-center">
               <MapPin className="w-4 h-4 mr-2" />
-              123 Main St, Anytown, USA
+              {corporateProfile.contact.city}, {corporateProfile.contact.state}
             </p>
           </div>
         </div>

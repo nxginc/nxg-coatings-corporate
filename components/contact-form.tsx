@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { corporateProfile } from "@/data/corporate-profile"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -30,33 +31,34 @@ export default function ContactForm() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch("/api/contact", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       })
+      const result = (await response.json()) as { error?: string }
 
-      if (response.ok) {
-        toast({
-          title: "Message sent!",
-          description: "We'll get back to you within 24 hours.",
-        })
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: ""
-        })
-      } else {
-        throw new Error('Failed to send message')
+      if (!response.ok) {
+        throw new Error(result.error || "Your message could not be sent.")
       }
+
+      toast({
+        title: "Message sent to NXG",
+        description: "Your request was delivered. NXG will follow up using the contact details you provided.",
+      })
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: ""
+      })
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: error instanceof Error ? error.message : "Your message could not be sent. Please try again.",
         variant: "destructive",
       })
     } finally {
@@ -117,7 +119,7 @@ export default function ContactForm() {
                   type="tel"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  placeholder="(555) 123-4567"
+                  placeholder={corporateProfile.contact.phone}
                 />
               </div>
 
@@ -183,7 +185,9 @@ export default function ContactForm() {
               </div>
               <div>
                 <p className="font-medium text-gray-900">Phone</p>
-                <p className="text-gray-600">(555) 123-4567</p>
+                <a className="text-gray-600 hover:underline" href={`tel:${corporateProfile.contact.phoneE164}`}>
+                  {corporateProfile.contact.phone}
+                </a>
               </div>
             </div>
 
@@ -193,7 +197,9 @@ export default function ContactForm() {
               </div>
               <div>
                 <p className="font-medium text-gray-900">Email</p>
-                <p className="text-gray-600">info@nxgcoatings.com</p>
+                <a className="text-gray-600 hover:underline" href={`mailto:${corporateProfile.contact.email}`}>
+                  {corporateProfile.contact.email}
+                </a>
               </div>
             </div>
 
@@ -204,8 +210,7 @@ export default function ContactForm() {
               <div>
                 <p className="font-medium text-gray-900">Address</p>
                 <p className="text-gray-600">
-                  123 Main Street<br />
-                  Anytown, USA 12345
+                  {corporateProfile.contact.city}, {corporateProfile.contact.state}
                 </p>
               </div>
             </div>
