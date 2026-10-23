@@ -5,6 +5,7 @@ import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import CrispChat from "@/components/crisp-chat"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -85,6 +86,7 @@ export default function RootLayout({
           <div className="pt-16">{children}</div>
           <Footer />
           <Toaster />
+          <CrispChat />
         </>
       </body>
     </html>

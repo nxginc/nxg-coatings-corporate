@@ -9,13 +9,19 @@ interface EmailData {
 }
 
 export function isSmtpConfigured() {
+  const port = Number(process.env.SMTP_PORT)
+  const secure = process.env.SMTP_SECURE?.trim().toLowerCase() || "false"
+
   return Boolean(
-    process.env.SMTP_HOST &&
-      process.env.SMTP_PORT &&
-      process.env.SMTP_USER &&
-      process.env.SMTP_PASS &&
-      process.env.FROM_EMAIL &&
-      process.env.CONTACT_TO_EMAIL,
+    process.env.SMTP_HOST?.trim() &&
+      Number.isInteger(port) &&
+      port > 0 &&
+      port <= 65535 &&
+      ["true", "false"].includes(secure) &&
+      process.env.SMTP_USER?.trim() &&
+      process.env.SMTP_PASS?.trim() &&
+      process.env.FROM_EMAIL?.trim() &&
+      process.env.CONTACT_TO_EMAIL?.trim(),
   )
 }
 
@@ -25,22 +31,21 @@ export async function sendEmail({ to, subject, html, text, replyTo }: EmailData)
   }
 
   const port = Number(process.env.SMTP_PORT)
-  if (!Number.isInteger(port) || port < 1 || port > 65535) {
-    throw new Error("SMTP_PORT must be a valid TCP port.")
-  }
+  const secure = process.env.SMTP_SECURE?.trim().toLowerCase() === "true"
 
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
+    host: process.env.SMTP_HOST?.trim(),
     port,
-    secure: process.env.SMTP_SECURE === 'true',
+    secure,
+    requireTLS: !secure,
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user: process.env.SMTP_USER?.trim(),
+      pass: process.env.SMTP_PASS?.trim(),
     },
   })
 
   const info = await transporter.sendMail({
-    from: process.env.FROM_EMAIL,
+    from: process.env.FROM_EMAIL?.trim(),
     to,
     subject,
     html,
