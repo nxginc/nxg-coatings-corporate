@@ -14,6 +14,8 @@ const replySchema = z.object({
   body: z.string().trim().min(2).max(10000),
 })
 
+const leadIdSchema = z.string().uuid()
+
 function escapeHtml(value: string) {
   return value.replace(/[&<>"']/g, (character) => ({
     "&": "&amp;",
@@ -22,6 +24,26 @@ function escapeHtml(value: string) {
     '"': "&quot;",
     "'": "&#39;",
   })[character] || character)
+}
+
+export async function GET(request: Request) {
+  if (!(await getAdminEmail())) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+  const leadId = leadIdSchema.safeParse(new URL(request.url).searchParams.get("leadId"))
+  if (!leadId.success) return NextResponse.json({ error: "A valid lead ID is required." }, { status: 400 })
+
+  const database = getDatabase()
+  if (!database) return NextResponse.json({ error: "CRM database is not configured." }, { status: 503 })
+  const { rows } = await database.query(
+    `select id, recipient_email as "recipientEmail", subject, body_text as body,
+            status, actor, error_message as "errorMessage", created_at as "createdAt",
+            sent_at as "sentAt"
+       from nxg_lead_replies
+      where lead_id = $1 and company_id = $2
+      order by created_at desc
+      limit 50`,
+    [leadId.data, NXG_COMPANY_ID],
+  )
+  return NextResponse.json({ replies: rows })
 }
 
 export async function POST(request: Request) {

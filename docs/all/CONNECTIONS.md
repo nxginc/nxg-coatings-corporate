@@ -27,6 +27,8 @@ environment variables alone do not create an integration:
   Profile, and Google Ads do not have operational adapters in this app. The
   admin catalog labels these as unavailable and rejects attempts to enable
   them, even if their credentials are present.
+- Indeed and Yelp drafts are available in `/dashboard/hiring-reputation` for
+  admin review and manual handoff only; they do not connect to either provider.
 - Stripe and Telnyx are optional catalog entries; payment and SMS/voice
   operations are not implemented by setting their keys alone.
 - Facebook Marketplace, Nextdoor, Yelp, and Thumbtack remain manual-only.
@@ -39,6 +41,9 @@ environment variables alone do not create an integration:
 - The site's client message widget submits an asynchronous CRM contact lead;
   it is not live chat and does not support threaded replies. Messenger account
   connection and inbox handling are not implemented.
+- Admins can send individual lead email replies after explicit confirmation.
+  SMTP must be configured and enabled; attempts and delivery results are kept
+  in the CRM reply history.
 - Google Business Profile directory updates, third-party directory listing
   synchronization, and ad campaign optimization/spend controls are not
   implemented. Keep those changes manual and approval-gated.

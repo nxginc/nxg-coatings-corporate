@@ -28,6 +28,8 @@ This document describes the website implemented in this repository. It does not 
 - Scheduling: `/schedule` and contact consultation UI collect a preferred slot. A selection is a request, not a confirmed booking.
 - Color consultation: requests use the existing contact intake endpoint.
 - Partner applications: `/tradepartners` submits to `POST /api/partners`; applications require human review and are not directory approval.
+- Admin lead replies: an operator can review the recipient, edit a one-off email, confirm sending, and inspect the attempt history. This is not an automatic follow-up sequence.
+- Hiring and reputation drafts: `/dashboard/hiring-reputation` stores Indeed job copy and source-linked Yelp reply drafts for review and manual handoff only. It does not post to Indeed or Yelp.
 - Newsletter: journal signup submits to `POST /api/newsletter`; the response is pending confirmation.
 - Blog/content administration and integrations are protected dashboard workflows; preserve authentication and server-side authorization.
 - Contact leads are saved to the configured database. HubSpot synchronization and email notification depend on their configured credentials/settings; user-facing success means the lead was saved, not that every optional downstream integration succeeded.

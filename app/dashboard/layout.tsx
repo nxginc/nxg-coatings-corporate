@@ -5,6 +5,7 @@ import { getAdminEmail } from "@/lib/admin-auth"
 
 const adminLinks = [
   { href: "/dashboard", label: "Lead inbox" },
+  { href: "/dashboard/hiring-reputation", label: "Hiring & reputation" },
   { href: "/dashboard/partners", label: "Trade partners" },
   { href: "/dashboard/government", label: "Grant tracker" },
   { href: "/dashboard/content", label: "Campaign workbench" },
