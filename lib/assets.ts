@@ -34,6 +34,8 @@ export const ASSETS = {
     colorConsultation: "https://ik.imagekit.io/j98e6hcfnkn/color%20consulation_kGyXZz_4-.jpg?updatedAt=1748001132674",
     pressureCleaning: "https://ik.imagekit.io/j98e6hcfnkn/Services/pressurewashing_VWnZEA2qNm.jpg?updatedAt=1741369712585",
     restoration: "https://ik.imagekit.io/j98e6hcfnkn/Services/restoration_1rbm1Ax_Q.jpg?updatedAt=1741369714492",
+    deckRestoration: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/semi_25BPGPjn6.webp",
+    protectiveCoatings: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/industrial/industrial-structure-painting-services_7VncZWEPH.jpg",
     deckCleaning: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/deck-cleaning_qqxmpljBN.jpeg",
     deckSemiTransparent: "https://ik.imagekit.io/j98e6hcfnkn/WebAssets/decks/deck-stain-semi_b3gOWiS0x.jpg",
     deckSolid: "https://ik.imagekit.io/j98e6hcfnkn/featured/deck-staining/deckstain-solid.jpg?updatedAt=1747995087459",

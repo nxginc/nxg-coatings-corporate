@@ -184,6 +184,12 @@ export default function ConsultationBooking() {
               <option value="commercial">Commercial Painting</option>
               <option value="deck">Deck Staining</option>
               <option value="cabinet">Cabinet Refinishing</option>
+              <option value="fine-finish">Fine Finish and Millwork</option>
+              <option value="color-consultation">Color Consultation</option>
+              <option value="pressure-cleaning">Pressure Cleaning</option>
+              <option value="restoration">Paint Restoration</option>
+              <option value="protective-coatings">Protective Coatings</option>
+              <option value="industrial">Industrial Coatings</option>
               <option value="other">Other</option>
             </select>
           </div>

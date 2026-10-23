@@ -6,16 +6,16 @@ import PartnerApplicationForm from "@/components/partner-application-form"
 export const metadata: Metadata = {
     title: "Trade Partner Network | NXG Coatings",
     description: "Apply to join the NXG Coatings trade partner network serving the Twin Cities.",
-    alternates: { canonical: "https://nxgcoatingsinc.com/partners" },
+    alternates: { canonical: "https://nxgcoatingsinc.com/tradepartners" },
     openGraph: {
         title: "Trade Partner Network | NXG Coatings",
         description: "Apply to join the NXG Coatings trade partner network serving the Twin Cities.",
-        url: "https://nxgcoatingsinc.com/partners",
+        url: "https://nxgcoatingsinc.com/tradepartners",
         images: [{ url: ASSETS.services.exterior, alt: "NXG Coatings project photography" }],
     },
 }
 
-export default function PartnersPage() {
+export function PartnersPage() {
     return <main className="bg-white text-[var(--nxg-charcoal)]">
         <section className="relative flex min-h-[380px] items-end overflow-hidden bg-[var(--nxg-navy)] text-white sm:min-h-[480px]">
             <Image src={ASSETS.services.exterior} alt="Exterior painting project" fill priority sizes="100vw" className="object-cover opacity-35" />
@@ -32,3 +32,5 @@ export default function PartnersPage() {
         </section>
     </main>
 }
+
+export default PartnersPage

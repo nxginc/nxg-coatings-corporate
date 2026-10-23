@@ -27,8 +27,24 @@ const initialValues: QuoteValues = {
 const fieldClass = "min-h-12 w-full border border-[var(--nxg-line)] bg-white px-3 text-sm focus:border-[var(--nxg-navy)]"
 const labelClass = "mb-2 block text-xs font-semibold text-[var(--nxg-navy)]"
 
-export function MultiStepForm() {
-    const [values, setValues] = useState(initialValues)
+const projectTypes = [
+    "Exterior painting",
+    "Interior painting",
+    "Cabinet refinishing",
+    "Deck staining",
+    "Fine finish and millwork",
+    "Color consultation",
+    "Pressure cleaning",
+    "Paint restoration",
+    "Protective coatings",
+    "Commercial painting",
+    "Commercial coatings",
+    "Industrial coatings",
+    "Other",
+]
+
+export function MultiStepForm({ initialService = "" }: { initialService?: string }) {
+    const [values, setValues] = useState(() => ({ ...initialValues, projectType: initialService }))
     const [step, setStep] = useState(0)
     const [submitting, setSubmitting] = useState(false)
     const [error, setError] = useState("")
@@ -90,7 +106,7 @@ export function MultiStepForm() {
         </ol>
 
         <fieldset data-quote-step="0" disabled={step !== 0} hidden={step !== 0} className="grid gap-5 sm:grid-cols-2">
-            <label className="sm:col-span-2"><span className={labelClass}>What kind of project? *</span><select className={fieldClass} required value={values.projectType} onChange={(event) => update("projectType", event.target.value)}><option value="" disabled>Select a service</option><option>Exterior painting</option><option>Interior painting</option><option>Cabinet refinishing</option><option>Deck staining</option><option>Commercial painting</option><option>Industrial coatings</option><option>Other</option></select></label>
+            <label className="sm:col-span-2"><span className={labelClass}>What kind of project? *</span><select className={fieldClass} required value={values.projectType} onChange={(event) => update("projectType", event.target.value)}><option value="" disabled>Select a service</option>{projectTypes.map((projectType) => <option key={projectType}>{projectType}</option>)}</select></label>
             <label className="sm:col-span-2"><span className={labelClass}>Project address *</span><input className={fieldClass} required maxLength={240} autoComplete="street-address" value={values.address} onChange={(event) => update("address", event.target.value)} /></label>
             <label className="sm:col-span-2"><span className={labelClass}>Project details *</span><textarea className="min-h-28 w-full border border-[var(--nxg-line)] p-3 text-sm focus:border-[var(--nxg-navy)]" required minLength={8} maxLength={5000} value={values.message} onChange={(event) => update("message", event.target.value)} placeholder="Surfaces, approximate scope, timing, or access considerations" /></label>
             <fieldset className="sm:col-span-2"><legend className={labelClass}>How should we review it?</legend><div className="flex flex-wrap gap-5 text-sm"><label className="flex items-center gap-2"><input type="radio" name="assessment" checked={values.assessment === "virtual"} onChange={() => update("assessment", "virtual")} />Virtual review</label><label className="flex items-center gap-2"><input type="radio" name="assessment" checked={values.assessment === "on-site"} onChange={() => update("assessment", "on-site")} />On-site consultation</label></div></fieldset>

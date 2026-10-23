@@ -14,8 +14,13 @@ export const NXG_SITE = {
 export const NXG_SERVICE_KNOWLEDGE = [
   "Interior painting",
   "Exterior painting",
+  "Fine finish and millwork painting",
   "Commercial painting",
+  "Protective coatings",
   "Industrial coatings",
   "Cabinet refinishing",
   "Deck staining",
+  "Pressure cleaning",
+  "Paint restoration",
+  "Color consultation",
 ] as const

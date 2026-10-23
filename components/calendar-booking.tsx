@@ -4,13 +4,19 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Calendar, Clock, MapPin, Phone } from "lucide-react"
+import { Calendar, MapPin, Phone } from "lucide-react"
 import { NXG_SITE } from "@/lib/site-metadata"
 
 const timeSlots = [
   "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
   "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"
 ]
+
+function getLocalDateString() {
+  const today = new Date()
+  today.setMinutes(today.getMinutes() - today.getTimezoneOffset())
+  return today.toISOString().slice(0, 10)
+}
 
 export default function CalendarBooking() {
   const [selectedDate, setSelectedDate] = useState<string>("")
@@ -94,38 +100,50 @@ export default function CalendarBooking() {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="space-y-6">
+      <CardContent>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault()
+            void handleBooking()
+          }}
+          className="space-y-6"
+        >
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div><label htmlFor="booking-name" className="mb-2 block text-sm font-medium">Full name</label><Input id="booking-name" autoComplete="name" required value={name} onChange={(event) => setName(event.target.value)} /></div>
-          <div><label htmlFor="booking-email" className="mb-2 block text-sm font-medium">Email</label><Input id="booking-email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} /></div>
-          <div><label htmlFor="booking-phone" className="mb-2 block text-sm font-medium">Phone</label><Input id="booking-phone" type="tel" autoComplete="tel" required value={phone} onChange={(event) => setPhone(event.target.value)} /></div>
-          <div><label htmlFor="booking-project" className="mb-2 block text-sm font-medium">Project type</label><select id="booking-project" required value={projectType} onChange={(event) => setProjectType(event.target.value)} className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"><option value="">Select a service</option><option>Interior painting</option><option>Exterior painting</option><option>Commercial painting</option><option>Deck staining</option><option>Cabinet refinishing</option><option>Other</option></select></div>
+          <div><label htmlFor="booking-name" className="mb-2 block text-sm font-medium">Full name</label><Input id="booking-name" name="name" autoComplete="name" required value={name} onChange={(event) => setName(event.target.value)} /></div>
+          <div><label htmlFor="booking-email" className="mb-2 block text-sm font-medium">Email</label><Input id="booking-email" name="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} /></div>
+          <div><label htmlFor="booking-phone" className="mb-2 block text-sm font-medium">Phone</label><Input id="booking-phone" name="phone" type="tel" autoComplete="tel" required value={phone} onChange={(event) => setPhone(event.target.value)} /></div>
+          <div><label htmlFor="booking-project" className="mb-2 block text-sm font-medium">Project type</label><select id="booking-project" name="projectType" required value={projectType} onChange={(event) => setProjectType(event.target.value)} className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"><option value="">Select a service</option><option>Interior painting</option><option>Exterior painting</option><option>Commercial painting</option><option>Commercial coatings</option><option>Industrial coatings</option><option>Deck staining</option><option>Cabinet refinishing</option><option>Fine finish and millwork</option><option>Color consultation</option><option>Pressure cleaning</option><option>Paint restoration</option><option>Protective coatings</option><option>Other</option></select></div>
         </div>
 
         {/* Date Selection */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="booking-date" className="block text-sm font-medium text-gray-700 mb-2">
             Select Date
           </label>
           <input
+            id="booking-date"
+            name="date"
             type="date"
+            required
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
-            min={new Date().toISOString().split('T')[0]}
+            min={getLocalDateString()}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent"
           />
         </div>
 
         {/* Time Selection */}
         {selectedDate && (
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+          <fieldset>
+            <legend className="mb-2 block text-sm font-medium text-gray-700">
               Select Time
-            </label>
-            <div className="grid grid-cols-3 gap-2">
+            </legend>
+            <div className="grid grid-cols-3 gap-2" role="group" aria-label="Available preferred times">
               {timeSlots.map((time) => (
                 <button
                   key={time}
+                  type="button"
+                  aria-pressed={selectedTime === time}
                   onClick={() => setSelectedTime(time)}
                   className={`px-3 py-2 text-sm border rounded-md transition-colors ${selectedTime === time
                       ? 'bg-brand-blue text-white border-brand-blue'
@@ -136,13 +154,13 @@ export default function CalendarBooking() {
                 </button>
               ))}
             </div>
-          </div>
+          </fieldset>
         )}
 
         {/* Booking Button */}
         {selectedDate && selectedTime && name && email && phone && projectType && (
           <Button
-            onClick={handleBooking}
+            type="submit"
             disabled={isBooking}
             className="w-full"
           >
@@ -165,6 +183,7 @@ export default function CalendarBooking() {
             </p>
           </div>
         </div>
+        </form>
       </CardContent>
     </Card>
   )

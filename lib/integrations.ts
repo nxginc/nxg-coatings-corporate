@@ -1,3 +1,5 @@
+import { getCloudinaryCredentials } from "@/lib/cloudinary-assets"
+
 export type IntegrationDefinition = {
     id: string
     name: string
@@ -22,15 +24,25 @@ export const integrationCatalog: IntegrationDefinition[] = [
     { id: "google-ads", name: "Google Ads", category: "ads", description: "Campaign attribution and paid-search operations.", requiredEnv: ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "GOOGLE_REFRESH_TOKEN", "GOOGLE_ADS_DEVELOPER_TOKEN", "GOOGLE_ADS_CUSTOMER_ID"], connection: "oauth_account" },
     { id: "stripe", name: "Stripe", category: "payments", description: "Optional estimate deposits and customer payments.", requiredEnv: ["STRIPE_SECRET_KEY", "STRIPE_WEBHOOK_SECRET"], connection: "server_token" },
     { id: "telnyx", name: "Telnyx", category: "communications", description: "Optional SMS, voice, and call attribution workflows.", requiredEnv: ["TELNYX_API_KEY"], connection: "server_token" },
-    { id: "email", name: "Transactional email", category: "communications", description: "Contact notifications and customer follow-up email.", requiredEnv: ["SMTP_HOST", "SMTP_USER", "SMTP_PASS", "CONTACT_TO_EMAIL"], connection: "server_token" },
+    { id: "email", name: "Transactional email (SMTP / Mailtrap)", category: "communications", description: "Contact notifications and customer follow-up email. Mailtrap uses its SMTP host and credentials; its API token is not used by this app.", requiredEnv: ["SMTP_HOST", "SMTP_USER", "SMTP_PASS", "CONTACT_TO_EMAIL"], connection: "server_token" },
 ]
 
 export function getIntegrationReadiness(definition: IntegrationDefinition) {
-    const missingEnv = definition.requiredEnv.filter((name) => !process.env[name]?.trim())
+    let missingEnv = definition.requiredEnv.filter((name) => !process.env[name]?.trim())
+    let configurationError: string | undefined
+    if (definition.id === "cloudinary") {
+        try {
+            if (getCloudinaryCredentials()) missingEnv = []
+        } catch {
+            missingEnv = []
+            configurationError = "CLOUDINARY_URL is invalid."
+        }
+    }
     return {
         ...definition,
-        configured: definition.connection !== "manual_only" && missingEnv.length === 0,
+        configured: definition.connection !== "manual_only" && missingEnv.length === 0 && !configurationError,
         missingEnv,
-        readiness: definition.connection === "manual_only" ? "manual_only" : missingEnv.length ? "needs_configuration" : definition.connection === "oauth_account" ? "credentials_ready" : "credentials_ready",
+        ...(configurationError ? { configurationError } : {}),
+        readiness: definition.connection === "manual_only" ? "manual_only" : missingEnv.length || configurationError ? "needs_configuration" : "credentials_ready",
     }
 }

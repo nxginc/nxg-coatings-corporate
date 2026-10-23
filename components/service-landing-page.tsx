@@ -15,7 +15,7 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
         imageAlt={service.heroAlt}
         height="large"
       >
-        <Link href="/quote" className="inline-flex min-h-12 items-center gap-5 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">
+        <Link href={`/quote?service=${encodeURIComponent(service.name)}`} className="inline-flex min-h-12 items-center gap-5 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">
           Request an estimate <span aria-hidden="true" className="text-lg">↗</span>
         </Link>
         <Link href="/schedule" className="inline-flex min-h-12 items-center border border-white/60 px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">
@@ -107,7 +107,7 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
 
       <section className="grid gap-5 bg-[var(--nxg-red)] px-6 py-12 text-white sm:grid-cols-[1fr_auto] sm:items-center lg:px-[max(40px,calc((100vw-var(--nxg-content-width))/2))]">
         <div><p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/70">Start with a conversation</p><h2 className="mt-2 text-2xl font-medium sm:text-3xl">Tell us what you are planning.</h2></div>
-        <Link href="/quote" className="inline-flex min-h-12 items-center justify-center gap-4 border border-white/65 px-5 text-[10px] font-semibold uppercase tracking-[0.13em] transition hover:bg-white hover:text-[var(--nxg-red)]">Request an estimate <span aria-hidden="true" className="text-lg">↗</span></Link>
+        <Link href={`/quote?service=${encodeURIComponent(service.name)}`} className="inline-flex min-h-12 items-center justify-center gap-4 border border-white/65 px-5 text-[10px] font-semibold uppercase tracking-[0.13em] transition hover:bg-white hover:text-[var(--nxg-red)]">Request an estimate <span aria-hidden="true" className="text-lg">↗</span></Link>
       </section>
     </main>
   )

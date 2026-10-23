@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
@@ -12,11 +13,13 @@ const links = [
   { label: "Projects", href: "/gallery" },
   { label: "Process", href: "/process" },
   { label: "About", href: "/about" },
+  { label: "Trade partners", href: "/tradepartners" },
   { label: "Journal", href: "/blog" },
 ]
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const isHome = usePathname() === "/"
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : ""
@@ -29,18 +32,18 @@ export default function Header() {
   }, [open])
 
   return (
-    <header className="nxg-site-header fixed inset-x-0 top-0 z-50 h-[72px] border-b border-[var(--nxg-line)] bg-white text-[var(--nxg-navy)] xl:h-20">
+    <header className={`nxg-site-header fixed inset-x-0 top-0 z-50 h-[72px] border-b xl:h-20 ${isHome ? "border-white/15 bg-[var(--nxg-navy)]/20 text-white backdrop-blur-sm" : "border-[var(--nxg-line)] bg-white text-[var(--nxg-navy)]"}`}>
       <div className="mx-auto flex h-full max-w-[var(--nxg-content-width)] items-center justify-between px-5 sm:px-6 lg:px-10">
         <Link href="/" aria-label="NXG Coatings home" onClick={() => setOpen(false)} className="shrink-0">
-          <Image src={ASSETS.logo.primary} alt="NXG Coatings" width={118} height={42} className="h-auto w-[112px]" priority />
+          <Image src={ASSETS.logo.primary} alt="NXG Coatings" width={118} height={42} className={`h-auto w-[112px] ${isHome ? "brightness-0 invert" : ""}`} priority />
         </Link>
         <nav className="hidden items-center gap-7 xl:flex" aria-label="Primary navigation">
-          {links.map((link) => <Link key={link.href} href={link.href} className="nxg-site-nav-link text-[10px] font-medium uppercase tracking-[0.12em] text-[var(--nxg-charcoal)] transition hover:text-[var(--nxg-navy)]">{link.label}</Link>)}
-          <Link href="/quote" className="ml-1 inline-flex min-h-11 items-center gap-3 bg-[var(--nxg-navy)] px-5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[var(--nxg-red)]">Request an estimate <span aria-hidden="true">↗</span></Link>
+          {links.map((link) => <Link key={link.href} href={link.href} className={`nxg-site-nav-link text-[10px] font-medium uppercase tracking-[0.12em] transition ${isHome ? "text-white/90 hover:text-white" : "text-[var(--nxg-charcoal)] hover:text-[var(--nxg-navy)]"}`}>{link.label}</Link>)}
+          <Link href="/quote" className={`ml-1 inline-flex min-h-11 items-center gap-3 px-5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition ${isHome ? "border border-white/50 bg-white/5 hover:bg-white hover:text-[var(--nxg-navy)]" : "bg-[var(--nxg-navy)] hover:bg-[var(--nxg-red)]"}`}>Request an estimate <span aria-hidden="true">↗</span></Link>
         </nav>
         <div className="flex items-center gap-3 xl:hidden">
           <Link href="/quote" className="hidden min-h-10 items-center bg-[var(--nxg-red)] px-3 text-[9px] font-semibold uppercase tracking-[0.1em] text-white sm:inline-flex">Estimate</Link>
-          <button type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? "Close navigation menu" : "Open navigation menu"} className="grid h-12 w-12 place-items-center text-[var(--nxg-navy)] transition hover:text-[var(--nxg-red)]">
+          <button type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? "Close navigation menu" : "Open navigation menu"} className={`grid h-12 w-12 place-items-center transition hover:text-[var(--nxg-red)] ${isHome ? "text-white" : "text-[var(--nxg-navy)]"}`}>
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
@@ -48,7 +51,7 @@ export default function Header() {
       {open && (
         <nav id="mobile-nav" className="fixed inset-x-0 top-[72px] bottom-0 z-50 overflow-y-auto border-t border-[var(--nxg-line)] bg-white px-6 pb-10 pt-3 xl:hidden" aria-label="Mobile navigation">
           {links.map((link, index) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="flex min-h-16 items-center justify-between border-b border-[var(--nxg-line)] text-lg font-medium text-[var(--nxg-navy)]"><span>{link.label}</span><span className="font-mono text-[10px] font-medium text-[var(--nxg-red)]">0{index + 1}</span></Link>)}
-          <Link href="/contact" onClick={() => setOpen(false)} className="flex min-h-16 items-center justify-between border-b border-[var(--nxg-line)] text-lg font-medium text-[var(--nxg-navy)]">Contact <span className="font-mono text-[10px] font-medium text-[var(--nxg-red)]">07</span></Link>
+          <Link href="/contact" onClick={() => setOpen(false)} className="flex min-h-16 items-center justify-between border-b border-[var(--nxg-line)] text-lg font-medium text-[var(--nxg-navy)]">Contact <span className="font-mono text-[10px] font-medium text-[var(--nxg-red)]">08</span></Link>
           <Link href="/quote" onClick={() => setOpen(false)} className="mt-6 flex min-h-12 items-center justify-center gap-4 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white">Request an estimate <span aria-hidden="true">↗</span></Link>
         </nav>
       )}

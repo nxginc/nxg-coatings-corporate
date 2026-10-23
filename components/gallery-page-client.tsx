@@ -5,15 +5,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight, X } from "lucide-react"
 import ParallaxHero from "@/components/parallax-hero"
-import { ASSETS } from "@/lib/assets"
-import { galleryProjects } from "@/data/gallery-projects"
+import { serviceGalleryImages } from "@/data/service-gallery-images"
 
-const categories = ["All", ...Array.from(new Set(galleryProjects.map((image) => image.category)))]
+const categories = ["All", ...Array.from(new Set(serviceGalleryImages.map((image) => image.category)))]
 
 export default function GalleryPageClient() {
   const [category, setCategory] = useState("All")
   const [selectedId, setSelectedId] = useState<string | null>(null)
-  const filteredImages = galleryProjects.filter((image) => category === "All" || image.category === category)
+  const filteredImages = serviceGalleryImages.filter((image) => category === "All" || image.category === category)
   const selectedIndex = filteredImages.findIndex((image) => image.id === selectedId)
   const selectedImage = selectedIndex >= 0 ? filteredImages[selectedIndex] : null
 
@@ -26,11 +25,11 @@ export default function GalleryPageClient() {
   return (
     <main className="bg-white text-[var(--nxg-charcoal)]">
       <ParallaxHero
-        eyebrow="NXG Coatings / Selected work"
-        title="See the surface. Consider the finish."
-        description="Browse project photography across residential, commercial, industrial, and multi-family work."
-        image={ASSETS.hero.gallery}
-        imageAlt="NXG Coatings project gallery photography"
+        eyebrow="NXG Coatings / Service imagery"
+        title="Explore finishes by service."
+        description="Browse service imagery across residential, commercial, industrial, and multi-family work."
+        image={serviceGalleryImages[0].src}
+        imageAlt={serviceGalleryImages[0].alt}
         height="medium"
       >
         <Link href="/quote" className="inline-flex min-h-12 items-center gap-4 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">Plan a project <span aria-hidden="true">↗</span></Link>
@@ -38,10 +37,10 @@ export default function GalleryPageClient() {
 
       <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-12 lg:px-10 lg:py-16">
         <div className="flex flex-col justify-between gap-5 border-b border-[var(--nxg-line)] pb-5 sm:flex-row sm:items-end">
-          <div><p className="section-kicker">Project photography</p><h2 className="mt-3 text-3xl font-medium text-[var(--nxg-navy)] sm:text-4xl">Selected NXG work</h2></div>
-          <p className="max-w-md text-sm leading-6 text-[var(--nxg-muted)]">Images are organized by service type. Project details can be added as verified case studies are approved.</p>
+          <div><p className="section-kicker">Service image library</p><h2 className="mt-3 text-3xl font-medium text-[var(--nxg-navy)] sm:text-4xl">Browse service imagery</h2></div>
+          <p className="max-w-md text-sm leading-6 text-[var(--nxg-muted)]">These images illustrate service categories and are not project case studies. Project records remain pending verification and approval.</p>
         </div>
-        <div className="flex gap-2 overflow-x-auto py-5" aria-label="Filter gallery by service">
+        <div className="flex gap-2 overflow-x-auto py-5" aria-label="Filter images by service">
           {categories.map((item) => <button key={item} type="button" aria-pressed={category === item} onClick={() => setCategory(item)} className={`shrink-0 border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition ${category === item ? "border-[var(--nxg-navy)] bg-[var(--nxg-navy)] text-white" : "border-[var(--nxg-line)] text-[var(--nxg-navy)] hover:border-[var(--nxg-red)]"}`}>{item}<span className="ml-2 opacity-65">{item === "All" ? galleryProjects.length : galleryProjects.filter((image) => image.category === item).length}</span></button>)}
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

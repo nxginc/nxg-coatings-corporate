@@ -2,7 +2,7 @@ import { createHash, randomUUID } from "node:crypto"
 import { NextResponse } from "next/server"
 import { z } from "zod"
 import { getAdminEmail } from "@/lib/admin-auth"
-import { CLOUDINARY_UPLOAD_TYPES, getCloudinaryStagingFolder } from "@/lib/cloudinary-assets"
+import { CLOUDINARY_UPLOAD_TYPES, getCloudinaryCredentials, getCloudinaryStagingFolder } from "@/lib/cloudinary-assets"
 import { isIntegrationEnabled } from "@/lib/integration-state"
 
 export const runtime = "nodejs"
@@ -35,12 +35,16 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: "Cloudinary is not enabled for this company." }, { status: 409 })
     }
 
-    const cloudName = process.env.CLOUDINARY_CLOUD_NAME
-    const apiKey = process.env.CLOUDINARY_API_KEY
-    const apiSecret = process.env.CLOUDINARY_API_SECRET
-    if (!cloudName || !apiKey || !apiSecret) {
+    let credentials: ReturnType<typeof getCloudinaryCredentials>
+    try {
+        credentials = getCloudinaryCredentials()
+    } catch {
+        return NextResponse.json({ error: "Cloudinary credentials are invalid." }, { status: 503 })
+    }
+    if (!credentials) {
         return NextResponse.json({ error: "Cloudinary credentials are not configured." }, { status: 503 })
     }
+    const { cloudName, apiKey, apiSecret } = credentials
 
     const { type, campaignSlug, channel } = input.data
     const folder = getCloudinaryStagingFolder(type, campaignSlug, channel)

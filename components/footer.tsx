@@ -5,7 +5,7 @@ import { NXG_SITE } from "@/lib/site-metadata"
 
 const footerGroups = [
   { title: "Work", links: [{ label: "Services", href: "/services" }, { label: "Industries", href: "/industries" }, { label: "Project gallery", href: "/gallery" }, { label: "Our process", href: "/process" }] },
-  { title: "Company", links: [{ label: "About NXG", href: "/about" }, { label: "Partner network", href: "/partners" }, { label: "Contact", href: "/contact" }, { label: "FAQs", href: "/faqs" }] },
+  { title: "Company", links: [{ label: "About NXG", href: "/about" }, { label: "Careers", href: "/careers" }, { label: "Partner network", href: "/tradepartners" }, { label: "Contact", href: "/contact" }, { label: "FAQs", href: "/faqs" }] },
   { title: "Reading", links: [{ label: "Journal", href: "/blog" }, { label: "Privacy", href: "/privacy" }, { label: "Terms", href: "/terms" }] },
 ]
 

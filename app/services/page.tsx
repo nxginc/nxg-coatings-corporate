@@ -14,8 +14,9 @@ const services = [
   { title: "Cabinet refinishing", description: "A new finish for sound kitchen and bath cabinetry without a full replacement project.", image: ASSETS.cabinets.hero, href: "/services/cabinet-refinishing", type: "Specialty" },
   { title: "Deck staining", description: "Cleaning, preparation, and stain or sealer selection for outdoor wood surfaces.", image: ASSETS.services.deck, href: "/services/deck-staining", type: "Exterior" },
   { title: "Fine finish and millwork", description: "Detail-focused finishing for trim, windows, doors, and architectural woodwork.", image: ASSETS.services.fineFinish, href: "/services/fine-finishes", type: "Specialty" },
-  { title: "Pressure cleaning", description: "Surface cleaning and preparation for exterior and outdoor projects.", image: ASSETS.services.pressureCleaning, href: "/quote?service=pressure-cleaning", type: "Preparation" },
-  { title: "Paint restoration", description: "Repair and repainting plans for worn or damaged painted surfaces.", image: ASSETS.services.restoration, href: "/quote?service=restoration", type: "Restoration" },
+  { title: "Pressure cleaning", description: "Surface cleaning and preparation for exterior and outdoor projects.", image: ASSETS.services.pressureCleaning, href: "/services/pressure-cleaning", type: "Preparation" },
+  { title: "Paint restoration", description: "Repair and repainting plans for worn or damaged painted surfaces.", image: ASSETS.services.restoration, href: "/services/paint-restoration", type: "Restoration" },
+  { title: "Protective coatings", description: "Coating scopes for demanding commercial and industrial surfaces.", image: ASSETS.services.protectiveCoatings, href: "/services/protective-coatings", type: "Specialty" },
   { title: "Commercial painting", description: "Phased painting plans for offices, retail, and active commercial properties.", image: ASSETS.industries.commercial, href: "/industries/commercial", type: "Commercial" },
   { title: "Industrial coatings", description: "Coating scopes for facility surfaces, floors, equipment, and safety markings.", image: ASSETS.industries.industrial, href: "/industries/industrial", type: "Industrial" },
 ]

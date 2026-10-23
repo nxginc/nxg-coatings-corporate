@@ -1,6 +1,15 @@
 import { z } from "zod"
 
 const optionalText = (max: number) => z.string().trim().max(max).optional().or(z.literal(""))
+const optionalDate = z.string().trim().max(10).refine((value) => {
+    if (value === "") return true
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value)
+    if (!match) return false
+    const [, year, month, day] = match.map(Number)
+    if (year < 1000) return false
+    const parsed = new Date(Date.UTC(year, month - 1, day))
+    return parsed.getUTCFullYear() === year && parsed.getUTCMonth() === month - 1 && parsed.getUTCDate() === day
+}).optional().or(z.literal(""))
 
 export const contactSubmissionSchema = z.object({
     name: z.string().trim().min(2).max(120),
@@ -11,7 +20,7 @@ export const contactSubmissionSchema = z.object({
     address: optionalText(240),
     message: z.string().trim().min(1).max(5000),
     type: z.enum(["contact", "estimate", "consultation", "virtual_quote"]).optional(),
-    preferredDate: optionalText(10),
+    preferredDate: optionalDate,
     preferredTime: optionalText(40),
     website: optionalText(200),
 })
