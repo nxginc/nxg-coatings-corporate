@@ -99,10 +99,10 @@ const pages = {
     keywords: ["cabinet refinishing", "cabinet painting", "kitchen cabinet refinishing", "bathroom cabinet painting"],
   },
   portfolio: {
-    title: "Painting Projects & Portfolio | NXG Coatings",
+    title: "Painting & Coating Service Imagery | NXG Coatings",
     description:
-      "Explore the NXG Coatings portfolio featuring residential and commercial painting, finishing and renovation projects throughout the Twin Cities and surrounding Minnesota communities.",
-    keywords: ["painting portfolio", "Minneapolis painting projects", "commercial painting projects", "residential painting projects", "before and after painting"],
+      "Browse NXG Coatings service imagery for residential, commercial, industrial, and specialty painting. Verified project case studies are pending review.",
+    keywords: ["painting services", "Minneapolis painting", "commercial painting", "residential painting", "coating services"],
   },
   contact: {
     title: "Contact NXG Coatings | Minneapolis Painting Contractor",

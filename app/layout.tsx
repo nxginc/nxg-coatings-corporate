@@ -5,8 +5,10 @@ import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import ClientMessageWidget from "@/components/client-message-widget"
 import { seo } from "@/lib/seo"
 import { NXG_SERVICE_KNOWLEDGE, NXG_SITE } from "@/lib/site-metadata"
+import { SERVICE_AREAS } from "@/lib/seo"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -45,7 +47,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               telephone: NXG_SITE.phoneE164,
               email: NXG_SITE.email,
               description: NXG_SITE.description,
-              areaServed: NXG_SITE.serviceAreas,
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "5200 Willson Blvd, Suite 150",
+                addressLocality: "Edina",
+                addressRegion: "MN",
+                postalCode: "55424",
+                addressCountry: "US",
+              },
+              areaServed: SERVICE_AREAS,
               knowsAbout: NXG_SERVICE_KNOWLEDGE,
             }),
           }}
@@ -53,6 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <div className="pt-[72px] xl:pt-20">{children}</div>
         <Footer />
+        <ClientMessageWidget />
         <Toaster />
       </body>
     </html>

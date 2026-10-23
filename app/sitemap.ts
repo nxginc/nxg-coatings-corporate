@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/industries", "/industries/residential", "/industries/commercial", "/industries/industrial", "/industries/hoa",
     "/servicearea", "/gallery", "/gallery/cabinets", "/gallery/commercial", "/gallery/decks", "/gallery/exterior",
     "/gallery/hoa", "/gallery/industrial", "/gallery/interior", "/gallery/residential", "/gallery/specialty",
+    "/gallery/protective-coatings", "/gallery/pressure-washing", "/gallery/restoration",
     "/blog", "/faqs", "/process", "/contact", "/quote", "/schedule", "/careers", "/tradepartners", "/partners/directory",
     "/privacy", "/terms",
   ]

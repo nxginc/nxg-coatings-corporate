@@ -74,7 +74,7 @@ export async function POST(request: Request) {
       )
     }
 
-    if (process.env.SMTP_HOST && process.env.CONTACT_TO_EMAIL) {
+    if (process.env.SMTP_HOST && process.env.CONTACT_TO_EMAIL && await isIntegrationEnabled("email")) {
       const emailContent = generateContactEmailTemplate({
         name: submission.data.name,
         email: submission.data.email,

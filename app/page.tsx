@@ -4,6 +4,7 @@ import { Phone } from "lucide-react"
 import { ASSETS } from "@/lib/assets"
 import { NXG_SITE } from "@/lib/site-metadata"
 import HomeEstimateForm from "@/components/home-estimate-form"
+import { serviceGalleryImages } from "@/data/service-gallery-images"
 
 const services = [
   { title: "Exterior painting", description: "Thoughtful preparation and durable finishes for Minnesota homes and properties.", image: ASSETS.services.exterior, href: "/services/exterior-painting" },
@@ -12,13 +13,6 @@ const services = [
   { title: "Deck staining", description: "Surface preparation, staining, and protection for outdoor living spaces.", image: ASSETS.services.deck, href: "/services/deck-staining" },
   { title: "Fine finish and millwork", description: "Detail-focused painting for trim, windows, doors, and architectural woodwork.", image: ASSETS.services.fineFinish, href: "/services/fine-finishes" },
   { title: "Commercial coatings", description: "Coordinated painting and coating work for active business environments.", image: ASSETS.industries.commercial, href: "/industries/commercial" },
-]
-
-const projectImages = [
-  { src: ASSETS.featuredHome.one, alt: "NXG residential exterior painting project", title: "Exterior finishes" },
-  { src: ASSETS.featuredHome.two, alt: "NXG home coating project", title: "Residential coating" },
-  { src: ASSETS.featuredHome.three, alt: "NXG residential painting project", title: "Interior work" },
-  { src: ASSETS.featuredHome.four, alt: "NXG exterior and deck project", title: "Outdoor surfaces" },
 ]
 
 const industries = ["Residential", "Commercial", "Industrial", "HOA and multifamily", "Institutional", "Property management"]
@@ -34,7 +28,7 @@ export default function Home() {
       <section className="relative isolate -mt-[72px] overflow-hidden bg-[var(--nxg-navy)] text-white xl:-mt-20" aria-labelledby="home-hero-title">
         <Image
           src={ASSETS.featuredHome.two}
-          alt="NXG residential painting and coating project"
+          alt="Residential painting and coating service imagery"
           fill
           priority
           sizes="100vw"
@@ -59,7 +53,7 @@ export default function Home() {
                 {NXG_SITE.phoneDisplay}
               </a>
               <Link href="/gallery" className="inline-flex min-h-11 items-center gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-white underline decoration-[var(--nxg-red)] decoration-2 underline-offset-8 transition hover:text-white/75">
-                View recent projects <span aria-hidden="true">↗</span>
+                Browse service imagery <span aria-hidden="true">↗</span>
               </Link>
             </div>
           </div>
@@ -95,8 +89,8 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-20 lg:px-10 lg:py-28">
-        <div className="flex flex-col justify-between gap-6 border-b border-[var(--nxg-line)] pb-7 sm:flex-row sm:items-end"><div><p className="section-kicker">Selected work</p><h2 className="mt-4 text-4xl font-medium sm:text-6xl">See the finish.</h2></div><Link href="/gallery" className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] decoration-2 underline-offset-8">Browse the gallery <span aria-hidden="true">↗</span></Link></div>
-        <div className="mt-7 grid grid-cols-2 gap-3 lg:grid-cols-4">{projectImages.map((image, index) => <Link key={image.src} href="/gallery" aria-label={`View ${image.title.toLowerCase()} in the project gallery`} className={`group relative block overflow-hidden bg-[var(--nxg-paper)] ${index === 0 ? "col-span-2 row-span-2 aspect-square" : "aspect-square"}`}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" /><span className="absolute bottom-3 left-3 bg-[var(--nxg-navy)]/90 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-white">{image.title}</span></Link>)}</div>
+        <div className="flex flex-col justify-between gap-6 border-b border-[var(--nxg-line)] pb-7 sm:flex-row sm:items-end"><div><p className="section-kicker">Service imagery</p><h2 className="mt-4 text-4xl font-medium sm:text-6xl">Explore the finishes.</h2><p className="mt-3 max-w-xl text-sm leading-6 text-[var(--nxg-muted)]">Service imagery only; verified project case studies are pending.</p></div><Link href="/gallery" className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] decoration-2 underline-offset-8">Browse imagery <span aria-hidden="true">↗</span></Link></div>
+        <div className="mt-7 grid grid-cols-2 gap-3 lg:grid-cols-4">{serviceGalleryImages.slice(0, 4).map((image, index) => <Link key={image.id} href="/gallery" aria-label={`Browse ${image.category.toLowerCase()} service imagery`} className={`group relative block overflow-hidden bg-[var(--nxg-paper)] ${index === 0 ? "col-span-2 row-span-2 aspect-square" : "aspect-square"}`}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" /><span className="absolute bottom-3 left-3 bg-[var(--nxg-navy)]/90 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-white">{image.title}</span></Link>)}</div>
       </section>
 
       {/* Enable after matched-pair review: <BeforeAfterSlider project={beforeAfterProjects[0]} /> */}
@@ -104,7 +98,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-[var(--nxg-content-width)] gap-12 lg:grid-cols-[0.9fr_1.1fr]"><div><p className="section-kicker section-kicker--inverse">Where we work</p><h2 className="mt-5 text-4xl font-medium leading-tight sm:text-6xl">A coordinated crew for demanding spaces.</h2><p className="mt-6 max-w-lg text-base leading-7 text-white/65">We work with homeowners, property teams, and businesses across the Twin Cities metro.</p><Link href="/industries" className="mt-7 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-white underline decoration-[var(--nxg-red)] decoration-2 underline-offset-8">Explore industries <span aria-hidden="true">↗</span></Link></div><ul className="grid grid-cols-2 content-start">{industries.map((industry, index) => <li key={industry} className="flex items-center gap-4 border-b border-white/20 py-5 text-sm sm:text-base"><span className="text-[10px] text-[var(--nxg-platinum)]">0{index + 1}</span>{industry}</li>)}</ul></div>
       </section>
 
-      <section className="grid bg-[var(--nxg-red)] px-6 py-14 text-white sm:grid-cols-[1fr_auto] sm:items-center sm:px-10 lg:px-[max(40px,calc((100vw-var(--nxg-content-width))/2))]"><div><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">Trade partners</p><h2 className="mt-3 text-3xl font-medium sm:text-4xl">Build a stronger finish together.</h2><p className="mt-3 max-w-xl text-sm leading-6 text-white/80">Join the NXG trade network for painting and property projects across the Twin Cities.</p></div><Link href="/partners" className="mt-7 inline-flex min-h-12 items-center justify-center gap-5 border border-white/60 px-5 text-xs font-semibold uppercase tracking-[0.12em] transition hover:bg-white hover:text-[var(--nxg-red)] sm:mt-0">Partner with NXG <span aria-hidden="true" className="text-xl">↗</span></Link></section>
+      <section className="grid bg-[var(--nxg-red)] px-6 py-14 text-white sm:grid-cols-[1fr_auto] sm:items-center sm:px-10 lg:px-[max(40px,calc((100vw-var(--nxg-content-width))/2))]"><div><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">Trade partners</p><h2 className="mt-3 text-3xl font-medium sm:text-4xl">Build a stronger finish together.</h2><p className="mt-3 max-w-xl text-sm leading-6 text-white/80">Join the NXG trade network for painting and property projects across the Twin Cities.</p></div><Link href="/tradepartners" className="mt-7 inline-flex min-h-12 items-center justify-center gap-5 border border-white/60 px-5 text-xs font-semibold uppercase tracking-[0.12em] transition hover:bg-white hover:text-[var(--nxg-red)] sm:mt-0">Partner with NXG <span aria-hidden="true" className="text-xl">↗</span></Link></section>
     </main>
   )
 }

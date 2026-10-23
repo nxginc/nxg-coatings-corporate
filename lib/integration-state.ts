@@ -1,7 +1,9 @@
 import { NXG_COMPANY_ID } from "@/lib/company"
 import { getDatabase } from "@/lib/db"
+import { integrationCatalog } from "@/lib/integrations"
 
 export async function isIntegrationEnabled(provider: string) {
+    if (!integrationCatalog.some((definition) => definition.id === provider && definition.operational)) return false
     const database = getDatabase()
     if (!database) return false
 

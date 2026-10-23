@@ -3,10 +3,17 @@ import Link from "next/link"
 import { seo, SERVICE_AREAS } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  ...seo("home", "/servicearea"),
+  ...seo("services", "/servicearea"),
   title: "Service Areas | NXG Coatings Minnesota",
-  description: "NXG Coatings provides residential and commercial painting services throughout Minneapolis, the Twin Cities metro and surrounding Minnesota communities.",
+  description: "NXG Coatings provides painting and coating services in Minneapolis, Edina, St. Paul, Minnetonka, Plymouth, Wayzata and surrounding Twin Cities communities.",
   keywords: [...SERVICE_AREAS, "painting contractors Minnesota", "Twin Cities painting contractors"],
+  openGraph: {
+    type: "website",
+    title: "Twin Cities Service Areas | NXG Coatings",
+    description: "Explore the Minnesota communities served by NXG Coatings for residential, commercial, and specialty painting and coating work.",
+    url: "https://nxgcoatingsinc.com/servicearea",
+    siteName: "NXG Coatings",
+  },
 }
 
 export default function ServiceAreasPage() {

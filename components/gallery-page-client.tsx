@@ -41,7 +41,7 @@ export default function GalleryPageClient() {
           <p className="max-w-md text-sm leading-6 text-[var(--nxg-muted)]">These images illustrate service categories and are not project case studies. Project records remain pending verification and approval.</p>
         </div>
         <div className="flex gap-2 overflow-x-auto py-5" aria-label="Filter images by service">
-          {categories.map((item) => <button key={item} type="button" aria-pressed={category === item} onClick={() => setCategory(item)} className={`shrink-0 border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition ${category === item ? "border-[var(--nxg-navy)] bg-[var(--nxg-navy)] text-white" : "border-[var(--nxg-line)] text-[var(--nxg-navy)] hover:border-[var(--nxg-red)]"}`}>{item}<span className="ml-2 opacity-65">{item === "All" ? galleryProjects.length : galleryProjects.filter((image) => image.category === item).length}</span></button>)}
+          {categories.map((item) => <button key={item} type="button" aria-pressed={category === item} onClick={() => setCategory(item)} className={`shrink-0 border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition ${category === item ? "border-[var(--nxg-navy)] bg-[var(--nxg-navy)] text-white" : "border-[var(--nxg-line)] text-[var(--nxg-navy)] hover:border-[var(--nxg-red)]"}`}>{item}<span className="ml-2 opacity-65">{item === "All" ? serviceGalleryImages.length : serviceGalleryImages.filter((image) => image.category === item).length}</span></button>)}
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {filteredImages.map((image) => (
