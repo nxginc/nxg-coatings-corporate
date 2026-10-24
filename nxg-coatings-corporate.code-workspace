@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../templates"
+		},
+		{
+			"path": "../../../../../Volumes/NXGXV9/NXGXV9/NXGXV9_HD/nxgcoatingsinc"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#571519",
+			"titleBar.activeBackground": "#7A1E23",
+			"titleBar.activeForeground": "#FEFBFB"
+		}
+	}
+}

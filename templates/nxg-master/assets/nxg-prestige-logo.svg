@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="title desc">
+  <title id="title">NXG Prestige Finishes</title>
+  <desc id="desc">NXG Prestige Finishes logo with metallic M icon and red, white and royal blue wordmark.</desc>
+  <defs>
+    <linearGradient id="platinum" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#c0c0c0"/><stop offset="1" stop-color="#777"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".38" stop-color="#d8d8d8"/><stop offset=".58" stop-color="#0c1d34"/><stop offset="1" stop-color="#2468b8"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff2738"/><stop offset="1" stop-color="#86001a"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8 8)">
+    <rect x="0" y="0" width="174" height="174" rx="2" fill="url(#platinum)"/>
+    <path d="M25 145V38h30l31 52 31-52h31v107h-30V83l-32 50-32-50v62z" fill="#0c1d34"/>
+    <path d="M117 174l57-72v72z" fill="url(#red)"/>
+    <text x="196" y="105" font-family="Arial,Helvetica,sans-serif" font-size="82" font-weight="700" letter-spacing="10" fill="url(#red)">N</text>
+    <text x="285" y="105" font-family="Arial,Helvetica,sans-serif" font-size="82" font-weight="300" letter-spacing="10" fill="url(#blue)">XG</text>
+    <text x="198" y="160" font-family="Arial,Helvetica,sans-serif" font-size="33" font-weight="500" letter-spacing="13" fill="#f4f4f4">PRESTIGE</text>
+    <rect x="197" y="180" width="260" height="6" rx="3" fill="url(#red)"/>
+    <text x="208" y="217" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" letter-spacing="8" fill="#f4f4f4">FINISHES</text>
+    <circle cx="361" cy="236" r="3.5" fill="#86001a"/>
+    <text x="198" y="242" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" letter-spacing="5" fill="#fff">STUDIO</text>
+    <text x="378" y="242" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" letter-spacing="5" fill="#fff">STORE</text>
+    <text x="486" y="242" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" letter-spacing="5" fill="#fff">DIV</text>
+  </g>
+</svg>

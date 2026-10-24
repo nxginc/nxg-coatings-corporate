@@ -1,0 +1,32 @@
+{
+  "name": "NXG Final Ingest Blueprint",
+  "version": "1.0.0-final",
+  "sources": [
+    "chat_source_of_truth",
+    "NXG_FINAL_MASTER_EXPORT.zip",
+    "uploaded style.css",
+    "uploaded NXG HTML variants",
+    "uploaded TEMPLATE-START.zip"
+  ],
+  "canonical_docs": [
+    "01-source-ingest/CHAT_SOURCE_OF_TRUTH.md",
+    "02-master-blueprint/MASTER_BLUEPRINT.md",
+    "03-copilot-codex/CODEX_MASTER_INSTRUCTIONS.md",
+    "04-data-contracts/ENTITY_CONTRACT.md",
+    "05-api/API_CONTRACT.md",
+    "06-agents/AGENT_CONTRACT.md",
+    "07-design-system/DESIGN_CONTRACT.md",
+    "08-government-grants/GOV_GRANTS_CONTRACT.md",
+    "09-social-content/SOCIAL_CONTENT_CONTRACT.md",
+    "10-deployment/DEPLOYMENT_CONTRACT.md",
+    "11-roadmap/FINAL_ROADMAP.md",
+    "12-qa/RELEASE_QA.md"
+  ],
+  "status": "final-blueprint-ready",
+  "unknowns_not_invented": [
+    "TJ Maxx Coon Rapids workbook contents",
+    "production OAuth/API credentials",
+    "approved canonical logo asset",
+    "verified production E.164 phone value"
+  ]
+}

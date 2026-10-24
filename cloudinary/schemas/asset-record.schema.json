@@ -1,0 +1,188 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "NXG Cloudinary Asset Record",
+    "type": "object",
+    "required": [
+        "assetId",
+        "companyId",
+        "source",
+        "cloudinary",
+        "assetType",
+        "status",
+        "rights",
+        "createdAt"
+    ],
+    "properties": {
+        "assetId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]{2,119}$"
+        },
+        "companyId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "assetType": {
+            "enum": [
+                "site",
+                "service",
+                "industry",
+                "gallery",
+                "blog",
+                "campaign-social",
+                "meta-ad",
+                "google-ad",
+                "brand-locked"
+            ]
+        },
+        "source": {
+            "type": "object",
+            "required": [
+                "provider",
+                "url",
+                "immutable"
+            ],
+            "properties": {
+                "provider": {
+                    "enum": [
+                        "ImageKit",
+                        "Cloudinary",
+                        "local-approved-source"
+                    ]
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "publicId": {
+                    "type": "string"
+                },
+                "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                },
+                "immutable": {
+                    "type": "boolean",
+                    "const": true
+                }
+            },
+            "additionalProperties": false
+        },
+        "cloudinary": {
+            "type": "object",
+            "required": [
+                "publicId",
+                "folder",
+                "secureUrl",
+                "resourceType"
+            ],
+            "properties": {
+                "publicId": {
+                    "type": "string"
+                },
+                "folder": {
+                    "type": "string",
+                    "pattern": "^nxgcoatings/(staging|approved|production|archive)/"
+                },
+                "secureUrl": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "assetId": {
+                    "type": "string"
+                },
+                "resourceType": {
+                    "enum": [
+                        "image",
+                        "video",
+                        "raw"
+                    ]
+                },
+                "version": {
+                    "type": "integer",
+                    "minimum": 1
+                }
+            },
+            "additionalProperties": false
+        },
+        "status": {
+            "enum": [
+                "staging",
+                "metadata-review",
+                "render-review",
+                "approved",
+                "published",
+                "rejected",
+                "retired"
+            ]
+        },
+        "title": {
+            "type": "string",
+            "maxLength": 180
+        },
+        "altText": {
+            "type": "string",
+            "maxLength": 300
+        },
+        "rights": {
+            "type": "object",
+            "required": [
+                "status",
+                "consentRequired"
+            ],
+            "properties": {
+                "status": {
+                    "enum": [
+                        "unknown",
+                        "verified",
+                        "restricted",
+                        "rejected"
+                    ]
+                },
+                "consentRequired": {
+                    "type": "boolean"
+                },
+                "consentReference": {
+                    "type": "string"
+                },
+                "expiresAt": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "additionalProperties": false
+        },
+        "campaignSlug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "regionGroupIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "uniqueItems": true
+        },
+        "renditions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "uniqueItems": true
+        },
+        "createdBy": {
+            "type": "string"
+        },
+        "createdAt": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "approvedBy": {
+            "type": "string"
+        },
+        "approvedAt": {
+            "type": "string",
+            "format": "date-time"
+        }
+    },
+    "additionalProperties": false
+}

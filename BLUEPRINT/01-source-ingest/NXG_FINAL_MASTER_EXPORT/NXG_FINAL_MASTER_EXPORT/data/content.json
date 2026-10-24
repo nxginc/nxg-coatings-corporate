@@ -1,0 +1,53 @@
+{
+  "schema_version": "nxg.master.v1",
+  "brand": {
+    "name": "NXG Coatings Inc.",
+    "phone_display": "952-855-3520",
+    "phone_binding": "organization.primary_phone",
+    "logo": {
+      "mode": "canonical-placeholder",
+      "text": "NXG",
+      "replace_with_approved_asset": true
+    }
+  },
+  "site": {
+    "name": "NXG Coatings Inc.",
+    "domain": "nxgcoatingsinc.com",
+    "template": "nxg-master",
+    "theme": "clean-finish-exclusive"
+  },
+  "services": [
+    {
+      "id": "interior-exterior",
+      "title": "Interior & Exterior Painting",
+      "status": "active"
+    },
+    {
+      "id": "commercial",
+      "title": "Commercial Painting",
+      "status": "active"
+    },
+    {
+      "id": "industrial",
+      "title": "Industrial Coatings",
+      "status": "active"
+    },
+    {
+      "id": "multifamily-hoa",
+      "title": "Multifamily & HOA",
+      "status": "active"
+    }
+  ],
+  "future_sites": [
+    {
+      "name": "NXG Contractors",
+      "domain": "nxgcontractors.com",
+      "status": "future"
+    },
+    {
+      "name": "NXG Partner Network",
+      "domain": "nxgpartners.com",
+      "status": "future"
+    }
+  ]
+}

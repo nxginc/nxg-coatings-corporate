@@ -1,0 +1,83 @@
+{
+    "version": 1,
+    "provider": "Meta Ads Manager",
+    "sourceServiceArea": "lib/seo.ts:SERVICE_AREAS",
+    "resolutionStatus": "operator_must_resolve_provider_location_ids",
+    "targetingPolicy": {
+        "basis": "Geography and service availability only",
+        "locationIds": null,
+        "radiusMiles": null,
+        "excludeSensitiveAttributes": true,
+        "noProtectedClassOrSensitiveTraitTargeting": true,
+        "verifyMetaSpecialCategoryAndPolicyRequirementsBeforeCampaignCreation": true
+    },
+    "groups": [
+        {
+            "id": "twin-cities-core",
+            "name": "Twin Cities Core",
+            "cities": [
+                "Minneapolis, MN",
+                "St. Paul, MN",
+                "St. Louis Park, MN",
+                "Golden Valley, MN",
+                "Edina, MN"
+            ],
+            "services": [
+                "interior painting",
+                "exterior painting",
+                "commercial painting",
+                "cabinet refinishing"
+            ],
+            "metaLocationIds": [],
+            "enabled": false
+        },
+        {
+            "id": "west-metro",
+            "name": "West Metro",
+            "cities": [
+                "Plymouth, MN",
+                "Minnetonka, MN",
+                "Wayzata, MN",
+                "Orono, MN",
+                "Mound, MN",
+                "Tonka Bay, MN",
+                "Shorewood, MN"
+            ],
+            "services": [
+                "interior painting",
+                "exterior painting",
+                "deck staining",
+                "cabinet refinishing"
+            ],
+            "metaLocationIds": [],
+            "enabled": false
+        },
+        {
+            "id": "southwest-metro",
+            "name": "Southwest Metro",
+            "cities": [
+                "Eden Prairie, MN",
+                "Bloomington, MN",
+                "Chanhassen, MN",
+                "Savage, MN"
+            ],
+            "services": [
+                "interior painting",
+                "exterior painting",
+                "commercial painting",
+                "deck staining"
+            ],
+            "metaLocationIds": [],
+            "enabled": false
+        }
+    ],
+    "rotation": {
+        "unit": "approved creative variant within an approved campaign and region group",
+        "cadenceDays": 14,
+        "minimumObservationDays": 7,
+        "strategy": "one controlled change per review cycle; preserve audience and attribution for comparison",
+        "automaticBudgetChanges": false,
+        "automaticAudienceExpansion": false,
+        "requiresOperatorApproval": true
+    }
+}
