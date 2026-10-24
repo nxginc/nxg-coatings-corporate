@@ -3,10 +3,22 @@ import { NextResponse } from "next/server"
 import { z } from "zod"
 import { getAdminSession } from "@/lib/auth"
 import { getCompanyId, withTransaction } from "@/lib/db"
+import { isDatabaseQueryTimeout } from "@/lib/timeouts.mjs"
 
 const updateSchema = z.object({
   status: z.enum(["under_review", "approved", "declined"]),
 })
+
+function isOpenApplicationConflict(error: unknown): boolean {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "code" in error &&
+    error.code === "23505" &&
+    "constraint" in error &&
+    error.constraint === "nxg_partner_applications_open_email_idx"
+  )
+}
 
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
   const session = await getAdminSession()
@@ -40,6 +52,26 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 
   try {
     const result = await withTransaction(async (client) => {
+      if (parsed.data.status === "under_review") {
+        const conflict = await client.query(
+          `SELECT 1
+           FROM nxg_partner_applications AS reopening
+           JOIN nxg_partner_applications AS open_application
+             ON open_application.company_id = reopening.company_id
+            AND open_application.email = reopening.email
+            AND open_application.id <> reopening.id
+            AND open_application.status IN ('pending', 'under_review')
+           WHERE reopening.company_id = $1
+             AND reopening.id = $2
+             AND reopening.status = 'declined'
+           LIMIT 1`,
+          [companyId, id.data],
+        )
+        if ((conflict.rowCount ?? 0) > 0) {
+          return { application: null, found: true, conflict: true }
+        }
+      }
+
       const updated = await client.query<{ id: string; nxg_id: string; status: string }>(
         `UPDATE nxg_partner_applications
          SET status = $3,
@@ -62,7 +94,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
           "SELECT 1 FROM nxg_partner_applications WHERE company_id = $1 AND id = $2",
           [companyId, id.data],
         )
-        return { application: null, found: (exists.rowCount ?? 0) > 0 }
+        return { application: null, found: (exists.rowCount ?? 0) > 0, conflict: false }
       }
 
       await client.query(
@@ -80,8 +112,18 @@ export async function PATCH(request: Request, { params }: { params: { id: string
         ],
       )
 
-      return { application: updated.rows[0], found: true }
+      return { application: updated.rows[0], found: true, conflict: false }
     })
+
+    if (result.conflict) {
+      return NextResponse.json(
+        {
+          error:
+            "This application cannot be reopened because another application from this email is already pending or under review. Resolve that application first.",
+        },
+        { status: 409 },
+      )
+    }
 
     if (!result.application) {
       return NextResponse.json(
@@ -92,6 +134,24 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 
     return NextResponse.json({ application: result.application, requestId })
   } catch (error) {
+    if (isOpenApplicationConflict(error)) {
+      return NextResponse.json(
+        {
+          error:
+            "This application cannot be reopened because another application from this email is already pending or under review. Resolve that application first.",
+        },
+        { status: 409 },
+      )
+    }
+
+    if (isDatabaseQueryTimeout(error)) {
+      console.error("Partner application status update exceeded the database statement timeout.", { requestId })
+      return NextResponse.json(
+        { error: "Updating the application took too long. Please try again.", requestId },
+        { status: 504 },
+      )
+    }
+
     console.error("Partner application status could not be updated.", { requestId, error })
     return NextResponse.json(
       { error: "Partner application status could not be updated.", requestId },

@@ -2,6 +2,7 @@ import type { NextAuthOptions, Session } from "next-auth"
 import { getServerSession } from "next-auth/next"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { verifyAdminPassword } from "@/lib/admin-password.mjs"
+import { allowRequest } from "@/lib/request-protection"
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.AUTH_SECRET,
@@ -14,7 +15,13 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
+      async authorize(credentials, request) {
+        try {
+          if (!(await allowRequest("admin-login", request.headers, 5, 900))) return null
+        } catch {
+          return null
+        }
+
         const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase()
         const passwordHash = process.env.ADMIN_PASSWORD_HASH
         const email = credentials?.email?.trim().toLowerCase()

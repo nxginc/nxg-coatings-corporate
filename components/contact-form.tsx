@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { corporateProfile } from "@/data/corporate-profile"
+import { clearContactIdempotencyKey, getContactIdempotencyKey } from "@/lib/contact-idempotency"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -31,10 +32,12 @@ export default function ContactForm() {
     setIsSubmitting(true)
 
     try {
+      const idempotencyKey = await getContactIdempotencyKey("contact-form", formData)
       const response = await fetch("/api/contact", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Idempotency-Key': idempotencyKey,
         },
         body: JSON.stringify(formData),
       })
@@ -44,6 +47,7 @@ export default function ContactForm() {
         throw new Error(result.error || "Your message could not be sent.")
       }
 
+      clearContactIdempotencyKey("contact-form", idempotencyKey)
       toast({
         title: "Message sent to NXG",
         description: "Your request was delivered. NXG will follow up using the contact details you provided.",

@@ -70,25 +70,25 @@
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
+}
 
-  @media print {
-    body * {
-      visibility: hidden !important;
-    }
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
 
-    .letter-print-sheet,
-    .letter-print-sheet * {
-      visibility: visible !important;
-    }
+  .letter-print-sheet,
+  .letter-print-sheet * {
+    visibility: visible !important;
+  }
 
-    .letter-print-sheet {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      max-width: none;
-      min-height: 0;
-      padding: 0.5in;
-      box-shadow: none;
-    }
+  .letter-print-sheet {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    padding: 0.5in;
+    box-shadow: none;
   }
 }

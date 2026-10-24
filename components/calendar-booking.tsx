@@ -1,10 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Clock, MapPin, Phone } from "lucide-react"
 import { corporateProfile } from "@/data/corporate-profile"
+import { clearContactIdempotencyKey, getContactIdempotencyKey } from "@/lib/contact-idempotency"
 
 const timeSlots = [
   "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
@@ -20,26 +21,42 @@ export default function CalendarBooking() {
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
   const [error, setError] = useState("")
+  const emailInputRef = useRef<HTMLInputElement>(null)
 
   const handleBooking = async () => {
-    if (!selectedDate || !selectedTime || !name || !email) return
+    if (!selectedDate || !selectedTime) return
+    if (!name.trim()) {
+      setError("Enter your name before requesting a time.")
+      return
+    }
+    if (!email.trim()) {
+      setError("Enter your email address before requesting a time.")
+      return
+    }
+    if (!emailInputRef.current?.checkValidity()) {
+      setError("Enter a valid email address before requesting a time.")
+      return
+    }
 
     setIsBooking(true)
     setError("")
+    const payload = {
+      name: name.trim(),
+      email: email.trim(),
+      phone,
+      service: "Consultation request",
+      message: `Requested date: ${selectedDate}\nPreferred time: ${selectedTime}\nThis is a preferred time, not a confirmed appointment.`,
+    }
     try {
+      const idempotencyKey = await getContactIdempotencyKey("calendar-booking", payload)
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          service: "Consultation request",
-          message: `Requested date: ${selectedDate}\nPreferred time: ${selectedTime}\nThis is a preferred time, not a confirmed appointment.`,
-        }),
+        headers: { "Content-Type": "application/json", "Idempotency-Key": idempotencyKey },
+        body: JSON.stringify(payload),
       })
       const result = (await response.json()) as { error?: string }
       if (!response.ok) throw new Error(result.error || "Your request could not be sent.")
+      clearContactIdempotencyKey("calendar-booking", idempotencyKey)
       setIsBooked(true)
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Your request could not be sent.")
@@ -113,18 +130,25 @@ export default function CalendarBooking() {
               required
               autoComplete="name"
               value={name}
-              onChange={(event) => setName(event.target.value)}
+              onChange={(event) => {
+                setName(event.target.value)
+                setError("")
+              }}
               className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-base"
             />
           </label>
           <label className="block text-sm font-medium text-gray-700">
             Email
             <input
+              ref={emailInputRef}
               required
               type="email"
               autoComplete="email"
               value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={(event) => {
+                setEmail(event.target.value)
+                setError("")
+              }}
               className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-base"
             />
           </label>

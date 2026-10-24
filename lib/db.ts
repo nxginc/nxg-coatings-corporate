@@ -1,4 +1,5 @@
 import { Pool, type PoolClient, type QueryResultRow } from "pg"
+import { DATABASE_STATEMENT_TIMEOUT_MS } from "@/lib/timeouts.mjs"
 
 const globalForDatabase = globalThis as typeof globalThis & { nxgPool?: Pool }
 
@@ -13,6 +14,7 @@ export function getDatabasePool(): Pool {
       max: 5,
       idleTimeoutMillis: 30_000,
       connectionTimeoutMillis: 5_000,
+      statement_timeout: DATABASE_STATEMENT_TIMEOUT_MS,
     })
   }
 

@@ -20,19 +20,18 @@ const heroImage =
 
 export default function TradePartnerApplication() {
   const formRef = useRef<HTMLFormElement>(null)
-  const idempotencyKey = useRef<string | null>(null)
+  const idempotencyKey = useRef<{ fingerprint: string; key: string } | null>(null)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState("")
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string[]>>({})
   const [applicationId, setApplicationId] = useState("")
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setSubmitting(true)
     setError("")
+    setFieldErrors({})
 
     const formData = new FormData(event.currentTarget)
-    const key = idempotencyKey.current ?? crypto.randomUUID()
-    idempotencyKey.current = key
     const payload = {
       contactName: String(formData.get("contactName") ?? ""),
       companyName: String(formData.get("companyName") ?? ""),
@@ -49,6 +48,18 @@ export default function TradePartnerApplication() {
       website: String(formData.get("website") ?? ""),
     }
 
+    if (payload.tradeTypes.length === 0) {
+      setFieldErrors({ tradeTypes: ["Select at least one trade you provide."] })
+      return
+    }
+
+    setSubmitting(true)
+    const fingerprint = JSON.stringify(payload)
+    if (idempotencyKey.current?.fingerprint !== fingerprint) {
+      idempotencyKey.current = { fingerprint, key: crypto.randomUUID() }
+    }
+    const key = idempotencyKey.current.key
+
     try {
       const response = await fetch("/api/tradepartners", {
         method: "POST",
@@ -58,9 +69,16 @@ export default function TradePartnerApplication() {
         },
         body: JSON.stringify(payload),
       })
-      const result = (await response.json()) as { applicationId?: string; error?: string }
+      const result = (await response.json()) as {
+        applicationId?: string
+        error?: string
+        fields?: Record<string, string[]>
+      }
 
-      if (!response.ok) throw new Error(result.error || "We could not submit your application.")
+      if (!response.ok) {
+        setFieldErrors(result.fields ?? {})
+        throw new Error(result.error || "We could not submit your application.")
+      }
 
       setApplicationId(result.applicationId ?? "")
       idempotencyKey.current = null
@@ -135,7 +153,16 @@ export default function TradePartnerApplication() {
                   </p>
                 </div>
 
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  onChange={() => {
+                    setError("")
+                    setFieldErrors({})
+                  }}
+                  className="space-y-4"
+                >
+                  <fieldset disabled={submitting} className="m-0 min-w-0 space-y-4 border-0 p-0">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <label className="block text-sm font-medium text-[#10132b]">
                       Contact name *
@@ -187,7 +214,10 @@ export default function TradePartnerApplication() {
                     </label>
                   </div>
 
-                  <fieldset>
+                  <fieldset
+                    aria-describedby={fieldErrors.tradeTypes ? "trade-types-error" : undefined}
+                    aria-invalid={fieldErrors.tradeTypes ? true : undefined}
+                  >
                     <legend className="text-sm font-medium text-[#10132b]">Trades you provide *</legend>
                     <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-2">
                       {tradeTypes.map((trade) => (
@@ -196,12 +226,19 @@ export default function TradePartnerApplication() {
                             type="checkbox"
                             name="tradeTypes"
                             value={trade}
+                            aria-invalid={fieldErrors.tradeTypes ? true : undefined}
+                            aria-describedby={fieldErrors.tradeTypes ? "trade-types-error" : undefined}
                             className="h-4 w-4 accent-[#214bb6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#214bb6]"
                           />
                           {trade}
                         </label>
                       ))}
                     </div>
+                    {fieldErrors.tradeTypes?.map((message) => (
+                      <p key={message} id="trade-types-error" className="mt-2 text-sm text-red-800">
+                        {message}
+                      </p>
+                    ))}
                   </fieldset>
 
                   <label className="block text-sm font-medium text-[#10132b]">
@@ -259,10 +296,20 @@ export default function TradePartnerApplication() {
                     </span>
                   </label>
 
-                  {error && (
-                    <p className="rounded border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-900" role="alert">
-                      {error}
-                    </p>
+                  {(error || Object.keys(fieldErrors).length > 0) && (
+                    <div className="rounded border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-900" role="alert">
+                      {error && <p>{error}</p>}
+                      {Object.entries(fieldErrors)
+                        .filter(([field]) => field !== "tradeTypes")
+                        .map(([field, messages]) => (
+                          <p key={field}>
+                            <span className="font-semibold">
+                              {field.replace(/([A-Z])/g, " $1").replace(/^./, (letter) => letter.toUpperCase())}:
+                            </span>{" "}
+                            {messages.join(" ")}
+                          </p>
+                        ))}
+                    </div>
                   )}
 
                   <button
@@ -276,6 +323,7 @@ export default function TradePartnerApplication() {
                   <p className="text-xs leading-5 text-slate-500">
                     Do not include payment details, tax identifiers, or sensitive documents in this form.
                   </p>
+                  </fieldset>
                 </form>
               </>
             )}

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Clock, Phone, Mail, User } from "lucide-react"
+import { clearContactIdempotencyKey, getContactIdempotencyKey } from "@/lib/contact-idempotency"
 
 export default function ConsultationBooking() {
   const [formData, setFormData] = useState({
@@ -35,21 +36,24 @@ export default function ConsultationBooking() {
       formData.projectType && `Project type: ${formData.projectType}`,
       formData.message,
     ].filter(Boolean).join("\n")
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      service: "Consultation request",
+      message: message || "The customer requested a consultation.",
+    }
 
     try {
+      const idempotencyKey = await getContactIdempotencyKey("consultation-booking", payload)
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          service: "Consultation request",
-          message: message || "The customer requested a consultation.",
-        }),
+        headers: { "Content-Type": "application/json", "Idempotency-Key": idempotencyKey },
+        body: JSON.stringify(payload),
       })
       const result = (await response.json()) as { error?: string }
       if (!response.ok) throw new Error(result.error || "Your request could not be sent.")
+      clearContactIdempotencyKey("consultation-booking", idempotencyKey)
       setIsSubmitted(true)
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Your request could not be sent.")

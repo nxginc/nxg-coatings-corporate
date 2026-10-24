@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer"
+import { SMTP_TIMEOUTS } from "@/lib/timeouts.mjs"
 
 interface EmailData {
   to: string
@@ -38,22 +39,25 @@ export async function sendEmail({ to, subject, html, text, replyTo }: EmailData)
     port,
     secure,
     requireTLS: !secure,
+    ...SMTP_TIMEOUTS,
     auth: {
       user: process.env.SMTP_USER?.trim(),
       pass: process.env.SMTP_PASS?.trim(),
     },
   })
 
-  const info = await transporter.sendMail({
-    from: process.env.FROM_EMAIL?.trim(),
-    to,
-    subject,
-    html,
-    text,
-    replyTo,
-  })
-
-  return info
+  try {
+    return await transporter.sendMail({
+      from: process.env.FROM_EMAIL?.trim(),
+      to,
+      subject,
+      html,
+      text,
+      replyTo,
+    })
+  } finally {
+    transporter.close()
+  }
 }
 
 function escapeHtml(value: string) {

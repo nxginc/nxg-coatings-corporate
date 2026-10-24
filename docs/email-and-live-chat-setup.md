@@ -20,6 +20,7 @@ Postmark is a good fit for contact, consultation, and admin-reply email because 
    ```
 
    Port 587 uses STARTTLS; `SMTP_SECURE=false` is intentional for this port. Use only a sender address verified in Postmark. Keep all SMTP settings server-side; never prefix them with `NEXT_PUBLIC_`.
+   SMTP connection and greeting attempts time out after 10 seconds; an inactive socket is closed after 30 seconds. Delivery failures, including timeouts, return a controlled error to the caller rather than waiting indefinitely.
 5. For local development, put the actual values in `.env.local` (ignored by Git). For a hosted deployment, add them in the hosting provider's encrypted environment-variable settings for the intended environment, then redeploy.
 6. Verify the contact form and each consultation/booking form in a non-production environment first. Confirm receipt at `CONTACT_TO_EMAIL`, then reply to a test inquiry and verify that its reply-to address is the submitter. Check provider activity and application logs if delivery fails.
 
@@ -40,3 +41,11 @@ Crisp conversations go to Crisp, not to the site's SMTP inbox or CRM. Configure 
 ## Current activation status
 
 The SMTP sender and Crisp widget are wired to environment variables, but neither service is active in production until the account setup and environment values are supplied by an authorized administrator. No secrets should be sent in chat or committed to this repository.
+
+## Database request timeout
+
+PostgreSQL statements use a fixed 15-second server-side `statement_timeout`. A statement timeout is returned to the request handler as a controlled gateway-timeout response; it is not silently retried.
+
+Apply `db/migrations/002_public_request_protection.sql` to the shared PostgreSQL database before enabling partner or contact submissions. Rate-limit counters and contact idempotency records are stored there so they are shared across app instances. If this storage is unavailable, public submissions and admin credential verification fail closed rather than bypassing protection. Contact delivery cannot be made exactly-once across SMTP and PostgreSQL; if delivery confirmation is uncertain, retries with the same key are not sent again, and the caller is asked to contact NXG before resubmitting.
+
+Contact callers should send a UUID `Idempotency-Key` and reuse it only for retries of the same payload. Legacy unkeyed requests remain accepted, but separate retries cannot be deduplicated.
