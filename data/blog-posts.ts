@@ -1,4 +1,4 @@
-import type { BlogPostMeta } from "@/components/blog-card"
+import type { BlogPostMeta } from "@/data/blog-types"
 
 export const blogPosts: BlogPostMeta[] = [
   {

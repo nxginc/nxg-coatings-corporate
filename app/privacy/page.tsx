@@ -86,6 +86,14 @@ export default function PrivacyPolicyPage() {
               We may share your information with third-party vendors, service providers, contractors, or agents who
               perform services for us or on our behalf.
             </p>
+            <p>
+              If the Crisp live-chat widget is enabled, messages and related technical or session information you
+              provide through chat are sent to Crisp to provide the conversation service. See the{" "}
+              <a href="https://crisp.chat/en/privacy/" target="_blank" rel="noopener noreferrer">
+                Crisp Privacy Policy
+              </a>{" "}
+              for information about its data practices.
+            </p>
             <h3>Legal Requirements</h3>
             <p>
               We may disclose your information where required to do so by law or in response to valid requests by public

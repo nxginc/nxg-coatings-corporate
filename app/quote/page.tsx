@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import EnhancedHero from "@/components/enhanced-hero"
-import { MultiStepForm } from "@/components/multi-step-form"
+import ContactForm from "@/components/contact-form"
 
 export const metadata: Metadata = {
   title: "Get a Free Quote | NXG Coatings",
@@ -25,7 +25,7 @@ export default function QuotePage() {
               <p className="text-gray-600 mb-8 text-center">
                 Complete this form and our team will get back to you with a detailed quote for your project.
               </p>
-              <MultiStepForm />
+              <ContactForm />
             </div>
           </div>
         </div>
