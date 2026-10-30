@@ -1,8 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Phone } from "lucide-react"
 import { ASSETS } from "@/lib/assets"
-import { NXG_SITE } from "@/lib/site-metadata"
 import HomeEstimateForm from "@/components/home-estimate-form"
 import { serviceGalleryImages } from "@/data/service-gallery-images"
 
@@ -48,10 +46,6 @@ export default function Home() {
               Professional painting and coating services for homes, businesses, and facilities throughout the Twin Cities.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-              <a href={`tel:${NXG_SITE.phoneE164}`} className="inline-flex min-h-11 items-center gap-3 text-sm font-semibold text-white transition hover:text-[var(--nxg-platinum)]">
-                <span aria-hidden="true" className="grid h-8 w-8 place-items-center border border-white/35"><Phone className="h-4 w-4" /></span>
-                {NXG_SITE.phoneDisplay}
-              </a>
               <Link href="/gallery" className="inline-flex min-h-11 items-center gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-white underline decoration-[var(--nxg-red)] decoration-2 underline-offset-8 transition hover:text-white/75">
                 Browse service imagery <span aria-hidden="true">↗</span>
               </Link>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { PartnersPage } from "@/app/partners/page"
+import PartnersPage from "@/app/partners/page"
 
 export const metadata: Metadata = {
   title: "Trade Partner Network | NXG Coatings",

@@ -4,8 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Calendar, MapPin, Phone } from "lucide-react"
-import { NXG_SITE } from "@/lib/site-metadata"
+import { Calendar, MapPin } from "lucide-react"
 
 const timeSlots = [
   "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
@@ -76,10 +75,6 @@ export default function CalendarBooking() {
               <p className="flex items-center justify-center mb-1">
                 <MapPin className="w-4 h-4 mr-1" />
                 5200 Willson Blvd, Suite 150, Edina, MN 55424
-              </p>
-              <p className="flex items-center justify-center">
-                <Phone className="w-4 h-4 mr-1" />
-                {NXG_SITE.phoneDisplay}
               </p>
             </div>
           </div>
@@ -173,10 +168,7 @@ export default function CalendarBooking() {
         <div className="pt-4 border-t border-gray-200">
           <h4 className="text-sm font-medium text-gray-900 mb-2">Need help booking?</h4>
           <div className="space-y-1 text-sm text-gray-600">
-            <p className="flex items-center">
-              <Phone className="w-4 h-4 mr-2" />
-              Call us: {NXG_SITE.phoneDisplay}
-            </p>
+            <a className="text-[var(--nxg-navy)] underline" href="mailto:info@nxgcoatingsinc.com">Email info@nxgcoatingsinc.com</a>
             <p className="flex items-center">
               <MapPin className="w-4 h-4 mr-2" />
               Edina, Minnesota

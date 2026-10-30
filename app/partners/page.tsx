@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     },
 }
 
-export function PartnersPage() {
+function PartnersPage() {
     return <main className="bg-white text-[var(--nxg-charcoal)]">
         <section className="relative flex min-h-[380px] items-end overflow-hidden bg-[var(--nxg-navy)] text-white sm:min-h-[480px]">
             <Image src={ASSETS.services.exterior} alt="Exterior painting project" fill priority sizes="100vw" className="object-cover opacity-35" />

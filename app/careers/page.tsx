@@ -1,9 +1,12 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Mail, Phone } from "lucide-react"
+import { ArrowUpRight, Mail } from "lucide-react"
 import { ASSETS } from "@/lib/assets"
+import { getPublishedCareerOpenings } from "@/lib/careers"
 import { NXG_SITE } from "@/lib/site-metadata"
+
+export const dynamic = "force-dynamic"
 
 export const metadata: Metadata = {
   title: "Careers | NXG Coatings",
@@ -11,7 +14,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://nxgcoatingsinc.com/careers" },
 }
 
-export default function CareersPage() {
+export default async function CareersPage() {
+  const openings = await getPublishedCareerOpenings()
+
   return (
     <main className="bg-white text-[var(--nxg-charcoal)]">
       <section className="relative isolate flex min-h-[min(64svh,620px)] items-end overflow-hidden bg-[var(--nxg-navy)] text-white">
@@ -44,7 +49,7 @@ export default function CareersPage() {
           <p className="section-kicker">Working with NXG</p>
           <h2 className="mt-4 max-w-2xl text-3xl font-medium leading-tight text-[var(--nxg-navy)] sm:text-5xl">A team committed to careful work.</h2>
           <p className="mt-5 max-w-2xl text-sm leading-7 text-[var(--nxg-muted)]">
-            NXG plans painting and coating projects for homes, businesses, and facilities. For current openings, role requirements, and application instructions, please contact our team directly. We do not publish or accept applications for roles through this page.
+            NXG plans painting and coating projects for homes, businesses, and facilities. Published openings are managed by the NXG team; contact us to ask about a role and next steps.
           </p>
           <Link href="/about" className="mt-7 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] decoration-2 underline-offset-8">
             Learn about NXG <ArrowUpRight className="h-4 w-4" />
@@ -55,10 +60,24 @@ export default function CareersPage() {
           <a href={`mailto:${NXG_SITE.email}?subject=Career%20inquiry`} className="mt-5 flex items-center gap-3 text-sm text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]">
             <Mail className="h-4 w-4" /> {NXG_SITE.email}
           </a>
-          <a href={`tel:${NXG_SITE.phoneE164}`} className="mt-4 flex items-center gap-3 text-sm text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]">
-            <Phone className="h-4 w-4" /> {NXG_SITE.phoneDisplay}
-          </a>
         </aside>
+      </section>
+      <section aria-labelledby="career-openings-heading" className="mx-auto max-w-[var(--nxg-content-width)] px-6 pb-16 lg:px-10 lg:pb-20">
+        <h2 id="career-openings-heading" className="text-3xl font-medium text-[var(--nxg-navy)] sm:text-4xl">Current opportunities</h2>
+        {openings.length ? <ul className="mt-6 divide-y divide-[var(--nxg-line)] border-y border-[var(--nxg-line)]">
+          {openings.map((opening) => <li key={opening.id} className="grid gap-5 py-6 md:grid-cols-[1fr_auto] md:items-start">
+            <div>
+              <h3 className="text-xl font-semibold text-[var(--nxg-navy)]">{opening.title}</h3>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.1em] text-[var(--nxg-muted)]">{opening.location} · {opening.employmentType}</p>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--nxg-muted)]">{opening.summary}</p>
+              {opening.details && <p className="mt-3 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-[var(--nxg-muted)]">{opening.details}</p>}
+            </div>
+            <a href={`mailto:${NXG_SITE.email}?subject=${encodeURIComponent(`Career inquiry - ${opening.title}`)}`} className="inline-flex min-h-11 items-center gap-3 text-xs font-semibold uppercase tracking-[0.1em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] decoration-2 underline-offset-4">
+              Ask about this role <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </li>)}
+        </ul> : <p className="mt-5 max-w-2xl text-sm leading-7 text-[var(--nxg-muted)]">There are no published openings at this time. Contact NXG if you would like to ask about future opportunities.</p>}
+        <p className="mt-5 text-xs leading-5 text-[var(--nxg-muted)]">Role inquiries go directly to NXG by email. This page does not collect applications or candidate information.</p>
       </section>
     </main>
   )

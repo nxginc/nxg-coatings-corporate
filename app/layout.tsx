@@ -5,7 +5,7 @@ import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import ClientMessageWidget from "@/components/client-message-widget"
+import WebsiteChatWidget from "@/components/website-chat-widget"
 import { seo } from "@/lib/seo"
 import { NXG_SERVICE_KNOWLEDGE, NXG_SITE } from "@/lib/site-metadata"
 import { SERVICE_AREAS } from "@/lib/seo"
@@ -44,7 +44,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               "@type": "HomeAndConstructionBusiness",
               name: NXG_SITE.name,
               url: NXG_SITE.url,
-              telephone: NXG_SITE.phoneE164,
               email: NXG_SITE.email,
               description: NXG_SITE.description,
               address: {
@@ -63,7 +62,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <div className="pt-[72px] xl:pt-20">{children}</div>
         <Footer />
-        <ClientMessageWidget />
+        <WebsiteChatWidget />
         <Toaster />
       </body>
     </html>

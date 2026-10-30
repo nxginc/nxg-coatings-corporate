@@ -103,7 +103,7 @@ export default function GovernmentOpportunitiesDashboard() {
           <dl className="mt-5 space-y-3 text-sm">
             <div><dt className="text-xs font-semibold text-[var(--nxg-muted)]">Legal name</dt><dd>{NXG_CORPORATE_PROFILE.legalName}</dd></div>
             <div><dt className="text-xs font-semibold text-[var(--nxg-muted)]">Address</dt><dd>{NXG_CORPORATE_PROFILE.addressLines.join(", ")}</dd></div>
-            <div><dt className="text-xs font-semibold text-[var(--nxg-muted)]">Contact</dt><dd>{NXG_CORPORATE_PROFILE.phone} · {NXG_CORPORATE_PROFILE.email}</dd></div>
+            <div><dt className="text-xs font-semibold text-[var(--nxg-muted)]">Contact</dt><dd>{NXG_CORPORATE_PROFILE.email}</dd></div>
             <div><dt className="text-xs font-semibold text-[var(--nxg-muted)]">Website</dt><dd>{NXG_CORPORATE_PROFILE.website}</dd></div>
           </dl>
         </section>

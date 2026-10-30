@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { CheckCircle2, ArrowLeft, Mail, Phone } from "lucide-react"
+import { CheckCircle2, ArrowLeft, Mail } from "lucide-react"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { Card, CardContent } from "@/components/ui/card"
-import { NXG_SITE } from "@/lib/site-metadata"
 
 export const metadata: Metadata = {
   title: "Thank You | NXG Coatings",
@@ -63,10 +62,6 @@ export default function ContactSuccessPage() {
                   Need immediate assistance?
                 </h3>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <div className="flex items-center gap-2 text-sm text-[var(--nxg-muted)]">
-                    <Phone className="w-4 h-4" />
-                    <a href={`tel:${NXG_SITE.phoneE164}`}>{NXG_SITE.phoneDisplay}</a>
-                  </div>
                   <div className="flex items-center gap-2 text-sm text-[var(--nxg-muted)]">
                     <Mail className="w-4 h-4" />
                     <a href="mailto:info@nxgcoatingsinc.com">info@nxgcoatingsinc.com</a>

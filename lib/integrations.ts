@@ -11,7 +11,7 @@ export type IntegrationDefinition = {
 }
 
 export const integrationCatalog: IntegrationDefinition[] = [
-    { id: "contentstack", name: "Contentstack", category: "cms", description: "Webhook-triggered path revalidation only; CMS content delivery and synchronization are not implemented.", requiredEnv: ["CONTENTSTACK_WEBHOOK_SECRET"], connection: "server_token", operational: true },
+    { id: "contentstack", name: "Contentstack", category: "cms", description: "Read published blog entries and sync approved blog drafts to the configured Contentstack stack; CMS publication remains manual.", requiredEnv: ["CONTENTSTACK_API_KEY", "CONTENTSTACK_DELIVERY_TOKEN", "CONTENTSTACK_ENVIRONMENT", "CONTENTSTACK_REGION", "CONTENTSTACK_BLOG_CONTENT_TYPE_UID"], connection: "server_token", operational: true },
     { id: "hubspot", name: "HubSpot", category: "crm", description: "Sync contact submissions and retry pending lead syncs.", requiredEnv: ["HUBSPOT_PRIVATE_APP_TOKEN"], connection: "server_token", operational: true },
     { id: "vista-social", name: "Vista Social", category: "social", description: "Provider adapter is not implemented; social drafts remain in the NXG review workflow.", requiredEnv: ["VISTA_SOCIAL_API_TOKEN", "VISTA_SOCIAL_WORKSPACE_ID"], connection: "server_token", operational: false },
     { id: "cloudinary", name: "Cloudinary", category: "media", description: "Sign staging media uploads; the dashboard upload client and asset approval flow are not implemented.", requiredEnv: ["CLOUDINARY_CLOUD_NAME", "CLOUDINARY_API_KEY", "CLOUDINARY_API_SECRET"], connection: "upload_credentials", operational: true },
@@ -39,6 +39,10 @@ export function getIntegrationReadiness(definition: IntegrationDefinition) {
             missingEnv = []
             configurationError = "CLOUDINARY_URL is invalid."
         }
+    }
+    if (definition.id === "contentstack" && process.env.CONTENTSTACK_REGION?.trim()) {
+        const region = process.env.CONTENTSTACK_REGION.trim().toLocaleLowerCase()
+        if (!["us", "eu", "au"].includes(region)) configurationError = "CONTENTSTACK_REGION must be us, eu, or au."
     }
     return {
         ...definition,

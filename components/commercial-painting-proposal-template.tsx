@@ -274,7 +274,7 @@ export default function CommercialPaintingProposalTemplate({
           <p className="commercial-proposal__authorization-validity">Valid for {validityPeriod} from date of issue.</p>
         </ProposalSection>
         <footer className="commercial-proposal__footer">
-          <span>{companyProfile.phone}</span>
+          {companyProfile.phone && <span>{companyProfile.phone}</span>}
           <span>{companyProfile.email}</span>
           <span>{companyProfile.website}</span>
           <span>{jurisdiction}</span>

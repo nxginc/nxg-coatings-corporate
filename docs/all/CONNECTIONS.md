@@ -15,7 +15,7 @@ paste them into chat.
 | Email / Mailtrap | `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `FROM_EMAIL`, `CONTACT_TO_EMAIL` | Sends contact notifications through SMTP when configured and enabled in the admin Connections page. For Mailtrap, copy its SMTP host, username, and password from the Email Sending SMTP settings. `MAILTRAP_API_TOKEN` is not consumed by this app and cannot replace `SMTP_PASS`. |
 | HubSpot | `HUBSPOT_PRIVATE_APP_TOKEN` | Syncs contact submissions after the HubSpot integration is enabled. A token alone does not enable sync. |
 | Cloudinary | Either `CLOUDINARY_URL` or `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` | Signs staging upload requests to `nxgcoatings/staging/intake/<type>`. The URL form is parsed server-side; the API secret is never returned to the browser. Cloudinary creates the remote folder when an authorized upload is first made. |
-| Contentstack | `CONTENTSTACK_WEBHOOK_SECRET` | Validates webhook-triggered path revalidation. CMS content delivery and synchronization are not implemented. |
+| Contentstack | `CONTENTSTACK_API_KEY`, `CONTENTSTACK_DELIVERY_TOKEN`, `CONTENTSTACK_ENVIRONMENT`, `CONTENTSTACK_REGION`, `CONTENTSTACK_BLOG_CONTENT_TYPE_UID`; optional `CONTENTSTACK_LOCALE`. Draft sync additionally requires `CONTENTSTACK_MANAGEMENT_TOKEN`; optional `CONTENTSTACK_BLOG_FIELD_MAP` maps local article fields to stack field UIDs. | Reads published blog entries into `/blog` and the dynamic sitemap when enabled. `/dashboard/connections` has a read-only delivery check. Approved local drafts can be created or updated in Contentstack from `/dashboard/content`; CMS entries remain unpublished until separately published by an authorized reviewer in Contentstack. Keep both tokens server-only. |
 | Government opportunity tracker | No provider credentials | Stores operator-entered opportunities with source links in the admin workspace. It does not authenticate to grant portals, submit applications, or automate batch submissions. |
 
 ## Catalog entries that still need implementation or account authorization
@@ -38,9 +38,9 @@ environment variables alone do not create an integration:
   and other future workflows. Those references are not active connectors in
   this website. Add provider code and a reviewable authorization flow before
   requesting or storing their credentials.
-- The site's client message widget submits an asynchronous CRM contact lead;
-  it is not live chat and does not support threaded replies. Messenger account
-  connection and inbox handling are not implemented.
+- The site chat widget stores token-protected asynchronous conversations in
+  Postgres; staff can reply from `/dashboard/chat`. This is not real-time
+  staffed support, external Messenger inbox integration, or model-powered AI.
 - Admins can send individual lead email replies after explicit confirmation.
   SMTP must be configured and enabled; attempts and delivery results are kept
   in the CRM reply history.
@@ -71,6 +71,17 @@ environment variables alone do not create an integration:
   connected by this repository; a key in the environment does not create the
   connector. Implement OAuth, scope validation, provider-side account checks,
   audit records, and approval gates before enabling those actions.
+- Paid-media plans, proposed budgets, keyword themes, and paid UTM previews in
+  the marketing workbench are internal drafts. They do not launch campaigns or
+  spend money. `db/migrations/008_campaign_ad_plans.sql` adds the planning
+  metadata.
+- Approved editorial drafts can be synced to Contentstack through the
+  Management API after configuring its server-side token and applying
+  `009_contentstack_entry_sync.sql`. The default field mapping is `title`,
+  `url`, `excerpt`, `body_markdown`, and `category`. To use different field
+  UIDs, set `CONTENTSTACK_BLOG_FIELD_MAP` to a JSON object with `title`,
+  `slug`, `excerpt`, `bodyMarkdown`, and `category` properties. Draft sync
+  never publishes; use Contentstack's own reviewed publish workflow.
 - Regional SEO can improve crawlable metadata, structured business details,
   sitemap coverage, and on-page relevance, but search rankings are controlled
   by search engines and cannot be guaranteed by an admin toggle.
@@ -78,6 +89,18 @@ environment variables alone do not create an integration:
   limits, rate limiting, observability, backups, and load testing. This app's
   current PostgreSQL pool and deployment manifest do not constitute an
   autoscaling configuration.
+
+Apply migrations in numeric order through `010_career_openings.sql`;
+this release adds `007_chat_inbox.sql` for website chat transcripts and staff
+replies, `008_campaign_ad_plans.sql` for paid-media planning metadata,
+`009_contentstack_entry_sync.sql` for Contentstack entry linkage, and
+`010_career_openings.sql` for admin-managed careers listings. For
+Contentstack, configure a `blog_post` content type (or set
+`CONTENTSTACK_BLOG_CONTENT_TYPE_UID`) with `title`, `slug` or `url`, `excerpt`,
+`body_markdown`/`body`, `category`, and an optional `publish_date`,
+`read_time`, and `featured_image`. Supported delivery and Management API
+regions are `us`, `eu`, and `au`. Delivery entries are read-only; approved
+local drafts can be synced with the configured Management token.
 
 If an account credential is unavailable, leave that integration disabled and
 request the credential through the approved local/deployment secret manager.

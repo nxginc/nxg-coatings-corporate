@@ -18,7 +18,7 @@ export type CorporateProfile = {
   displayName: string
   tagline: string
   addressLines: string[]
-  phone: string
+  phone?: string
   email: string
   website: string
   logoUrl: string
@@ -44,7 +44,6 @@ export const NXG_CORPORATE_PROFILE: CorporateProfile = {
   displayName: "NXG Coatings Inc.",
   tagline: "Professional painting and coating services",
   addressLines: ["5200 Willson Blvd, Suite 150", "Edina, MN 55424"],
-  phone: NXG_SITE.phoneDisplay,
   email: NXG_SITE.email,
   website: "nxgcoatingsinc.com",
   logoUrl: ASSETS.logo.primary,

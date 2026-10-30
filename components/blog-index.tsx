@@ -4,16 +4,15 @@ import { useState } from "react"
 import { Search, X } from "lucide-react"
 import BlogCard from "@/components/blog-card"
 import BlogFeaturedPost from "@/components/blog-featured-post"
-import { publishedBlogPosts } from "@/data/blog-posts"
+import { publishedBlogPosts, type BlogPostMeta } from "@/data/blog-posts"
 
-const categories = ["All", ...Array.from(new Set(publishedBlogPosts.map((post) => post.category)))]
-const featuredPost = publishedBlogPosts.find((post) => post.featured) ?? publishedBlogPosts[0]
-
-export default function BlogIndex() {
+export default function BlogIndex({ posts = publishedBlogPosts }: { posts?: BlogPostMeta[] }) {
   const [query, setQuery] = useState("")
   const [category, setCategory] = useState("All")
+  const categories = ["All", ...Array.from(new Set(posts.map((post) => post.category)))]
+  const featuredPost = posts.find((post) => post.featured) ?? posts[0]
   const normalizedQuery = query.trim().toLocaleLowerCase()
-  const filteredPosts = publishedBlogPosts.filter((post) => {
+  const filteredPosts = posts.filter((post) => {
     const matchesCategory = category === "All" || post.category === category
     const matchesQuery = !normalizedQuery || `${post.title} ${post.excerpt} ${post.category}`.toLocaleLowerCase().includes(normalizedQuery)
     return matchesCategory && matchesQuery && post.slug !== featuredPost.slug

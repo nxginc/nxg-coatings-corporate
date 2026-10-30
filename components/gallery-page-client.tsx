@@ -45,11 +45,14 @@ export default function GalleryPageClient() {
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {filteredImages.map((image) => (
-            <button key={image.id} type="button" onClick={() => setSelectedId(image.id)} className="group relative block min-w-0 overflow-hidden bg-[var(--nxg-paper)] text-left focus-visible:outline-offset-4">
+            <div key={image.id} className="min-w-0 border border-[var(--nxg-line)] bg-white">
+            <button type="button" onClick={() => setSelectedId(image.id)} className="group relative block w-full min-w-0 overflow-hidden bg-[var(--nxg-paper)] text-left focus-visible:outline-offset-4">
               <div className="relative aspect-[4/3] overflow-hidden"><Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.035]" /></div>
               <span className="absolute left-3 top-3 bg-white px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.13em] text-[var(--nxg-navy)]">{image.category}</span>
               <span className="flex items-center justify-between gap-3 px-4 py-3 text-sm font-medium text-[var(--nxg-navy)]"><span>{image.title}</span><span aria-hidden="true" className="text-[var(--nxg-red)]">↗</span></span>
             </button>
+            <Link href={image.href} className="block border-t border-[var(--nxg-line)] px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--nxg-red)] hover:text-[var(--nxg-navy)]">Explore this service <span aria-hidden="true">↗</span></Link>
+            </div>
           ))}
         </div>
       </section>

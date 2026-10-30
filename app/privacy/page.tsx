@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import ParallaxHero from "@/components/parallax-hero"
 import { ASSETS } from "@/lib/assets"
-import { NXG_SITE } from "@/lib/site-metadata"
 
 export const metadata: Metadata = {
   title: "Privacy Policy | NXG Coatings",
@@ -38,8 +37,6 @@ export default function PrivacyPolicyPage() {
               Edina, MN 55424
               <br />
               Email: privacy@nxgcoatingsinc.com
-              <br />
-              Phone: {NXG_SITE.phoneDisplay}
             </p>
           </div>
 

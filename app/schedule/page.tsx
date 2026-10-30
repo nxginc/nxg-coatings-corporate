@@ -3,9 +3,8 @@ import ParallaxHero from "@/components/parallax-hero"
 import CalendarBooking from "@/components/calendar-booking"
 import { FancyButton } from "@/components/ui/fancy-button"
 import { CTAModal } from "@/components/cta-modal"
-import { Check, Calendar, Phone } from "lucide-react"
+import { Check, Calendar } from "lucide-react"
 import { ASSETS } from "@/lib/assets"
-import { NXG_SITE } from "@/lib/site-metadata"
 
 export const metadata: Metadata = {
   title: "Schedule Service | NXG Coatings",
@@ -90,13 +89,6 @@ export default function SchedulePage() {
             <div className="mt-12 border-t border-[var(--nxg-line)] pt-7">
               <h2 className="text-xl font-semibold text-[var(--nxg-navy)]">Prefer direct contact?</h2>
               <div className="mt-5 grid gap-6 sm:grid-cols-2">
-                <div>
-                  <div className="flex items-center gap-2 text-[var(--nxg-red)]"><Phone className="h-4 w-4" /><h3 className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)]">Call NXG</h3></div>
-                  <a href={`tel:${NXG_SITE.phoneE164}`} className="mt-2 inline-block text-sm font-semibold text-[var(--nxg-navy)] hover:text-[var(--nxg-red)]">
-                    {NXG_SITE.phoneDisplay}
-                  </a>
-                </div>
-
                 <div>
                   <div className="flex items-center gap-2 text-[var(--nxg-red)]"><Calendar className="h-4 w-4" /><h3 className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)]">Email NXG</h3></div>
                   <a

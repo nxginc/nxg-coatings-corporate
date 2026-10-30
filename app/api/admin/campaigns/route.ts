@@ -29,6 +29,13 @@ const campaignSchema = z.object({
         cta: z.string().max(200).optional(),
         hashtags: z.array(z.string().max(60)).max(40).default([]),
     })).default({}),
+    adPlan: z.object({
+        channel: z.enum(["google_ads", "meta_ads"]),
+        goal: z.enum(["estimate_requests", "service_awareness", "website_visits"]),
+        geography: z.string().trim().min(2).max(160),
+        monthlyBudgetCents: z.number().int().nonnegative().optional(),
+        keywords: z.array(z.string().trim().min(2).max(80)).max(30).default([]),
+    }).optional(),
 }).refine((campaign) => campaign.landingPath === `/campaigns/${campaign.slug}`, {
     message: "Campaign landing path must match its slug.",
     path: ["landingPath"],
@@ -41,7 +48,7 @@ export async function GET() {
 
     const { rows } = await database.query(
         `select id, slug, title, description, service, audience, landing_path as "landingPath", image_url as "imageUrl",
-            asset_ids as "assetIds", channel_variants as "channelVariants", status, created_at as "createdAt", updated_at as "updatedAt"
+            asset_ids as "assetIds", channel_variants as "channelVariants", ad_plan as "adPlan", status, created_at as "createdAt", updated_at as "updatedAt"
       from nxg_campaigns where company_id = $1 order by updated_at desc limit 200`,
         [NXG_COMPANY_ID],
     )
@@ -58,10 +65,10 @@ export async function POST(request: Request) {
     if (!database) return NextResponse.json({ error: "Campaign database is not configured." }, { status: 503 })
     try {
         const { rows } = await database.query(
-            `insert into nxg_campaigns (company_id, slug, title, description, service, audience, landing_path, image_url, asset_ids, channel_variants, created_by)
-          values ($1, $2, $3, $4, $5, $6, $7, nullif($8, ''), $9::jsonb, $10::jsonb, $11)
+            `insert into nxg_campaigns (company_id, slug, title, description, service, audience, landing_path, image_url, asset_ids, channel_variants, ad_plan, created_by)
+          values ($1, $2, $3, $4, $5, $6, $7, nullif($8, ''), $9::jsonb, $10::jsonb, $11::jsonb, $12)
        returning id, slug, title, status, created_at as "createdAt"`,
-            [NXG_COMPANY_ID, input.data.slug, input.data.title, input.data.description, input.data.service, input.data.audience, input.data.landingPath, input.data.imageUrl || "", JSON.stringify(input.data.assetIds), JSON.stringify(input.data.channelVariants), actor],
+            [NXG_COMPANY_ID, input.data.slug, input.data.title, input.data.description, input.data.service, input.data.audience, input.data.landingPath, input.data.imageUrl || "", JSON.stringify(input.data.assetIds), JSON.stringify(input.data.channelVariants), JSON.stringify(input.data.adPlan || {}), actor],
         )
         await database.query(
             "insert into nxg_admin_audit_events (company_id, actor, action, entity_type, entity_id) values ($1, $2, 'campaign.created', 'campaign', $3)",

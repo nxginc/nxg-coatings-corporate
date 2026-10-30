@@ -35,6 +35,7 @@ export default function IntegrationConnections() {
     const [error, setError] = useState("")
     const [saving, setSaving] = useState<string | null>(null)
     const [notice, setNotice] = useState("")
+    const [contentstackCheck, setContentstackCheck] = useState("")
 
     async function load() {
         setLoading(true)
@@ -87,6 +88,23 @@ export default function IntegrationConnections() {
         } finally {
             setSaving(null)
         }
+
+    }
+
+    async function testContentstack() {
+        setSaving("contentstack-test")
+        setError("")
+        setContentstackCheck("")
+        try {
+            const response = await fetch("/api/admin/contentstack", { cache: "no-store" })
+            const result = await response.json()
+            if (!response.ok) throw new Error(result.error || "Contentstack delivery check failed.")
+            setContentstackCheck(`Delivery verified · ${result.entryCount} published blog entries available.`)
+        } catch (testError) {
+            setError(testError instanceof Error ? testError.message : "Contentstack delivery check failed.")
+        } finally {
+            setSaving(null)
+        }
     }
 
     return <main className="min-h-screen bg-[var(--nxg-paper)] px-4 py-10 text-[var(--nxg-charcoal)] sm:px-8">
@@ -109,6 +127,7 @@ export default function IntegrationConnections() {
             {!loading && providers.some((provider) => !provider.adminStoreConfigured) && <p className="mt-5 border-l-2 border-[var(--nxg-red)] bg-white p-4 text-sm text-[var(--nxg-muted)]">Database is not configured. Provider readiness is shown, but enable/disable changes cannot be persisted.</p>}
             {loading ? <p className="py-12 text-sm text-[var(--nxg-muted)]">Loading connections...</p> : <div className="mt-6 divide-y divide-[var(--nxg-line)] border-y border-[var(--nxg-line)] bg-white">{providers.map((provider) => <section key={provider.id} className="grid gap-5 p-5 sm:grid-cols-[1fr_auto] sm:items-center">
                 <div><div className="flex flex-wrap items-center gap-3"><h2 className="text-lg font-semibold text-[var(--nxg-navy)]">{provider.name}</h2><span className="text-[10px] uppercase tracking-[0.12em] text-[var(--nxg-red)]">{provider.category}</span></div><p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--nxg-muted)]">{provider.description}</p><p className="mt-2 text-xs font-medium">{readinessLabels[provider.readiness] || provider.readiness}</p>{provider.configurationError && <p role="alert" className="mt-1 text-xs text-red-800">{provider.configurationError}</p>}{provider.missingEnv.length > 0 && <p className="mt-1 text-xs text-[var(--nxg-muted)]">Missing: {provider.missingEnv.join(", ")}</p>}{provider.connection === "oauth_account" && provider.configured && <p className="mt-1 text-xs text-[var(--nxg-muted)]">Account authorization and scope verification are separate setup steps.</p>}{provider.id === "hubspot" && provider.enabled && <button type="button" onClick={() => void retryHubSpot()} disabled={saving === "hubspot-retry"} className="mt-3 text-xs font-semibold uppercase tracking-[0.1em] text-[var(--nxg-red)] underline disabled:opacity-50">{saving === "hubspot-retry" ? "Retrying..." : "Retry pending lead syncs"}</button>}</div>
+                {provider.id === "contentstack" && provider.enabled && <div className="sm:col-span-2"><button type="button" onClick={() => void testContentstack()} disabled={saving === "contentstack-test"} className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--nxg-red)] underline disabled:opacity-50">{saving === "contentstack-test" ? "Testing delivery..." : "Test Contentstack delivery"}</button>{contentstackCheck && <p role="status" className="mt-2 text-xs text-green-800">{contentstackCheck}</p>}</div>}
                 <label className="flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.1em] sm:min-w-36"><span>{provider.enabled ? "Enabled" : "Disabled"}</span><input aria-label={`${provider.enabled ? "Disable" : "Enable"} ${provider.name}`} type="checkbox" role="switch" checked={provider.enabled} disabled={!provider.adminStoreConfigured || saving === provider.id || (!provider.configured && provider.connection !== "manual_only") || provider.connection === "manual_only" || provider.readiness === "adapter_unavailable"} onChange={(event) => void setEnabled(provider, event.target.checked)} className="h-5 w-10 accent-[var(--nxg-red)]" />{saving === provider.id && <span className="sr-only">Saving</span>}</label>
             </section>)}</div>}
             <p className="mt-7 text-xs leading-5 text-[var(--nxg-muted)]">Marketplace publishing is manual-only. Meta and Google connections still require their respective OAuth consent, approved scopes, and account IDs. “Enabled” only activates a configured provider switch; it does not imply a successful live connection.</p>

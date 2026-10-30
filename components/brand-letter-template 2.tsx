@@ -73,7 +73,7 @@ export default function BrandLetterTemplate({
         </div>
         <address className="brand-letter__contact">
           {companyAddress.map((line) => <span key={line}>{line}</span>)}
-          <a href={`tel:${phone.replace(/[^\d+]/g, "")}`}>{phone}</a>
+          {phone && <a href={`tel:${phone.replace(/[^\d+]/g, "")}`}>{phone}</a>}
           <a href={`mailto:${email}`}>{email}</a>
           <span>{website}</span>
         </address>
