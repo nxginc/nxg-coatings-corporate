@@ -6,6 +6,9 @@ an external account authorized the app or that a live request succeeded.
 Keep secrets in local/deployment environment settings; never commit them or
 paste them into chat.
 
+For the release order, outstanding production blockers, and step-by-step
+acceptance checks, see the [Production punch list](../PRODUCTION-PUNCH-LIST.md).
+
 ## Core connections
 
 | Connection | Required configuration | What the running app currently does |
@@ -107,10 +110,10 @@ or generated secrets into chat or source control.
   current PostgreSQL pool and deployment manifest do not constitute an
   autoscaling configuration.
 
-Apply migrations in numeric order through `011_provider_oauth.sql`;
-this release adds `007_chat_inbox.sql` for website chat transcripts and staff
+Apply migrations in numeric order through `011_provider_oauth.sql`. The later
+migrations add `007_chat_inbox.sql` for website chat transcripts and staff
 replies, `008_campaign_ad_plans.sql` for paid-media planning metadata,
-`009_contentstack_entry_sync.sql` for Contentstack entry linkage, and
+`009_contentstack_entry_sync.sql` for Contentstack entry linkage,
 `010_career_openings.sql` for admin-managed careers listings, and
 `011_provider_oauth.sql` for encrypted provider connections, editable business
 profile details, and external publishing audit events. For

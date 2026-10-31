@@ -26,6 +26,8 @@ Apply database migrations before using admin workflows with `pnpm db:migrate`. T
 
 Meta/Google Business Profile setup requires OAuth app credentials in the server environment and provider callback URLs ending in `/api/admin/oauth/meta-pages/callback` or `/api/admin/oauth/google-business-profile/callback`. Run migration `011_provider_oauth.sql` before connecting. Provider tokens are AES-GCM encrypted in Postgres using a key derived from `AUTH_SECRET`; rotating that secret requires reconnecting the providers. OAuth configuration alone does not prove account access or publishing permission. Facebook Marketplace, Instagram, Messenger, Google Ads spend, and scheduled/automatic publishing remain out of scope.
 
+For the current release blockers, exact setup sequence, acceptance checks, and unsupported integration inventory, see the [Production punch list](docs/PRODUCTION-PUNCH-LIST.md).
+
 ## CI/CD and environment files
 
 GitHub Actions runs ESLint and a production build on pull requests and pushes to `main` and `nxgx-update`; a separate Gitleaks job scans repository history for committed credentials. Vercel is linked to this GitHub repository and handles deployments through its Git integration. The workflow does not receive production credentials. `.gitignore` and `.vercelignore` exclude `.env*`; keep actual environment files out of commits and deployment uploads. Use `.env.example` for names and non-secret setup guidance only.
