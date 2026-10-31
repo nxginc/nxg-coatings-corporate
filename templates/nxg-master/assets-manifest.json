@@ -1,0 +1,33 @@
+{
+  "schema_version": "nxg.assets.v1",
+  "provider": "Cloudinary",
+  "source_of_truth": "cloudinary",
+  "local_preview_assets": [
+    {
+      "path": "assets/nxg-logo-current.webp",
+      "role": "brand-logo",
+      "status": "preview",
+      "replace_with_approved_asset": true
+    },
+    {
+      "path": "assets/nxg-prestige-logo.svg",
+      "role": "brand-mark-and-favicon",
+      "status": "preview",
+      "replace_with_approved_asset": true
+    }
+  ],
+  "cloudinary_folders": {
+    "brand": "nxg/brand",
+    "projects": "nxg/projects",
+    "services": "nxg/services",
+    "social": "nxg/social",
+    "ads": "nxg/ads",
+    "apparel": "nxg/apparel",
+    "renders": "nxg/renders"
+  },
+  "rules": [
+    "Do not publish unapproved canonical logo assets.",
+    "Bind project and service imagery by asset.cloudinary_public_id.",
+    "Keep public publishing behind the configured approval gate."
+  ]
+}

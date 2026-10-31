@@ -26,7 +26,7 @@ export default function TermsOfServicePage() {
             <h2>Agreement to Terms</h2>
             <p>
               These Terms of Service constitute a legally binding agreement made between you and NXG Coatings Inc.
-              ("we," "us," or "our"), concerning your access to and use of our website and services.
+              (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), concerning your access to and use of our website and services.
             </p>
             <p>
               By accessing or using our services, you agree to be bound by these Terms. If you disagree with any part of
@@ -124,7 +124,7 @@ export default function TermsOfServicePage() {
             <h2>Changes to Terms</h2>
             <p>
               We reserve the right to modify these Terms at any time. We will notify you of any changes by posting the
-              new Terms on this page and updating the "Last Updated" date.
+              new Terms on this page and updating the &quot;Last Updated&quot; date.
             </p>
 
             <h2>Contact Us</h2>
@@ -137,14 +137,12 @@ export default function TermsOfServicePage() {
               Edina, MN 55424
               <br />
               Email: legal@nxgcoatingsinc.com
-              <br />
-              Phone: (952) 900-4222
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto mt-12 text-center">
             <Link href="/contact">
-              <FancyButton variant="gradient" size="lg" rounded="full">
+              <FancyButton variant="shine" size="lg" rounded="full">
                 Contact Us With Questions
               </FancyButton>
             </Link>

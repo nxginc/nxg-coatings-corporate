@@ -1,0 +1,40 @@
+{
+  "schema_version": "nxg.assets.v1",
+  "provider": "Cloudinary",
+  "source_of_truth": "cloudinary",
+  "local_preview_assets": [
+    {
+      "path": "assets/nxg-logo-current.webp",
+      "role": "brand-logo",
+      "status": "preview",
+      "replace_with_approved_asset": true
+    },
+    {
+      "path": "assets/nxg-prestige-logo.svg",
+      "role": "brand-mark-and-favicon",
+      "status": "preview",
+      "replace_with_approved_asset": true
+    }
+  ],
+  "cloudinary_folders": {
+    "brand": "nxgcoatings/brand",
+    "project_intake": "nxgcoatings/staging/intake/gallery",
+    "projects_pending_review": "nxgcoatings/projects/pending-review",
+    "projects_approved": "nxgcoatings/projects/approved",
+    "services": "nxgcoatings/services",
+    "social": "nxgcoatings/social",
+    "ads": "nxgcoatings/ads",
+    "apparel": "nxgcoatings/apparel",
+    "renders": "nxgcoatings/renders"
+  },
+  "cloudinary_folder_status": {
+    "project_intake": "configured_in_app; the remote folder is created on first authorized upload",
+    "projects_pending_review": "planned; no project records are published",
+    "projects_approved": "reserved for assets that pass human review"
+  },
+  "rules": [
+    "Do not publish unapproved canonical logo assets.",
+    "Bind project and service imagery by asset.cloudinary_public_id.",
+    "Keep public publishing behind the configured approval gate."
+  ]
+}

@@ -96,7 +96,7 @@ export default function IndustrySection() {
 
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-4">
-            Don't see your industry? We provide custom painting solutions for all types of properties.
+            Don&apos;t see your industry? We provide custom painting solutions for all types of properties.
           </p>
           <Link
             href="/contact"

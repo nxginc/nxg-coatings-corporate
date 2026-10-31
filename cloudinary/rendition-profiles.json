@@ -1,0 +1,88 @@
+{
+    "version": 1,
+    "defaults": {
+        "format": "auto",
+        "quality": "auto:good",
+        "deliveryType": "upload"
+    },
+    "profiles": {
+        "webHero": {
+            "width": 1920,
+            "height": 1080,
+            "fit": "cover",
+            "gravity": "auto",
+            "transformation": "f_auto,q_auto:good,c_fill,g_auto,w_1920,h_1080"
+        },
+        "card": {
+            "width": 1200,
+            "height": 800,
+            "fit": "cover",
+            "gravity": "auto",
+            "transformation": "f_auto,q_auto:good,c_fill,g_auto,w_1200,h_800"
+        },
+        "socialSquare": {
+            "width": 1080,
+            "height": 1080,
+            "fit": "cover",
+            "gravity": "auto",
+            "safeMargin": 72,
+            "transformation": "f_auto,q_auto:good,c_fill,g_auto,w_1080,h_1080"
+        },
+        "socialPortrait": {
+            "width": 1080,
+            "height": 1350,
+            "fit": "cover",
+            "gravity": "auto",
+            "safeMargin": 72,
+            "transformation": "f_auto,q_auto:good,c_fill,g_auto,w_1080,h_1350"
+        },
+        "story": {
+            "width": 1080,
+            "height": 1920,
+            "fit": "cover",
+            "gravity": "auto",
+            "safeMargin": 96,
+            "transformation": "f_auto,q_auto:good,c_fill,g_auto,w_1080,h_1920"
+        },
+        "metaLandscape": {
+            "width": 1200,
+            "height": 628,
+            "fit": "cover",
+            "gravity": "auto",
+            "safeMargin": 64,
+            "transformation": "f_auto,q_auto:good,c_fill,g_auto,w_1200,h_628"
+        },
+        "og": {
+            "width": 1200,
+            "height": 630,
+            "fit": "cover",
+            "gravity": "auto",
+            "transformation": "f_auto,q_auto:good,c_fill,g_auto,w_1200,h_630"
+        },
+        "googleSquare": {
+            "width": 1200,
+            "height": 1200,
+            "fit": "cover",
+            "gravity": "auto",
+            "transformation": "f_auto,q_auto:good,c_fill,g_auto,w_1200,h_1200"
+        },
+        "printOriginal": {
+            "width": null,
+            "height": null,
+            "fit": "preserve",
+            "transformation": null
+        },
+        "brandLogo": {
+            "width": null,
+            "height": null,
+            "fit": "preserve",
+            "transformation": null,
+            "locked": true
+        }
+    },
+    "deliveryRules": [
+        "Use transformed delivery URLs from an approved source public ID; do not upload duplicate files for every size unless the destination requires a separate file.",
+        "Do not use crop/fill transformations for the locked logo or print originals.",
+        "Review crop placement and legibility at final placement size before approving ad creative."
+    ]
+}

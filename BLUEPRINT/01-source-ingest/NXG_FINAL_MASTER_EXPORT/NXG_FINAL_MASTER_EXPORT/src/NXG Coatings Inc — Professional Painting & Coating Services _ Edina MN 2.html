@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NXG Coatings Inc — Professional Painting & Coating Services | Edina MN</title>
+<meta name="description" content="Transform your home with NXG Coatings — premium interior, exterior, cabinet refinishing, deck staining. Family-owned since 2008, Edina MN.">
+<meta property="og:image" content="https://th.bing.com/th/id/OIP.WG5zEHAoHMttSNs-dSNBDQHaEx?w=187&h=120&c=7&r=0&o=7&dpr=3&pid=1.7&rm=3">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,Helvetica,Arial,sans-serif;background:#fff;color:#1A1A1A;line-height:1.5}
+:root{--navy:#0A1931;--royal:#102B7A;--red:#FF3B30;--border:#E5E7EB;--text2:#6B7280}
+.header{height:64px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:sticky;top:0;background:#fff;z-index:50}
+.logo{font-weight:700;font-size:20px;letter-spacing:-0.03em;color:var(--navy)} .logo b{color:var(--red)}
+.hamburger{width:48px;height:48px;background:var(--navy);border:1px solid var(--navy);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;cursor:pointer}
+.hamburger i{width:20px;height:2px;background:#fff;display:block;transition:.2s}
+.hamburger.open{background:var(--red);border-color:var(--red)}
+.hamburger.open i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hamburger.open i:nth-child(2){opacity:0}
+.hamburger.open i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.sidebar-overlay{position:fixed;inset:0;background:rgba(10,25,49,.2);opacity:0;pointer-events:none;transition:.3s;z-index:60}
+.sidebar-overlay.open{opacity:1;pointer-events:auto}
+.sidebar{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:380px;background:#fff;transform:translateX(100%);transition:.35s;z-index:70;overflow-y:auto;border-left:1px solid var(--border)}
+.sidebar.open{transform:translateX(0)}
+.sidebar-head{height:64px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.acc-item{border-bottom:1px solid var(--border)}
+.acc-head{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;cursor:pointer}
+.acc-body{max-height:0;overflow:hidden;transition:.3s}
+.acc-item.open .acc-body{max-height:300px}
+.acc-links{padding:0 20px 20px}
+.acc-links a{height:40px;display:flex;align-items:center;font-size:14px;color:#4B5563;text-decoration:none}
+.hero{height:70vh;min-height:480px;background:var(--navy);display:flex;align-items:flex-end;padding:32px 20px;color:#fff}
+.hero h1{font-size:clamp(32px,8vw,64px);font-weight:300;line-height:.9;letter-spacing:-0.03em;max-width:600px}
+.hero h1 i{font-style:italic;position:relative}
+.hero h1 i::after{content:"";position:absolute;left:-4px;right:-8px;bottom:4px;height:10px;background:var(--red);z-index:-1;opacity:.9}
+.section{padding:40px 20px;max-width:1200px;margin:0 auto}
+.label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin-bottom:8px;font-weight:600}
+.h2{font-size:28px;font-weight:300;letter-spacing:-0.02em;color:var(--navy);line-height:1.1}
+.slider{margin-top:20px;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+.slider::-webkit-scrollbar{display:none}
+.card{min-width:300px;width:300px;border:1px solid var(--border);background:#fff;flex-shrink:0;scroll-snap-align:start}
+.card-img{height:180px;background:#F3F4F6;display:flex;align-items:center;justify-content:center}
+.card-body{padding:20px}
+.card-cat{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin-bottom:6px;font-weight:600}
+.card-title{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.card-desc{font-size:13px;color:var(--text2);line-height:1.5}
+.ba{position:relative;height:400px;background:var(--navy);overflow:hidden;border:1px solid var(--border);margin-top:20px}
+.ba-handle{position:absolute;top:0;bottom:0;width:2px;background:#fff;z-index:2;cursor:ew-resize}
+.ba-handle::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;background:#fff;border:2px solid var(--navy);border-radius:50%}
+.form-card{border:1px solid var(--border);padding:20px;background:#fff;margin-bottom:16px}
+.input{width:100%;height:40px;border:1px solid var(--border);padding:0 10px;font-size:14px;margin-bottom:10px}
+.btn{width:100%;height:40px;background:var(--navy);color:#fff;border:1px solid var(--navy);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.footer{background:#0A0A1A;color:#fff;padding:40px 20px 20px;margin-top:40px;position:relative;overflow:hidden}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(min-width:768px){.footer-grid{grid-template-columns:repeat(5,1fr)}}
+.footer h5{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6B7280;margin-bottom:10px}
+.footer a{display:block;font-size:13px;line-height:26px;color:#fff;text-decoration:none}
+.rayon{font-size:18vw;font-weight:700;letter-spacing:-.05em;line-height:.85;margin-top:40px;white-space:nowrap;overflow:hidden}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="logo">N<b>X</b>G Coatings</div>
+  <button class="hamburger" id="hamb"><i></i><i></i><i></i></button>
+</header>
+<div class="sidebar-overlay" id="overlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-head"><div class="logo">N<b>X</b>G</div><button id="closeBtn" style="width:36px;height:36px;border:1px solid #E5E7EB;background:#fff">✕</button></div>
+  <div class="acc-item" data-acc><div class="acc-head"><span>Our Services</span><span>▼</span></div><div class="acc-body"><div class="acc-links"><a>Interior Painting</a><a>Exterior Painting</a><a>Cabinet Refinishing</a><a>Deck Staining</a></div></div></div>
+  <div class="acc-item"><div class="acc-head"><span>Our Projects</span></div></div>
+  <div class="acc-item" data-acc><div class="acc-head"><span>Contact Us</span><span>▼</span></div><div class="acc-body"><div class="acc-links"><a>Free Estimate</a><a>Become a Subcontractor</a><a>Careers</a></div></div></div>
+</div>
+
+<section class="hero"><h1>Making a <i>Difference</i> in Every Coating — Clean Finish Exclusive</h1></section>
+
+<section class="section">
+  <div class="label">High Quality Service Slider — Large HD Cards Clean — Fixed No Break</div>
+  <div class="h2">Delivering On What Matters</div>
+  <div class="slider" id="slider">
+    <div class="card"><div class="card-img">HD SVG 2x</div><div class="card-body"><div class="card-cat">Cabinet Refinishing</div><div class="card-title">Save 50-70% vs Replacement</div><div class="card-desc">Professional spray, premium coatings, 5-7 days. No broken images.</div></div></div>
+    <div class="card"><div class="card-img">HD SVG 2x</div><div class="card-body"><div class="card-cat">Interior Painting</div><div class="card-title">Premium Interior</div><div class="card-desc">Zero VOC, thorough prep, enterprise grade.</div></div></div>
+    <div class="card"><div class="card-img">HD SVG 2x</div><div class="card-body"><div class="card-cat">Exterior Painting</div><div class="card-title">Weather-Resistant</div><div class="card-desc">Premium paints, curb appeal.</div></div></div>
+    <div class="card"><div class="card-img">HD SVG 2x</div><div class="card-body"><div class="card-cat">Deck Staining</div><div class="card-title">Deck Refinishing</div><div class="card-desc">Protect outdoor living.</div></div></div>
+  </div>
+  <div class="ba" id="ba">
+    <div style="position:absolute;inset:0;background:#F3F4F6;display:flex;align-items:center;justify-content:center">BEFORE — Clean Plan</div>
+    <div id="ba-after" style="position:absolute;inset:0;background:linear-gradient(135deg,#0A1931,#102B7A);clip-path:inset(0 50% 0 0);display:flex;align-items:center;justify-content:center;color:#fff">AFTER — Premium Render</div>
+    <div class="ba-handle" id="ba-handle" style="left:50%"></div>
+  </div>
+</section>
+
+<section class="section" style="background:#F8F8F6;border-top:1px solid #E5E7EB;border-bottom:1px solid #E5E7EB">
+  <div class="label">Multi Forms Exclusive — Fixed</div>
+  <div class="form-card"><div class="label">Free Estimate</div><input class="input" placeholder="Name"><input class="input" placeholder="Email"><input class="input" placeholder="Phone"><button class="btn">Request Free Estimate →</button></div>
+  <div class="form-card"><div class="label">Discuss New Project</div><input class="input" placeholder="Project Type"><button class="btn">Submit Inquiry</button></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div><h5>Services</h5><a>Interior</a><a>Exterior</a><a>Cabinet Refinishing</a></div>
+    <div><h5>Resources</h5><a>Blog</a><a>Tutorials</a></div>
+    <div><h5>Company</h5><a>Team</a><a>Careers</a></div>
+    <div><h5>Socials</h5><a>Instagram</a><a>LinkedIn</a></div>
+    <div><h5>Alternative to</h5><a>Full Replacement</a><a>DIY</a></div>
+  </div>
+  <div class="rayon">NXG COATINGS</div>
+  <div style="margin-top:20px;font-size:10px;color:#6B7280">©2025 NXG Coatings Inc — Fixed No Break — Clean Finish Exclusive — Edina MN — (952) 234-8912</div>
+</footer>
+
+<script>
+const hamb=document.getElementById('hamb'),sidebar=document.getElementById('sidebar'),overlay=document.getElementById('overlay'),closeBtn=document.getElementById('closeBtn');
+function openSide(){sidebar.classList.add('open');overlay.classList.add('open');hamb.classList.add('open')}
+function closeSide(){sidebar.classList.remove('open');overlay.classList.remove('open');hamb.classList.remove('open')}
+hamb.addEventListener('click',()=>sidebar.classList.contains('open')?closeSide():openSide());
+closeBtn.addEventListener('click',closeSide);overlay.addEventListener('click',closeSide);
+document.querySelectorAll('[data-acc]').forEach(i=>i.querySelector('.acc-head').addEventListener('click',()=>i.classList.toggle('open')));
+const slider=document.getElementById('slider');
+let isDown=false,sx,sl;
+slider.addEventListener('mousedown',e=>{isDown=true;sx=e.pageX-slider.offsetLeft;sl=slider.scrollLeft});
+window.addEventListener('mouseup',()=>isDown=false);
+slider.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-slider.offsetLeft;slider.scrollLeft=sl-(x-sx)});
+const ba=document.getElementById('ba'),handle=document.getElementById('ba-handle'),after=document.getElementById('ba-after');
+let drag=false;
+function setBA(p){p=Math.max(5,Math.min(95,p));handle.style.left=p+'%';after.style.clipPath=`inset(0 ${100-p}% 0 0)`}
+handle.addEventListener('pointerdown',()=>drag=true);
+window.addEventListener('pointerup',()=>drag=false);
+window.addEventListener('pointermove',e=>{if(!drag)return;const r=ba.getBoundingClientRect();setBA(((e.clientX-r.left)/r.width)*100)});
+ba.addEventListener('click',e=>{const r=ba.getBoundingClientRect();setBA(((e.clientX-r.left)/r.width)*100)});
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>

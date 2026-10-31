@@ -15,7 +15,8 @@ export default function ContactForm() {
     email: "",
     phone: "",
     service: "",
-    message: ""
+    message: "",
+    website: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { toast } = useToast()
@@ -39,24 +40,30 @@ export default function ContactForm() {
       })
 
       if (response.ok) {
+        const result = await response.json().catch(() => null)
+        const emailUnavailable = result?.emailNotificationStatus && result.emailNotificationStatus !== "sent"
         toast({
-          title: "Message sent!",
-          description: "We'll get back to you within 24 hours.",
+          title: "Request received",
+          description: emailUnavailable
+            ? "Your request is saved in the NXG lead inbox. Email alerts are currently unavailable."
+            : "Your request is with our team. We'll follow up using the contact details you provided.",
         })
         setFormData({
           name: "",
           email: "",
           phone: "",
           service: "",
-          message: ""
+          message: "",
+          website: ""
         })
       } else {
-        throw new Error('Failed to send message')
+        const result = await response.json().catch(() => null)
+        throw new Error(result?.error || "Your request could not be submitted.")
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: "Could not submit request",
+        description: error instanceof Error ? error.message : "Please try again.",
         variant: "destructive",
       })
     } finally {
@@ -74,12 +81,13 @@ export default function ContactForm() {
             Send us a Message
           </CardTitle>
           <CardDescription>
-            Fill out the form below and we'll get back to you as soon as possible.
+            Fill out the form below and we&apos;ll get back to you as soon as possible.
           </CardDescription>
         </CardHeader>
 
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true"><label>Leave this field empty<input name="website" value={formData.website} onChange={handleInputChange} tabIndex={-1} autoComplete="off" /></label></div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name *</Label>
@@ -117,7 +125,7 @@ export default function ContactForm() {
                   type="tel"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  placeholder="(555) 123-4567"
+                  placeholder="Your phone number"
                 />
               </div>
 
@@ -137,6 +145,11 @@ export default function ContactForm() {
                   <option value="deck">Deck Staining</option>
                   <option value="cabinet">Cabinet Refinishing</option>
                   <option value="consultation">Color Consultation</option>
+                  <option value="fine-finish">Fine Finish and Millwork</option>
+                  <option value="pressure-cleaning">Pressure Cleaning</option>
+                  <option value="restoration">Paint Restoration</option>
+                  <option value="protective-coatings">Protective Coatings</option>
+                  <option value="industrial">Industrial Coatings</option>
                   <option value="other">Other</option>
                 </select>
               </div>
@@ -179,21 +192,11 @@ export default function ContactForm() {
           <CardContent className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-brand-blue/10 rounded-lg flex items-center justify-center">
-                <Phone className="w-5 h-5 text-brand-blue" />
-              </div>
-              <div>
-                <p className="font-medium text-gray-900">Phone</p>
-                <p className="text-gray-600">(555) 123-4567</p>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-brand-blue/10 rounded-lg flex items-center justify-center">
                 <Mail className="w-5 h-5 text-brand-blue" />
               </div>
               <div>
                 <p className="font-medium text-gray-900">Email</p>
-                <p className="text-gray-600">info@nxgcoatings.com</p>
+                <a className="text-gray-600 hover:underline" href="mailto:info@nxgcoatingsinc.com">info@nxgcoatingsinc.com</a>
               </div>
             </div>
 
@@ -204,8 +207,8 @@ export default function ContactForm() {
               <div>
                 <p className="font-medium text-gray-900">Address</p>
                 <p className="text-gray-600">
-                  123 Main Street<br />
-                  Anytown, USA 12345
+                  5200 Willson Blvd, Suite 150<br />
+                  Edina, MN 55424
                 </p>
               </div>
             </div>
