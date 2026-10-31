@@ -40,9 +40,13 @@ export default function ContactForm() {
       })
 
       if (response.ok) {
+        const result = await response.json().catch(() => null)
+        const emailUnavailable = result?.emailNotificationStatus && result.emailNotificationStatus !== "sent"
         toast({
-          title: "Message sent!",
-          description: "We'll get back to you within 24 hours.",
+          title: "Request received",
+          description: emailUnavailable
+            ? "Your request is saved in the NXG lead inbox. Email alerts are currently unavailable."
+            : "Your request is with our team. We'll follow up using the contact details you provided.",
         })
         setFormData({
           name: "",
@@ -53,12 +57,13 @@ export default function ContactForm() {
           website: ""
         })
       } else {
-        throw new Error('Failed to send message')
+        const result = await response.json().catch(() => null)
+        throw new Error(result?.error || "Your request could not be submitted.")
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: "Could not submit request",
+        description: error instanceof Error ? error.message : "Please try again.",
         variant: "destructive",
       })
     } finally {
@@ -76,7 +81,7 @@ export default function ContactForm() {
             Send us a Message
           </CardTitle>
           <CardDescription>
-            Fill out the form below and we'll get back to you as soon as possible.
+            Fill out the form below and we&apos;ll get back to you as soon as possible.
           </CardDescription>
         </CardHeader>
 

@@ -168,7 +168,7 @@ export default function FAQsPage() {
               <div className="mt-12 border-t border-[var(--nxg-line)] py-7">
                 <h3 className="text-xl font-semibold text-[var(--nxg-navy)]">Still have questions?</h3>
                 <p className="mt-3 mb-6 max-w-2xl text-sm leading-6 text-[var(--nxg-muted)]">
-                  If you couldn't find the answer you're looking for, please don't hesitate to contact us directly.
+                  If you couldn&apos;t find the answer you&apos;re looking for, please don&apos;t hesitate to contact us directly.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/contact" className="inline-flex min-h-11 items-center border border-[var(--nxg-navy)] px-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--nxg-navy)] hover:bg-[var(--nxg-navy)] hover:text-white">Contact NXG</Link>

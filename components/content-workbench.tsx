@@ -35,6 +35,8 @@ type SocialPost = {
   platform: Platform
   caption: string
   status: string
+  publishStatus?: string | null
+  publishError?: string | null
   scheduledAt: string | null
   destinationUrl: string | null
 }
@@ -89,6 +91,7 @@ export default function ContentWorkbench() {
   const [destinationUrl, setDestinationUrl] = useState("")
   const [scheduleMin, setScheduleMin] = useState("")
   const [batchingCampaignId, setBatchingCampaignId] = useState("")
+  const [publishingPostId, setPublishingPostId] = useState("")
   const approvedCampaigns = useMemo(() => campaigns.filter((campaign) => campaign.status === "approved"), [campaigns])
   const calendarPosts = useMemo(() => [...posts].sort((first, second) => {
     if (!first.scheduledAt) return second.scheduledAt ? 1 : 0
@@ -261,6 +264,25 @@ export default function ContentWorkbench() {
     }
   }
 
+  async function publishPost(post: SocialPost) {
+    const channel = post.platform === "facebook" ? "Facebook Page" : "Google Business Profile"
+    if (!window.confirm(`Publish this approved post to ${channel} now? This will create a live post.`)) return
+    setError("")
+    setNotice("")
+    setPublishingPostId(post.id)
+    try {
+      const response = await fetch(`/api/admin/social-posts/${post.id}/publish`, { method: "POST" })
+      const result = await response.json().catch(() => null)
+      if (!response.ok) throw new Error(result?.error || "Post could not be published.")
+      setNotice(`Post published to ${channel}.`)
+      await refresh()
+    } catch (publishError) {
+      setError(publishError instanceof Error ? publishError.message : "Post could not be published.")
+    } finally {
+      setPublishingPostId("")
+    }
+  }
+
   async function blogAction(id: string, action: string) {
     try {
       await postJson("/api/admin/blog", "PATCH", { id, action })
@@ -299,7 +321,7 @@ export default function ContentWorkbench() {
 
   return <main className="min-h-screen bg-[var(--nxg-paper)] px-4 py-10 text-[var(--nxg-charcoal)] sm:px-8">
     <div className="mx-auto max-w-6xl">
-      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[var(--nxg-line)] pb-5"><div><p className="section-kicker">NXG marketing</p><h1 className="mt-2 text-3xl font-semibold text-[var(--nxg-navy)]">Campaign workbench</h1><p className="mt-2 text-sm text-[var(--nxg-muted)]">Create campaign records and platform-specific drafts. Nothing publishes from this screen.</p></div><button type="button" onClick={() => void refresh()} className="min-h-10 border border-[var(--nxg-line)] bg-white px-4 text-xs font-semibold uppercase tracking-[0.1em]">Refresh</button></div>
+      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[var(--nxg-line)] pb-5"><div><h1 className="text-3xl font-semibold text-[var(--nxg-navy)]">Campaign workbench</h1><p className="mt-2 text-sm text-[var(--nxg-muted)]">Create campaign drafts, review them, then explicitly publish approved Facebook and Google Business Profile posts.</p></div><button type="button" onClick={() => void refresh()} className="min-h-10 border border-[var(--nxg-line)] bg-white px-4 text-xs font-semibold uppercase tracking-[0.1em]">Refresh</button></div>
       {error && <p role="alert" className="mt-5 border border-red-300 bg-white p-4 text-sm text-red-900">{error}</p>}
       {notice && <p role="status" className="mt-5 border border-green-300 bg-white p-4 text-sm text-green-900">{notice}</p>}
       <section className="grid gap-8 py-9 lg:grid-cols-2">
@@ -388,8 +410,8 @@ export default function ContentWorkbench() {
           <div className="flex flex-wrap items-center gap-4">{campaign.status === "approved" && <button type="button" disabled={!hasAvailableVariants || batchingCampaignId === campaign.id} onClick={() => void createCampaignDraftBatch(campaign)} className="text-xs font-semibold text-[var(--nxg-navy)] underline disabled:opacity-40">{batchingCampaignId === campaign.id ? "Creating drafts..." : "Create drafts for unused channels"}</button>}{reviewActions(campaign.status, (action) => void campaignAction(campaign.id, action))}</div>
         </li>
       })}</ul> : <p className="mt-5 bg-white p-5 text-sm text-[var(--nxg-muted)]">No campaigns yet. Create a campaign draft to start planning content.</p>}</section>
-      <section className="mt-10 border-t border-[var(--nxg-line)] pt-8"><h2 className="text-2xl font-semibold text-[var(--nxg-navy)]">Social publishing calendar</h2><p className="mt-2 text-sm text-[var(--nxg-muted)]">Requested dates are planning metadata until a provider is connected and scheduling is enabled.</p>{loading ? <p className="py-6 text-sm text-[var(--nxg-muted)]">Loading posts...</p> : calendarPosts.length ? <ul className="mt-5 divide-y divide-[var(--nxg-line)] border-y border-[var(--nxg-line)] bg-white">{calendarPosts.map((post) => <li key={post.id} className="flex flex-wrap items-start justify-between gap-4 p-4"><div className="max-w-3xl"><p className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--nxg-red)]">{platforms.find((item) => item.value === post.platform)?.label ?? post.platform} · {post.campaignSlug} · {post.status}</p><p className="mt-1 text-xs text-[var(--nxg-muted)]">{post.scheduledAt ? `Requested: ${new Date(post.scheduledAt).toLocaleString()}` : "No publish time requested"}</p><p className="mt-2 whitespace-pre-wrap text-sm leading-6">{post.caption}</p>{post.destinationUrl && <a href={post.destinationUrl} target="_blank" rel="noreferrer" className="mt-2 inline-block break-all text-xs text-[var(--nxg-navy)] underline">{post.destinationUrl}</a>}</div>{reviewActions(post.status, (action) => void postAction(post.id, action))}</li>)}</ul> : <p className="mt-5 bg-white p-5 text-sm text-[var(--nxg-muted)]">No social drafts yet. Approved campaigns can be adapted to each channel here.</p>}</section>
-      <p className="mt-8 border-l-2 border-[var(--nxg-red)] pl-4 text-xs leading-5 text-[var(--nxg-muted)]">Approved drafts still require a connected publishing provider and approved account permissions. Facebook Marketplace is manual-only; automatic publishing is not enabled.</p>
+      <section className="mt-10 border-t border-[var(--nxg-line)] pt-8"><h2 className="text-2xl font-semibold text-[var(--nxg-navy)]">Social publishing calendar</h2><p className="mt-2 text-sm text-[var(--nxg-muted)]">Requested dates remain planning metadata. Publishing happens only when an admin presses Publish on an approved post.</p>{loading ? <p className="py-6 text-sm text-[var(--nxg-muted)]">Loading posts...</p> : calendarPosts.length ? <ul className="mt-5 divide-y divide-[var(--nxg-line)] border-y border-[var(--nxg-line)] bg-white">{calendarPosts.map((post) => <li key={post.id} className="flex flex-wrap items-start justify-between gap-4 p-4"><div className="max-w-3xl"><p className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--nxg-red)]">{platforms.find((item) => item.value === post.platform)?.label ?? post.platform} · {post.campaignSlug} · {post.status}</p><p className="mt-1 text-xs text-[var(--nxg-muted)]">{post.scheduledAt ? `Requested: ${new Date(post.scheduledAt).toLocaleString()}` : "No publish time requested"}</p><p className="mt-2 whitespace-pre-wrap text-sm leading-6">{post.caption}</p>{post.destinationUrl && <a href={post.destinationUrl} target="_blank" rel="noreferrer" className="mt-2 inline-block break-all text-xs text-[var(--nxg-navy)] underline">{post.destinationUrl}</a>}{post.publishStatus === "unknown" && <p role="alert" className="mt-3 text-xs leading-5 text-red-900">Provider outcome is unknown. Verify the destination before retrying. {post.publishError}</p>}{post.publishStatus === "failed" && <p role="alert" className="mt-3 text-xs leading-5 text-red-900">Last publish attempt failed: {post.publishError}</p>}{post.status === "publishing" && <p role="status" className="mt-3 text-xs leading-5 text-amber-900">Publishing is pending or needs reconciliation. Verify the provider before retrying to avoid duplicate posts.</p>}</div><div className="flex flex-wrap items-center gap-4">{reviewActions(post.status, (action) => void postAction(post.id, action))}{post.status === "approved" && (post.platform === "facebook" || post.platform === "google") && <button type="button" onClick={() => void publishPost(post)} disabled={Boolean(publishingPostId)} className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--nxg-red)] underline disabled:opacity-50">{publishingPostId === post.id ? "Publishing..." : "Publish now"}</button>}</div></li>)}</ul> : <p className="mt-5 bg-white p-5 text-sm text-[var(--nxg-muted)]">No social drafts yet. Approved campaigns can be adapted to each channel here.</p>}</section>
+      <p className="mt-8 text-xs leading-5 text-[var(--nxg-muted)]">Publishing supports approved text and destination links only; image/video publishing is not yet implemented. A connected, enabled destination and approved campaign/post are required. Facebook Marketplace remains a manual handoff; ad creation and spend are not enabled.</p>
     </div>
   </main>
 }

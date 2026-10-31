@@ -16,6 +16,7 @@ type ParallaxHeroProps = {
     children?: ReactNode
     imagePosition?: string
     height?: HeroHeight
+    overlayStyle?: "standard" | "light"
     className?: string
 }
 
@@ -28,6 +29,7 @@ export default function ParallaxHero({
     children,
     imagePosition = "center",
     height = "large",
+    overlayStyle = "standard",
     className,
 }: ParallaxHeroProps) {
     const sectionRef = useRef<HTMLElement>(null)
@@ -60,8 +62,10 @@ export default function ParallaxHero({
                     style={{ objectPosition: imagePosition }}
                 />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--nxg-navy)]/95 via-[var(--nxg-navy)]/65 to-[var(--nxg-navy)]/15" />
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[var(--nxg-navy)]/75 to-transparent" />
+            <div className={overlayStyle === "light"
+                ? "absolute inset-0 bg-gradient-to-r from-[var(--nxg-navy)]/75 via-[var(--nxg-navy)]/42 to-[var(--nxg-navy)]/10"
+                : "absolute inset-0 bg-gradient-to-r from-[var(--nxg-navy)]/95 via-[var(--nxg-navy)]/65 to-[var(--nxg-navy)]/15"} />
+            <div className={`absolute inset-x-0 bottom-0 h-1/2 ${overlayStyle === "light" ? "bg-gradient-to-t from-[var(--nxg-navy)]/45 to-transparent" : "bg-gradient-to-t from-[var(--nxg-navy)]/75 to-transparent"}`} />
             <div className="relative mx-auto w-full max-w-[var(--nxg-content-width)] px-6 pb-14 pt-28 sm:pb-20 lg:px-10 lg:pb-24">
                 <p className="nxg-site-hero__eyebrow mb-5 text-[10px] font-medium uppercase tracking-[0.18em] text-white/75">{eyebrow}</p>
                 <h1 className="nxg-site-hero__title max-w-5xl font-light text-white">{title}</h1>

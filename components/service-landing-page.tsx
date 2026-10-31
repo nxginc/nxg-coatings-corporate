@@ -14,6 +14,7 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
         image={service.heroImage}
         imageAlt={service.heroAlt}
         height="large"
+        overlayStyle="light"
       >
         <Link href={`/quote?service=${encodeURIComponent(service.name)}`} className="inline-flex min-h-12 items-center gap-5 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">
           Request an estimate <span aria-hidden="true" className="text-lg">↗</span>

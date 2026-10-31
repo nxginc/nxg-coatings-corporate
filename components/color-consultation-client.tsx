@@ -82,7 +82,7 @@ export default function ColorConsultationClient() {
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Let our color experts help you choose the perfect palette for your home.
-            We'll assess your space and provide personalized recommendations.
+            We&apos;ll assess your space and provide personalized recommendations.
           </p>
         </div>
 
@@ -310,7 +310,7 @@ export default function ColorConsultationClient() {
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900">Initial Consultation</h4>
-                      <p className="text-sm text-gray-600">We'll discuss your vision and assess your space</p>
+                      <p className="text-sm text-gray-600">We&apos;ll discuss your vision and assess your space</p>
                     </div>
                   </div>
 

@@ -18,6 +18,12 @@ const initialValues: EstimateValues = {
   service: "",
 }
 
+function emailStatusMessage(status: string | null) {
+  return status && status !== "sent"
+    ? "Email alerts are unavailable right now, but your request is saved in the NXG lead inbox for the team."
+    : "Your request is with our team. We’ll follow up using the contact details you provided."
+}
+
 const inputClass =
   "min-h-12 w-full border border-[var(--nxg-line)] bg-white px-3 text-sm text-[var(--nxg-charcoal)] placeholder:text-[var(--nxg-muted)] focus:border-[var(--nxg-navy)] focus:outline-none focus:ring-2 focus:ring-[var(--nxg-navy)]/15"
 
@@ -26,6 +32,7 @@ export default function HomeEstimateForm() {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState("")
   const [submitted, setSubmitted] = useState(false)
+  const [emailNotificationStatus, setEmailNotificationStatus] = useState<string | null>(null)
   const [website, setWebsite] = useState("")
 
   function update<K extends keyof EstimateValues>(key: K, value: EstimateValues[K]) {
@@ -51,6 +58,7 @@ export default function HomeEstimateForm() {
       })
       const result = await response.json().catch(() => null)
       if (!response.ok) throw new Error(result?.error || "Your request could not be submitted.")
+      setEmailNotificationStatus(result?.emailNotificationStatus || null)
       setSubmitted(true)
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Your request could not be submitted.")
@@ -64,9 +72,7 @@ export default function HomeEstimateForm() {
       <div role="status" className="border border-[var(--nxg-line)] bg-white p-6 sm:p-8">
         <p className="section-kicker">Request received</p>
         <h2 className="mt-3 text-2xl font-semibold text-[var(--nxg-navy)]">We’ll be in touch.</h2>
-        <p className="mt-3 text-sm leading-6 text-[var(--nxg-muted)]">
-          Your estimate request is with our team. We’ll follow up using the contact details you provided.
-        </p>
+        <p className="mt-3 text-sm leading-6 text-[var(--nxg-muted)]">{emailStatusMessage(emailNotificationStatus)}</p>
         <Link href="/services" className="mt-5 inline-flex text-xs font-semibold uppercase tracking-[0.1em] text-[var(--nxg-navy)] underline decoration-[var(--nxg-red)] underline-offset-4">
           Explore our services
         </Link>

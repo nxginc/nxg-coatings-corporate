@@ -31,13 +31,14 @@ export default function GalleryPageClient() {
         image={serviceGalleryImages[0].src}
         imageAlt={serviceGalleryImages[0].alt}
         height="medium"
+        overlayStyle="light"
       >
         <Link href="/quote" className="inline-flex min-h-12 items-center gap-4 bg-[var(--nxg-red)] px-5 text-[10px] font-semibold uppercase tracking-[0.13em] text-white transition hover:bg-white hover:text-[var(--nxg-navy)]">Plan a project <span aria-hidden="true">↗</span></Link>
       </ParallaxHero>
 
       <section className="mx-auto max-w-[var(--nxg-content-width)] px-6 py-12 lg:px-10 lg:py-16">
         <div className="flex flex-col justify-between gap-5 border-b border-[var(--nxg-line)] pb-5 sm:flex-row sm:items-end">
-          <div><p className="section-kicker">Service image library</p><h2 className="mt-3 text-3xl font-medium text-[var(--nxg-navy)] sm:text-4xl">Browse service imagery</h2></div>
+          <div><p className="section-kicker">NXG Coatings portfolio</p><h2 className="mt-3 text-3xl font-medium text-[var(--nxg-navy)] sm:text-4xl">Explore work by service</h2></div>
           <p className="max-w-md text-sm leading-6 text-[var(--nxg-muted)]">These images illustrate service categories and are not project case studies. Project records remain pending verification and approval.</p>
         </div>
         <div className="flex gap-2 overflow-x-auto py-5" aria-label="Filter images by service">

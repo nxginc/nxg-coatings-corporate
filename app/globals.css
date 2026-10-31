@@ -179,8 +179,17 @@
   }
 
   .nxg-site-nav-link:hover::after,
-  .nxg-site-nav-link:focus-visible::after {
+  .nxg-site-nav-link:focus-visible::after,
+  .nxg-site-nav-link[aria-current="page"]::after {
     transform: scaleX(1);
+  }
+
+  .nxg-mobile-nav-group[open] > summary > svg {
+    transform: rotate(180deg);
+  }
+
+  .nxg-mobile-nav-group > summary::-webkit-details-marker {
+    display: none;
   }
 
   .nxg-site-hero__eyebrow {
@@ -207,14 +216,11 @@
   }
 
   .nxg-site-footer {
-    background-image:
-      linear-gradient(90deg, var(--nxg-navy), var(--nxg-red) 72%, var(--nxg-platinum));
-    background-size: 100% 3px;
-    background-repeat: no-repeat;
+    border-top: 1px solid var(--nxg-line);
   }
 
   .nxg-site-footer a:hover {
-    color: var(--nxg-platinum);
+    color: var(--nxg-red);
   }
 
   .nxg-site .prose {
@@ -683,14 +689,14 @@
 
   .commercial-proposal__warranty {
     margin: 0.18in 0 0;
-    border-left: 3px solid var(--proposal-platinum);
+    border-left: 1px solid var(--proposal-platinum);
     padding: 0.08in 0.12in;
     background: var(--nxg-paper);
   }
 
   .commercial-proposal__terms-note {
     margin: 0 0 0.12in;
-    border-left: 3px solid var(--proposal-red);
+    border-left: 1px solid var(--proposal-red);
     padding-left: 0.1in;
     color: var(--proposal-muted);
     font-size: 8pt;

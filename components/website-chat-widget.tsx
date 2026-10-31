@@ -15,6 +15,10 @@ const greeting: ChatMessage = {
 
 type SavedSession = { conversationId: string; sessionToken: string }
 
+async function readResponse(response: Response) {
+  return response.json().catch(() => null)
+}
+
 export default function WebsiteChatWidget() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
@@ -23,6 +27,7 @@ export default function WebsiteChatWidget() {
   const [suggestions, setSuggestions] = useState<ChatSuggestion[]>([])
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
+  const [connectionIssue, setConnectionIssue] = useState("")
   const [sending, setSending] = useState(false)
   const [closed, setClosed] = useState(false)
 
@@ -49,14 +54,18 @@ export default function WebsiteChatWidget() {
           if (active) setSession(null)
           return
         }
-        const result = await response.json()
-        if (!response.ok) throw new Error(result.error || "Chat could not be refreshed.")
+        const result = await readResponse(response)
+        if (!response.ok) throw new Error(result?.error || "Chat could not be refreshed.")
+        if (!Array.isArray(result?.messages) || !["open", "closed"].includes(result.status)) {
+          throw new Error("Chat returned an invalid response.")
+        }
         if (active) {
           setMessages(result.messages)
           setClosed(result.status === "closed")
+          setConnectionIssue("")
         }
       } catch {
-        // A temporary poll failure should not interrupt the visitor's message draft.
+        if (active) setConnectionIssue("Chat updates are temporarily unavailable. We’ll retry automatically.")
       }
     }
     void refresh()
@@ -98,9 +107,13 @@ export default function WebsiteChatWidget() {
           pagePath: pathname || "/",
         }),
       })
-      const result = await response.json()
-      if (!response.ok) throw new Error(result.error || "Your message could not be sent.")
+      const result = await readResponse(response)
+      if (!response.ok) throw new Error(result?.error || "Your message could not be sent.")
+      if (!Array.isArray(result?.messages)) throw new Error("Chat returned an invalid response.")
       if (!session) {
+        if (typeof result.conversationId !== "string" || typeof result.sessionToken !== "string") {
+          throw new Error("Chat could not start a new conversation.")
+        }
         const nextSession = { conversationId: result.conversationId, sessionToken: result.sessionToken }
         window.sessionStorage.setItem(storageKey, JSON.stringify(nextSession))
         setSession(nextSession)
@@ -108,6 +121,7 @@ export default function WebsiteChatWidget() {
       setMessages(result.messages)
       setSuggestions(result.suggestions || [])
       setClosed(result.status === "closed")
+      setConnectionIssue("")
     } catch (sendError) {
       setMessage(text)
       setError(sendError instanceof Error ? sendError.message : "Your message could not be sent.")
@@ -132,6 +146,7 @@ export default function WebsiteChatWidget() {
         <button type="button" onClick={() => setOpen(false)} aria-label="Close chat" className="grid h-9 w-9 shrink-0 place-items-center border border-white/35"><X className="h-4 w-4" /></button>
       </header>
       <div aria-live="polite" aria-relevant="additions text" className="min-h-48 flex-1 space-y-3 overflow-y-auto p-4">
+        {connectionIssue && <p role="status" className="border border-amber-300 bg-amber-50 p-3 text-xs leading-5 text-amber-950">{connectionIssue}</p>}
         {messages.map((item, index) => <div key={`${item.createdAt}-${index}`} className={`max-w-[90%] ${item.role === "visitor" ? "ml-auto" : ""}`}>
           <p className="mb-1 text-[9px] font-semibold uppercase tracking-[0.1em] text-[var(--nxg-muted)]">{item.role === "visitor" ? "You" : item.role === "team" ? "NXG team" : "NXG assistant"}</p>
           <p className={`whitespace-pre-wrap break-words border p-3 text-sm leading-6 ${item.role === "visitor" ? "border-[var(--nxg-navy)] bg-[var(--nxg-navy)] text-white" : "border-[var(--nxg-line)] bg-[var(--nxg-paper)] text-[var(--nxg-charcoal)]"}`}>{item.content}</p>

@@ -192,7 +192,7 @@ export default function CommercialPaintingProposalTemplate({
 
         <ProposalSection number="03" title="Scope of Work">
           <p className="commercial-proposal__scope-description">{scopeDescription}</p>
-          <h3>What's Included in This Proposal</h3>
+          <h3>What&apos;s Included in This Proposal</h3>
           <ul className="commercial-proposal__included">
             {includedWork.map((item) => <li key={item}>{item}</li>)}
           </ul>

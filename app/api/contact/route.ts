@@ -4,6 +4,7 @@ import { getDatabase } from "@/lib/db"
 import { NXG_COMPANY_ID } from "@/lib/company"
 import { syncLeadToHubSpot } from "@/lib/hubspot"
 import { isIntegrationEnabled } from "@/lib/integration-state"
+import { getIntegrationReadiness, integrationCatalog } from "@/lib/integrations"
 import { contactSubmissionSchema } from "@/lib/submission-schemas"
 
 export const runtime = "nodejs"
@@ -74,22 +75,32 @@ export async function POST(request: Request) {
       )
     }
 
-    if (process.env.SMTP_HOST && process.env.CONTACT_TO_EMAIL && await isIntegrationEnabled("email")) {
-      const emailContent = generateContactEmailTemplate({
-        name: submission.data.name,
-        email: submission.data.email,
-        phone: submission.data.phone || undefined,
-        service: submission.data.projectType || submission.data.service || undefined,
-        message: submission.data.message,
-      })
-      try {
-        await sendEmail({ to: process.env.CONTACT_TO_EMAIL, subject: "New NXG website inquiry", ...emailContent })
-      } catch (emailError) {
-        console.error("Contact notification delivery failed", emailError)
+    let emailNotificationStatus: "sent" | "needs_configuration" | "disabled" | "failed" = "needs_configuration"
+    const emailIntegration = integrationCatalog.find((integration) => integration.id === "email")
+    const emailReadiness = emailIntegration ? getIntegrationReadiness(emailIntegration) : null
+    const notificationRecipient = process.env.CONTACT_TO_EMAIL
+    if (emailReadiness?.configured && notificationRecipient) {
+      if (!(await isIntegrationEnabled("email"))) {
+        emailNotificationStatus = "disabled"
+      } else {
+        const emailContent = generateContactEmailTemplate({
+          name: submission.data.name,
+          email: submission.data.email,
+          phone: submission.data.phone || undefined,
+          service: submission.data.projectType || submission.data.service || undefined,
+          message: submission.data.message,
+        })
+        try {
+          await sendEmail({ to: notificationRecipient, subject: "New NXG website inquiry", ...emailContent })
+          emailNotificationStatus = "sent"
+        } catch (emailError) {
+          emailNotificationStatus = "failed"
+          console.error("Contact notification delivery failed", emailError)
+        }
       }
     }
 
-    return NextResponse.json({ success: true, id: rows[0].id, hubspotSyncStatus, message: "Your request has been received." }, { status: 201 })
+    return NextResponse.json({ success: true, id: rows[0].id, hubspotSyncStatus, emailNotificationStatus, message: "Your request has been received." }, { status: 201 })
   } catch (error) {
     console.error("Contact submission failed", error)
     return NextResponse.json({ error: "Your request could not be saved. Please try again." }, { status: 500 })

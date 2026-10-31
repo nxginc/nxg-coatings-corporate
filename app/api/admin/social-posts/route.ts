@@ -23,8 +23,14 @@ export async function GET() {
     const { rows } = await database.query(
         `select p.id, p.campaign_id as "campaignId", c.slug as "campaignSlug", p.platform, p.caption,
             p.media_asset_ids as "mediaAssetIds", p.destination_url as "destinationUrl", p.status,
-            p.scheduled_at as "scheduledAt", p.created_at as "createdAt"
-     from nxg_social_posts p join nxg_campaigns c on c.id = p.campaign_id
+            p.scheduled_at as "scheduledAt", p.created_at as "createdAt",
+            publish.status as "publishStatus", publish.error_message as "publishError"
+     from nxg_social_posts p join nxg_campaigns c on c.id = p.campaign_id and c.company_id = p.company_id
+      left join lateral (
+        select e.status, e.error_message from nxg_external_publish_events e
+        where e.company_id = p.company_id and e.entity_type = 'social_post' and e.entity_id = p.id::text
+        order by e.created_at desc limit 1
+      ) publish on true
       where p.company_id = $1 order by p.created_at desc limit 200`,
         [NXG_COMPANY_ID],
     )

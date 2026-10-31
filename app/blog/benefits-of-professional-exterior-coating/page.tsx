@@ -21,14 +21,14 @@ export default function BenefitsOfProfessionalExteriorCoatingPage() {
         content={
           <>
             <p>
-              When it comes to protecting and enhancing your home's exterior, professional coating solutions offer
+              When it comes to protecting and enhancing your home&apos;s exterior, professional coating solutions offer
               significant advantages over standard paint. While the initial investment may be higher than traditional
               painting, the long-term benefits make exterior coating a smart choice for homeowners looking for
               durability, protection, and value.
             </p>
 
             <p>
-              In this article, we'll explore the five key benefits of choosing professional exterior coating for your
+              In this article, we&apos;ll explore the five key benefits of choosing professional exterior coating for your
               home.
             </p>
 
@@ -103,13 +103,13 @@ export default function BenefitsOfProfessionalExteriorCoatingPage() {
 
             <h2>4. Increased Property Value</h2>
             <p>
-              A professional exterior coating application is an investment that can significantly increase your home's
-              market value. Here's how:
+              A professional exterior coating application is an investment that can significantly increase your home&apos;s
+              market value. Here&apos;s how:
             </p>
 
             <ul>
               <li>
-                <strong>Enhanced Curb Appeal:</strong> The fresh, uniform appearance dramatically improves your home's
+                <strong>Enhanced Curb Appeal:</strong> The fresh, uniform appearance dramatically improves your home&apos;s
                 first impression.
               </li>
               <li>
@@ -133,7 +133,7 @@ export default function BenefitsOfProfessionalExteriorCoatingPage() {
 
             <h2>5. Environmental and Health Benefits</h2>
             <p>
-              Today's advanced exterior coatings are increasingly formulated with environmental and health
+              Today&apos;s advanced exterior coatings are increasingly formulated with environmental and health
               considerations in mind:
             </p>
 
@@ -170,7 +170,7 @@ export default function BenefitsOfProfessionalExteriorCoatingPage() {
             </p>
 
             <p>
-              When considering exterior coating for your home, it's important to work with experienced professionals who
+              When considering exterior coating for your home, it&apos;s important to work with experienced professionals who
               understand the proper preparation, application techniques, and product selection for your specific needs.
               The right application is crucial to realizing all the benefits these advanced coating systems can provide.
             </p>

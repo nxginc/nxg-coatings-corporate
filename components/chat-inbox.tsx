@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, type FormEvent } from "react"
+import { useCallback, useEffect, useState, type FormEvent } from "react"
 import type { ChatMessage } from "@/lib/chat-assistant"
 
 type Conversation = {
@@ -17,25 +17,36 @@ export default function ChatInbox() {
   const [selectedId, setSelectedId] = useState("")
   const [reply, setReply] = useState("")
   const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState("")
 
-  async function refresh() {
-    setError("")
+  const refresh = useCallback(async (quiet = false) => {
+    if (!quiet) {
+      setError("")
+      setRefreshing(true)
+    }
     try {
       const response = await fetch("/api/admin/chat", { cache: "no-store" })
-      const result = await response.json()
-      if (!response.ok) throw new Error(result.error || "Chat inbox could not be loaded.")
+      const result = await response.json().catch(() => null)
+      if (!response.ok) throw new Error(result?.error || "Chat inbox could not be loaded.")
+      if (!Array.isArray(result?.conversations)) throw new Error("Chat inbox returned an invalid response.")
       setConversations(result.conversations)
       setSelectedId((current) => result.conversations.some((item: Conversation) => item.id === current) ? current : result.conversations[0]?.id || "")
+      setError("")
     } catch (loadError) {
       setError(loadError instanceof Error ? loadError.message : "Chat inbox could not be loaded.")
     } finally {
       setLoading(false)
+      if (!quiet) setRefreshing(false)
     }
-  }
+  }, [])
 
-  useEffect(() => { void refresh() }, [])
+  useEffect(() => {
+    void refresh()
+    const interval = window.setInterval(() => void refresh(true), 10_000)
+    return () => window.clearInterval(interval)
+  }, [refresh])
 
   async function act(action: "reply" | "close" | "reopen", event?: FormEvent<HTMLFormElement>) {
     event?.preventDefault()
@@ -65,7 +76,7 @@ export default function ChatInbox() {
     <div className="mx-auto max-w-6xl">
       <header className="flex flex-wrap items-end justify-between gap-4 border-b border-[var(--nxg-line)] pb-5">
         <div><p className="section-kicker">Customer care</p><h1 className="mt-2 text-3xl font-semibold text-[var(--nxg-navy)]">Website chat inbox</h1><p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--nxg-muted)]">Review visitor conversations and reply from the NXG team. The website assistant is asynchronous and does not promise live staffing.</p></div>
-        <button type="button" onClick={() => void refresh()} className="min-h-10 border border-[var(--nxg-line)] bg-white px-4 text-xs font-semibold uppercase tracking-[0.1em]">Refresh inbox</button>
+        <div className="flex items-center gap-3"><span className="text-[10px] text-[var(--nxg-muted)]">Auto-refreshes every 10 seconds</span><button type="button" onClick={() => void refresh()} disabled={refreshing} className="min-h-10 border border-[var(--nxg-line)] bg-white px-4 text-xs font-semibold uppercase tracking-[0.1em] disabled:opacity-60">{refreshing ? "Refreshing..." : "Refresh inbox"}</button></div>
       </header>
       {error && <p role="alert" className="mt-5 border border-red-300 bg-white p-4 text-sm text-red-900">{error}</p>}
       {loading ? <p className="py-12 text-sm text-[var(--nxg-muted)]">Loading conversations...</p> : <div className="mt-6 grid min-h-[34rem] border border-[var(--nxg-line)] bg-white md:grid-cols-[18rem_1fr]">
