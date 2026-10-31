@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NXG Coatings Inc — Professional Painting & Coating Services | Edina MN — Clean Finish Exclusive</title>
+<meta name="description" content="Transform your home with NXG Coatings — premium interior, exterior, cabinet refinishing, deck staining, wallcovering. Family-owned since 2008, Edina MN. Free estimates. Clean finish exclusive.">
+<meta name="keywords" content="nxg coatings, painting edina, cabinet refinishing, exterior painting, interior painting, deck staining, wallcovering, minnesota">
+<link rel="canonical" href="https://nxgcoatingsinc.com">
+<meta property="og:title" content="NXG Coatings Inc — Professional Painting & Coating Services">
+<meta property="og:description" content="Premium interior, exterior, cabinet refinishing, deck staining — family-owned since 2008, Edina MN">
+<meta property="og:image" content="https://th.bing.com/th/id/OIP.WG5zEHAoHMttSNs-dSNBDQHaEx?w=187&h=120&c=7&r=0&o=7&dpr=3&pid=1.7&rm=3">
+<meta property="og:url" content="https://nxgcoatingsinc.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A1931">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A1931;--royal:#102B7A;--red:#FF3B30;--border:#E5E7EB;--border2:#D1D5DB;--text:#1A1A1A;--text2:#6B7280;--text3:#9CA3AF;--bg:#fff;--soft:#F8F8F6}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Inter Tight",-apple-system,Helvetica,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--navy) 0%,var(--royal) 60%,var(--red) 100%);width:0;z-index:200;transition:width .1s}
+.header{height:72px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);z-index:50}
+@media(min-width:1024px){.header{padding:0 48px;height:80px}}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:40px;height:40px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;position:relative}
+.logo-mark b{color:var(--red)} .logo-mark::after{content:"";position:absolute;top:-3px;right:-3px;width:6px;height:6px;background:var(--red);border-radius:50%}
+.logo-type{font-weight:700;font-size:22px;letter-spacing:-0.04em;color:var(--navy)}
+.nav{display:none;gap:32px;align-items:center}@media(min-width:1024px){.nav{display:flex}}
+.nav a{font-family:"IBM Plex Mono";font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text);text-decoration:none;position:relative;padding:4px 0}
+.nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--red);transition:.25s}
+.nav a:hover::after{width:100%}
+.hamburger{width:56px;height:56px;background:var(--navy);border:1px solid var(--navy);cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;position:relative;transition:.2s;z-index:60}
+.hamburger::before{content:"";position:absolute;inset:-8px;background:radial-gradient(circle at 30% 30%,rgba(255,59,48,.18),transparent 70%);z-index:-1;pointer-events:none}
+.hamburger i{display:block;width:22px;height:1.5px;background:#fff;transition:.25s}
+.hamburger i:nth-child(2){width:16px;margin-left:6px}
+.hamburger.open{background:var(--red);border-color:var(--red)}
+.hamburger.open i:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open i:nth-child(2){opacity:0}
+.hamburger.open i:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media(min-width:1024px){.hamburger{width:48px;height:48px}}
+.sidebar-overlay{position:fixed;inset:0;background:rgba(10,25,49,.24);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:.35s;z-index:90}
+.sidebar-overlay.open{opacity:1;pointer-events:auto}
+.sidebar{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:480px;background:#fff;transform:translateX(100%);transition:.45s cubic-bezier(.4,0,.2,1);z-index:100;overflow-y:auto;display:flex;flex-direction:column;box-shadow:-8px 0 32px rgba(0,0,0,.08)}
+.sidebar.open{transform:translateX(0)}
+.sidebar-head{height:72px;min-height:72px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.search-row{height:64px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:12px}
+.search-row input{flex:1;border:0;outline:0;font-size:18px;font-weight:300;font-family:"Inter Tight"}
+.acc-item{border-bottom:1px solid var(--border)}
+.acc-head{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;cursor:pointer}
+.acc-head span{font-size:22px;font-weight:300;letter-spacing:-.02em}
+.acc-chevron{width:14px;height:9px;transition:.3s;color:var(--red)}
+.acc-item.open .acc-chevron{transform:rotate(180deg)}
+.acc-body{max-height:0;overflow:hidden;transition:.4s cubic-bezier(.4,0,.2,1)}
+.acc-item.open .acc-body{max-height:360px}
+.acc-links{padding:0 24px 24px;display:flex;flex-direction:column}
+.acc-links a{height:48px;display:flex;align-items:center;font-size:16px;color:#4B5563;text-decoration:none;transition:.2s}
+.acc-links a:hover{color:var(--navy);transform:translateX(8px)}
+.hero{position:relative;height:82vh;min-height:640px;background:var(--navy);overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(120% 120% at 80% 20%,rgba(255,59,48,.18),transparent),linear-gradient(180deg,#0A1931 0%,#102B7A 100%)}
+.hero-content{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:48px 24px 64px;max-width:1440px;margin:0 auto}
+@media(min-width:1024px){.hero-content{padding:64px 48px 80px}}
+.hero h1{font-size:clamp(44px,7vw,84px);font-weight:300;line-height:.88;letter-spacing:-.04em;color:#fff;max-width:680px}
+.hero h1 .script{font-family:"Instrument Serif";font-style:italic;font-weight:400;position:relative}
+.hero h1 .script::after{content:"";position:absolute;left:-8px;right:-12px;bottom:6px;height:12px;background:var(--red);opacity:.92;clip-path:polygon(0 60%,100% 45%,100% 85%,0 100%);z-index:-1}
+.hero-cta{margin-top:36px;display:flex;align-items:center;gap:16px;font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.section{padding:64px 24px;max-width:1440px;margin:0 auto}
+@media(min-width:1024px){.section{padding:88px 48px}}
+.label{font-family:"IBM Plex Mono";font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);margin-bottom:12px}
+.h2{font-size:clamp(32px,4.5vw,48px);font-weight:300;letter-spacing:-.03em;line-height:1.05;color:var(--navy)}
+.slider-wrap{margin:32px -24px 0;padding:0 24px;overflow:hidden}
+@media(min-width:1024px){.slider-wrap{margin:40px -48px 0;padding:0 48px}}
+.slider{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;padding-bottom:8px}
+.slider::-webkit-scrollbar{display:none}
+.card{min-width:340px;width:340px;flex-shrink:0;scroll-snap-align:start;border:1px solid var(--border);background:#fff;transition:border-color .2s}
+@media(min-width:1024px){.card{min-width:420px;width:420px}}
+.card:hover{border-color:var(--border2)}
+.card-img{height:240px;background:#F3F4F6;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-body{padding:28px}
+.card-cat{font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin-bottom:10px}
+.card-title{font-size:22px;font-weight:500;letter-spacing:-.02em;color:var(--navy);line-height:1.25;margin-bottom:8px}
+.card-desc{font-size:14px;line-height:1.6;color:var(--text2)}
+.card-foot{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;display:flex;justify-content:space-between;align-items:center}
+.before-after{position:relative;height:520px;background:#0A1931;overflow:hidden;border:1px solid var(--border);margin-top:24px}
+@media(max-width:768px){.before-after{height:400px}}
+.ba-handle{position:absolute;top:0;bottom:0;width:2px;background:#fff;z-index:2;cursor:ew-resize}
+.ba-handle::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:#fff;border:2px solid var(--navy);border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.form-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:640px){.form-grid{grid-template-columns:1fr 1fr}}
+.input{height:44px;border:1px solid var(--border);padding:0 12px;font-family:"Inter Tight";font-size:14px;outline:0;background:#fff;width:100%}
+.textarea{border:1px solid var(--border);padding:12px;font-family:"Inter Tight";font-size:14px;min-height:96px;outline:0;width:100%;background:#fff}
+.btn{height:44px;background:var(--navy);color:#fff;border:1px solid var(--navy);font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;width:100%;transition:.2s}
+.btn:hover{background:var(--royal)}
+.footer{background:#0A0A1A;color:#fff;padding:64px 24px 24px;position:relative;overflow:hidden;margin-top:80px}
+@media(min-width:1024px){.footer{padding:96px 48px 32px}}
+.footer-top{height:3px;background:linear-gradient(90deg,var(--navy) 0%,var(--royal) 60%,var(--red) 100%);margin:-64px -24px 64px}
+@media(min-width:1024px){.footer-top{margin:-96px -48px 96px}}
+.footer-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;max-width:1440px;margin:0 auto;position:relative;z-index:1}
+@media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer h5{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6B7280;margin-bottom:16px}
+.footer a{display:block;color:#fff;font-size:14px;line-height:28px;text-decoration:none}
+.footer a:hover{color:var(--red)}
+.rayon{font-size:21vw;line-height:.85;letter-spacing:-.06em;font-weight:700;color:#fff;margin-top:80px;position:relative;z-index:1;white-space:nowrap;overflow:hidden}
+.grid-bg{position:absolute;inset:0;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.4) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.4) 1px,transparent 1px);background-size:40px 40px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--navy);color:#fff;padding:14px 20px;font-family:"IBM Plex Mono";font-size:12px;z-index:300;transition:.4s}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="header">
+  <a class="logo" href="#"><div class="logo-mark">N<b>X</b>G</div><div class="logo-type">NXG Coatings</div></a>
+  <nav class="nav"><a href="#services">Services</a><a href="#beforeafter">Before/After</a><a href="#forms">Estimate</a><a href="#contact">Contact</a><a href="#" id="nav-build" style="border:1px solid var(--navy);padding:12px 18px;background:var(--navy);color:#fff">Build With Us →</a></nav>
+  <button class="hamburger" id="hamb"><i></i><i></i><i></i></button>
+</header>
+<div class="sidebar-overlay" id="overlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-head"><div class="logo"><div class="logo-mark">N<b>X</b>G</div><div style="margin-left:10px;font-weight:700;font-size:22px;letter-spacing:-0.04em">NXG Coatings</div></div><button id="closeBtn" style="width:44px;height:44px;border:1px solid #E5E7EB;background:#fff;cursor:pointer">✕</button></div>
+  <div class="search-row"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A1931" stroke-width="1.25"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.5 12.5L17 17"/></svg><input placeholder="Type To Search"></div>
+  <div class="acc-item" data-acc><div class="acc-head"><span>Our Services</span><svg class="acc-chevron" viewBox="0 0 14 9"><path d="M1 1.5L7 7.5L13 1.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div><div class="acc-body"><div class="acc-links"><a href="#">Interior Painting</a><a href="#">Exterior Painting</a><a href="#">Cabinet Refinishing</a><a href="#">Deck Staining</a><a href="#">Wallcovering</a></div></div></div>
+  <div class="acc-item"><div class="acc-head"><span>Our Projects</span></div></div>
+  <div class="acc-item" data-acc><div class="acc-head"><span>Contact Us</span><svg class="acc-chevron" viewBox="0 0 14 9"><path d="M1 1.5L7 7.5L13 1.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div><div class="acc-body"><div class="acc-links"><a href="#">Free Estimate</a><a href="#">Become a Subcontractor</a><a href="#">Careers</a><a href="#">Media Request</a></div></div></div>
+  <div style="padding:24px;border-top:1px solid #E5E7EB"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><a style="font-size:11px;text-transform:uppercase;letter-spacing:.08em">General Inquiries</a><a style="font-size:11px;text-transform:uppercase;letter-spacing:.08em">Cost Index</a></div></div>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="label" style="color:rgba(255,255,255,.6)">NXG Coatings Inc — Edina MN Since 2008 — Clean Finish Exclusive</div>
+    <h1>Making a <span class="script">Difference</span> in Every Coating</h1>
+    <div class="hero-cta"><span>What do you want to build?</span><div style="width:36px;height:1px;background:#FF3B30"></div></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="label">High Quality Service Slider — Large HD Cards Clean — Enterprise</div>
+  <div class="h2">Delivering On What Matters — Custom Hamburg BG Accordion Mobile Footer</div>
+  <div class="slider-wrap"><div class="slider" id="slider">
+    <div class="card"><div class="card-img"><svg viewBox="0 0 420 240" width="100%" height="100%"><rect width="420" height="240" fill="#F3F4F6"/><g stroke="#0A1931" stroke-width="1.2" fill="none" shape-rendering="geometricPrecision"><rect x="60" y="50" width="100" height="140" rx="2"/><path d="M60 75 H160 M60 95 H160 M60 115 H160"/><circle cx="220" cy="80" r="28"/><path d="M220 108 V170 M195 135 H245"/></g></svg></div><div class="card-body"><div class="card-cat">Cabinet Refinishing</div><div class="card-title">Save 50-70% vs Replacement</div><div class="card-desc">Professional spray environment, premium coatings, 5-7 days turnaround. High-def 2x SVG.</div><div class="card-foot"><span style="font-family:IBM Plex Mono;font-size:10px;text-transform:uppercase;color:#6B7280">View Projects</span><span>→</span></div></div></div>
+    <div class="card"><div class="card-img"><svg viewBox="0 0 420 240" width="100%" height="100%"><rect width="420" height="240" fill="#F8F8F6"/><g stroke="#0A1931" stroke-width="1.2" fill="none"><path d="M80 180 L80 60 L160 60 L160 180"/><rect x="200" y="100" width="160" height="80" rx="2"/></g></svg></div><div class="card-body"><div class="card-cat">Interior Painting</div><div class="card-title">Premium Interior Transformation</div><div class="card-desc">Zero VOC, thorough prep, expert application for lasting results. Enterprise grade.</div><div class="card-foot"><span style="font-family:IBM Plex Mono;font-size:10px;text-transform:uppercase;color:#6B7280">View Projects</span><span>→</span></div></div></div>
+    <div class="card"><div class="card-img"><svg viewBox="0 0 420 240" width="100%" height="100%"><rect width="420" height="240" fill="#F3F4F6"/><g stroke="#0A1931" stroke-width="1.2" fill="none"><rect x="60" y="50" width="70" height="140" rx="2"/><rect x="150" y="70" width="70" height="120" rx="2"/><rect x="240" y="30" width="90" height="160" rx="2"/></g></svg></div><div class="card-body"><div class="card-cat">Exterior Painting</div><div class="card-title">Weather-Resistant Exterior Protection</div><div class="card-desc">Premium weather-resistant paints, thorough surface prep, curb appeal. Large HD cards.</div><div class="card-foot"><span style="font-family:IBM Plex Mono;font-size:10px;text-transform:uppercase;color:#6B7280">View Projects</span><span>→</span></div></div></div>
+    <div class="card"><div class="card-img"><svg viewBox="0 0 420 240" width="100%" height="100%"><rect width="420" height="240" fill="#F8F8F6"/><g stroke="#0A1931" stroke-width="1.2" fill="none"><path d="M60 180 L210 40 L360 180"/><circle cx="210" cy="120" r="20"/></g></svg></div><div class="card-body"><div class="card-cat">Deck Staining</div><div class="card-title">Deck Refinishing & Staining</div><div class="card-desc">Protect and beautify outdoor living spaces. Clean custom finished.</div><div class="card-foot"><span style="font-family:IBM Plex Mono;font-size:10px;text-transform:uppercase;color:#6B7280">View Projects</span><span>→</span></div></div></div>
+  </div></div>
+  <div style="display:flex;gap:8px;margin-top:24px"><button id="prev" style="width:48px;height:48px;border:1px solid #0A1931;background:#fff;cursor:pointer">←</button><button id="next" style="width:48px;height:48px;border:1px solid #0A1931;background:#0A1931;color:#fff;cursor:pointer">→</button></div>
+
+  <div class="before-after" id="ba">
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#F3F4F6"><svg viewBox="0 0 520 520" width="70%" height="70%"><g stroke="#0A1931" stroke-width="1" fill="none"><rect x="60" y="60" width="400" height="400" rx="2"/><path d="M60 160 H460 M60 260 H460 M160 60 V460"/></g></svg><div style="position:absolute;top:16px;left:16px;background:#0A1931;color:#fff;font-family:IBM Plex Mono;font-size:10px;padding:6px 10px">BEFORE — Clean Plan</div></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,#0A1931,#102B7A);clip-path:inset(0 50% 0 0)" id="ba-after"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 520 520" width="70%" height="70%"><g fill="none" stroke="white" stroke-opacity=".9" stroke-width="1.2"><path d="M80 400 L260 100 L440 400"/><path d="M80 400 L80 440 L260 140 L440 440 L440 400"/></g></svg></div><div style="position:absolute;top:16px;right:16px;background:#FF3B30;color:#fff;font-family:IBM Plex Mono;font-size:10px;padding:6px 10px">AFTER — Premium Render</div></div>
+    <div class="ba-handle" id="ba-handle" style="left:50%"></div>
+  </div>
+</section>
+
+<section class="section" id="forms" style="background:#F8F8F6;border-top:1px solid #E5E7EB;border-bottom:1px solid #E5E7EB">
+<div class="label">Multi Forms Etc Exclusive — Clean Finish</div>
+<div style="display:grid;grid-template-columns:1fr;gap:24px;max-width:960px">
+<div style="background:#fff;border:1px solid #E5E7EB;padding:28px"><div class="label">Form 1 — Free Estimate</div><div class="form-grid"><input class="input" placeholder="Full Name"><input class="input" placeholder="Email"><input class="input" placeholder="Phone"><select class="input"><option>Interior</option><option>Exterior</option><option>Cabinet Refinishing</option><option>Deck Staining</option></select></div><input class="input" style="margin-top:12px" placeholder="Address"><textarea class="textarea" style="margin-top:12px" placeholder="Project details"></textarea><button class="btn" style="margin-top:12px">Request Free Estimate →</button></div>
+<div style="background:#fff;border:1px solid #E5E7EB;padding:28px"><div class="label">Form 2 — I'd like to discuss a new project</div><p style="font-size:13px;color:#6B7280;margin-bottom:12px">For new business opportunities locate your nearest office or complete form below to have your inquiry routed.</p><div class="form-grid"><input class="input" placeholder="Name"><input class="input" placeholder="Company"><input class="input" placeholder="Project Type"><input class="input" placeholder="Budget"></div><button class="btn" style="margin-top:12px">Submit Inquiry</button></div>
+<div style="background:#fff;border:1px solid #E5E7EB;padding:28px"><div class="label">Form 3 — Become a Subcontractor / Careers / Media Request</div><div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap"><button class="btn" style="width:auto;padding:0 16px">Become a Subcontractor</button><button class="btn" style="width:auto;padding:0 16px;background:#fff;color:var(--navy)">I'm interested in working at NXG</button><button class="btn" style="width:auto;padding:0 16px;background:#fff;color:var(--navy)">I have a media request</button></div><div class="form-grid"><input class="input" placeholder="Company Name"><input class="input" placeholder="Trade"><input class="input" placeholder="Portfolio URL"><input class="input" placeholder="Insurance #"></div><button class="btn" style="margin-top:12px">Apply</button></div>
+</div>
+</section>
+
+<footer class="footer" id="contact">
+<div class="footer-top"></div>
+<div class="grid-bg"></div>
+<div class="footer-grid">
+<div><h5>Services</h5><a href="#">Interior Painting</a><a href="#">Exterior Painting</a><a href="#">Cabinet Refinishing</a><a href="#">Cabinet Painting</a><a href="#">Deck Refinishing</a><a href="#">Deck Staining</a><a href="#">Paint Sales</a><a href="#">Wallcovering Sales</a></div>
+<div><h5>Resources</h5><a href="#">Documentation</a><a href="#">Tutorials</a><a href="#">Blog</a><a href="#">Space Planning Guide</a><a href="#">Free Assets</a><a href="#">Student Signup</a></div>
+<div><h5>Company</h5><a href="#">Team</a><a href="#">Manifesto</a><a href="#">Careers</a><a href="#">About Us</a><a href="#">Our Story — Founded 2008</a></div>
+<div><h5>Socials</h5><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">TikTok</a><a href="#">LinkedIn</a><a href="#">Pinterest</a><a href="#">X</a></div>
+<div><h5>Alternative to</h5><a href="#">Full Replacement</a><a href="#">DIY Painting</a><a href="#">AutoCAD</a><a href="#">Sketchup</a><a href="#">Vectorworks</a><a href="#">Revit</a><a href="#">ArchiCAD</a></div>
+</div>
+<div class="rayon">NXG COATINGS</div>
+<div style="margin-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:10px;color:#6B7280;position:relative;z-index:1"><span>©2025 NXG Coatings Inc — 5200 Willson Rd STE 150 Edina MN 55424 — (952) 234-8912 — Clean Finish Exclusive</span><span>Privacy Policy — Terms — metadata: og:image bing OIP.WG5zEHAoHMttSNs-dSNBDQHaEx</span></div>
+</footer>
+<div class="toast" id="toast">Inquiry routed to NXG HQ — Edina office will respond within 24h</div>
+<script>
+const hamb=document.getElementById('hamb'),sidebar=document.getElementById('sidebar'),overlay=document.getElementById('overlay'),closeBtn=document.getElementById('closeBtn'),progress=document.getElementById('progress');
+function openSide(){sidebar.classList.add('open');overlay.classList.add('open');hamb.classList.add('open');document.body.style.overflow='hidden'}
+function closeSide(){sidebar.classList.remove('open');overlay.classList.remove('open');hamb.classList.remove('open');document.body.style.overflow=''}
+hamb.addEventListener('click',()=>sidebar.classList.contains('open')?closeSide():openSide());
+closeBtn.addEventListener('click',closeSide);overlay.addEventListener('click',closeSide);
+document.querySelectorAll('[data-acc]').forEach(item=>{item.querySelector('.acc-head').addEventListener('click',()=>item.classList.toggle('open'))});
+const slider=document.getElementById('slider');
+document.getElementById('prev').addEventListener('click',()=>slider.scrollBy({left:-440,behavior:'smooth'}));
+document.getElementById('next').addEventListener('click',()=>slider.scrollBy({left:440,behavior:'smooth'}));
+let isDown=false,startX,scrollLeft;
+slider.addEventListener('mousedown',e=>{isDown=true;startX=e.pageX-slider.offsetLeft;scrollLeft=slider.scrollLeft});
+slider.addEventListener('mouseleave',()=>isDown=false);slider.addEventListener('mouseup',()=>isDown=false);
+slider.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-slider.offsetLeft;slider.scrollLeft=scrollLeft-(x-startX)*1.5});
+window.addEventListener('scroll',()=>{const scrolled=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;progress.style.width=scrolled+'%'});
+const ba=document.getElementById('ba'),handle=document.getElementById('ba-handle'),after=document.getElementById('ba-after');
+let dragging=false;
+function setBA(p){p=Math.max(5,Math.min(95,p));handle.style.left=p+'%';after.style.clipPath=`inset(0 ${100-p}% 0 0)`}
+handle.addEventListener('pointerdown',()=>dragging=true);
+window.addEventListener('pointerup',()=>dragging=false);
+window.addEventListener('pointermove',e=>{if(!dragging)return;const rect=ba.getBoundingClientRect();const percent=((e.clientX-rect.left)/rect.width)*100;setBA(percent)});
+ba.addEventListener('click',e=>{const rect=ba.getBoundingClientRect();const percent=((e.clientX-rect.left)/rect.width)*100;setBA(percent)});
+document.getElementById('nav-build').addEventListener('click',e=>{e.preventDefault();document.getElementById('toast').classList.add('show');setTimeout(()=>document.getElementById('toast').classList.remove('show'),3500)});
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"NXG Coatings Inc","url":"https://nxgcoatingsinc.com","telephone":"(952) 234-8912","address":{"@type":"PostalAddress","streetAddress":"5200 Willson Rd STE 150","addressLocality":"Edina","addressRegion":"MN","postalCode":"55424"},"foundingDate":"2008","description":"Professional painting and coating services — interior, exterior, cabinet refinishing, deck staining."}</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>

@@ -1,6 +1,7 @@
 "use client"
 
 import BlogPost from "@/components/blog-post"
+import { ASSETS } from "@/lib/assets"
 
 export default function RepairPeelingPaintPage() {
   return (
@@ -9,10 +10,10 @@ export default function RepairPeelingPaintPage() {
       excerpt="Learn how to fix peeling exterior paint and protect your home from further damage with our comprehensive guide."
       publishDate="March 5, 2025"
       readTime="8 min read"
-      coverImage="https://sjc.microlink.io/9FMd4VeQoSaRJelq1EpEu4rwYsiZFoIp8M11NJDJcnO2o7XgLYkogZpP7OmKAEZyano-VIu8pI2F75YaMDsB4g.jpeg"
+      coverImage={ASSETS.blogPosts.five}
       author={{
         name: "NXG Coatings Team",
-        avatar: "/placeholder.svg?height=80&width=80",
+        avatar: ASSETS.blog.authorAvatar,
       }}
       content={
         <>
@@ -25,13 +26,13 @@ export default function RepairPeelingPaintPage() {
           </p>
 
           <p>
-            In this guide, we'll walk you through the process of repairing peeling exterior paint, so your home stays
+            In this guide, we&apos;ll walk you through the process of repairing peeling exterior paint, so your home stays
             beautiful and durable for years to come.
           </p>
 
           <h2>Step 1: Identify the Cause of Peeling Paint</h2>
           <p>
-            Before you dive into repairs, it's important to understand why your paint is peeling. Common causes include:
+            Before you dive into repairs, it&apos;s important to understand why your paint is peeling. Common causes include:
           </p>
 
           <ul>
@@ -55,12 +56,12 @@ export default function RepairPeelingPaintPage() {
           </p>
 
           <h2>Step 2: Gather Your Tools and Materials</h2>
-          <p>To repair peeling paint, you'll need a few basic tools and materials:</p>
+          <p>To repair peeling paint, you&apos;ll need a few basic tools and materials:</p>
 
           <ul>
             <li>Paint scraper or putty knife</li>
             <li>Sandpaper (medium and fine grit)</li>
-            <li>Painter's tape (optional)</li>
+            <li>Painter&apos;s tape (optional)</li>
             <li>Exterior primer</li>
             <li>Paint (the same type and color used originally)</li>
             <li>Paintbrush or roller</li>
@@ -70,7 +71,7 @@ export default function RepairPeelingPaintPage() {
           <h2>Step 3: Scrape Away Peeling Paint</h2>
           <p>
             Start by using a paint scraper or putty knife to carefully remove any loose or peeling paint. Be
-            thorough—don't leave any flaking areas behind. For larger areas of peeling, you may need to use a utility
+            thorough—don&apos;t leave any flaking areas behind. For larger areas of peeling, you may need to use a utility
             knife to cut around the edges of the peeling section.
           </p>
 
@@ -88,7 +89,7 @@ export default function RepairPeelingPaintPage() {
 
           <h2>Step 5: Clean the Surface</h2>
           <p>
-            Once you've finished sanding, it's important to remove any dust and debris. Use a damp cloth or sponge to
+            Once you&apos;ve finished sanding, it&apos;s important to remove any dust and debris. Use a damp cloth or sponge to
             wipe down the area. Allow the surface to dry completely before proceeding.
           </p>
 
@@ -96,7 +97,7 @@ export default function RepairPeelingPaintPage() {
           <p>
             For the best results, you should apply a coat of primer to the exposed areas before repainting. Primer helps
             the new paint adhere better to the surface and creates a uniform base for the new layer. Be sure to choose a
-            primer suitable for exterior surfaces and compatible with the type of paint you're using.
+            primer suitable for exterior surfaces and compatible with the type of paint you&apos;re using.
           </p>
 
           <p>
@@ -108,7 +109,7 @@ export default function RepairPeelingPaintPage() {
 
           <h2>Step 7: Repaint the Area</h2>
           <p>
-            Now it's time to apply fresh paint. Use the same type and color of paint that was previously applied, as
+            Now it&apos;s time to apply fresh paint. Use the same type and color of paint that was previously applied, as
             this ensures a consistent finish. Apply the paint in thin, even coats, making sure to cover all primed
             spots. Allow the first coat to dry completely before applying a second coat if necessary.
           </p>
@@ -117,7 +118,7 @@ export default function RepairPeelingPaintPage() {
 
           <h2>Step 8: Prevent Future Peeling</h2>
           <p>
-            Once the paint is dry and the repair is complete, it's important to prevent future peeling. Here are a few
+            Once the paint is dry and the repair is complete, it&apos;s important to prevent future peeling. Here are a few
             tips to keep your exterior paint looking fresh:
           </p>
 
@@ -127,7 +128,7 @@ export default function RepairPeelingPaintPage() {
               Wash the exterior regularly to remove dirt and grime.
             </li>
             <li>
-              <strong>Choose High-Quality Paint:</strong> Invest in high-quality paint that's designed for exterior use.
+              <strong>Choose High-Quality Paint:</strong> Invest in high-quality paint that&apos;s designed for exterior use.
               These paints are more durable and resistant to moisture and weathering.
             </li>
             <li>
@@ -135,21 +136,21 @@ export default function RepairPeelingPaintPage() {
               water from pooling near the walls.
             </li>
             <li>
-              <strong>Regular Inspections:</strong> Check your home's exterior for signs of peeling or wear and tear,
+              <strong>Regular Inspections:</strong> Check your home&apos;s exterior for signs of peeling or wear and tear,
               and address issues early before they become bigger problems.
             </li>
           </ul>
 
           <h2>Conclusion</h2>
           <p>
-            Repairing peeling paint is a simple but important task that can extend the life of your home's exterior and
-            improve its overall appearance. By following these steps, you can restore your home's paint and ensure it
+            Repairing peeling paint is a simple but important task that can extend the life of your home&apos;s exterior and
+            improve its overall appearance. By following these steps, you can restore your home&apos;s paint and ensure it
             stays looking fresh and protected. Regular maintenance and attention to the underlying causes of peeling
             will help you avoid the issue in the future.
           </p>
 
           <p>
-            If you're unsure about handling the repair yourself, it's always a good idea to consult a professional
+            If you&apos;re unsure about handling the repair yourself, it&apos;s always a good idea to consult a professional
             painter to ensure the job is done right.
           </p>
         </>

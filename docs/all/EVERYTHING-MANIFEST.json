@@ -1,0 +1,75 @@
+{
+  "package": "NXG Everything Combined Final",
+  "status": "final",
+  "final_export": {
+    "template_id": "nxg-master",
+    "template_version": "2.0.0-final",
+    "entrypoint": "master-template.html",
+    "asset_manifest": "assets-manifest.json",
+    "automation_manifest": "automation-manifest.json"
+  },
+  "canonical_contact": "952-855-3520",
+  "primary_site": "nxgcoatingsinc.com",
+  "future_sites": [
+    "nxgcontractors.com",
+    "NXG Partner Network / future sister companies"
+  ],
+  "source_layers": [
+    "chat source-of-truth",
+    "uploaded NXG HTML/CSS",
+    "TEMPLATE-START",
+    "final master export",
+    "universal ecosystem blueprint",
+    "final Copilot/Codex blueprint"
+  ],
+  "systems": [
+    "multi-site web",
+    "design system/Figma",
+    "CRM",
+    "projects/takeoffs/proposals/bids",
+    "procurement",
+    "finance/Stripe",
+    "contractor/partner network",
+    "government/grants",
+    "social/content",
+    "Cloudinary/media",
+    "AI agents",
+    "deployment/observability",
+    "security/audit"
+  ],
+  "canonical_entity_chain": [
+    "Client",
+    "Project",
+    "Takeoff",
+    "Estimate",
+    "Proposal",
+    "Bid",
+    "Award",
+    "Contract",
+    "Purchase Order",
+    "Work Order",
+    "Invoice",
+    "Payment",
+    "Closeout"
+  ],
+  "proposal_options": [
+    "Essential",
+    "Recommended",
+    "Premium"
+  ],
+  "human_approval_gates": [
+    "government submissions",
+    "contracts",
+    "pricing commitments",
+    "financial transfers",
+    "public publishing where required",
+    "canonical brand changes",
+    "production schema migrations"
+  ],
+  "unknowns_preserved": [
+    "TJ Maxx Coon Rapids workbook contents not invented",
+    "production credentials not invented",
+    "approved canonical logo not invented",
+    "production E.164 phone value requires verification"
+  ]
+}

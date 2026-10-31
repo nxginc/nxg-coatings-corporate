@@ -1,19 +1,18 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import { ArrowRight, Loader2 } from "lucide-react"
 
 interface FancyButtonProps {
   children: React.ReactNode
-  variant?: "default" | "shine" | "outline" | "ghost" | "gradient" | "secondary" | "link"
+  variant?: "default" | "shine" | "gradient" | "outline" | "ghost"
   size?: "sm" | "md" | "lg" | "xl"
   rounded?: "none" | "sm" | "md" | "lg" | "full"
   hasArrow?: boolean
   loading?: boolean
   disabled?: boolean
-  className?: string
   type?: "button" | "submit" | "reset"
+  className?: string
   onClick?: () => void
 }
 
@@ -25,19 +24,18 @@ export function FancyButton({
   hasArrow = false,
   loading = false,
   disabled = false,
+  type = "button",
   className,
   onClick,
 }: FancyButtonProps) {
   const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
 
   const variantClasses = {
-    default: "bg-brand-blue text-white hover:bg-brand-blue/90 focus:ring-brand-blue",
-    shine: "bg-gradient-to-r from-brand-blue to-blue-600 text-white hover:from-blue-600 hover:to-brand-blue shadow-lg hover:shadow-xl transform hover:scale-105",
+    default: "bg-[var(--nxg-red)] text-white hover:bg-[var(--nxg-navy)] focus:ring-[var(--nxg-red)]",
+    shine: "bg-gradient-to-r from-[var(--nxg-red)] to-[var(--nxg-navy)] text-white shadow-lg hover:brightness-110 focus:ring-[var(--nxg-red)]",
+    gradient: "bg-gradient-to-r from-[var(--nxg-red)] to-[var(--nxg-navy)] text-white shadow-lg hover:brightness-110 focus:ring-[var(--nxg-red)]",
     outline: "border-2 border-current text-current bg-transparent hover:bg-current hover:text-white",
     ghost: "text-current hover:bg-current/10",
-    gradient: "bg-gradient-to-r from-brand-blue to-blue-600 text-white hover:from-blue-600 hover:to-brand-blue shadow-lg hover:shadow-xl",
-    secondary: "bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-900",
-    link: "text-brand-blue bg-transparent hover:text-brand-blue/80 shadow-none px-0 py-0",
   }
 
   const sizeClasses = {
